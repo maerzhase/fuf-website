@@ -1,0 +1,11 @@
+.DS_Store
+
+# Node
+node_modules/
+npm-debug.log
+
+# build folder
+dist/
+src/webpack-assets.json
+
+*.sublime-*

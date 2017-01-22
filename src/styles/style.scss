@@ -1,0 +1,47 @@
+@import 'colors';
+@import 'fonts';
+@import 'variables';
+*{
+  box-sizing:border-box;
+}
+
+html{
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background:$black;
+  color:$white;
+  font-family: 'Oswald', sans-serif;
+}
+@media #{$phone-portrait, $tiny}{
+  html{
+    font-size: 15px;
+  }
+}
+@media #{$pad-portrait, $pad-landscape}{
+  html{
+    font-size: 16px;
+  }
+}
+@media #{$desktop}{
+  html{
+    font-size: 16px;
+  }
+}
+@media #{$desktop-large}{
+  html{
+    font-size: 16px;
+  }
+}
+@media #{$desktop-huge}{
+  html{
+    font-size: 20px;
+  }
+}
+a{
+  color:$white;
+  text-decoration: underline;
+  transition: color ease-in-out 0.25s;
+  &:hover{
+    color:$hover;
+  }
+}

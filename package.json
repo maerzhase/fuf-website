@@ -7,6 +7,7 @@
     "clean": "rm -rf dist && mkdir dist",
     "prebuild": "npm install",
     "build": "npm run clean && node_modules/.bin/webpack -p --config webpack.production.config.js",
+    "build-static": "npm run clean && node_modules/.bin/webpack -p --config webpack.static.production.config.js",
     "prestart": "npm install",
     "start": "NODE_ENV=production npm run isomorphic-server ",
     "dev": "NODE_ENV=development concurrently --kill-others  \"npm run dev-server\" \"npm run isomorphic-server\" ",

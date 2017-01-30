@@ -10,7 +10,6 @@ const routes = (
   <Route path="/" component={App}>
     <IndexRoute component={RouteHome}/>
     <Route path="/:section" component={RouteHome}/>
-    <Route path="*" component={Route404} />
   </Route>
 )
 

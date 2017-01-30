@@ -1,1 +1,27 @@
+@import 'variables';
 @import url('https://fonts.googleapis.com/css?family=Oswald');
+
+
+@mixin headline-one() {
+  $multiply: 5;
+  @media #{$phone-portrait, $tiny}{
+    $font-size: 3.5rem;
+    font-size: $font-size;
+    line-height: $font-size;
+//    height: calc(#{$multiply}*#{$font-size})
+  }
+  @media #{$pad-portrait, $pad-landscape}{
+    $font-size: 4rem;
+    font-size: $font-size;
+        line-height: $font-size;
+
+//    height: calc(#{$multiply}*#{$font-size})
+  }
+  @media #{$desktop, $desktop-large, $desktop-huge}{
+    $font-size: 4rem;
+    font-size: 5rem;
+        line-height: $font-size;
+
+//    height: calc(#{$multiply}*#{$font-size})
+  }
+}

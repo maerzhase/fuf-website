@@ -4,6 +4,11 @@
 *{
   box-sizing:border-box;
 }
+html,body{
+  padding: 0;
+  margin: 0;
+  width:100%;
+}
 
 html{
   -webkit-font-smoothing: antialiased;
@@ -38,6 +43,7 @@ html{
   }
 }
 a{
+  cursor: pointer;
   color:$white;
   text-decoration: underline;
   transition: color ease-in-out 0.25s;

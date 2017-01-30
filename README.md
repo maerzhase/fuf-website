@@ -8,3 +8,5 @@
   - [ ] fonts
   - [ ] freisteller  
 - [ ] responsive
+
+Wie viele Fraune kommen potentiell hinzu?

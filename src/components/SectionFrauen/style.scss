@@ -1,0 +1,72 @@
+@import '../../styles/fonts';
+@import '../../styles/colors';
+
+:local(.component){
+  text-align: center;
+  @media #{$phone-portrait, $tiny}{
+    margin:1rem;
+    margin-top:6rem;
+  }
+  @media #{$phone-landscape}{
+    margin:0.5rem;
+  }
+  @media #{$pad-portrait}{
+    margin:2rem;
+    margin-top:8rem;
+  }
+  @media #{$pad-landscape}{
+    margin:2rem;
+    margin-top:4rem;
+  }
+  @media #{$desktop, $desktop-large, $desktop-huge}{
+    margin:2rem;
+    margin-top:5rem;
+  }
+}
+
+:local(.h1){
+  margin:0;
+  @media #{$phone-portrait, $phone-landscape, $tiny}{
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+  }
+  @media #{$pad-portrait, $pad-landscape}{
+    font-size: 5rem;
+    line-height: 5rem;
+  }
+  @media #{$desktop, $desktop-large, $desktop-huge}{
+    font-size: 5rem;
+    line-height: 5rem;
+  }
+}
+
+
+:local(.h5){ 
+  color:$white;
+  font-weight: normal;
+  @media #{$phone-portrait,$phone-landscape, $tiny}{
+    font-size: 1.1rem;
+    line-height: 1.1rem;
+    margin:0.5rem 0 1rem 0;
+  }
+  @media #{$pad-portrait, $pad-landscape}{
+    font-size: 2rem;
+    line-height: 2rem;
+    margin:0.5rem 0 2rem 0;
+  }
+  @media #{$desktop, $desktop-large, $desktop-huge}{
+    font-size: 2rem;
+    line-height: 2rem;
+    margin:0.5rem 0 2rem 0;
+  }
+  &:local(.sind){
+    color:$gray;
+  }
+}
+
+:local(.frau){
+  margin-bottom: 3rem;
+  @media #{$phone-portrait, $tiny}{
+    margin-bottom: 2rem;
+  }
+}

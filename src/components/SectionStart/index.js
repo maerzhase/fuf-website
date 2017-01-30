@@ -13,14 +13,14 @@ export default class SectionStart extends React.Component {
   }
 
   render(){
+    const componentClass = classnames(styles.component);
     return(
-      <div>
-          <h1>
-          <Link to="/frauen">Frauen</Link> und <Link to="/fiktion">Fiktion</Link> erobern alternative
-          der Schnittstelle von Theorie und
+      <div className={componentClass}>
+        <h1>
+          <Link to="/frauen">Frauen</Link> und <Link to="/fiktion">Fiktion</Link> erproben an der Schnittstelle von Theorie und
           Theater alternative Entwürfe von
           Frau-Sein.
-          </h1>
+        </h1>
       </div>
     )
   }

@@ -1,0 +1,31 @@
+@import '../../styles/colors';
+@import '../../styles/fonts';
+
+:local(.component){
+  text-align: center;
+  h2{
+    color: $gray;
+    text-transform: uppercase;
+  }
+  h4{
+    text-transform: uppercase;
+  }
+  a{
+    @include headline-one();
+    display:block;
+    text-decoration: none;
+    &:hover{
+      text-decoration:underline;
+    }
+  }
+  .content{
+    margin-top: 200px;
+  }
+}
+
+:local(.logoContainer){
+  position:absolute;
+  bottom:1em;
+  left:50%;
+  transform: translate(-50%,0);
+}

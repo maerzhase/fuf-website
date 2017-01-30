@@ -33,21 +33,22 @@ export default class ViewHome extends React.Component {
     const params = this.context.router.params;
     const {section} = params;
     const ref = this.refs[section];
+    if(ref == undefined) return;
     const offset = ref.getBoundingClientRect().top;
-    ScrollPilot.scrollTo(offset,200);
+    ScrollPilot.scrollTo(offset,500);
   }
 
   render() {
     const componentClass = classnames(styles.component);
     return (
       <div className={componentClass}>
-        <section ref="start">
+        <section ref="start" className={styles.start}>
           <SectionStart/>
         </section>
-        <section ref="lust">
+        <section ref="lust" className={styles.lust}>
           <SectionLust/>
         </section>
-        <section ref="fiktion">
+        <section ref="fiktion" className={styles.fiktion}>
           <SectionFiktion/>
         </section>
         <section ref="frauen">

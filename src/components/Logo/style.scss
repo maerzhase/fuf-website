@@ -1,0 +1,22 @@
+@import '../../styles/colors';
+
+:local(.component){
+  transform-origin: left top;
+  line-height: 1rem;
+  color:$black;
+  text-transform: uppercase;
+  font-weight: inline;
+  display: inline-block;
+  div{
+    padding:0.01rem;
+    display: block; 
+    float: left; 
+    clear: left; 
+    background-color:$gray;
+  }
+  &::after{
+    clear: both;
+    content: "";
+    display: block;
+  }
+}

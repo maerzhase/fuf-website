@@ -7,6 +7,8 @@ const scrollToElement = (target, duration) => {
   function step () {
     setTimeout(function() {
       let pos = scrollEasing(current_time, start, end, duration);
+      if(pos == end) return;
+
       window.scrollTo(0,pos);
       //console.log(start, end, pos, duration, current_time);
       current_time+=tick;

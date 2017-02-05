@@ -3,6 +3,8 @@
 
 :local(.component){
   text-align: center;
+   width: 100%;
+  height: 100%;
   h2{
     color: $gray;
     text-transform: uppercase;
@@ -17,9 +19,7 @@
       text-decoration:underline;
     }
   }
-  .content{
-    margin-top: 200px;
-  }
+
 }
 
 :local(.logoContainer){
@@ -27,4 +27,42 @@
   bottom:1em;
   left:50%;
   transform: translate(-50%,0);
+}
+
+:local(.background){
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  background-repeat:no-repeat;
+  //z-index: -2;
+  img{
+    height:auto;
+    width:100vw;
+    position: absolute;  
+    bottom: 0;  
+    left: 0;  
+    // @media #{$phone-portrait, $tiny}{
+    //   width: 90%;
+    //   background-position:(0px 11rem);
+    // }
+    // @media #{$phone-landscape}{
+    //   width: 56%;
+    //   background-position:(0px 0rem);
+    // }
+    // @media #{$pad-portrait}{
+    //   width: 80%;
+    //   background-position:(0px 10rem);
+    // }
+    // @media #{$pad-landscape}{
+    //   width: 75%;
+    //   background-position:(0px 0rem);
+    // }
+    // @media #{$desktop, $desktop-large, $desktop-huge}{
+    //   width: 65%;
+    //   background-position:(0px 0px);
+    // }
+  }
+
 }

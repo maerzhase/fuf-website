@@ -5,6 +5,9 @@ import React from 'react';
 import classnames from 'classnames';
 import styles from './style.scss';
 import Logo from '../Logo';
+import KontaktImage from '../../assets/images/kontakt.jpg';
+import KontaktImageHighRes from '../../assets/images/kontakt_highres.jpg';
+import ParallaxContainer from '../ParallaxContainer';
 
 export default class SectionKontakt extends React.Component {
 
@@ -15,6 +18,8 @@ export default class SectionKontakt extends React.Component {
   render(){
     const componentClass = classnames(styles.component);
     const logoContainerClass = classnames(styles.logoContainer)
+        const backgroundClass = classnames(styles.background);
+
     return(
       <div className={componentClass}>
         <div className="content">
@@ -26,6 +31,9 @@ export default class SectionKontakt extends React.Component {
           <Logo/>
           <h4>Impressum</h4>
         </div>
+        <ParallaxContainer className={backgroundClass} speed={0.4}>
+          <img src={KontaktImage} srcSet={KontaktImageHighRes}/>
+        </ParallaxContainer>
       </div>
     )
   }

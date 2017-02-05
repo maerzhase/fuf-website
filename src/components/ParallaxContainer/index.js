@@ -20,10 +20,16 @@ export default class SectionFiktion extends React.Component {
       const pc = allPContainer[i];
       if(pc == el){
         el.style.zIndex = `-${(i + 1)}`;
+        this._id = i;
       }
     }
+
     this._offset = el.getBoundingClientRect().top + window.pageYOffset;
     this._interval = setInterval(this.handleScroll,10);
+    this._lastTop = 0;
+    //window.addEventListener('scroll',this.handleScroll)
+    //window.requestAnimationFrame(this.handleScroll);
+
   }
 
   componentWillUnmount(){
@@ -35,11 +41,14 @@ export default class SectionFiktion extends React.Component {
     const originalOffset = this._offset;
     const speed = this.props.speed;
     const offset = window.pageYOffset;
-    const top = ((offset - originalOffset) * speed).toFixed(1);
+    const top = ((offset - originalOffset) * speed).toFixed(2);
     const clientRect = el.getBoundingClientRect()
-    if(clientRect.top < -clientRect.height * 1.5 || clientRect.top < clientRect.height * 1.5 ){
-      el.style.transform = `translate(0px,${top}px)`;
-    }
+    if(top != this._lastTop) {
+      if(clientRect.top < -clientRect.height * 1.5 || clientRect.top < clientRect.height * 1.5 ){
+        el.style.transform = `translate3d(0px,${top}px,0)`;
+      }
+      this._lastTop = top;
+    }    
   }
 
   render(){

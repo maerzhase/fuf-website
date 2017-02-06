@@ -29,6 +29,8 @@
       line-height:10rem;
     }
     @media #{$desktop, $desktop-large, $desktop-huge}{
+      font-size: 12rem;
+      line-height:12rem;
     }
   }
   label{

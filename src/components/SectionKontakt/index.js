@@ -24,8 +24,8 @@ export default class SectionKontakt extends React.Component {
       <div className={componentClass}>
         <div className="content">
           <h2>Kontakt</h2> 
-          <a>kontakt@frauenundfiktion.de</a>
-          <a>facebook</a>
+          <a><span>kontakt@frauenundfiktion.de</span></a>
+          <a><span>facebook</span></a>
         </div>
         <div className={logoContainerClass}>
           <Logo/>

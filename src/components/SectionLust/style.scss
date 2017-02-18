@@ -14,6 +14,10 @@
     font-weight:normal;
     text-transform: uppercase;
     margin:0;
+    &:hover{
+      color:$hover;
+      cursor: pointer;
+    }
     @media #{$phone-portrait, $tiny}{
       font-size: 7rem;
       line-height:7rem;
@@ -40,7 +44,6 @@
     transform:rotateZ(-90deg) translate(50%,-100%);
     transform-origin: center center;
   }
-
 }
 
 
@@ -59,5 +62,73 @@
     top: 0;  
     bottom: 0;
     margin-top:auto;  
+  }
+}
+
+:local(.overlay){
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  overflow:hidden;
+  background:$black;
+  transform:translate(-100%,0);
+  transition:transform ease-in-out 0.4s;
+  &.isOpen{
+    transform:translate(0,0);
+  }
+  :local(.content){
+    padding: 0rem;
+    width:0px;
+    display:inline-block;
+    vertical-align: top;
+          width:0%;
+          overflow:hidden;
+    &.isOpen{
+      padding:2rem;
+      width:90%;
+      height:100%;
+    }
+    transition:width ease-in-out 0.5s,padding ease-in-out 0.5s;
+    h4{
+      text-transform: uppercase;
+      color:$gray;
+      span{
+        color:$white;
+      }
+    }
+
+    .abstract{
+      font-size: 1.5rem;
+      line-height: 1.8rem;
+      margin-bottom: 3rem;
+                overflow:hidden;
+
+    }
+
+    .credits{
+      color:$gray;
+      margin-bottom: 2rem;
+    }
+
+    .support{
+      font-size: 0.9rem;
+      color:$gray;
+    }
+  }
+  :local(.gallery){
+    display:inline-block;
+    width:10%;
+    overflow:hidden;
+        transition:width ease-in-out 0.5s;
+
+    &.isOpen{
+      width:100%;
+    }
+    img{
+      height:100%;
+      width:auto;
+    }
   }
 }

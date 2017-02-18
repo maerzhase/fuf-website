@@ -47,6 +47,7 @@ export default class SectionFrauen extends React.Component {
         <H5>Szenografin/Regisseurin</H5>
         <H1>Eva Kessler</H1>
         <H5>Theaterwissenschaflterin/Schauspielerin</H5>
+        <H5 className={styles.sind}>Kollaborationen</H5>
         <H1>Particia Carolin Mai</H1>
         <H5>Tänzerin/Choreografin</H5>
         <H1>Felina Levits</H1>

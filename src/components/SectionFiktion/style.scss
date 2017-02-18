@@ -16,6 +16,10 @@
     font-weight:normal;
     text-transform: uppercase;
     margin:0;
+    &:hover{
+      color:$hover;
+      cursor: pointer;
+    }
     @media #{$phone-portrait, $tiny}{
       font-size: 7rem;
       line-height:7rem;
@@ -82,5 +86,31 @@
     //   background-position:(0px 0px);
     // }
   }
+}
 
+:local(.overlayContent){
+  h4{
+    text-transform: uppercase;
+    color:$gray;
+    span{
+      color:$white;
+    }
+  }
+
+  .abstract{
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+    margin-bottom: 3rem;
+    overflow: hidden;
+  }
+
+  .credits{
+    color:$gray;
+    margin-bottom: 2rem;
+  }
+
+  .support{
+    font-size: 0.9rem;
+    color:$gray;
+  }
 }

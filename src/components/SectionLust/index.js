@@ -42,12 +42,21 @@ export default class SectionLust extends React.Component {
     }
   }
 
+  componentWillReceiveProps(nextProps){
+    this.setState({
+      ...nextProps
+    })
+  }
+
   @autobind
   _openOverlay(e){
     document.body.style.overflowY ="hidden";
-    this.setState({
-      overlayOpen: true,
-    })
+    this.context.router.push('/lust/details')
+  }
+
+  @autobind
+  _onCloseOverlay(){
+    this.context.router.push('/lust')
   }
 
   render(){
@@ -63,7 +72,7 @@ export default class SectionLust extends React.Component {
         <ParallaxContainer className={backgroundClass} speed={0.3}>
           <img src={LustImage} srcSet={LustImageHighRes}/>
         </ParallaxContainer>
-        <OverlaySection images={images} open={overlayOpen}>
+        <OverlaySection onClose={this._onCloseOverlay} images={images} open={overlayOpen}>
           <div className={overlayContentClass}>
             <h4>Frauen und Fiktion #2 <span>Lust</span></h4>
             <div className="abstract">
@@ -88,4 +97,8 @@ SectionLust.defaultProps = {
   id: 2,
   overlayOpen: false,
   galleryOpen:false
+}
+
+SectionLust.contextTypes = {
+  router: React.PropTypes.object,
 }

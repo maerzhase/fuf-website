@@ -21,35 +21,38 @@ export default class ViewHome extends React.Component {
   }
 
   componentDidMount(){
-    this._scrollToSection();
+    const params = this.context.router.params;
+    if(params.state=="details") document.body.style.overflowY ="hidden";
+    this._scrollToSection(params);
   }
 
   componentDidUpdate(){
-    this._scrollToSection();
+    const params = this.context.router.params;
+    if(params.state=="details") document.body.style.overflowY ="hidden";
+    this._scrollToSection(params);
   }
 
   @autobind
-  _scrollToSection(){
-    const params = this.context.router.params;
+  _scrollToSection(params){
     const {section} = params;
     const ref = this.refs[section];
     if(ref == undefined) return;
-    const offset = ref.getBoundingClientRect().top;
-    ScrollPilot.scrollTo(offset,500);
+    ScrollPilot.scrollTo(ref,500);
   }
 
   render() {
     const componentClass = classnames(styles.component);
+    const params = this.context.router.params;
     return (
       <div className={componentClass}>
         <section ref="start" className={styles.start}>
           <SectionStart/>
         </section>
         <section ref="lust" className={styles.lust}>
-          <SectionLust/>
+          <SectionLust overlayOpen={params.section=="lust" && params.state=="details"}/>
         </section>
         <section ref="fiktion" className={styles.fiktion}>
-          <SectionFiktion/>
+          <SectionFiktion overlayOpen={params.section=="fiktion" && params.state=="details"}/>
         </section>
         <section ref="frauen">
           <SectionFrauen/>

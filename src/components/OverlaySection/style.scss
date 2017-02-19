@@ -2,6 +2,7 @@
 @import '../../styles/colors';
 
 :local(.component){
+  z-index: 10;
   position:fixed;
   width:100%;
   height:100%;
@@ -21,20 +22,48 @@ $size-closed: 20%;
 
 :local(.content){
   width:$size-open;
-  padding:2rem;
   position:relative;
+  @media #{$phone-portrait, $tiny}{
+    padding:1.5rem;
+  }
+  @media #{$phone-landscape}{
+    padding:1.5rem;
+  }
+  @media #{$pad-portrait}{
+    padding:2.5rem;
+  }
+  @media #{$pad-landscape}{
+    padding:3rem;
+  }
+  @media #{$desktop, $desktop-large, $desktop-huge}{
+    padding:2rem;
+  }
   &.isOpen{
 
   }
 
   .close{
     position:absolute;
-    right:1rem;
+    right:0;
     top:0;
-    font-size:3rem;
     cursor: pointer;
     &:hover{
       color:$hover;
+    }
+    i{
+      @media #{$phone-portrait, $tiny}{
+      }
+      @media #{$phone-landscape}{
+      }
+      @media #{$pad-portrait}{
+        font-size:3rem;
+      }
+      @media #{$pad-landscape}{
+        font-size:3rem;
+      }
+      @media #{$desktop, $desktop-large, $desktop-huge}{
+        font-size:3rem;
+      }
     }
   }
 }
@@ -58,5 +87,58 @@ $size-closed: 20%;
     height:100%;
     background-size:cover;
     background-position:center;
+  }
+}
+
+:local(.scrollContainer){
+  height: 100%;
+  overflow-y: auto;
+}
+
+:local(.arrow){
+  position:absolute;
+  right:20%;
+  top:50%;
+  z-index: 11;
+  //transform:translate(-5%,0);
+  transition:right ease-in-out 0.4s;
+  i{
+    @media #{$phone-portrait, $tiny}{
+      font-size:2.5rem;
+
+    }
+    @media #{$phone-landscape}{
+      font-size:2.5rem;
+
+    }
+    @media #{$pad-portrait}{
+      font-size:3.5rem;
+    }
+    @media #{$pad-landscape}{
+      font-size:3rem;
+    }
+    @media #{$desktop, $desktop-large, $desktop-huge}{
+      font-size:3rem;
+    }    
+
+    transform:translate(50%,-50%) rotateZ(90deg) ;
+    transition: transform ease-in-out 0.4s, border-radius ease-in-out 0.4s;
+    color:black;
+    background-color: white;
+    border-radius:50%;
+
+
+    &:hover{
+      color:$hover;
+      cursor: pointer;
+    }
+  }
+  &.moveLeft{
+    right:100%;
+    i{
+     transform:translate(100%,-50%) rotateZ(-90deg) ;
+         border-top-left-radius:0%;
+    border-top-right-radius:0%;
+    }
   }
 }

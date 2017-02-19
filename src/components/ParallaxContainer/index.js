@@ -25,7 +25,7 @@ export default class SectionFiktion extends React.Component {
     }
 
     this._offset = el.getBoundingClientRect().top + window.pageYOffset;
-    this._interval = setInterval(this.handleScroll,10);
+    this._interval = setInterval(this.handleScroll,1);
     this._lastTop = 0;
     //window.addEventListener('scroll',this.handleScroll)
     //window.requestAnimationFrame(this.handleScroll);

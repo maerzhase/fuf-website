@@ -2,6 +2,7 @@
 'use extensible'
 
 import React from 'react';
+import {Link,browserHistory} from 'react-router';
 import autobind from 'autobind-decorator';
 import classnames from 'classnames';
 import styles from './style.scss';
@@ -43,14 +44,22 @@ export default class SectionFiktion extends React.Component {
     }
   }
 
-  @autobind
-  _openOverlay(e){
-    document.body.style.overflowY ="hidden";
+  componentWillReceiveProps(nextProps){
     this.setState({
-      overlayOpen: true,
+      ...nextProps
     })
   }
 
+  @autobind
+  _openOverlay(e){
+    document.body.style.overflowY ="hidden";
+    this.context.router.push('/fiktion/details')
+  }
+
+  @autobind
+  _onCloseOverlay(){
+    this.context.router.push('/fiktion')
+  }
 
   render(){
     const {title,id} = this.props;
@@ -58,14 +67,13 @@ export default class SectionFiktion extends React.Component {
     const componentClass = classnames(styles.component);
     const backgroundClass = classnames(styles.background);
     const overlayContentClass    = classnames(styles.overlayContent);
-
     return(
       <div className={componentClass} >
         <ContentToggle title={title} id={id} onClick={this._openOverlay}/>
         <ParallaxContainer className={backgroundClass} speed={0.4}>
           <img src={FiktionImage} srcSet={FiktionImageHighRes}/>
         </ParallaxContainer>
-        <OverlaySection images={images} open={overlayOpen}>
+        <OverlaySection onClose={this._onCloseOverlay} images={images} open={overlayOpen}>
           <div className={overlayContentClass}>
             <h4>Frauen und Fiktion #1 <span>Fiktion</span></h4>
             <div className="abstract">
@@ -86,4 +94,8 @@ SectionFiktion.defaultProps = {
   id: 1,
   overlayOpen: false,
   galleryOpen:false
+}
+
+SectionFiktion.contextTypes = {
+  router: React.PropTypes.object,
 }

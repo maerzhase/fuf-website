@@ -72,22 +72,96 @@
     span{
       color:$white;
     }
+    margin-top: 0;
+    margin-bottom:2rem;
+    @media #{$phone-portrait, $tiny}{
+      font-size: 3rem;
+      line-height:3rem;
+    }
+    @media #{$phone-landscape}{
+      font-size: 2rem;
+      line-height:2rem;
+    }
+    @media #{$pad-portrait, $pad-landscape}{
+      font-size: 4.5rem;
+      line-height:4.5rem;
+
+    }
+    @media #{$desktop, $desktop-large, $desktop-huge}{
+      font-size: 5rem;
+      line-height:5rem;
+    }
   }
 
   .abstract{
-    font-size: 1.5rem;
-    line-height: 1.8rem;
-    margin-bottom: 3rem;
     overflow: hidden;
+
+    @media #{$phone-portrait, $tiny}{
+      font-size: 1.5rem;
+      line-height: 2.2rem;
+      margin-bottom: 1.5rem;
+    }
+    @media #{$phone-landscape}{
+      font-size: 1.2rem;
+      line-height: 1.6rem;
+      margin-bottom: 1.5rem;
+    }
+    @media #{$pad-portrait, $pad-landscape}{
+      font-size: 2.0rem;
+      line-height: 2.9rem;
+      margin-bottom: 2rem;
+
+    }
+    @media #{$desktop, $desktop-large, $desktop-huge}{
+      font-size: 2rem;
+      line-height: 2.5rem;
+      margin-bottom: 2rem;
+    }
   }
 
   .credits{
     color:$gray;
-    margin-bottom: 2rem;
+    @media #{$phone-portrait, $tiny}{
+      font-size: 1.2rem;
+      line-height: 1.6rem;
+      margin-bottom: 1.5rem;
+    }
+    @media #{$phone-landscape}{
+      font-size: 1.2rem;
+      line-height: 1.6rem;
+      margin-bottom: 1.5rem;
+    }
+    @media #{$pad-portrait, $pad-landscape}{
+      font-size: 1.5rem;
+      line-height: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    @media #{$desktop, $desktop-large, $desktop-huge}{
+      font-size: 1.3rem;
+      line-height: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
   }
 
   .support{
-    font-size: 0.9rem;
     color:$gray;
+    @media #{$phone-portrait, $tiny}{
+      font-size: 1.2rem;
+      line-height: 1.6rem;
+      margin-bottom: 1.5rem;
+    }
+    @media #{$phone-landscape}{
+      font-size: 1.2rem;
+      line-height: 1.6rem;
+      margin-bottom: 1.5rem;
+    }
+    @media #{$pad-portrait, $pad-landscape}{
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+    @media #{$desktop, $desktop-large, $desktop-huge}{
+      font-size: 1.3rem;
+      line-height: 1.5rem;
+    }
   }
 }

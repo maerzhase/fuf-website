@@ -55,7 +55,10 @@ export default class OverlaySection extends React.Component {
         </div>
 
         <div className={galleryClass} >
-          {images.map((image,i)=><div key={i} style={{backgroundImage:`url(${image.retina}`}}/>)}
+          {images.map((image,i)=>{
+            const style = {backgroundImage:`url(${image.retina})`};
+            return <div key={i} style={style}/>
+          })}
         </div>
       </div>
     )

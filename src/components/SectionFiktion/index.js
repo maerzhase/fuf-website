@@ -28,7 +28,7 @@ const ContentToggle = (props) => {
   const {title,id,onClick} = props;
   const toggleClass = classnames(styles.toggle);
   return(
-    <div className={toggleClass} onMouseDown={(e)=>{onClick(e)}}>
+    <div className={toggleClass} onMouseDown={onClick}>
       <h1>{title}</h1>
       <label>{`# ${("0"+id).slice(-2)}`}</label>
     </div>
@@ -52,6 +52,7 @@ export default class SectionFiktion extends React.Component {
 
   @autobind
   _openOverlay(e){
+    console.log("OPEN OVERLAY");
     document.body.style.overflowY ="hidden";
     this.context.router.push('/fiktion/details')
   }

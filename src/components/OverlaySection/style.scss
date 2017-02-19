@@ -100,6 +100,8 @@ $size-closed: 20%;
   right:20%;
   top:50%;
   z-index: 11;
+    cursor: pointer;
+
   //transform:translate(-5%,0);
   transition:right ease-in-out 0.4s;
   i{

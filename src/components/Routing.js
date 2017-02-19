@@ -5,6 +5,16 @@ import { Router, browserHistory } from 'react-router';
 import routes from './routes';
 import alt from '../flux/alt';
 
+const __DEVELOPMENT = process.env.NODE_ENV === "development";
+
+if(!__DEVELOPMENT){
+  if(window.ga != undefined){
+    hashHistory.listen(function (location) {
+      window.ga('send', 'pageview', location.pathname);
+    })
+  }
+}
+
 class Routing extends React.Component {
   constructor(props){
     super(props);

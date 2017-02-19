@@ -14,6 +14,9 @@ require('./lib/localStorageExtension');
 require('extensible-polyfill').patch('immutable')
 require('es6-promise').polyfill();
 
+//analytics 
+require('./lib/googleAnalytics')();
+
 render(
   <Routing stores={window.fluxStores}/>,
   document.getElementById('app')

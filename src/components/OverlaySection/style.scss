@@ -88,6 +88,11 @@ $size-closed: 20%;
     background-size:cover;
     background-position:center;
   }
+  label{
+    position:absolute;
+    left:20px;
+    top:10px;
+  }
 }
 
 :local(.scrollContainer){

@@ -2,6 +2,7 @@
 'use extensible'
 
 import React from 'react';
+import {Link} from 'react-router'
 import autobind from 'autobind-decorator';
 import classnames from 'classnames';
 import styles from './style.scss';
@@ -72,12 +73,13 @@ export default class SectionLust extends React.Component {
         <ParallaxContainer className={backgroundClass} speed={0.3}>
           <img src={LustImage} srcSet={LustImageHighRes}/>
         </ParallaxContainer>
-        <OverlaySection onClose={this._onCloseOverlay} images={images} open={overlayOpen}>
+        <OverlaySection onClose={this._onCloseOverlay} images={images} open={overlayOpen} credits="Fotos von Paula Reissig">
           <div className={overlayContentClass}>
             <h4>Frauen und Fiktion #2 <span>Lust</span></h4>
             <div className="abstract">
                Frauen und Fiktion überschreiten Schamgrenzen und geben der alltäglichen Lust eine Bühne. Ob dark dirty talk, eine Sammlung der Sexuellen Identitäten oder Perlen perverser Sexphantasien - sie umarmen die Stereotypen und erweitern gemeinsam mit ihnen die erogenen Zonen. Von Foucault bis Tinder machen sie mehr als einen intellektuellen Striptease und füllen dabei euer Bildarchiv mit verqueerten Bildern der Lust. Ein Gespräch. Ein Tanz. Eine Einladung auf den spannenden Spielplatz der weiblichen Lust.
             </div>
+            <div className="link"><Link to="/termine">Termine / Tickets</Link></div>
             <div className="credits">
               Performance Eva Kessler und Patricia Carolin Mai // Eine Arbeit von Frauen und Fiktion: Anja Kerschkewicz & Eva Kessler // Choreografie: Patricia Carolin Mai // Konzeptionelle Mitarbeit & mit Texten von: Elsa-Sophie Donata Jach // Bühne und Kostüme: Felina Levits // mit Musik von: plastiq // Technik und Licht: Sönke C. Herm // Dramaturgische Mitarbeit: Alisa Tretau // Beratung Produktion: Zwei Eulen
             </div>

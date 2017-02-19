@@ -74,7 +74,7 @@ export default class SectionFiktion extends React.Component {
         <ParallaxContainer className={backgroundClass} speed={0.4}>
           <img src={FiktionImage} srcSet={FiktionImageHighRes}/>
         </ParallaxContainer>
-        <OverlaySection onClose={this._onCloseOverlay} images={images} open={overlayOpen}>
+        <OverlaySection onClose={this._onCloseOverlay} images={images} open={overlayOpen} credits="Fotos von Sebastian Pircher">
           <div className={overlayContentClass}>
             <h4>Frauen und Fiktion #1 <span>Fiktion</span></h4>
             <div className="abstract">

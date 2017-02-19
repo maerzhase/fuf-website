@@ -23,12 +23,14 @@ export default class ViewHome extends React.Component {
   componentDidMount(){
     const params = this.context.router.params;
     if(params.state=="details") document.body.style.overflow ="hidden";
+    if(params.state==undefined) document.body.style.overflow ="auto";
     this._scrollToSection(params);
   }
 
   componentDidUpdate(){
     const params = this.context.router.params;
     if(params.state=="details") document.body.style.overflow ="hidden";
+    if(params.state==undefined) document.body.style.overflow ="auto";
     this._scrollToSection(params);
   }
 

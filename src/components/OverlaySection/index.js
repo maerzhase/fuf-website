@@ -35,7 +35,7 @@ export default class OverlaySection extends React.Component {
   }
 
   render(){
-    const {open,galleryOpen,images} = this.state;
+    const {open,galleryOpen,images,credits} = this.state;
     const componentClass  = classnames(styles.component,{isOpen:open});
     const contentClass = classnames(styles.content,{isOpen:!galleryOpen});
     const galleryClass = classnames(styles.gallery,{isOpen:galleryOpen});
@@ -59,6 +59,7 @@ export default class OverlaySection extends React.Component {
             const style = {backgroundImage:`url(${image.retina})`};
             return <div key={i} style={style}/>
           })}
+          <label>{credits}</label>
         </div>
       </div>
     )
@@ -69,4 +70,5 @@ OverlaySection.defaultProps = {
   open: false,
   galleryOpen:false,
   images: [],
+  credits:"",
 }

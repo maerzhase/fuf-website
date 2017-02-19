@@ -8,11 +8,11 @@ import alt from '../flux/alt';
 const __DEVELOPMENT = process.env.NODE_ENV === "development";
 
 if(!__DEVELOPMENT){
-  if(window.ga != undefined){
-    hashHistory.listen(function (location) {
+  console.log("[GA] SETTING UP HOOK")
+    browserHistory.listen(function (location) {
+      console.log("[TRANSITION]",location);
       window.ga('send', 'pageview', location.pathname);
     })
-  }
 }
 
 class Routing extends React.Component {

@@ -3,6 +3,7 @@ var path = require('path');
 var Webpack_isomorphic_tools_plugin = require('webpack-isomorphic-tools/plugin')
 var webpack_isomorphic_tools_plugin = new Webpack_isomorphic_tools_plugin(require('./webpack-isomorphic-tools-configuration'))
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   context: path.join(__dirname, 'src'),
@@ -44,6 +45,14 @@ module.exports = {
     ]
   },
   plugins: [
+    new HtmlWebpackPlugin({
+      title:"FUF — Frauen und Fiktion",
+      filename: 'index.html',
+      template: './index.html',
+      minify: {
+          collapseWhitespace: true
+      }
+    }),
     new webpack.DefinePlugin({
       "process.env": { 
          NODE_ENV: JSON.stringify("production") 

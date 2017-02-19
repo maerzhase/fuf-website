@@ -2,12 +2,13 @@ var webpack = require('webpack')
 var path = require('path');
 var Webpack_isomorphic_tools_plugin = require('webpack-isomorphic-tools/plugin')
 var webpack_isomorphic_tools_plugin = new Webpack_isomorphic_tools_plugin(require('./webpack-isomorphic-tools-configuration')).development()
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   context: path.join(__dirname, 'src'),
   entry: [
     'babel-polyfill',
-    'webpack-dev-server/client?http://localhost:8000',
+    'webpack-dev-server/client?http://0.0.0.0:8000',
     'webpack/hot/only-dev-server',
     'react-hot-loader/patch',
     './app'
@@ -15,7 +16,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: 'http://localhost:8000/'
+    publicPath: 'http://0.0.0.0:8000/'
   },
   module: {
     loaders: [ 
@@ -48,6 +49,14 @@ module.exports = {
     ]
   },
   plugins: [
+    new HtmlWebpackPlugin({
+      title:"FUF — Frauen und Fiktion",
+      filename: 'index.html',
+      template: './index.html',
+      minify: {
+          collapseWhitespace: true
+      }
+    }),
     new webpack.DefinePlugin({
       "process.env": { 
          NODE_ENV: JSON.stringify("development") 

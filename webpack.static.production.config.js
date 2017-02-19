@@ -6,8 +6,9 @@ var webpack_isomorphic_tools_plugin = new Webpack_isomorphic_tools_plugin(requir
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
+  context: path.join(__dirname, 'src'),
   entry: [
-    './src/app',
+    './app',
   ],
   output: {
     path: './dist',
@@ -44,8 +45,13 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
+      title:"FUF — Frauen und Fiktion",
       filename: 'index.html',
-      template: './index.html'
+      template: './index.html',
+      inject: true,
+      minify: {
+          collapseWhitespace: true
+      }
     }),
     new webpack.DefinePlugin({
       "process.env": { 

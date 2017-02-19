@@ -5,7 +5,7 @@ const scrollToElement = (ref, duration) => {
   let end = target;
   let current_time = 0;
   let tick =   5;
-
+  let iToggled = document.body.style.overflow != "hidden";
   function step () {
     let pos = scrollEasing(current_time, start, end, duration).toFixed(0);
     document.body.style.overflow = "hidden";
@@ -15,7 +15,7 @@ const scrollToElement = (ref, duration) => {
     if ( current_time <= duration && pos != ref.offsetTop ) {
       window.requestAnimationFrame(step);
     }else{
-      document.body.style.overflow = "auto"
+      if(iToggled)document.body.style.overflow = "auto"
     }
   }
   window.requestAnimationFrame(step);       

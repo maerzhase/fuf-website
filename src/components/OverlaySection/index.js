@@ -23,7 +23,7 @@ export default class OverlaySection extends React.Component {
 
   @autobind
   _closeOverlay(e){
-    document.body.style.overflowY ="auto";
+    document.body.style.overflow ="auto";
     if(this.props.onClose) this.props.onClose();
   }
 

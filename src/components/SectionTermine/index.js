@@ -10,7 +10,7 @@ const DateLI = (props) => {
   const {date, time, text, title, location,link} = props;
   const liClass = classnames(styles.li);
   return(
-    <li className={liClass}>
+    <li  className={liClass}>
       <div className="flex">
         <div className="date">{date}</div>
         <div className="title">{title}</div>
@@ -27,42 +27,42 @@ const dates = [
     time:"20h",
     location: "Theaterdiscounter Berlin",
     text:"",
-    link:"https://theaterdiscounter.de/stuecke/lust)",
+    link:"https://theaterdiscounter.de/stuecke/lust",
   },
   {
     date:"17.03.2017",
     time:"20h",
     location: "Theaterdiscounter Berlin",
     text:"+ Peepshow-Installation ab 19h (Alisa Tretau)",
-    link:"https://theaterdiscounter.de/stuecke/lust)",
+    link:"https://theaterdiscounter.de/stuecke/lust",
   },
   {
     date:"17.03.2017",
     time:"12-16h",
     location: "Workshop im Tatwerk Berlin",
     text:"",
-    link:"http://www.tatwerk-berlin.de/de/programm/workshops/237-lust)",
+    link:"http://www.tatwerk-berlin.de/de/programm/workshops/237-lust",
   },
   {
     date:"16.03.2017",
     time:"20h",
     location: "Theaterdiscounter Berlin",
     text:"",
-    link:"https://theaterdiscounter.de/stuecke/lust)",
+    link:"https://theaterdiscounter.de/stuecke/lust",
   },
   {
     date:"12.03.2017",
     time:"19.30h",
     location: "Lichthof Theater Hamburg",
     text:"",
-    link:"http://www.lichthof-theater.de/event-reader/events/lust-478.html)",
+    link:"http://www.lichthof-theater.de/event-reader/events/lust-478.html",
   },
   {
     date:"11.03.2017",
     time:"20.15h",
     location: "Lichthof Theater Hamburg",
     text:"",
-    link:"http://www.lichthof-theater.de/event-reader/events/lust-478.html)",
+    link:"http://www.lichthof-theater.de/event-reader/events/lust-478.html",
   },
   {
     date:"09.03.2017",
@@ -76,7 +76,7 @@ const dates = [
     time:"11-16h",
     location: "Workshop TuT - Schule für Tanz, Clown und Theater",
     text:"",
-    link:"http://www.das-tut.de/de/programm/2017/03/09/Lust-1982)",
+    link:"http://www.das-tut.de/de/programm/2017/03/09/Lust-1982",
   },
   {
     date:"08.03.2017",
@@ -99,8 +99,8 @@ export default class SectionTermine extends React.Component {
       <div className={componentClass}>
         <h2>Termine</h2>
         <ul>
-          {dates.map((d)=>{
-            return <DateLI {...d} title="Lust"/>
+          {dates.map((d,i)=>{
+            return <DateLI key={i} {...d} title="Lust"/>
           })}
         </ul>
       </div>

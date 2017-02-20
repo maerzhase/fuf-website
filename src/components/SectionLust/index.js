@@ -13,12 +13,49 @@ import ParallaxContainer from '../ParallaxContainer';
 import OverlaySection from '../OverlaySection';
 
 import lust1 from '../../assets/images/lust/lust_gallery_01.jpg'
+import lust2 from '../../assets/images/lust/lust_gallery_02.jpg'
+import lust3 from '../../assets/images/lust/lust_gallery_03.jpg'
+import lust4 from '../../assets/images/lust/lust_gallery_04.jpg'
+import lust5 from '../../assets/images/lust/lust_gallery_05.jpg'
+import lust6 from '../../assets/images/lust/lust_gallery_06.jpg'
+import lust7 from '../../assets/images/lust/lust_gallery_07.jpg'
 import lust1_high from '../../assets/images/lust/lust_gallery_01_highres.jpg'
+import lust2_high from '../../assets/images/lust/lust_gallery_02_highres.jpg'
+import lust3_high from '../../assets/images/lust/lust_gallery_03_highres.jpg'
+import lust4_high from '../../assets/images/lust/lust_gallery_04_highres.jpg'
+import lust5_high from '../../assets/images/lust/lust_gallery_05_highres.jpg'
+import lust6_high from '../../assets/images/lust/lust_gallery_06_highres.jpg'
+import lust7_high from '../../assets/images/lust/lust_gallery_07_highres.jpg'
+
 
 const images = [
   {
     hd: lust1,
     retina: lust1_high,
+  },
+  {
+    hd: lust2,
+    retina: lust2_high,
+  },
+  {
+    hd: lust3,
+    retina: lust3_high,
+  },
+  {
+    hd: lust4,
+    retina: lust4_high,
+  },
+  {
+    hd: lust5,
+    retina: lust5_high,
+  },
+  {
+    hd: lust6,
+    retina: lust6_high,
+  },
+  {
+    hd: lust7,
+    retina: lust7_high,
   },
 ]
 
@@ -60,6 +97,14 @@ export default class SectionLust extends React.Component {
     this.context.router.push('/lust')
   }
 
+  @autobind
+  _onToggleGallery(open){
+    if(open){
+      this.context.router.push('/lust/details/1')
+    }else{
+      this.context.router.push('/lust/details')
+    }
+  }
   render(){
     const {title,id} = this.props;
     const {overlayOpen,galleryOpen} = this.state;
@@ -73,9 +118,11 @@ export default class SectionLust extends React.Component {
         <ParallaxContainer className={backgroundClass} speed={0.3}>
           <img src={LustImage} srcSet={LustImageHighRes}/>
         </ParallaxContainer>
-        <OverlaySection onClose={this._onCloseOverlay} images={images} open={overlayOpen} credits="Fotos von Paula Reissig">
+        <OverlaySection onClose={this._onCloseOverlay} onToggleGallery={this._onToggleGallery} images={images} open={overlayOpen} credits="Fotos von Paula Reissig" galleryOpen={galleryOpen}>
           <div className={overlayContentClass}>
-            <h4>Frauen und Fiktion #2 <span>Lust</span></h4>
+            <h1>Frauen und Fiktion #2</h1>
+            <h4>Lust</h4>
+            <h5>Eine Performance über sexuelle Biographien und erotische Phantasien von Frauen</h5>
             <div className="abstract">
                Frauen und Fiktion überschreiten Schamgrenzen und geben der alltäglichen Lust eine Bühne. Ob dark dirty talk, eine Sammlung der Sexuellen Identitäten oder Perlen perverser Sexphantasien - sie umarmen die Stereotypen und erweitern gemeinsam mit ihnen die erogenen Zonen. Von Foucault bis Tinder machen sie mehr als einen intellektuellen Striptease und füllen dabei euer Bildarchiv mit verqueerten Bildern der Lust. Ein Gespräch. Ein Tanz. Eine Einladung auf den spannenden Spielplatz der weiblichen Lust.
             </div>

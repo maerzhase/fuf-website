@@ -64,38 +64,16 @@
     margin-top:auto;  
   }
 }
-
 :local(.overlayContent){
-
-  .link{
-
-    @media #{$phone-portrait, $tiny}{
-      font-size: 2rem;
-      margin-bottom: 2rem;
-    }
-    @media #{$phone-landscape}{
-      font-size: 2rem;
-      margin-bottom: 2rem;
-    }
-    @media #{$pad-portrait, $pad-landscape}{
-      font-size: 3rem;
-      margin-bottom: 2rem;
-    }
-    @media #{$desktop, $desktop-large, $desktop-huge}{
-      font-size: 3rem;
-      margin-bottom: 2rem;
-    }
+  h1{
+    color:$gray;
+    margin:0;
+    text-transform: uppercase;
   }
-
-
   h4{
     text-transform: uppercase;
-    color:$gray;
-    span{
-      color:$white;
-    }
-    margin-top: 0;
-    margin-bottom:2rem;
+    color:$white;
+    margin:0;
     @media #{$phone-portrait, $tiny}{
       font-size: 3rem;
       line-height:3rem;
@@ -109,9 +87,42 @@
       line-height:4.5rem;
 
     }
-    @media #{$desktop, $desktop-large, $desktop-huge}{
+    @media #{$desktop}{
+      font-size: 4rem;
+      line-height:4rem;
+    }
+    @media #{$desktop-large, $desktop-huge}{
       font-size: 5rem;
       line-height:5rem;
+    }
+  }
+
+  h5{
+    text-transform: uppercase;
+    color:$white;
+    margin:0;
+    margin-bottom: 2rem;
+    @media #{$phone-portrait, $tiny}{
+      font-size: 1.8rem;
+      line-height:2rem;
+    }
+    @media #{$phone-landscape}{
+      font-size: 1.3rem;
+      line-height:1.3rem;
+      margin-bottom: 1rem;
+    }
+    @media #{$pad-portrait, $pad-landscape}{
+      font-size: 2rem;
+      line-height:2rem;
+
+    }
+    @media #{$desktop}{
+      font-size:2rem;
+      line-height:2rem;
+    }
+    @media #{$desktop-large, $desktop-huge}{
+      font-size: 3rem;
+      line-height:3rem;
     }
   }
 
@@ -130,13 +141,18 @@
     }
     @media #{$pad-portrait, $pad-landscape}{
       font-size: 2.0rem;
-      line-height: 2.9rem;
+      line-height: 2.6rem;
       margin-bottom: 2rem;
 
     }
-    @media #{$desktop, $desktop-large, $desktop-huge}{
-      font-size: 2rem;
-      line-height: 2.5rem;
+    @media #{$desktop}{
+      font-size: 1.3rem;
+      line-height: 1.6rem;
+      margin-bottom: 2rem;
+    }
+    @media #{$desktop-large, $desktop-huge}{
+      font-size: 1.5rem;
+      line-height: 1.8rem;
       margin-bottom: 2rem;
     }
   }
@@ -159,8 +175,8 @@
       margin-bottom: 1.5rem;
     }
     @media #{$desktop, $desktop-large, $desktop-huge}{
-      font-size: 1.3rem;
-      line-height: 1.5rem;
+      font-size: 1.2rem;
+      line-height: 1.6rem;
       margin-bottom: 1.5rem;
     }
   }
@@ -182,8 +198,8 @@
       line-height: 2rem;
     }
     @media #{$desktop, $desktop-large, $desktop-huge}{
-      font-size: 1.3rem;
-      line-height: 1.5rem;
+      font-size: 1.2rem;
+      line-height: 1.6rem;
     }
   }
 }

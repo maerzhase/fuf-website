@@ -8,7 +8,7 @@ import alt from '../flux/alt';
 const __DEVELOPMENT = process.env.NODE_ENV === "development";
 
 if(!__DEVELOPMENT){
-  console.log("[GA] SETTING UP HOOK")
+  console.log("[ANALYTICS] SETTING UP HOOK")
     browserHistory.listen(function (location) {
       console.log("[TRANSITION]",location);
       window.ga('send', 'pageview', location.pathname);

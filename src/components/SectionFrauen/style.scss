@@ -3,6 +3,9 @@
 
 :local(.component){
   text-align: center;
+  a{
+    text-decoration: none;
+  }
   @media #{$phone-portrait, $tiny}{
     margin:1rem;
     margin-top:6rem;

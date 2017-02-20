@@ -51,10 +51,10 @@ export default class ViewHome extends React.Component {
           <SectionStart/>
         </section>
         <section ref="lust" className={styles.lust}>
-          <SectionLust overlayOpen={params.section=="lust" && params.state=="details"}/>
+          <SectionLust overlayOpen={params.section=="lust" && params.state=="details"}  galleryOpen={params.id != undefined}/>
         </section>
         <section ref="fiktion" className={styles.fiktion}>
-          <SectionFiktion overlayOpen={params.section=="fiktion" && params.state=="details"}/>
+          <SectionFiktion overlayOpen={params.section=="fiktion" && params.state=="details"} galleryOpen={params.id != undefined}/>
         </section>
         <section ref="frauen">
           <SectionFrauen/>

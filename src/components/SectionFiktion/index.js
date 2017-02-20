@@ -62,6 +62,15 @@ export default class SectionFiktion extends React.Component {
     this.context.router.push('/fiktion')
   }
 
+  @autobind
+  _onToggleGallery(open){
+    if(open){
+      this.context.router.push('/fiktion/details/1')
+    }else{
+      this.context.router.push('/fiktion/details')
+    }
+  }
+
   render(){
     const {title,id} = this.props;
     const {overlayOpen,galleryOpen} = this.state;
@@ -74,12 +83,15 @@ export default class SectionFiktion extends React.Component {
         <ParallaxContainer className={backgroundClass} speed={0.4}>
           <img src={FiktionImage} srcSet={FiktionImageHighRes}/>
         </ParallaxContainer>
-        <OverlaySection onClose={this._onCloseOverlay} images={images} open={overlayOpen} credits="Fotos von Sebastian Pircher">
+        <OverlaySection onClose={this._onCloseOverlay} onToggleGallery={this._onToggleGallery}  images={images} open={overlayOpen} galleryOpen={galleryOpen} credits="Fotos von Sebastian Pircher">
           <div className={overlayContentClass}>
-            <h4>Frauen und Fiktion #1 <span>Fiktion</span></h4>
+            <h1>Frauen und Fiktion #1</h1>
+            <h4>Fiktion</h4>
+            <h5>2014 Brutkasten Gaußstraße, AckerStadtPalast Berlin / 2015 Hauptsache Frei Festival Hamburg, Theatermaschine Gießen</h5>
             <div className="abstract">
               War sie tatsächlich so geboren, oder hatte sie ihren Schwanz bei einem Unfall verloren?  In Fiktion lockt uns die Vortragende mit Fragmenten aus Virginia Woolfs A Room Of One’s Own, einer Manx Katze und einem Augenzwinkern in ein Labyrinth aus literarischen Frauenbildern. Was ist dieses Eva? Frauen und Fiktion spielen mit gängigen Rollen-Klischees und lassen zwischen den Zeilen feministische Gedanken aufblitzen.            </div>
             <div className="credits">
+              Von und Mit Anja Kerschkewicz und Eva Kessler
             </div>
             <div className="support">
             </div>

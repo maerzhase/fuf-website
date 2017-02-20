@@ -18,7 +18,11 @@
     margin:2rem;
     margin-top:0.5rem;
   }
-  @media #{$desktop, $desktop-large, $desktop-huge}{
+  @media #{$desktop}{
+    margin:2rem;
+    margin-top:2rem;
+  } 
+  @media #{$desktop-large, $desktop-huge}{
     margin:2rem;
     margin-top:5rem;
   }
@@ -34,7 +38,11 @@
     font-size: 5rem;
     line-height: 5rem;
   }
-  @media #{$desktop, $desktop-large, $desktop-huge}{
+  @media #{$desktop}{
+    font-size: 3.5rem;
+    line-height: 3.5rem;
+  }
+  @media #{$desktop-large, $desktop-huge}{
     font-size: 5rem;
     line-height: 5rem;
   }

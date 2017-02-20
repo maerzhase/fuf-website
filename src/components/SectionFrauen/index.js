@@ -43,14 +43,14 @@ export default class SectionFrauen extends React.Component {
     return(
       <div className={componentClass}>
         <H5 className={styles.sind}>FRAUEN UND FIKTION sind</H5>
-        <H1>Anja Kerschkewicz</H1>
+        <H1><a href="http://www.anjakerschkewicz.com/">Anja Kerschkewicz</a></H1>
         <H5>Szenografin/Regisseurin</H5>
-        <H1>Eva Kessler</H1>
+        <H1><a href="http://www.evakessler.com/EvasWebSite/Willkommen.html">Eva Kessler</a></H1>
         <H5>Theaterwissenschaflterin/Schauspielerin</H5>
         <H5 className={styles.collab}>Kollaborationen</H5>
-        <H1>Particia Carolin Mai</H1>
+        <H1><a href="https://vimeo.com/user45802127">Particia Carolin Mai</a></H1>
         <H5>Tänzerin/Choreografin</H5>
-        <H1>Felina Levits</H1>
+        <H1><a href="https://showcase.design.haw-hamburg.de/author/felina-levits/">Felina Levits</a></H1>
         <H5>Kostümbildnerin</H5>
       </div>
     )

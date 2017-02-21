@@ -7,7 +7,7 @@ const scrollToElement = (ref, duration) => {
   let tick =   5;
   let iToggled = document.body.style.overflow != "hidden";
   function step () {
-    let pos = scrollEasing(current_time, start, end, duration).toFixed(0);
+    let pos = scrollEasing(current_time, start, end, duration).toFixed(4);
     document.body.style.overflow = "hidden";
     window.scrollTo(0,pos);
     //console.log(start, end, pos, duration, current_time);

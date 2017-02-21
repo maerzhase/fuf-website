@@ -23,7 +23,7 @@
   }
   @media #{$desktop}{
     margin:2rem;
-    margin-top:2rem;
+    margin-top:1rem;
   } 
   @media #{$desktop-large, $desktop-huge}{
     margin:2rem;
@@ -42,8 +42,8 @@
     line-height: 5rem;
   }
   @media #{$desktop}{
-    font-size: 3.5rem;
-    line-height: 3.5rem;
+    font-size: 3rem;
+    line-height: 3rem;
   }
   @media #{$desktop-large, $desktop-huge}{
     font-size: 5rem;

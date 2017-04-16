@@ -1,17 +1,13 @@
 import React from 'react';
 import classnames from 'classnames';
 import styles from './style.scss';
-
+import logoSVG from '../../assets/fuf-logo.svg';
 export default class Logo extends React.Component {
   render(){
     const componentClass = classnames(styles.component);
     return(
       <div className={componentClass}>
-        <div>Frauen</div>
-        <div>und</div>
-        <div>Fiktion</div>
-        <div>&emsp;&nbsp;&nbsp;</div>
-        <span className="clearfix"/>
+        <img src={logoSVG}/>
       </div>
     )
   }

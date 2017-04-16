@@ -7,16 +7,7 @@
   text-transform: uppercase;
   font-weight: inline;
   display: inline-block;
-  div{
-    padding:0.01rem;
-    display: block; 
-    float: left; 
-    clear: left; 
-    background-color:$gray;
-  }
-  &::after{
-    clear: both;
-    content: "";
-    display: block;
+  img{
+    opacity: 0.5;
   }
 }

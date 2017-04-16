@@ -3,7 +3,6 @@
 
 import React from 'react';
 import {Link,browserHistory} from 'react-router';
-import autobind from 'autobind-decorator';
 import classnames from 'classnames';
 import styles from './style.scss';
 import FiktionImage from '../../assets/images/fiktion.jpg';
@@ -16,8 +15,9 @@ import OverlaySection from '../OverlaySection';
 import fiktion1 from '../../assets/images/fiktion/fiktion_gallery_01.jpg'
 import fiktion1_high from '../../assets/images/fiktion/fiktion_gallery_01_highres.jpg'
 
-const images = [
+const media = [
   {
+    type: 'image',
     hd: fiktion1,
     retina: fiktion1_high,
   },
@@ -50,23 +50,20 @@ export default class SectionFiktion extends React.Component {
     })
   }
 
-  @autobind
-  _openOverlay(e){
+  _openOverlay = (e) => {
     console.log("OPEN OVERLAY");
     document.body.style.overflowY ="hidden";
     this.context.router.push('/fiktion/details')
   }
 
-  @autobind
-  _onCloseOverlay(){
+  _onCloseOverlay = () => {
     this.context.router.push('/fiktion')
   }
 
-  @autobind
-  _onToggleGallery(open){
-    if(open){
+  _onToggleGallery = (open) => {
+    if (open) {
       this.context.router.push('/fiktion/details/1')
-    }else{
+    } else {
       this.context.router.push('/fiktion/details')
     }
   }
@@ -83,7 +80,14 @@ export default class SectionFiktion extends React.Component {
         <ParallaxContainer className={backgroundClass} speed={0.4}>
           <img src={FiktionImage} srcSet={FiktionImageHighRes}/>
         </ParallaxContainer>
-        <OverlaySection onClose={this._onCloseOverlay} onToggleGallery={this._onToggleGallery}  images={images} open={overlayOpen} galleryOpen={galleryOpen} credits="Fotos von Sebastian Pircher">
+        <OverlaySection
+          onClose={this._onCloseOverlay}
+          onToggleGallery={this._onToggleGallery}
+          media={media}
+          open={overlayOpen}
+          galleryOpen={galleryOpen}
+          credits="Fotos von Sebastian Pircher"
+        >
           <div className={overlayContentClass}>
             <h1>Frauen und Fiktion #1</h1>
             <h4>Fiktion</h4>

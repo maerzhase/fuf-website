@@ -3,7 +3,6 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import autobind from 'autobind-decorator';
 import classnames from 'classnames';
 import styles from './style.scss';
 import ScrollPilot from '../../lib/ScrollPilot';
@@ -22,20 +21,19 @@ export default class ViewHome extends React.Component {
 
   componentDidMount(){
     const params = this.context.router.params;
-    if(params.state=="details") document.body.style.overflow ="hidden";
-    if(params.state==undefined) document.body.style.overflow ="auto";
+    if(params.state=="details") document.body.style.overflowY ="hidden";
+    if(params.state==undefined) document.body.style.overflowY ="initial";
     this._scrollToSection(params);
   }
 
   componentDidUpdate(){
     const params = this.context.router.params;
-    if(params.state=="details") document.body.style.overflow ="hidden";
-    if(params.state==undefined) document.body.style.overflow ="auto";
+    if(params.state=="details") document.body.style.overflowY ="hidden";
+    if(params.state==undefined) document.body.style.overflowY ="initial";
     this._scrollToSection(params);
   }
 
-  @autobind
-  _scrollToSection(params){
+  _scrollToSection = (params) => {
     const {section} = params;
     const ref = this.refs[section];
     if(ref == undefined) return;

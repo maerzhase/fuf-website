@@ -3,7 +3,6 @@
 
 import React from 'react';
 import {Link} from 'react-router'
-import autobind from 'autobind-decorator';
 import classnames from 'classnames';
 import styles from './style.scss';
 import LustImage from '../../assets/images/lust.jpg';
@@ -28,32 +27,47 @@ import lust6_high from '../../assets/images/lust/lust_gallery_06_highres.jpg'
 import lust7_high from '../../assets/images/lust/lust_gallery_07_highres.jpg'
 
 
-const images = [
+const media = [
   {
+    type: 'image',
     hd: lust1,
     retina: lust1_high,
   },
   {
+    type: 'embed',
+    component: <iframe
+      src="https://player.vimeo.com/video/188169589"
+      frameBorder="0"
+      allowFullScreen
+    />
+  },
+  {
+    type: 'image',
     hd: lust2,
     retina: lust2_high,
   },
   {
+    type: 'image',
     hd: lust3,
     retina: lust3_high,
   },
   {
+    type: 'image',
     hd: lust4,
     retina: lust4_high,
   },
   {
+    type: 'image',
     hd: lust5,
     retina: lust5_high,
   },
   {
+    type: 'image',
     hd: lust6,
     retina: lust6_high,
   },
   {
+    type: 'image',
     hd: lust7,
     retina: lust7_high,
   },
@@ -86,19 +100,16 @@ export default class SectionLust extends React.Component {
     })
   }
 
-  @autobind
-  _openOverlay(e){
+  _openOverlay = (e) => {
     document.body.style.overflowY ="hidden";
     this.context.router.push('/lust/details')
   }
 
-  @autobind
-  _onCloseOverlay(){
+  _onCloseOverlay = () => {
     this.context.router.push('/lust')
   }
 
-  @autobind
-  _onToggleGallery(open){
+  _onToggleGallery = (open) => {
     if(open){
       this.context.router.push('/lust/details/1')
     }else{
@@ -114,11 +125,28 @@ export default class SectionLust extends React.Component {
     
     return(
       <div className={componentClass}>
-        <ContentToggle title={title} id={id} onClick={this._openOverlay}/>
-        <ParallaxContainer className={backgroundClass} speed={0.3}>
-          <img src={LustImage} srcSet={LustImageHighRes}/>
+        <ContentToggle 
+          title={title} 
+          id={id} 
+          onClick={this._openOverlay}
+        />
+        <ParallaxContainer
+          className={backgroundClass} 
+          speed={0.3}
+        >
+          <img
+            src={LustImage}
+            srcSet={LustImageHighRes}
+          />
         </ParallaxContainer>
-        <OverlaySection onClose={this._onCloseOverlay} onToggleGallery={this._onToggleGallery} images={images} open={overlayOpen} credits="Fotos von Paula Reissig" galleryOpen={galleryOpen}>
+        <OverlaySection 
+          onClose={this._onCloseOverlay}
+          onToggleGallery={this._onToggleGallery}
+          media={media} 
+          open={overlayOpen} 
+          credits="Fotos von Paula Reissig"
+          galleryOpen={galleryOpen}
+        >
           <div className={overlayContentClass}>
             <h1>Frauen und Fiktion #2</h1>
             <h4>Lust</h4>

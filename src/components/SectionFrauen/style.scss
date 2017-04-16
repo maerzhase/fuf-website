@@ -38,8 +38,8 @@
     line-height: 2.5rem;
   }
   @media #{$pad-portrait, $pad-landscape}{
-    font-size: 5rem;
-    line-height: 5rem;
+    font-size: 3rem;
+    line-height: 3.5rem;
   }
   @media #{$desktop}{
     font-size: 3rem;
@@ -66,7 +66,7 @@
     margin:0.2rem 0 0.5rem 0;
   }
   @media #{$pad-portrait, $pad-landscape}{
-    font-size: 2rem;
+    font-size: 1.8rem;
     line-height: 2rem;
     margin:0.5rem 0 1rem 0;
   }

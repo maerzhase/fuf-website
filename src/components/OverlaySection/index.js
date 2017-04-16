@@ -83,7 +83,7 @@ export default class OverlaySection extends React.Component {
           {media.map((media,i)=>{
             switch(media.type) {
               case 'image':
-                const style = {backgroundImage:`url(${media.retina})`};
+                const style = {backgroundImage:`url(${media.hd})`};
                 return <div className={styles.media} key={i} style={style}/>;
               case 'embed':
                 return <div className={styles.media} key={i}>{media.component}</div>;

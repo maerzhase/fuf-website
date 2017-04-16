@@ -14,12 +14,19 @@ import OverlaySection from '../OverlaySection';
 
 import fiktion1 from '../../assets/images/fiktion/fiktion_gallery_01.jpg'
 import fiktion1_high from '../../assets/images/fiktion/fiktion_gallery_01_highres.jpg'
+import fiktion2 from '../../assets/images/fiktion/fiktion_gallery_02.jpg'
+import fiktion2_high from '../../assets/images/fiktion/fiktion_gallery_02_highres.jpg'
 
 const media = [
   {
     type: 'image',
     hd: fiktion1,
     retina: fiktion1_high,
+  },
+  {
+    type: 'image',
+    hd: fiktion2,
+    retina: fiktion2_high,
   },
 ]
 

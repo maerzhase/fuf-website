@@ -58,8 +58,8 @@ export default class SectionFiktion extends React.Component {
   }
 
   _openOverlay = (e) => {
-    console.log("OPEN OVERLAY");
     document.body.style.overflowY ="hidden";
+    window.preventScrolling = true;
     this.context.router.push('/fiktion/details')
   }
 

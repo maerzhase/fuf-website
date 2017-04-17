@@ -5,6 +5,8 @@
   text-align: center;
    width: 100%;
   height: 100%;
+
+
   h2{
     color: $gray;
     text-transform: uppercase;
@@ -12,7 +14,32 @@
   h4{
     text-transform: uppercase;
   }
-  a{
+ .close{
+    position:absolute;
+    right:0;
+    top:0;
+    cursor: pointer;
+    &:hover{
+      color:$hover;
+    }
+    i{
+      @media #{$phone-portrait, $tiny}{
+      }
+      @media #{$phone-landscape}{
+      }
+      @media #{$pad-portrait}{
+        font-size:3rem;
+      }
+      @media #{$pad-landscape}{
+        font-size:3rem;
+      }
+      @media #{$desktop, $desktop-large, $desktop-huge}{
+        font-size:3rem;
+      }
+    }
+  }
+
+  :local(.a){
     display:block;
     text-decoration:underline;
     position:relative;
@@ -87,5 +114,21 @@
     //   background-position:(0px 0px);
     // }
   }
+}
+
+:local(.impContainer){
+  z-index: 10;
+  position:fixed;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  background-color:black;
+  transition: transform ease-in-out 0.5s;
+  transform:translate(0,100%);
+  &.isOpen{
+    transform:translate(0,0);
+  }
 
 }
+

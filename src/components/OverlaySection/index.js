@@ -22,6 +22,7 @@ export default class OverlaySection extends React.Component {
 
   _closeOverlay = (e) => {
     document.body.style.overflowY ="initial";
+    window.preventScrolling = false;
     if(this.props.onClose) this.props.onClose();
   }
 

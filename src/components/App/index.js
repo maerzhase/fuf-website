@@ -45,7 +45,7 @@ export default class App extends Component{
   }
 
   handleTouch = (event) => {
-     event.preventDefault();
+    // event.preventDefault();
   }
 
   handleScroll = (dx,dy) => {
@@ -68,10 +68,14 @@ export default class App extends Component{
     this.props.router.push(nextPath)
   }
 
+  // render(){
+  //   return <ReactSwipeEvents onSwiping={(e, originalX, originalY, currentX, currentY, deltaX, deltaY)=>{
+  //       this.handleScroll(deltaX,deltaY*-1)
+  //   }}>{this.props.children}</ReactSwipeEvents>
+  // }
+
   render(){
-    return <ReactSwipeEvents onSwiping={(e, originalX, originalY, currentX, currentY, deltaX, deltaY)=>{
-        this.handleScroll(deltaX,deltaY*-1)
-    }}>{this.props.children}</ReactSwipeEvents>
+    return this.props.children;
   }
 }
 

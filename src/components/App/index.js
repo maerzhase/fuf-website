@@ -33,42 +33,35 @@ export default class App extends Component{
     initialActions.forEach((a)=>{
       a();
     })
-    this._interval = setInterval(this.handleScroll,1);
-    this.lastOffset = 0;
-    this.routeIndex = 0;
+    console.log();
+    const routeIndex = routes.indexOf(this.props.router.location.pathName);
+    this.delay = false;
+    this.routeIndex = routeIndex > -1 ? routeIndex : 0;
+    this.scrollListener = require('mouse-wheel')(window,this.handleScroll,false);
   }
 
-  resetInterval = (time) => {
-    clearInterval(this._interval);
-    setTimeout(()=>{
-      this._interval = setInterval(this.handleScroll,1);
-      this.lastAction = '';
-      this.lastOffset = window.pageYOffset;
-    },time);
+  componentWillUnmount(){
+    window.removeEventListener('wheel', this.scrollListener);
   }
 
-  handleScroll = () => {
-     const offset = window.pageYOffset;
-     if(offset === this.lastOffset) return;
-     if (offset > this.lastOffset && this.lastAction != 'down') {
-      this.lastAction = 'down';
-      this.lastOffset = offset;
-      this.routeIndex = this.routeIndex + 1;
-      if(this.routeIndex >= routes.length) this.routeIndex = 0;
-      this.context.router.push(routes[this.routeIndex])
-      this.resetInterval(1900);
-      console.log('down', this.routeIndex)
+  handleScroll = (dx,dy) => {
+    if(this.delay || window.preventScrolling) return;
 
-     } else if (offset < this.lastOffset && this.lastAction != 'up') {
-      this.lastAction = 'up';
-      this.lastOffset = offset;
-      this.routeIndex = this.routeIndex - 1;
-      if(this.routeIndex <= 0) this.routeIndex = 0;
-      this.context.router.push(routes[this.routeIndex])
-      this.resetInterval(1900);
-      console.log('up', this.routeIndex);
-     }
+    this.delay = true;
+    setTimeout(() => {this.delay = false}, 400)
 
+    if(dy < 0) {
+      console.log('up')  
+      this.routeIndex -= 1;
+      if(this.routeIndex < 0) this.routeIndex = 0;
+    }
+    else {
+      console.log('down')
+      this.routeIndex += 1;
+      if(this.routeIndex > routes.length) this.routeIndex = 0;
+    }
+    const nextPath = routes[this.routeIndex];
+    this.props.router.push(nextPath)
   }
 
   render(){

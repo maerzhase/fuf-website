@@ -23,6 +23,7 @@ function disableScroll() {
   window.onmousewheel = document.onmousewheel = preventDefault; // older browsers, IE
   window.ontouchmove  = preventDefault; // mobile
   document.onkeydown  = preventDefaultForScrollKeys;
+  window.preventScrolling = true;
 }
 
 function enableScroll() {
@@ -32,6 +33,7 @@ function enableScroll() {
     window.onwheel = null; 
     window.ontouchmove = null;  
     document.onkeydown = null;  
+    window.preventScrolling = false;
 }
 
 

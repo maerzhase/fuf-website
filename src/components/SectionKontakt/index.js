@@ -18,7 +18,7 @@ export default class SectionKontakt extends React.Component {
   render(){
     const componentClass = classnames(styles.component);
     const logoContainerClass = classnames(styles.logoContainer)
-        const backgroundClass = classnames(styles.background);
+    const backgroundClass = classnames(styles.background);
 
     return(
       <div className={componentClass}>

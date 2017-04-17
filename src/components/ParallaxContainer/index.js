@@ -41,7 +41,7 @@ export default class SectionFiktion extends React.Component {
     const originalOffset = this._offset;
     const speed = this.props.speed;
     const offset = window.pageYOffset;
-    const top = ((offset - originalOffset) * speed).toFixed(4);
+    const top = ((offset - originalOffset) * speed).toFixed(1);
     const clientRect = el.getBoundingClientRect()
     if(top != this._lastTop) {
       if(clientRect.top < -clientRect.height * 1.5 || clientRect.top < clientRect.height * 1.5 ){

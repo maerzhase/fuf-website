@@ -20,12 +20,12 @@ export default class SectionKontakt extends React.Component {
 
   openImprint = () => {
     this.setState({isOpen:true});
-    window.preventScrolling = true;
+   // window.preventScrolling = true;
   }
 
   closeImprint = () => {
     this.setState({isOpen:false});
-    window.preventScrolling = false;
+   // window.preventScrolling = false;
   }
 
   render(){

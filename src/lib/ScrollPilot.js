@@ -45,21 +45,36 @@ const scrollToElement = (ref, duration) => {
   let current_time = 0;
   let tick =   5;
   let iToggled = document.body.style.overflowY != "hidden";
-  function step () {
-    let pos = scrollEasing(current_time, start, end, duration).toFixed(4);
-    //document.body.style.overflow = "hidden";
-    window.scrollTo(0,pos);
-    //console.log(start, end, pos, duration, current_time);
-    current_time+=tick;
-    if ( current_time <= duration && pos != ref.offsetTop ) {
-      window.requestAnimationFrame(step);
-    }else{
-      if(iToggled)document.body.style.overflowY = "initial"
-      enableScroll();
-    }
-  }
-  window.requestAnimationFrame(step); 
+  // function step () {
+  //   let pos = scrollEasing(current_time, start, end, duration);
+  //   //document.body.style.overflow = "hidden";
+  //   window.scrollTo(0,pos);
+  //   //console.log(start, end, pos, duration, current_time);
+  //   current_time+=tick;
+  //   if ( current_time <= duration && pos != ref.offsetTop ) {
+  //     window.requestAnimationFrame(step);
+  //   }else{
+  //     if(iToggled)document.body.style.overflowY = "initial"
+  //     enableScroll();
+  //   }
+  // }
+  // window.requestAnimationFrame(step); 
   disableScroll();      
+  var speed = 500;
+  var moving_frequency = 15; // Affects performance !
+  var hop_count = speed/moving_frequency
+  var getScrollTopDocumentAtBegin = start;
+  var gap = end;
+
+  for(var i = 1; i <= hop_count; i++)
+  {
+      (function()
+      {
+          var hop_top_position = gap*i;
+          setTimeout(function(){  window.scrollTo(0, hop_top_position + getScrollTopDocumentAtBegin); }, moving_frequency*i);
+      })();
+  }
+  enableScroll();
 }
 
 const scrollEasing = (current_time, beginning_value, change_value, total_time) => {

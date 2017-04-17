@@ -101,8 +101,8 @@ export default class SectionLust extends React.Component {
   }
 
   _openOverlay = (e) => {
-    window.preventScrolling = true;
-    document.body.style.overflowY ="hidden";
+   // window.preventScrolling = true;
+    //document.body.style.overflowY ="hidden";
     this.context.router.push('/lust/details')
   }
 

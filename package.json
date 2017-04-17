@@ -62,6 +62,7 @@
     "react-router": "^3.0.0",
     "react-swipe-events": "^1.0.2",
     "webpack-isomorphic-tools": "^2.6.4",
-    "whatwg-fetch": "^1.0.0"
+    "whatwg-fetch": "^1.0.0",
+    "zenscroll": "^4.0.0"
   }
 }

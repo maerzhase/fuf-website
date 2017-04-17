@@ -2,6 +2,7 @@
 
 import React, {Component} from 'react';
 import AppActions from '../../flux/actions/AppActions';
+import zenscroll from 'zenscroll';
 
 const JSONFile = require('../../assets/data.json')
 
@@ -49,7 +50,7 @@ export default class App extends Component{
   }
 
   handleScroll = (dx,dy) => {
-    if(this.delay || window.preventScrolling) return;
+    if(this.delay || zenscroll.moving()) return;
 
     this.delay = true;
     setTimeout(() => {this.delay = false}, 400)
@@ -57,7 +58,7 @@ export default class App extends Component{
     if(dy < 0) {
       // console.log('up')  
       this.routeIndex -= 1;
-      if(this.routeIndex < 0) this.routeIndex = 0;
+      if(this.routeIndex < 0) this.routeIndex = routes.length - 1;
     }
     else {
       // console.log('down')

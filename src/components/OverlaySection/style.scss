@@ -14,6 +14,7 @@
   overflow: hidden;
   &.isOpen{
     transform:translate(0,0);
+    display:block;
   }
 }
 

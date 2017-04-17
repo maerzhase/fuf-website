@@ -9,7 +9,7 @@
     @media #{$phone-portrait,$phone-landscape, $tiny}{
       font-size: 1.4rem;
       line-height: 1.4rem;
-      margin:0 0 1rem 0;
+      margin:0 0 0.8rem 0;
     }
     @media #{$pad-portrait, $pad-landscape}{
       font-size: 2rem;
@@ -60,6 +60,7 @@
     justify-content: flex-start;
     @media #{$phone-portrait, $tiny}{
       font-size: 1.15rem;
+      line-height: 1.3rem;
     }
     @media #{$phone-landscape}{
       font-size: 0.9rem;

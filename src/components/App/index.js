@@ -33,11 +33,10 @@ export default class App extends Component{
     initialActions.forEach((a)=>{
       a();
     })
-    console.log();
-    const routeIndex = routes.indexOf(this.props.router.location.pathName);
+    const routeIndex = routes.indexOf(this.props.router.location.pathname);
     this.delay = false;
     this.routeIndex = routeIndex > -1 ? routeIndex : 0;
-    this.scrollListener = require('mouse-wheel')(window,this.handleScroll,false);
+    this.scrollListener = require('mouse-wheel')(window,this.handleScroll,true);
   }
 
   componentWillUnmount(){

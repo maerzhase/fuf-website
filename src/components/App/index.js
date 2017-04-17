@@ -55,12 +55,12 @@ export default class App extends Component{
     setTimeout(() => {this.delay = false}, 400)
 
     if(dy < 0) {
-      console.log('up')  
+      // console.log('up')  
       this.routeIndex -= 1;
       if(this.routeIndex < 0) this.routeIndex = 0;
     }
     else {
-      console.log('down')
+      // console.log('down')
       this.routeIndex += 1;
       if(this.routeIndex >= routes.length) this.routeIndex = 0;
     }

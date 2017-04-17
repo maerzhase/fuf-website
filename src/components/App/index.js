@@ -13,7 +13,7 @@ const routes = [
   '/termine',
   '/kontakt'
 ]
-
+import ReactSwipeEvents from 'react-swipe-events'
 export default class App extends Component{
 
   constructor(props){
@@ -37,10 +37,15 @@ export default class App extends Component{
     this.delay = false;
     this.routeIndex = routeIndex > -1 ? routeIndex : 0;
     this.scrollListener = require('mouse-wheel')(window,this.handleScroll,true);
+    this.touchListener = window.addEventListener('touchmove',this.handleTouch);
   }
 
   componentWillUnmount(){
     window.removeEventListener('wheel', this.scrollListener);
+  }
+
+  handleTouch = (event) => {
+     event.preventDefault();
   }
 
   handleScroll = (dx,dy) => {
@@ -57,14 +62,16 @@ export default class App extends Component{
     else {
       console.log('down')
       this.routeIndex += 1;
-      if(this.routeIndex > routes.length) this.routeIndex = 0;
+      if(this.routeIndex >= routes.length) this.routeIndex = 0;
     }
     const nextPath = routes[this.routeIndex];
     this.props.router.push(nextPath)
   }
 
   render(){
-    return this.props.children
+    return <ReactSwipeEvents onSwiping={(e, originalX, originalY, currentX, currentY, deltaX, deltaY)=>{
+        this.handleScroll(deltaX,deltaY*-1)
+    }}>{this.props.children}</ReactSwipeEvents>
   }
 }
 

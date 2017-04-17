@@ -16,39 +16,11 @@
     display:block;
     text-decoration:underline;
     position:relative;
-    // span{
-    //   position:relative;
-
-    //    &:before, &:after   {
-    //     content:'';
-    //     height:10px; 
-    //     width:0;
-    //     bottom:10px; 
-    //     position:absolute;
-    //     background:salmon; 
-    //     transition:0.5s ease width,0.5s ease background; 
-    //   }
-    //   &:before {
-    //     left:50%;
-    //   }
-    //   &:after {
-    //     right:50%; 
-    //   }
-
-    //   /* active state */
-    //   &:hover{
-    //     &:before, &:after {
-    //       width:50%;
-    //       background:salmon;
-    //     }
-    //   } 
-    // }
-
 
     @media #{$phone-portrait,$phone-landscape, $tiny}{
-      font-size: 2.5rem;
-      line-height: 2.5rem;
-      margin:0.5rem 0 1rem 0;
+      font-size: 1.5rem;
+      line-height: 1.8rem;
+      margin:0.2rem 0 0.1rem 0;
     }
     @media #{$pad-portrait, $pad-landscape}{
       font-size: 3.5rem;
@@ -63,10 +35,12 @@
   }
 
   .content{
-    position:absolute;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
+    @media #{$desktop, $desktop-large, $desktop-huge}{
+      position:absolute;
+      left:50%;
+      top:50%;
+      transform:translate(-50%,-50%);
+    }
   }
 
 }

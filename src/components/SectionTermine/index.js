@@ -87,6 +87,48 @@ const dates = [
   }
 ]
 
+const EventLI = (props) => {
+  const {date, text, title, link} = props;
+  const liClass = classnames(styles.li);
+  return(
+    <li  className={liClass}>
+      <div className="flex">
+        <div className="date">{date}</div>
+        <div className="title">{title}</div>
+        <div className="location">{text}</div>
+        <div className="tickets"><a target="_blank"href={link}>Link</a></div>
+      </div>
+    </li>
+  )
+}
+
+const events = [
+  {
+    date:'18.08.2018',
+    link:'http://www.kuenstlerhaus-lukas.de/?Veranstaltungen',
+    title:'Showing',
+    text:'Künstlerhaus Lukas',
+  },
+  {
+    date:'08.06.2018',
+    link:'http://www.berlin-diagonale.de/2018/',
+    title:'Präsentation',
+    text:'PAF - Berlin Diaognale',
+  },
+  {
+    date: '08.03.2018',
+    link:'http://www.theater-oberhausen.de/programm/extras.php?SID=626',
+    title:'Workshop',
+    text:'Theater Oberhausen',
+  },
+  {
+    date: '20.01.2018',
+    link: 'https://performancesvonweiblichkeit.wordpress.com/programm-2017',
+    title: 'Vortrag',
+    text: 'Universität der Künste Berlin',
+  },
+];
+
 export default class SectionTermine extends React.Component {
 
   constructor(props) {
@@ -98,6 +140,13 @@ export default class SectionTermine extends React.Component {
     return(
       <div className={componentClass}>
         <h2>Termine</h2>
+        <ul>
+          {
+            events.map((d, i) => {
+              return <EventLI key={i} {...d} />
+            })
+          }
+        </ul>
         <ul>
           {dates.map((d,i)=>{
             return <DateLI key={i} {...d} title="Lust"/>

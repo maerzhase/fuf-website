@@ -46,11 +46,12 @@ export default class App extends Component{
   }
 
   handleTouch = (event) => {
-    // event.preventDefault();
+    if(window.preventScroll) return;
+    event.preventDefault();
   }
 
   handleScroll = (dx,dy) => {
-    if(this.delay || zenscroll.moving()) return;
+    if(this.delay || zenscroll.moving() || window.preventScroll) return;
 
     this.delay = true;
     setTimeout(() => {this.delay = false}, 400)
@@ -69,15 +70,15 @@ export default class App extends Component{
     this.props.router.push(nextPath)
   }
 
-  // render(){
-  //   return <ReactSwipeEvents onSwiping={(e, originalX, originalY, currentX, currentY, deltaX, deltaY)=>{
-  //       this.handleScroll(deltaX,deltaY*-1)
-  //   }}>{this.props.children}</ReactSwipeEvents>
-  // }
-
   render(){
-    return this.props.children;
+    return <ReactSwipeEvents onSwiping={(e, originalX, originalY, currentX, currentY, deltaX, deltaY)=>{
+        this.handleScroll(deltaX,deltaY*-1)
+    }}>{this.props.children}</ReactSwipeEvents>
   }
+
+  // render(){
+  //   return this.props.children;
+  // }
 }
 
 App.contextTypes = {

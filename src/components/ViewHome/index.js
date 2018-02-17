@@ -21,27 +21,23 @@ export default class ViewHome extends React.Component {
 
   componentDidMount(){
     const params = this.context.router.params;
-    // if(params.state=="details"){
-    //   window.preventScrolling = true;
-    //   document.body.style.overflowY ="hidden";
-    // } 
-    // if(params.state==undefined) {
-    //   window.preventScrolling = false;
-    //   document.body.style.overflowY ="initial";
-    // }
+    if(params.state=="details"){
+      window.preventScroll = true;
+    } 
+    if(params.state==undefined ) {
+      window.preventScroll = false;
+    }
     this._scrollToSection(params);
   }
 
   componentDidUpdate(){
     const params = this.context.router.params;
-    // if(params.state=="details"){
-    //   window.preventScrolling = true;
-    //   document.body.style.overflowY ="hidden";
-    // } 
-    // if(params.state==undefined) {
-    //   window.preventScrolling = false;
-    //   document.body.style.overflowY ="initial";
-    // }
+    if(params.state=="details"){
+      window.preventScroll = true;
+    } 
+    if(params.state==undefined ) {
+      window.preventScroll = false;
+    }
     this._scrollToSection(params);
   }
 

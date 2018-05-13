@@ -8,15 +8,6 @@ export default class Logo extends React.Component {
     return(
       <div className={componentClass}>
         <img src={logoSVG}/>
-        <div 
-          className="fb-like"
-          data-href="https://www.facebook.com/frauenundfiktion/" 
-          data-layout="button_count" 
-          data-action="like" 
-          data-size="large" 
-          data-show-faces="false" 
-          data-share="false"
-        />
       </div>
     )
   }

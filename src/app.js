@@ -15,7 +15,7 @@ require('extensible-polyfill').patch('immutable')
 require('es6-promise').polyfill();
 
 //analytics 
-require('./lib/googleAnalytics')();
+//require('./lib/googleAnalytics')();
 
 render(
   <Routing stores={window.fluxStores}/>,

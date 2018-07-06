@@ -24,10 +24,10 @@
   @media #{$desktop}{
     margin:2rem;
     margin-top:1rem;
-  } 
+  }
   @media #{$desktop-large, $desktop-huge}{
-    margin:2rem;
-    margin-top:5rem;
+    // margin:2rem;
+    // margin-top:5rem;
   }
 }
 
@@ -42,17 +42,17 @@
     line-height: 3.5rem;
   }
   @media #{$desktop}{
-    font-size: 3rem;
-    line-height: 3rem;
+    font-size: 2.8rem;
+    line-height: 2.8rem;
   }
   @media #{$desktop-large, $desktop-huge}{
-    font-size: 5rem;
-    line-height: 5rem;
+    font-size: 3.5rem;
+    line-height: 3.5rem;
   }
 }
 
 
-:local(.h5){ 
+:local(.h5){
   color:$white;
   font-weight: normal;
   @media #{$phone-portrait,$phone-landscape, $tiny}{
@@ -71,9 +71,9 @@
     margin:0.5rem 0 1rem 0;
   }
   @media #{$desktop, $desktop-large, $desktop-huge}{
-    font-size: 2rem;
-    line-height: 2rem;
-    margin:0.5rem 0 2rem 0;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    margin:0.5rem 0 1.5rem 0;
   }
 }
 
@@ -101,5 +101,4 @@
   @media #{$phone-portrait, $tiny}{
     margin-bottom: 2rem;
   }
- 
 }

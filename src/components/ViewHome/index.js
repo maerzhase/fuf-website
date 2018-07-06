@@ -7,6 +7,7 @@ import classnames from 'classnames';
 import styles from './style.scss';
 import ScrollPilot from '../../lib/ScrollPilot';
 import SectionFiktion from '../SectionFiktion';
+import SectionWeapon from '../SectionWeapon';
 import SectionFrauen from '../SectionFrauen';
 import SectionKontakt from '../SectionKontakt';
 import SectionLust from '../SectionLust';
@@ -23,7 +24,7 @@ export default class ViewHome extends React.Component {
     const params = this.context.router.params;
     if(params.state=="details"){
       window.preventScroll = true;
-    } 
+    }
     if(params.state==undefined ) {
       window.preventScroll = false;
     }
@@ -34,7 +35,7 @@ export default class ViewHome extends React.Component {
     const params = this.context.router.params;
     if(params.state=="details"){
       window.preventScroll = true;
-    } 
+    }
     if(params.state==undefined ) {
       window.preventScroll = false;
     }
@@ -56,6 +57,9 @@ export default class ViewHome extends React.Component {
       <div className={componentClass}>
         <section ref="start" className={styles.start}>
           <SectionStart/>
+        </section>
+        <section ref="weapon" className={styles.weapon}>
+          <SectionWeapon overlayOpen={params.section=="weapon" && params.state=="details"} galleryOpen={params.id != undefined}/>
         </section>
         <section ref="lust" className={styles.lust}>
           <SectionLust overlayOpen={params.section=="lust" && params.state=="details"}  galleryOpen={params.id != undefined}/>

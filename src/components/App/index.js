@@ -8,6 +8,7 @@ const JSONFile = require('../../assets/data.json')
 
 const routes = [
   '/start',
+  '/weapon',
   '/lust',
   '/fiktion',
   '/frauen',
@@ -28,7 +29,7 @@ export default class App extends Component{
       },
     ]
   }
-  
+
   componentDidMount(){
     const initialActions = App.initialActions(this.context.router.params);
     initialActions.forEach((a)=>{
@@ -51,13 +52,14 @@ export default class App extends Component{
   }
 
   handleScroll = (dx,dy) => {
+    console.log('scroll', this.delay);
     if(this.delay || zenscroll.moving() || window.preventScroll) return;
 
     this.delay = true;
-    setTimeout(() => {this.delay = false}, 400)
+    setTimeout(() => {this.delay = false}, 800)
 
     if(dy < 0) {
-      // console.log('up')  
+      // console.log('up')
       this.routeIndex -= 1;
       if(this.routeIndex < 0) this.routeIndex = routes.length - 1;
     }
@@ -67,6 +69,7 @@ export default class App extends Component{
       if(this.routeIndex >= routes.length) this.routeIndex = 0;
     }
     const nextPath = routes[this.routeIndex];
+    console.log(nextPath);
     this.props.router.push(nextPath)
   }
 

@@ -1,7 +1,7 @@
 @import '../../styles/fonts';
 @import '../../styles/colors';
 
- 
+
 
 
 :local(.component){
@@ -58,14 +58,14 @@
   background-repeat:no-repeat;
   //z-index: -2;
   img{
-    height:auto;
-    width:100%;
-    position: absolute;  
-    top: 0;  
-    bottom: 0;  
-    left: 0;  
-    right: 0;  
+    //height:auto;
+    //width:100%;
+    max-height: 80%;
+    position: absolute;
+    top: 0;
+    left: 0;
     margin: auto;
+    transform: rotate(180);
     // @media #{$phone-portrait, $tiny}{
     //   width: 90%;
     //   background-position:(0px 11rem);
@@ -99,6 +99,7 @@
     text-transform: uppercase;
     color:$white;
     margin:0;
+    margin-bottom: 1rem;
     @media #{$phone-portrait, $tiny}{
       font-size: 3rem;
       line-height:3rem;

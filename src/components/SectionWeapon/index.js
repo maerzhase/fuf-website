@@ -5,28 +5,18 @@ import React from 'react';
 import {Link,browserHistory} from 'react-router';
 import classnames from 'classnames';
 import styles from './style.scss';
-import FiktionImage from '../../assets/images/fiktion.jpg';
-import FiktionImageHighRes from '../../assets/images/fiktion_highres.jpg';
+import WeaponImage from '../../assets/images/weapon/portrait.jpg';
+import WeaponImageHighRes from '../../assets/images/weapon/portrait.jpg';
 import ParallaxContainer from '../ParallaxContainer';
 import OverlaySection from '../OverlaySection';
 
-
-
-import fiktion1 from '../../assets/images/fiktion/fiktion_gallery_01.jpg'
-import fiktion1_high from '../../assets/images/fiktion/fiktion_gallery_01_highres.jpg'
-import fiktion2 from '../../assets/images/fiktion/fiktion_gallery_02.jpg'
-import fiktion2_high from '../../assets/images/fiktion/fiktion_gallery_02_highres.jpg'
+import img from '../../assets/images/weapon/landscape.jpg';
 
 const media = [
   {
     type: 'image',
-    hd: fiktion1,
-    retina: fiktion1_high,
-  },
-  {
-    type: 'image',
-    hd: fiktion2,
-    retina: fiktion2_high,
+    hd: img,
+    retina: img,
   },
 ]
 
@@ -60,18 +50,18 @@ export default class WeaponSection extends React.Component {
   _openOverlay = (e) => {
    // document.body.style.overflowY ="hidden";
    // window.preventScrolling = true;
-    this.context.router.push('/fiktion/details')
+    this.context.router.push('/weapon/details')
   }
 
   _onCloseOverlay = () => {
-    this.context.router.push('/fiktion')
+    this.context.router.push('/weapon')
   }
 
   _onToggleGallery = (open) => {
     if (open) {
-      this.context.router.push('/fiktion/details/1')
+      this.context.router.push('/weapon/details/1')
     } else {
-      this.context.router.push('/fiktion/details')
+      this.context.router.push('/weapon/details')
     }
   }
 
@@ -85,7 +75,7 @@ export default class WeaponSection extends React.Component {
       <div className={componentClass} >
         <ContentToggle title={title} id={id} onClick={this._openOverlay}/>
         <ParallaxContainer className={backgroundClass} speed={0.4}>
-          <img src={FiktionImage} srcSet={FiktionImageHighRes}/>
+          <img src={WeaponImage} srcSet={WeaponImageHighRes}/>
         </ParallaxContainer>
         <OverlaySection
           onClose={this._onCloseOverlay}
@@ -93,18 +83,22 @@ export default class WeaponSection extends React.Component {
           media={media}
           open={overlayOpen}
           galleryOpen={galleryOpen}
-          credits="Fotos von Sebastian Pircher"
+          credits=""
         >
           <div className={overlayContentClass}>
-            <h1>Frauen und Fiktion #1</h1>
-            <h4>Fiktion</h4>
-            <h5>2014 Brutkasten Gaußstraße, AckerStadtPalast Berlin / 2015 Hauptsache Frei Festival Hamburg, Theatermaschine Gießen</h5>
+            <h1>Frauen und Fiktion #3</h1>
+            <h4>You Are A Weapon!</h4>
             <div className="abstract">
-              War sie tatsächlich so geboren, oder hatte sie ihren Schwanz bei einem Unfall verloren? In Fiktion lockt uns die Vortragende mit Fragmenten aus Virginia Woolfs A Room Of One’s Own, einer Manx Katze und einem Augenzwinkern in ein Labyrinth aus literarischen Frauenbildern. Was ist dieses Eva? Frauen und Fiktion spielen mit gängigen Rollen-Klischees und lassen zwischen den Zeilen feministische Gedanken aufblitzen.            </div>
+              Die Theatermacherinnen von Frauen und Fiktion porträtieren in ihrer schweißtreibenden Performance You Are A Weapon! Angreiferinnen. Sie berichten von Ohnmachtserlebnissen, Vorbildfiguren und Selbstermächtigung durch Training. Wehrhaftes Handeln wird nicht als ‚failure of femininity‘ dargestellt, stattdessen werden mit kraftvollen Bewegungen und Geschichten alternative Bilder von Weiblichkeit erzeugt. Während die Performerinnen die Gewalt tanzen, verwandelt sich die Bühne von einem unberechenbaren Schlachtfeld zu einem geschützten Trainingsraum.
+              Die performative Auseinandersetzung basiert auf intensiven Körpertrainings sowie biografischen Interviews mit Expertinnen (Selbstverteidigungs-Trainerinnen, Polizistinnen, Verbrecherinnen). Durch sie werden neue Perspektiven aufgezeigt, die sich durch Empowerment ergeben.
+            </div>
             <div className="credits">
-              Von und Mit Anja Kerschkewicz und Eva Kessler
+              Von und mit: Anja Kerschkewicz, Eva Kessler, Felina Levits, Paula Reissig <br />
+              Musik: plastiq <br />
+              Beratung Produktion: Zwei Eulen
             </div>
             <div className="support">
+              Gefördert durch: Fonds Darstellende Künste, Hamburgische Kulturstiftung, Künstlerhaus Lukas
             </div>
           </div>
         </OverlaySection>
@@ -114,8 +108,8 @@ export default class WeaponSection extends React.Component {
 };
 
 WeaponSection.defaultProps = {
-  title: "Fiktion",
-  id: 1,
+  title: "You Are A Weapon!",
+  id: 3,
   overlayOpen: false,
   galleryOpen:false
 }

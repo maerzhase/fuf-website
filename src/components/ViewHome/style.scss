@@ -6,7 +6,7 @@
     position: relative;
     padding: 4rem;
     @media #{$phone-portrait}{
-      padding: 2rem;
+      padding: 3rem;
     }
     @media #{$phone-landscape}{
       padding: 1rem 3rem;

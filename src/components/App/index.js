@@ -41,7 +41,7 @@ export default class App extends Component{
     const routeIndex = routes.indexOf(this.props.router.location.pathname);
     this.routeIndex = routeIndex > -1 ? routeIndex : 0;
     this.scrollListener = require('mouse-wheel')(window,this.handleScroll,true);
-    this.touchListener = window.addEventListener('touchmove',this.handleTouch);
+    // this.touchListener = window.addEventListener('touchmove',this.handleTouch);
   }
 
   componentWillUnmount(){
@@ -71,15 +71,15 @@ export default class App extends Component{
     return false;
   }
 
-  render(){
-    return <ReactSwipeEvents onSwiping={(e, originalX, originalY, currentX, currentY, deltaX, deltaY)=>{
-        this.handleScroll(deltaX,deltaY*-1)
-    }}>{this.props.children}</ReactSwipeEvents>
-  }
-
   // render(){
-  //   return this.props.children;
+  //   return <ReactSwipeEvents onSwiping={(e, originalX, originalY, currentX, currentY, deltaX, deltaY)=>{
+  //       this.handleScroll(deltaX,deltaY*-1)
+  //   }}>{this.props.children}</ReactSwipeEvents>
   // }
+
+  render(){
+    return this.props.children;
+  }
 }
 
 App.contextTypes = {

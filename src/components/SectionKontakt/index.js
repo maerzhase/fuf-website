@@ -50,8 +50,8 @@ export default class SectionKontakt extends React.Component {
 
     return(
       <div className={componentClass}>
-        <div className="content">
-          <h2>Kontakt</h2> 
+        <div>
+          <h2>Kontakt</h2>
           <a className={styles.a} href="mailto:kontakt@frauenundfiktion.de"><span>kontakt@frauenundfiktion.de</span></a>
           <a className={styles.a} href="https://www.facebook.com/frauenundfiktion/" target="_blank"><span>frauenundfiktion auf facebook</span></a>
         </div>

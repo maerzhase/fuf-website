@@ -3,6 +3,8 @@
 import React, {Component} from 'react';
 import AppActions from '../../flux/actions/AppActions';
 import zenscroll from 'zenscroll';
+import {Lethargy} from 'lethargy';
+const lethargy = new Lethargy();
 
 const JSONFile = require('../../assets/data.json')
 
@@ -12,6 +14,7 @@ const routes = [
   '/lust',
   '/fiktion',
   '/frauen',
+  '/upcoming',
   '/termine',
   '/kontakt'
 ]
@@ -36,7 +39,6 @@ export default class App extends Component{
       a();
     })
     const routeIndex = routes.indexOf(this.props.router.location.pathname);
-    this.delay = false;
     this.routeIndex = routeIndex > -1 ? routeIndex : 0;
     this.scrollListener = require('mouse-wheel')(window,this.handleScroll,true);
     this.touchListener = window.addEventListener('touchmove',this.handleTouch);
@@ -51,13 +53,9 @@ export default class App extends Component{
     event.preventDefault();
   }
 
-  handleScroll = (dx,dy) => {
-    console.log('scroll', this.delay);
-    if(this.delay || zenscroll.moving() || window.preventScroll) return;
-
-    this.delay = true;
-    setTimeout(() => {this.delay = false}, 800)
-
+  handleScroll = (dx,dy,dz,e) => {
+    console.log('scroll',lethargy.check(e));
+    if(!lethargy.check(e) || zenscroll.moving() || window.preventScroll) return;
     if(dy < 0) {
       // console.log('up')
       this.routeIndex -= 1;
@@ -69,8 +67,8 @@ export default class App extends Component{
       if(this.routeIndex >= routes.length) this.routeIndex = 0;
     }
     const nextPath = routes[this.routeIndex];
-    console.log(nextPath);
     this.props.router.push(nextPath)
+    return false;
   }
 
   render(){

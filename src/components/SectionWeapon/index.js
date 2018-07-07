@@ -5,12 +5,12 @@ import React from 'react';
 import {Link,browserHistory} from 'react-router';
 import classnames from 'classnames';
 import styles from './style.scss';
-import WeaponImage from '../../assets/images/weapon/portrait.jpg';
-import WeaponImageHighRes from '../../assets/images/weapon/portrait.jpg';
+import WeaponImage from '../../assets/images/weapon.jpg';
+import WeaponImageHighRes from '../../assets/images/weapon.jpg';
 import ParallaxContainer from '../ParallaxContainer';
 import OverlaySection from '../OverlaySection';
 
-import img from '../../assets/images/weapon/landscape.jpg';
+import img from '../../assets/images/weapon/weapon.jpg';
 
 const media = [
   {

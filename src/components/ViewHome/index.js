@@ -13,6 +13,7 @@ import SectionKontakt from '../SectionKontakt';
 import SectionLust from '../SectionLust';
 import SectionStart from '../SectionStart';
 import SectionTermine from '../SectionTermine';
+import SectionUpcoming from '../SectionUpcoming';
 import zenscroll from 'zenscroll';
 
 export default class ViewHome extends React.Component {
@@ -69,6 +70,9 @@ export default class ViewHome extends React.Component {
         </section>
         <section ref="frauen">
           <SectionFrauen/>
+        </section>
+        <section ref="upcoming">
+          <SectionUpcoming />
         </section>
         <section ref="termine">
           <SectionTermine/>

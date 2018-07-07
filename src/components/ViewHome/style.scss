@@ -12,7 +12,9 @@
       padding: 1rem 3rem;
     }
   }
-
+}
+:local(.lessPadding) {
+  padding: 1rem !important;
 }
 
 :local(.lust){

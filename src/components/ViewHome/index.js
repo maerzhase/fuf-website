@@ -71,10 +71,10 @@ export default class ViewHome extends React.Component {
         <section ref="frauen">
           <SectionFrauen/>
         </section>
-        <section ref="upcoming">
+        <section className={styles.lessPadding} ref="upcoming">
           <SectionUpcoming />
         </section>
-        <section ref="termine">
+        <section className={styles.lessPadding} ref="termine">
           <SectionTermine/>
         </section>
         <section ref="kontakt">

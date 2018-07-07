@@ -158,7 +158,7 @@ $size-closed: 20%;
     }
     @media #{$desktop, $desktop-large, $desktop-huge}{
       font-size:3rem;
-    }    
+    }
 
     transform:translate(50%,-50%) rotateZ(90deg) ;
     transition: transform ease-in-out 0.4s, border-radius ease-in-out 0.4s;

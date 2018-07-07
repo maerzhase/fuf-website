@@ -90,9 +90,9 @@
   img{
     height:auto;
     width:100vw;
-    position: absolute;  
-    bottom: 0;  
-    left: 0;  
+    position: absolute;
+    bottom: 0;
+    left: 0;
     // @media #{$phone-portrait, $tiny}{
     //   width: 90%;
     //   background-position:(0px 11rem);
@@ -126,7 +126,7 @@
   background-color:black;
   padding: 0 5rem;
   transition: transform ease-in-out 0.5s;
-  transform:translate(0,100%);
+  transform:translate(0,150%);
   &.isOpen{
     transform:translate(0,0);
   }

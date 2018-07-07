@@ -41,7 +41,7 @@ export default class App extends Component{
     const routeIndex = routes.indexOf(this.props.router.location.pathname);
     this.routeIndex = routeIndex > -1 ? routeIndex : 0;
     this.scrollListener = require('mouse-wheel')(window,this.handleScroll,true);
-    // this.touchListener = window.addEventListener('touchmove',this.handleTouch);
+    this.touchListener = window.addEventListener('touchmove',this.handleTouch);
   }
 
   componentWillUnmount(){

@@ -94,7 +94,7 @@ export default class WeaponSection extends React.Component {
             </div>
             <div className="credits">
               Von und mit: Anja Kerschkewicz, Eva Kessler, Felina Levits, Paula Reissig <br />
-              Musik: plastiq <br />
+              Musik: L. Krüger <br />
               Beratung Produktion: Zwei Eulen
             </div>
             <div className="support">

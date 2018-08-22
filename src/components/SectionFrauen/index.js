@@ -52,7 +52,7 @@ export default class SectionFrauen extends React.Component {
         <H1><a target="_blank"href="http://paulareissig.de/">Paula Reissig</a></H1>
         <H5>Kulturwissenschaftlerin/Medienkünstlerin</H5>
         <H5 className={styles.collab}>Kollaborateur*innen</H5>
-        <H1><a target="_blank" href="http://www.plastiq.one/">plastiq</a></H1>
+        <H1><a target="_blank" href="https://soundcloud.com/l-k-w-1">L. Krüger</a></H1>
         <H5>Musik</H5>
         <H1><a target="_blank" href="https://vimeo.com/user45802127">Particia Carolin Mai</a></H1>
         <H5>Tänzerin/Choreografin</H5>

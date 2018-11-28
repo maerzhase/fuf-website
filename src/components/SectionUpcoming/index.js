@@ -25,28 +25,34 @@ const EventLI = (props) => {
 
 const events = [
   {
-    date:'06.09.2018',
-    link:'https://www.lichthof-theater.de/event-reader/events/you-are-a-weapon.html',
-    title:'You Are A Weapon!',
-    text:'Hamburg Showing Lichthof Theater Hamburg',
-  },
-  {
     date:'14.12.2018',
-    link:'#',
+    link:'https://theaterdiscounter.de/stuecke/you-are-a-weapon',
     title:'You Are A Weapon!',
     text:'Premiere Theaterdiscounter Berlin',
   },
   {
     date: '15.12.2018',
-    link: '#',
+    link: 'https://theaterdiscounter.de/stuecke/you-are-a-weapon',
     title:'You Are A Weapon!',
     text:'Aufführung Theaterdiscounter Berlin',
   },
   {
     date: '16.12.2018',
-    link: '#',
+    link: 'https://theaterdiscounter.de/stuecke/you-are-a-weapon',
     title: 'You Are A Weapon!',
     text: 'Aufführung Theaterdiscounter Berlin',
+  },
+  {
+    date: '25.01.2019',
+    link: 'https://www.kampnagel.de/de/programm/prozessual-erzeugte-texte-im-gegenwartstheater/?datum=&id_datum=7294',
+    title: 'TOGETHERTEXT',
+    text: 'Konferenz Kampnagel, Hamburg'
+  },
+  {
+    date: '08.03.2018',
+    link: '#',
+    title: 'Weltfrauen(kampf)tag',
+    text: 'Theater Oberhausen',
   },
   {
     date: 'Mai 2019',

@@ -37,19 +37,19 @@ export default class OverlaySection extends React.Component {
     const maxLength = this.state.media.length;
     let newVal = 1;
     if(currentId == maxLength) newVal = 1;
-    if(currentId < maxLength) newVal = currentId+1;  
+    if(currentId < maxLength) newVal = currentId+1;
     const path = this.context.router.location.pathname;
     const newpath = `${path.substring(0,path.length-1)}${newVal}`;
     this.context.router.push(newpath);
   }
-  
+
   _prev = () => {
     const params = this.context.router.params;
     const currentId = Number(params.id);
     const maxLength = this.state.media.length;
     let newVal = 1;
     if(currentId == 0) newVal = maxLength;
-    if(currentId > 1) newVal = currentId-1;  
+    if(currentId > 1) newVal = currentId-1;
     const path = this.context.router.location.pathname;
     const newpath = `${path.substring(0,path.length-1)}${newVal}`;
     this.context.router.push(newpath);
@@ -73,7 +73,7 @@ export default class OverlaySection extends React.Component {
             {this.props.children}
           </div>
         </div>
-        <div className={arrowClass} 
+        <div className={arrowClass}
               onMouseDown={(e)=>this._toggleGallery(e)}>
           {arrowIcon}
         </div>
@@ -91,7 +91,11 @@ export default class OverlaySection extends React.Component {
             }
           })}
           </div>
-          <div className={styles.next} onMouseDown={this._next}><i className="material-icons">skip_next</i></div>
+
+          {
+            media.length > 1 &&
+            <div className={styles.next} onMouseDown={this._next}><i className="material-icons">skip_next</i></div>
+          }
           <label>{credits}</label>
         </div>
       </div>

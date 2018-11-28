@@ -88,17 +88,21 @@ export default class WeaponSection extends React.Component {
           <div className={overlayContentClass}>
             <h1>Frauen und Fiktion #3</h1>
             <h4>You Are A Weapon!</h4>
-            <div className="abstract">
-              Die Theatermacherinnen von Frauen und Fiktion porträtieren in ihrer schweißtreibenden Performance You Are A Weapon! Angreiferinnen. Sie berichten von Ohnmachtserlebnissen, Vorbildfiguren und Selbstermächtigung durch Training. Wehrhaftes Handeln wird nicht als ‚failure of femininity‘ dargestellt, stattdessen werden mit kraftvollen Bewegungen und Geschichten alternative Bilder von Weiblichkeit erzeugt. Während die Performerinnen die Gewalt tanzen, verwandelt sich die Bühne von einem unberechenbaren Schlachtfeld zu einem geschützten Trainingsraum.
-              Die performative Auseinandersetzung basiert auf intensiven Körpertrainings sowie biografischen Interviews mit Expertinnen (Selbstverteidigungs-Trainerinnen, Polizistinnen, Verbrecherinnen). Durch sie werden neue Perspektiven aufgezeigt, die sich durch Empowerment ergeben.
+            <div className="quote">
+            "Gewalt passiert im Schweigen. Gewalt funktioniert deswegen sehr gut, weil nicht darüber geredet wird. Und genausowenig wird über Geschichten gesprochen, in denen sich Menschen erfolgreich gegen Gewalt zur Wehr gesetzt haben."
             </div>
+            <div className="quote">
+              „Wir bewegen uns in einem gewaltvollen System und ich möchte gerne, dass es diese Gewalt nicht mehr gibt. Und gleichzeitig merke ich: dass ich mit einer immerzu pädagogisch wertvollen pazifistischen Haltung nicht mehr weiter komme und mir zu gestatten auch mal gewalttätig zu sein, ein Bruch in diesem System ist - und das finde ich wichtig und richtig!"
+            </div>
+            <div className="abstract">
+             Frauen und Fiktion porträtieren in YOU ARE A WEAPON! Angreiferinnen. Ihre schweißtreibende Auseinandersetzung basiert auf biografischen Interviews mit Expertinnen wie einer Selbstverteidigungs-Trainerin, einer Kneipenwirtin, einer Anti-Aggressionstrainerin, einer MMA-Kämpferin u.a.. Mit drei von ihnen und der Musikerin L. Krüger, verhandeln Frauen und Fiktion Perspektiven, die sich durch körperliches Empowerment ergeben. Sie berichten von Ohnmachtserlebnissen, Vorbildfiguren und Selbstermächtigung durch Training. Während sie die Gewalt tanzen, verwandelt sich die Bühne von einem unberechenbaren Schlachtfeld zu einem geschützten Trainingsraum. Durch Geschichten über wehrhaftes Handeln entstehen dabei alternative Bilder von Weiblichkeit.             </div>
             <div className="credits">
-              Von und mit: Anja Kerschkewicz, Eva Kessler, Felina Levits, Paula Reissig <br />
-              Musik: L. Krüger <br />
-              Beratung Produktion: Zwei Eulen
+              Von und mit Frauen und Fiktion (Anja Kerschkewicz / Eva Kessler / Felina Levits / Paula Reissig ) / L. Krüger / Idalia Nwaimo / Birgit Schley / Lenza Severin // Musik L. Krüger // Bühne und Kostüme Felina Levits // Assistenz Florence Fausch // Licht/Technik Stephan Mäusel // Beratung Produktion Zwei Eulen // Outside Eye Helen Schröder / Anne Brammen
+              <br/>
+              Produktion Frauen und Fiktion // Koproduktion Theaterdiscounter Berlin
             </div>
             <div className="support">
-              Gefördert durch: Fonds Darstellende Künste, Hamburgische Kulturstiftung, Künstlerhaus Lukas
+              Gefördert durch Fonds Darstellende Künste / Hamburgische Kulturstiftung / Künstlerhaus Lukas
             </div>
           </div>
         </OverlaySection>

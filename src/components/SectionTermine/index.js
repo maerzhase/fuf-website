@@ -15,7 +15,7 @@ const DateLI = (props) => {
         <div className="date">{date}</div>
         <div className="title">{title}</div>
         <div className="location">{location}</div>
-        <div className="tickets"><a target="_blank"href={link}>Tickets</a></div>
+        <div className="tickets"><a target="_blank"href={link}>LINK</a></div>
       </div>
     </li>
   )
@@ -103,6 +103,12 @@ const EventLI = (props) => {
 }
 
 const events = [
+  {
+    date:'06.09.2018',
+    link:'https://www.lichthof-theater.de/event-reader/events/you-are-a-weapon.html',
+    title:'You Are A Weapon!',
+    text:'Hamburg Showing Lichthof Theater Hamburg',
+  },
   {
     date:'18.08.2018',
     link:'http://www.kuenstlerhaus-lukas.de/?Veranstaltungen',

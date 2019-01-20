@@ -10,7 +10,7 @@ import WeaponImageHighRes from '../../assets/images/weapon.jpg';
 import ParallaxContainer from '../ParallaxContainer';
 import OverlaySection from '../OverlaySection';
 
-import img from '../../assets/images/weapon/weapon.jpg';
+// import img from '../../assets/images/weapon/weapon.jpg';
 import img1 from '../../assets/images/weapon/1.jpg';
 import img2 from '../../assets/images/weapon/2.jpg';
 import img3 from '../../assets/images/weapon/3.jpg';
@@ -21,11 +21,11 @@ import img7 from '../../assets/images/weapon/7.jpg';
 import img8 from '../../assets/images/weapon/8.jpg';
 
 const media = [
-  {
-    type: 'image',
-    hd: img,
-    retina: img,
-  },
+  // {
+  //   type: 'image',
+  //   hd: img,
+  //   retina: img,
+  // },
   {
     type: 'embed',
     component: <iframe

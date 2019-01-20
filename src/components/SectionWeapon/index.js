@@ -27,6 +27,14 @@ const media = [
     retina: img,
   },
   {
+    type: 'embed',
+    component: <iframe
+      src="https://player.vimeo.com/video/309847175"
+      frameBorder="0"
+      allowFullScreen
+    />
+  },
+  {
     type: 'image',
     hd: img1,
     retina: img1,

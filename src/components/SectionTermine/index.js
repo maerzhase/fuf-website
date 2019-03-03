@@ -23,6 +23,12 @@ const DateLI = (props) => {
 
 const dates = [
   {
+    date:'08.06.2018',
+    link:'http://www.berlin-diagonale.de/2018/',
+    text:'Präsentation',
+    location:'PAF - Berlin Diaognale',
+  },
+  {
     date:"18.03.2017",
     time:"20h",
     location: "Theaterdiscounter Berlin",
@@ -106,8 +112,8 @@ const events = [
   {
     date: '25.01.2019',
     link: 'https://www.kampnagel.de/de/programm/prozessual-erzeugte-texte-im-gegenwartstheater/?datum=&id_datum=7294',
-    title: 'TOGETHERTEXT',
-    text: 'Vortrag Konferenz Kampnagel, Hamburg'
+    title: 'YOU ARE A WEAPON!',
+    text: 'Vortrag TOGETHERTEXT'
   },
   {
     date: '16.12.2018',
@@ -136,26 +142,20 @@ const events = [
   {
     date:'18.08.2018',
     link:'http://www.kuenstlerhaus-lukas.de/?Veranstaltungen',
-    title:'Showing',
-    text:'Künstlerhaus Lukas',
-  },
-  {
-    date:'08.06.2018',
-    link:'http://www.berlin-diagonale.de/2018/',
-    title:'Präsentation',
-    text:'PAF - Berlin Diaognale',
+    title:'You Are A Weapon!,
+    text:'Showing Künstlerhaus Lukas',
   },
   {
     date: '08.03.2018',
     link:'http://www.theater-oberhausen.de/programm/extras.php?SID=626',
-    title:'Workshop',
-    text:'Theater Oberhausen',
+    title:'MANIFEST FÜR EINEN FEMINISTISCHEN FÜHRUNGSSTIL ',
+    text:'Workshop Theater Oberhausen',
   },
   {
     date: '20.01.2018',
     link: 'https://performancesvonweiblichkeit.wordpress.com/programm-2017',
-    title: 'Vortrag',
-    text: 'Universität der Künste Berlin',
+    title: 'Performances von [weiblichkeit]',
+    text: 'Vortrag Universität der Künste Berlin',
   },
 ];
 

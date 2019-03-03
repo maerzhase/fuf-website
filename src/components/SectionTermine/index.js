@@ -23,31 +23,6 @@ const DateLI = (props) => {
 
 const dates = [
   {
-    date: '25.01.2019',
-    link: 'https://www.kampnagel.de/de/programm/prozessual-erzeugte-texte-im-gegenwartstheater/?datum=&id_datum=7294',
-    title: 'TOGETHERTEXT',
-    text: 'Konferenz Kampnagel, Hamburg'
-  },
-  {
-    date: '16.12.2018',
-    link: 'https://theaterdiscounter.de/stuecke/you-are-a-weapon',
-    title: 'You Are A Weapon!',
-    text: 'Aufführung Theaterdiscounter Berlin',
-  },
-
-  {
-    date: '15.12.2018',
-    link: 'https://theaterdiscounter.de/stuecke/you-are-a-weapon',
-    title:'You Are A Weapon!',
-    text:'Aufführung Theaterdiscounter Berlin',
-  },
-  {
-    date:'14.12.2018',
-    link:'https://theaterdiscounter.de/stuecke/you-are-a-weapon',
-    title:'You Are A Weapon!',
-    text:'Premiere Theaterdiscounter Berlin',
-  },
-  {
     date:"18.03.2017",
     time:"20h",
     location: "Theaterdiscounter Berlin",
@@ -128,6 +103,30 @@ const EventLI = (props) => {
 }
 
 const events = [
+  {
+    date: '25.01.2019',
+    link: 'https://www.kampnagel.de/de/programm/prozessual-erzeugte-texte-im-gegenwartstheater/?datum=&id_datum=7294',
+    title: 'TOGETHERTEXT',
+    text: 'Vortrag Konferenz Kampnagel, Hamburg'
+  },
+  {
+    date: '16.12.2018',
+    link: 'https://theaterdiscounter.de/stuecke/you-are-a-weapon',
+    title: 'You Are A Weapon!',
+    text: 'Aufführung Theaterdiscounter Berlin',
+  },
+  {
+    date: '15.12.2018',
+    link: 'https://theaterdiscounter.de/stuecke/you-are-a-weapon',
+    title:'You Are A Weapon!',
+    text:'Aufführung Theaterdiscounter Berlin',
+  },
+   {
+    date: '14.12.2018',
+    link: 'https://theaterdiscounter.de/stuecke/you-are-a-weapon',
+    title:'You Are A Weapon!',
+    text:'Premiere Theaterdiscounter Berlin',
+  },
   {
     date:'06.09.2018',
     link:'https://www.lichthof-theater.de/event-reader/events/you-are-a-weapon.html',

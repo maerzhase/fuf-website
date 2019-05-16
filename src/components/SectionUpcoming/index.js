@@ -25,41 +25,24 @@ const EventLI = (props) => {
 
 const events = [
   {
-    date: '09.03.2018',
-    link: 'https://www.theater-oberhausen.de/programm/stuecke.php?SID=722',
-    title: 'ANGREIFEN!',
-    text: 'Workshop Feministisches Minifestival Theater Oberhausen',
+    date: '18.-19.05.2019',
+    title: 'King Up Your Life',
+    text: 'Workshop Roxy Birsfelden',
+    link: 'https://www.gaybasel.org/events/11475/king-up-your-life',
   },
   {
-    date: '22.03.2019',
-    link: ' https://www.frauenmaerz.de/?fbclid=IwAR2t3PJyvQ9Uuzn4HRsHp6DI95wRMHYQ1pDDATIDixpXCrRZ7veviBCNuqE',
-    title: 'Manifest für einen feministischen Führungsstil',
-    text: 'Workshop Frauenmärz Berlin',
-  },
-  {
-    date: '03.05.2019',
-    link: 'http://www.lichthof-theater.de/event-reader/events/stadttheater2.html',
-    title: 'fuerGLAMOURsorgen',
-    text: 'Lichthof Theater Hamburg',
-  },
-  {
-    date: '04.05.2019',
-    link: 'http://www.lichthof-theater.de/event-reader/events/stadttheater2.html',
-    title: 'fuerGLAMOURsorgen',
-    text: 'Lichthof Theater Hamburg',
-  },
-  {
-    date: '05.05.2019',
-    link: 'http://www.lichthof-theater.de/event-reader/events/stadttheater2.html',
-    title: 'fuerGLAMOURsorgen',
-    text: 'Lichthof Theater Hamburg',
+    date: '30.05.2019',
+    title: 'You Are A Weapon!',
+    text: 'Aufführung Performing Arts Festival Berlin',
+    link: 'https://performingarts-festival.de/de/2019/programm/you-are-weapon',
   },
   {
     date: 'August 2019',
     link: '#',
     title: 'CARE 3.0',
     text: 'Premiere Treibstoff Theatertage Basel',
-  }
+  },
+
 ];
 
 

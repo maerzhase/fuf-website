@@ -109,7 +109,18 @@ const EventLI = (props) => {
 }
 
 const events = [
-
+  {
+    date: '18.-19.05.2019',
+    title: 'King Up Your Life',
+    text: 'Workshop Roxy Birsfelden',
+    link: 'https://www.gaybasel.org/events/11475/king-up-your-life',
+  },
+  {
+    date: '30.05.2019',
+    title: 'You Are A Weapon!',
+    text: 'Aufführung Performing Arts Festival Berlin',
+    link: 'https://performingarts-festival.de/de/2019/programm/you-are-weapon',
+  },
   {
     date: '05.05.2019',
     link: 'http://www.lichthof-theater.de/event-reader/events/stadttheater2.html',

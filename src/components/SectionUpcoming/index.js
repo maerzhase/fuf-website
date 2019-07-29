@@ -25,22 +25,22 @@ const EventLI = (props) => {
 
 const events = [
   {
-    date: '18.-19.05.2019',
-    title: 'King Up Your Life',
-    text: 'Workshop Roxy Birsfelden',
-    link: 'https://www.gaybasel.org/events/11475/king-up-your-life',
-  },
-  {
-    date: '30.05.2019',
-    title: 'You Are A Weapon!',
-    text: 'Aufführung Performing Arts Festival Berlin',
-    link: 'https://performingarts-festival.de/de/2019/programm/you-are-weapon',
-  },
-  {
-    date: 'August 2019',
-    link: '#',
+    date: '27.08.2019',
+    link: 'https://www.treibstoffbasel.ch/produktionen/care',
     title: 'CARE 3.0',
-    text: 'Premiere Treibstoff Theatertage Basel',
+    text: 'Premiere Treibstoff Theatertage Basel/junges Theater Basel',
+  },
+  {
+    date: '29.08.2019',
+    link: 'https://www.treibstoffbasel.ch/produktionen/care',
+    title: 'CARE 3.0',
+    text: 'Premiere Treibstoff Theatertage Basel/junges Theater Basel',
+  },
+  {
+    date: '31.08.2019',
+    link: 'https://www.treibstoffbasel.ch/produktionen/care',
+    title: 'CARE 3.0',
+    text: 'Premiere Treibstoff Theatertage Basel/junges Theater Basel',
   },
 
 ];

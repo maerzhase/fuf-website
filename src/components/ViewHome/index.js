@@ -7,6 +7,7 @@ import classnames from 'classnames';
 import styles from './style.scss';
 import ScrollPilot from '../../lib/ScrollPilot';
 import SectionFiktion from '../SectionFiktion';
+import SectionGlamour from '../SectionGlamour';
 import SectionWeapon from '../SectionWeapon';
 import SectionFrauen from '../SectionFrauen';
 import SectionKontakt from '../SectionKontakt';
@@ -58,6 +59,9 @@ export default class ViewHome extends React.Component {
       <div className={componentClass}>
         <section ref="start" className={styles.start}>
           <SectionStart/>
+        </section>
+        <section ref="glamour">
+          <SectionGlamour overlayOpen={params.section=="glamour" && params.state=="details"} galleryOpen={params.id != undefined}/>
         </section>
         <section ref="weapon" className={styles.weapon}>
           <SectionWeapon overlayOpen={params.section=="weapon" && params.state=="details"} galleryOpen={params.id != undefined}/>

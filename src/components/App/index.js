@@ -10,6 +10,7 @@ const JSONFile = require('../../assets/data.json')
 
 const routes = [
   '/start',
+  '/glamour',
   '/weapon',
   '/lust',
   '/fiktion',
@@ -50,7 +51,7 @@ export default class App extends Component{
 
   handleTouch = (event) => {
     if(window.preventScroll) return;
-    event.preventDefault();
+    if(event.preventDefault) event.preventDefault();
   }
 
   handleScroll = (dx,dy,dz,e) => {

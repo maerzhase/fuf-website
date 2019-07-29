@@ -1,0 +1,258 @@
+@import '../../styles/fonts';
+@import '../../styles/colors';
+
+
+
+
+:local(.component){
+  width: 100%;
+  height: 100%;
+}
+
+:local(.toggle){
+  position: relative;
+  cursor: pointer;
+  h1{
+    text-align: right;
+    font-weight:normal;
+    text-transform: uppercase;
+    margin:0;
+    &:hover{
+      color:$hover;
+      cursor: pointer;
+    }
+    @media #{$phone-portrait, $tiny}{
+      font-size:6.3rem;
+      line-height:7rem;
+    }
+    @media #{$phone-landscape}{
+      font-size: 7rem;
+      line-height:7rem;
+    }
+    @media #{$pad-portrait, $pad-landscape}{
+      font-size: 10rem;
+      line-height:10rem;
+    }
+    @media #{$desktop, $desktop-large, $desktop-huge}{
+      font-size: 12rem;
+      line-height:12rem;
+    }
+  }
+  label{
+    position:absolute;
+    font-size: 1.5rem;
+    color:$gray;
+    right:0;
+    top:50%;
+    transform:rotateZ(90deg) translate(-50%,-100%);
+    transform-origin: center center;
+  }
+}
+
+:local(.background){
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  background-repeat:no-repeat;
+  //z-index: -2;
+  img{
+    //height:auto;
+    //width:100%;
+    max-height: 80%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: auto;
+    transform: rotate(180);
+    // @media #{$phone-portrait, $tiny}{
+    //   width: 90%;
+    //   background-position:(0px 11rem);
+    // }
+    // @media #{$phone-landscape}{
+    //   width: 56%;
+    //   background-position:(0px 0rem);
+    // }
+    // @media #{$pad-portrait}{
+    //   width: 80%;
+    //   background-position:(0px 10rem);
+    // }
+    // @media #{$pad-landscape}{
+    //   width: 75%;
+    //   background-position:(0px 0rem);
+    // }
+    // @media #{$desktop, $desktop-large, $desktop-huge}{
+    //   width: 65%;
+    //   background-position:(0px 0px);
+    // }
+  }
+}
+
+:local(.overlayContent){
+  h1{
+    color:$gray;
+    margin:0;
+    text-transform: uppercase;
+  }
+  h4{
+    text-transform: uppercase;
+    color:$white;
+    margin:0;
+    margin-bottom: 1rem;
+    @media #{$phone-portrait, $tiny}{
+      font-size: 3rem;
+      line-height:3rem;
+    }
+    @media #{$phone-landscape}{
+      font-size: 2rem;
+      line-height:2rem;
+    }
+    @media #{$pad-portrait, $pad-landscape}{
+      font-size: 4.5rem;
+      line-height:4.5rem;
+    }
+    @media #{$desktop}{
+      font-size: 4rem;
+      line-height:4rem;
+    }
+    @media #{$desktop-large, $desktop-huge}{
+      font-size: 5rem;
+      line-height:5rem;
+    }
+  }
+
+  h5{
+    text-transform: uppercase;
+    color:$white;
+    margin:0;
+    margin-bottom: 2rem;
+    @media #{$phone-portrait, $tiny}{
+      font-size: 1.8rem;
+      line-height:2rem;
+    }
+    @media #{$phone-landscape}{
+      font-size: 1.3rem;
+      line-height:1.3rem;
+      margin-bottom: 1rem;
+    }
+    @media #{$pad-portrait, $pad-landscape}{
+      font-size: 2rem;
+      line-height:2rem;
+
+    }
+    @media #{$desktop}{
+      font-size:2rem;
+      line-height:2rem;
+    }
+    @media #{$desktop-large, $desktop-huge}{
+      font-size: 3rem;
+      line-height:3rem;
+    }
+  }
+
+  .abstract{
+    overflow: hidden;
+
+    @media #{$phone-portrait, $tiny}{
+      font-size: 1.5rem;
+      line-height: 2.2rem;
+      margin-bottom: 1.5rem;
+    }
+    @media #{$phone-landscape}{
+      font-size: 1.2rem;
+      line-height: 1.6rem;
+      margin-bottom: 1.5rem;
+    }
+    @media #{$pad-portrait, $pad-landscape}{
+      font-size: 1.7em;
+      line-height: 2.2rem;
+      margin-bottom: 2rem;
+      margin-top: 2rem;
+    }
+    @media #{$desktop}{
+      font-size: 1.3rem;
+      line-height: 1.6rem;
+      margin-bottom: 2rem;
+    }
+    @media #{$desktop-large, $desktop-huge}{
+      font-size: 1.5rem;
+      line-height: 1.8rem;
+      margin-bottom: 2rem;
+    }
+  }
+
+  .credits{
+    color:$gray;
+    @media #{$phone-portrait, $tiny}{
+      font-size: 1.2rem;
+      line-height: 1.6rem;
+      margin-bottom: 1.5rem;
+    }
+    @media #{$phone-landscape}{
+      font-size: 1.2rem;
+      line-height: 1.6rem;
+      margin-bottom: 1.5rem;
+    }
+    @media #{$pad-portrait, $pad-landscape}{
+      font-size: 1.5rem;
+      line-height: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    @media #{$desktop, $desktop-large, $desktop-huge}{
+      font-size: 1.2rem;
+      line-height: 1.6rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  .support{
+    color:$gray;
+    @media #{$phone-portrait, $tiny}{
+      font-size: 1.2rem;
+      line-height: 1.6rem;
+      margin-bottom: 1.5rem;
+    }
+    @media #{$phone-landscape}{
+      font-size: 1.2rem;
+      line-height: 1.6rem;
+      margin-bottom: 1.5rem;
+    }
+    @media #{$pad-portrait, $pad-landscape}{
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+    @media #{$desktop, $desktop-large, $desktop-huge}{
+      font-size: 1.2rem;
+      line-height: 1.6rem;
+    }
+  }
+  .quote {
+    overflow: hidden;
+    @media #{$phone-portrait, $tiny}{
+      font-size: 1.5rem;
+      line-height: 2.2rem;
+      margin-bottom: 1.5rem;
+    }
+    @media #{$phone-landscape}{
+      font-size: 1.2rem;
+      line-height: 1.6rem;
+      margin-bottom: 1.5rem;
+    }
+    @media #{$pad-portrait, $pad-landscape}{
+      font-size: 1.4rem;
+      line-height: 2rem;
+      margin-bottom: 1rem;
+    }
+    @media #{$desktop}{
+      font-size: 1.3rem;
+      line-height: 1.6rem;
+      margin-bottom: 2rem;
+    }
+    @media #{$desktop-large, $desktop-huge}{
+      font-size: 1.5rem;
+      line-height: 1.8rem;
+      margin-bottom: 2rem;
+    }
+  }
+}

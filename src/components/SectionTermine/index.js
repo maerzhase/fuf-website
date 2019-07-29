@@ -142,13 +142,13 @@ const events = [
   {
     date:'18.08.2018',
     link:'http://www.kuenstlerhaus-lukas.de/?Veranstaltungen',
-    title:'You Are A Weapon!,
+    title: 'You Are A Weapon!',
     text:'Showing Künstlerhaus Lukas',
   },
   {
     date: '08.03.2018',
     link:'http://www.theater-oberhausen.de/programm/extras.php?SID=626',
-    title:'MANIFEST FÜR EINEN FEMINISTISCHEN FÜHRUNGSSTIL ',
+    title:'MANIFEST FÜR EINEN FEMINISTISCHEN FÜHRUNGSSTIL',
     text:'Workshop Theater Oberhausen',
   },
   {

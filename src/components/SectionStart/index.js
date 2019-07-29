@@ -17,9 +17,7 @@ export default class SectionStart extends React.Component {
     return(
       <div className={componentClass}>
         <h1>
-          <Link to="/frauen">Frauen</Link> und <Link to="/lust">Fiktion</Link> erproben an der Schnittstelle von Theorie und
-          Theater alternative Entwürfe von
-          Frau-Sein.
+          <Link to="/frauen">Frauen</Link> und <Link to="/lust">Fiktion</Link> forschen in recherchebasierten Performances zu Gedankenexperimenten über Geschlechterrollen.
         </h1>
       </div>
     )

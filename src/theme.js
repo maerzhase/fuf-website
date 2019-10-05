@@ -36,6 +36,9 @@ const theme = createMuiTheme({
       padding: theme.spacing(2),
     },
   }),
+  teaserShadow: () => ({
+    textShadow: '1px 1px 3px rgba(0,0,0,0.70)',
+  }),
   transitions: {
     color: 'color ease-in-out 150ms',
   },

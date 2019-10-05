@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
     lineHeight: 1,
     fontSize: '10rem',
     marginLeft: theme.spacing(4),
-    textShadow: '1px 1px 3px rgba(0,0,0,0.68)',
+    ...theme.teaserShadow(),
     [theme.breakpoints.down('md')]: {
       fontSize: '6rem',
     },
@@ -29,6 +29,7 @@ const useStyles = makeStyles(theme => ({
     color: theme.palette.grey[500],
     lineHeight: 1,
     fontSize: '1.4rem',
+    ...theme.teaserShadow(),
   },
 }));
 

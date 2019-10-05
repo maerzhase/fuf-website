@@ -54,7 +54,7 @@ class IndexPage extends Component {
           id="fiktion"
           title="Fiktion"
           num={1}
-          backgroundAlign="top left"
+          backgroundAlign="bottom left"
           img="/static/fiktion_title.jpg"
         />
         <Section centered id="frauen">

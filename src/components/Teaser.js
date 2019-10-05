@@ -1,19 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
-import { Parallax } from 'react-scroll-parallax';
-import Autosizer from 'react-virtualized-auto-sizer';
 import Link from './Link';
 import Section from './Section';
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    margin: theme.spacing(8),
-  },
   title: {
     display: 'flex',
     alignItems: 'center',
-    // flexDirection: props => props.align === 'left' ? 'row' : 'row-reverse'
   },
   h1: {
     textTransform: 'uppercase',
@@ -30,16 +25,10 @@ const useStyles = makeStyles(theme => ({
     position: 'absolute',
     top: '50%',
     left: theme.spacing(-4),
-    //left: props => props.align === 'left' ? '-10%' : '110%',
-    transform: 'rotate(-90deg)',
     color: theme.palette.grey[500],
     lineHeight: 1,
     fontSize: '1.4rem',
-    // transform: props => props.align === 'left' ? 'rotate(90deg)' : 'rotate(-90deg)',
   },
-  // content: {
-  //   ...theme.sectionPadding(),
-  // },
 }));
 
 const Teaser = props => {
@@ -67,6 +56,14 @@ const Teaser = props => {
       </div>
     </Section>
   );
+};
+
+Teaser.propTypes = {
+  title: PropTypes.string.isRequired,
+  num: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
+  img: PropTypes.string.isRequired,
+  backgroundAlign: PropTypes.string.isRequired,
 };
 
 export default Teaser;

@@ -1,17 +1,15 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
 import cx from 'classnames';
+import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import MuiTableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
+// import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import moment from 'moment';
 import Section from './Section';
 import Link from './Link';
-
-moment.locale('de');
 
 const useStyles = makeStyles(theme => ({
   cell: {
@@ -50,6 +48,14 @@ const TableCell = props => {
   );
 };
 
+TableCell.propTypes = {
+  className: PropTypes.string,
+};
+
+TableCell.defaultProps = {
+  className: '',
+};
+
 const Termine = props => {
   const classes = useStyles(props);
   const { dates, title } = props;
@@ -64,7 +70,7 @@ const Termine = props => {
           {dates.map(d => {
             const hasSubtext = d.text;
             return (
-              <TableRow className={classes.row}>
+              <TableRow key={d.date} className={classes.row}>
                 <TableCell>
                   <Typography component="span" variant="h6">
                     {d.date}
@@ -153,6 +159,11 @@ const Termine = props => {
       </Table>
     </Section>
   );
+};
+
+Termine.propTypes = {
+  dates: PropTypes.array,
+  title: PropTypes.string.isRequired,
 };
 
 Termine.defaultProps = {

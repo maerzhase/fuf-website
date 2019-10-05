@@ -5,8 +5,11 @@ import { Provider } from 'mobx-react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { withStyles, MuiThemeProvider } from '@material-ui/core/styles';
 import { ParallaxProvider } from 'react-scroll-parallax';
+import moment from 'moment';
 import theme from '../theme';
 import dataStore from '../stores/index';
+
+moment.locale('de');
 
 const styles = () => ({
   '@global': {

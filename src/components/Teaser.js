@@ -37,40 +37,15 @@ const useStyles = makeStyles(theme => ({
     fontSize: '1.4rem',
     // transform: props => props.align === 'left' ? 'rotate(90deg)' : 'rotate(-90deg)',
   },
-  img: {
-    position: 'absolute',
-    left: 0,
-    top: 0,
-    backgroundPosition: props =>
-      props.align === 'left' ? 'left top' : 'right top',
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
-    width: '100%',
-    height: '100%',
-  },
-  content: {
-    ...theme.sectionPadding(),
-  },
+  // content: {
+  //   ...theme.sectionPadding(),
+  // },
 }));
 
 const Teaser = props => {
   const classes = useStyles(props);
   return (
-    <Section minHeight noPadding>
-      <Autosizer>
-        {({ width, height }) => (
-          <Parallax
-            y={[-15, 15]}
-            styleInner={{ height, width }}
-            styleOuter={{ height, width }}
-          >
-            <div
-              className={classes.img}
-              style={{ backgroundImage: `url(${props.img})` }}
-            />
-          </Parallax>
-        )}
-      </Autosizer>
+    <Section minHeight img={props.img} backgroundAlign={props.align}>
       <div className={classes.content}>
         <div className={classes.title}>
           <Typography variant="h1" className={classes.h1} component="h1">

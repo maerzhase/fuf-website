@@ -42,6 +42,7 @@ const Section = props => {
     children,
     img,
     backgroundAlign,
+    noMargin,
     ...restProps
   } = props;
   return (

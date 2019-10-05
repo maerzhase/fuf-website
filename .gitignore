@@ -1,11 +1,13 @@
-.DS_Store
+# build output
+dist
+out
+.next
 
-# Node
-node_modules/
+# dependencies
+node_modules
+
+# logs
 npm-debug.log
 
-# build folder
-dist/
-src/webpack-assets.json
-
-*.sublime-*
+.env
+_src

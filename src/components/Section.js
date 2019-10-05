@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
       padding: props => !props.noPadding && theme.spacing(2),
       minHeight: props => props.minHeight && '600px',
     },
-    marginBottom: theme.spacing(4),
+    marginBottom: props => !props.noMargin && theme.spacing(4),
   },
 }));
 

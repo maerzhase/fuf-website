@@ -34,6 +34,12 @@ const useStyles = makeStyles(theme => ({
   subText: {
     color: theme.palette.grey[500],
   },
+  wrap: {
+    wordBreak: 'break-all',
+  },
+  invisble: {
+    visibility: 'hidden',
+  },
 }));
 
 const TableCell = props => {
@@ -49,7 +55,7 @@ const Termine = props => {
   const { dates, title } = props;
   if (dates.length === 0) return null;
   return (
-    <Section centered>
+    <Section centered noMargin>
       <Typography variant="h4" gutterBottom>
         {title}
       </Typography>
@@ -97,6 +103,52 @@ const Termine = props => {
               </TableRow>
             );
           })}
+          <TableRow className={cx(classes.row, classes.invisble)}>
+            <TableCell>
+              <Typography component="span" variant="h6">
+                00.00.0000
+              </Typography>
+            </TableCell>
+            <TableCell>
+              <Typography
+                component="span"
+                className={cx(classes.projectTitle, classes.wrap)}
+                variant="h5"
+              >
+                <b>
+                  {Array(32)
+                    .fill('X')
+                    .join('')}
+                </b>
+                <Typography
+                  variant="h6"
+                  component="span"
+                  className={cx(classes.subText, classes.wrap)}
+                >
+                  &nbsp;
+                  {Array(32)
+                    .fill('X')
+                    .join('')}
+                </Typography>
+              </Typography>
+            </TableCell>
+            <TableCell>
+              <Typography
+                className={classes.wrap}
+                component="span"
+                variant="h6"
+              >
+                {Array(40)
+                  .fill('X')
+                  .join('')}
+              </Typography>
+            </TableCell>
+            <TableCell>
+              <Typography component="span" variant="h6">
+                Link
+              </Typography>
+            </TableCell>
+          </TableRow>
         </TableBody>
       </Table>
     </Section>

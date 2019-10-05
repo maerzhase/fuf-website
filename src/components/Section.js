@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/styles';
 import { Parallax } from 'react-scroll-parallax';
 import Autosizer from 'react-virtualized-auto-sizer';
@@ -66,8 +67,21 @@ const Section = props => {
   );
 };
 
+Section.propTypes = {
+  children: PropTypes.any.isRequired,
+  backgroundAlign: PropTypes.string,
+  centered: PropTypes.bool,
+  minHeight: PropTypes.bool,
+  noPadding: PropTypes.bool,
+  img: PropTypes.string,
+};
+
 Section.defaultProps = {
   backgroundAlign: 'left top',
+  centered: false,
+  minHeight: false,
+  noPadding: false,
+  img: null,
 };
 
 export default Section;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import NextLink from 'next/link';
 import { makeStyles } from '@material-ui/styles';
 
@@ -22,6 +23,15 @@ const Link = props => {
       <a className={classes.root} {...restProps} />
     </NextLink>
   );
+};
+
+Link.propTypes = {
+  noDecoration: PropTypes.bool,
+  href: PropTypes.string.isRequired,
+};
+
+Link.defaultProps = {
+  noDecoration: false,
 };
 
 export default Link;

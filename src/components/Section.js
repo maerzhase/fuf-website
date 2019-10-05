@@ -74,6 +74,7 @@ Section.propTypes = {
   minHeight: PropTypes.bool,
   noPadding: PropTypes.bool,
   img: PropTypes.string,
+  noMargin: PropTypes.bool,
 };
 
 Section.defaultProps = {
@@ -81,6 +82,7 @@ Section.defaultProps = {
   centered: false,
   minHeight: false,
   noPadding: false,
+  noMargin: false,
   img: null,
 };
 

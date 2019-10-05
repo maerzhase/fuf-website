@@ -106,7 +106,7 @@ class IndexPage extends Component {
             </Link>
           </Typography>
         </Section>
-        <Section centered>
+        <Section centered noMargin>
           <img
             style={{ opacity: 0.5, transform: 'translate(10px, 0)' }}
             src="/static/fuf-logo.svg"

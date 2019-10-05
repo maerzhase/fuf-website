@@ -25,6 +25,7 @@ const useStyles = makeStyles(theme => ({
     position: 'absolute',
     top: '50%',
     left: theme.spacing(-4),
+    transform: 'rotate(-90deg)',
     color: theme.palette.grey[500],
     lineHeight: 1,
     fontSize: '1.4rem',

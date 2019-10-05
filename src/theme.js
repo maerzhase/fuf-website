@@ -39,6 +39,13 @@ const theme = createMuiTheme({
   transitions: {
     color: 'color ease-in-out 150ms',
   },
+  overrides: {
+    MuiTypography: {
+      gutterBottom: {
+        marginBottom: '0.6em',
+      },
+    },
+  },
 });
 
 export default responsiveFontSizes(theme, { factor: 5 });

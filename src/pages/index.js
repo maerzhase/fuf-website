@@ -47,7 +47,7 @@ class IndexPage extends Component {
           id="lust"
           title="Lust"
           num={2}
-          backgroundAlign="top right"
+          backgroundAlign="bottom right"
           img="/static/lust_title2.png"
         />
         <Teaser

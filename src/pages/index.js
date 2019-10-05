@@ -25,31 +25,31 @@ class IndexPage extends Component {
         <Teaser
           title="Care 3.0"
           id={5}
-          align="right"
+          backgroundAlign="top right"
           img="/static/care_title.png"
         />
         <Teaser
           title="Glamour"
           id={4}
-          align="left"
+          backgroundAlign="top left"
           img="/static/glamour_title.png"
         />
         <Teaser
           title="You Are A Weapon!"
           id={3}
-          align="right"
+          backgroundAlign="top right"
           img="/static/weapon_title.jpg"
         />
         <Teaser
           title="Lust"
           id={2}
-          align="right"
+          backgroundAlign="top right"
           img="/static/lust_title2.png"
         />
         <Teaser
           title="Fiktion"
           id={1}
-          align="left"
+          backgroundAlign="top left"
           img="/static/fiktion_title.jpg"
         />
         <Section centered id="frauen">
@@ -80,7 +80,12 @@ class IndexPage extends Component {
         </Section>
         <Termine title="Upcoming" dates={dates.future} />
         <Termine title="Termine" dates={dates.past} />
-        <Section centered>
+        <Section
+          centered
+          img="/static/kontakt_title.jpg"
+          minHeight
+          backgroundAlign="bottom right"
+        >
           <Typography variant="h1" gutterBottom>
             <Link href="mailto:kontakt@frauenundfiktion.de">
               kontakt@frauenundfiktion.de

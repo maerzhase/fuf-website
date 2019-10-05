@@ -45,7 +45,7 @@ const useStyles = makeStyles(theme => ({
 const Teaser = props => {
   const classes = useStyles(props);
   return (
-    <Section minHeight img={props.img} backgroundAlign={props.align}>
+    <Section minHeight img={props.img} backgroundAlign={props.backgroundAlign}>
       <div className={classes.content}>
         <div className={classes.title}>
           <Typography variant="h1" className={classes.h1} component="h1">

@@ -18,13 +18,13 @@ const useStyles = makeStyles(theme => ({
   },
   content: {
     ...theme.sectionPadding(),
+    position: 'relative',
   },
   img: {
     position: 'absolute',
     left: 0,
     top: 0,
-    backgroundPosition: props =>
-      props.backgroundAlign === 'left' ? 'left top' : 'right top',
+    backgroundPosition: props => props.backgroundAlign,
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     width: '100%',
@@ -64,6 +64,10 @@ const Section = props => {
       <div className={classes.content}>{children}</div>
     </section>
   );
+};
+
+Section.defaultProps = {
+  backgroundAlign: 'left top',
 };
 
 export default Section;

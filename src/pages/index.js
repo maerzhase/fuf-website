@@ -15,40 +15,45 @@ class IndexPage extends Component {
       <React.Fragment>
         <Section>
           <Typography variant="h1">
-            <Link href="/frauen">FRAUEN</Link>
+            <Link href="#frauen">FRAUEN</Link>
             &nbsp;und&nbsp;
-            <Link href="/fiktion">FIKTION</Link>
+            <Link href="#care">FIKTION</Link>
             &nbsp;forschen in recherchebasierten Performances zu
             Gedankenexperimenten über Geschlechterrollen.
           </Typography>
         </Section>
         <Teaser
+          id="care"
           title="Care 3.0"
-          id={5}
+          num={5}
           backgroundAlign="top right"
           img="/static/care_title.png"
         />
         <Teaser
+          id="glamour"
           title="Glamour"
-          id={4}
+          num={4}
           backgroundAlign="top left"
           img="/static/glamour_title.png"
         />
         <Teaser
+          id="weapon"
           title="You Are A Weapon!"
-          id={3}
+          num={3}
           backgroundAlign="top right"
           img="/static/weapon_title.jpg"
         />
         <Teaser
+          id="lust"
           title="Lust"
-          id={2}
+          num={2}
           backgroundAlign="top right"
           img="/static/lust_title2.png"
         />
         <Teaser
+          id="fiktion"
           title="Fiktion"
-          id={1}
+          num={1}
           backgroundAlign="top left"
           img="/static/fiktion_title.jpg"
         />
@@ -81,6 +86,7 @@ class IndexPage extends Component {
         <Termine title="Upcoming" dates={dates.future} />
         <Termine title="Termine" dates={dates.past} />
         <Section
+          id="frauen"
           centered
           img="/static/kontakt_title.jpg"
           minHeight

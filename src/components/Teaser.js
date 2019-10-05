@@ -45,7 +45,12 @@ const useStyles = makeStyles(theme => ({
 const Teaser = props => {
   const classes = useStyles(props);
   return (
-    <Section minHeight img={props.img} backgroundAlign={props.backgroundAlign}>
+    <Section
+      minHeight
+      img={props.img}
+      backgroundAlign={props.backgroundAlign}
+      id={props.id}
+    >
       <div className={classes.content}>
         <div className={classes.title}>
           <Typography variant="h1" className={classes.h1} component="h1">
@@ -53,7 +58,9 @@ const Teaser = props => {
               {props.title}
             </Link>
             <Typography variant="h2" className={classes.h2} component="span">
-              #0{props.id}
+              <Link color="inherit" noDecoration href={`#${props.id}`}>
+                #0{props.num}
+              </Link>
             </Typography>
           </Typography>
         </div>

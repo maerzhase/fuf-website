@@ -6,10 +6,10 @@ const useStyles = makeStyles(theme => ({
   root: {
     cursor: 'default',
     textDecoration: props => (props.noDecoration ? 'none' : 'underline'),
-    color: theme.palette.common.white,
+    color: props => (props.color ? props.color : theme.palette.common.white),
     transition: theme.transitions.color,
     '&:hover': {
-      color: theme.palette.primary.main,
+      color: props => (props.color ? props.color : theme.palette.primary.main),
     },
   },
 }));

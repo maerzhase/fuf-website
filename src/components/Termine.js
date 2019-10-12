@@ -70,7 +70,10 @@ const Termine = props => {
           {dates.map(d => {
             const hasSubtext = d.text;
             return (
-              <TableRow key={`${d.date}-${d.title}-${d.text}-${d.location}`} className={classes.row}>
+              <TableRow
+                key={`${d.date}-${d.title}-${d.text}-${d.location}`}
+                className={classes.row}
+              >
                 <TableCell>
                   <Typography component="span" variant="h6">
                     {d.date}

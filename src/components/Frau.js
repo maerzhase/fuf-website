@@ -1,19 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { makeStyles } from '@material-ui/styles';
+import { makeStyles } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
 
-// const useStyles = makeStyles(theme => ({
-//   root: {
-//     margin: theme.spacing(8),
-//   },
-// }));
+const useStyles = makeStyles(theme => ({
+  root: {
+    marginBottom: props => (props.gutterBottom ? theme.spacing(8) : null),
+  },
+}));
 
 const Frau = props => {
-  //const classes = useStyles(props);
+  const classes = useStyles(props);
   const hasProfession = !!props.profession;
   return (
-    <React.Fragment>
+    <div className={classes.root}>
       <Typography variant="h2" gutterBottom={!hasProfession}>
         {props.name}
       </Typography>
@@ -22,7 +22,7 @@ const Frau = props => {
           {props.profession}
         </Typography>
       )}
-    </React.Fragment>
+    </div>
   );
 };
 

@@ -7,6 +7,9 @@ const theme = createMuiTheme({
     primary: {
       main: '#ff8c69',
     },
+    text: {
+      secondary: muiTheme.palette.grey[500],
+    },
   },
   typography: {
     fontFamily: "'Oswald', sans-serif",
@@ -23,8 +26,17 @@ const theme = createMuiTheme({
     h4: {
       color: muiTheme.palette.grey[500],
     },
+    h5: {
+      color: muiTheme.palette.grey[500],
+    },
     h6: {
       fontWeight: 400,
+    },
+    body1: {
+      fontSize: 1.5,
+    },
+    body2: {
+      fontSize: 1.1,
     },
   },
   sectionPadding: () => ({

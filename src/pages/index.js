@@ -6,8 +6,10 @@ import Link from '../components/Link';
 import Teaser from '../components/Teaser';
 import Frau from '../components/Frau';
 import Termine from '../components/Termine';
+import Project from '../components/Project';
 
 import dates from '../data/dates';
+import { projectsById } from '../data/projects';
 
 class IndexPage extends Component {
   render() {
@@ -17,7 +19,7 @@ class IndexPage extends Component {
           <Typography variant="h1">
             <Link href="#frauen">FRAUEN</Link>
             &nbsp;und&nbsp;
-            <Link href="#care">FIKTION</Link>
+            <Link href="#fiktion">FIKTION</Link>
             &nbsp;forschen in recherchebasierten Performances zu
             Gedankenexperimenten über Geschlechterrollen.
           </Typography>
@@ -70,21 +72,25 @@ class IndexPage extends Component {
           <Frau
             name="Paula Reissig"
             profession="Kulturwissenschaftlerin/Medienkünstlerin"
+            gutterBottom
           />
           <Typography variant="h4" gutterBottom>
             Kollaborateur*innen
           </Typography>
-          <Frau name="L. Krüger" profession="Musik" />
-          <Frau name="Jonas Mahari" />
-          <Frau name="Marilyn Nova White" />
-          <Frau name="Gregor Schuster" />
+          <Frau name="Lina Krüger" profession="Musikerin/Performerin" />
+          <Frau name="Jonas Mahari" profession="Musiker/Performer" />
+          <Frau
+            name="Marilyn Nova White"
+            profession="Hula Hoop Dancer/Drag King"
+          />
+          <Frau name="Gregor Schuster" profession="Regisseur/Performer" />
           <Frau
             name="Particia Carolin Mai"
             profession="Tänzerin/Choreografin"
           />
         </Section>
-        <Termine title="Upcoming" dates={dates.future} />
-        <Termine title="Termine" dates={dates.past} />
+        <Termine title="Neue Termine" dates={dates.future} />
+        <Termine title="Alte Termine" dates={dates.past} />
         <Section
           id="frauen"
           centered
@@ -118,6 +124,7 @@ class IndexPage extends Component {
             <Link href="/datenschutz">Datenschutz</Link>
           </Typography>
         </Section>
+        <Project {...projectsById(5)} />
       </React.Fragment>
     );
   }

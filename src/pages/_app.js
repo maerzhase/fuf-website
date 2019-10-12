@@ -6,9 +6,13 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { withStyles, MuiThemeProvider } from '@material-ui/core/styles';
 import { ParallaxProvider } from 'react-scroll-parallax';
 import moment from 'moment';
+import smoothscroll from 'smoothscroll-polyfill';
 import theme from '../theme';
 import dataStore from '../stores/index';
 
+if (global.window) {
+  smoothscroll.polyfill();
+}
 moment.locale('de');
 
 const styles = () => ({
@@ -16,6 +20,7 @@ const styles = () => ({
     html: {
       '-webkit-font-smoothing': 'antialiased',
       '-moz-osx-font-smoothing': 'grayscale',
+      scrollBehavior: 'smooth',
     },
     body: {
       backgroundColor: theme.palette.common.black,

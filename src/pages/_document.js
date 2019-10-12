@@ -10,6 +10,7 @@ class MyDocument extends Document {
         <Head>
           <meta charSet="utf-8" />
           {/* Use minimum-scale=1 to enable GPU rasterization */}
+          <link rel="icon" type="image/png" href="/static/fuf-icon.png" />
           <meta
             name="viewport"
             content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"

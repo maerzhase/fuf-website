@@ -70,5 +70,6 @@ export const allProjects = [
   },
 ];
 
-export const projectsByLink = link => groupBy(allProjects, p => p.link)[link][0];
+export const projectsByLink = link =>
+  groupBy(allProjects, p => p.link)[link][0];
 export const projectsById = id => groupBy(allProjects, p => p.num)[id][0];

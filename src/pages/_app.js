@@ -17,6 +17,9 @@ moment.locale('de');
 
 const styles = () => ({
   '@global': {
+    '*': {
+      // outline: 'red 1px solid',
+    },
     html: {
       '-webkit-font-smoothing': 'antialiased',
       '-moz-osx-font-smoothing': 'grayscale',

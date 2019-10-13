@@ -20,6 +20,9 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down('md')]: {
       fontSize: '6rem',
     },
+    [theme.breakpoints.down('xs')]: {
+      fontSize: '4rem',
+    },
   },
   h2: {
     position: 'absolute',
@@ -45,7 +48,7 @@ const Teaser = props => {
       <div className={classes.content}>
         <div className={classes.title}>
           <Typography variant="h1" className={classes.h1} component="h1">
-            <Link href="" noDecoration>
+            <Link href={props.id} noDecoration>
               {props.title}
             </Link>
             <Typography variant="h2" className={classes.h2} component="span">

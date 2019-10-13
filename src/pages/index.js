@@ -1,17 +1,27 @@
 import React, { Component } from 'react';
 import Typography from '@material-ui/core/Typography';
+import { withRouter } from 'next/router';
 
 import Section from '../components/Section';
-import Link from '../components/Link';
+import Link, { Anchor } from '../components/Link';
 import Teaser from '../components/Teaser';
 import Frau from '../components/Frau';
 import Termine from '../components/Termine';
 import Project from '../components/Project';
 
 import dates from '../data/dates';
-import { projectsById } from '../data/projects';
+import { projectsByLink } from '../data/projects';
 
 class IndexPage extends Component {
+  get openProject() {
+    const { router } = this.props;
+    if (!router.query.projectLink) return null;
+    return router.query.projectLink;
+  }
+  get projectData() {
+    if (!this.openProject) return {};
+    return projectsByLink(this.openProject);
+  }
   render() {
     return (
       <React.Fragment>
@@ -99,17 +109,17 @@ class IndexPage extends Component {
           backgroundAlign="bottom right"
         >
           <Typography variant="h1" gutterBottom>
-            <Link href="mailto:kontakt@frauenundfiktion.de">
+            <Anchor href="mailto:kontakt@frauenundfiktion.de">
               kontakt@frauenundfiktion.de
-            </Link>
+            </Anchor>
           </Typography>
           <Typography variant="h1" gutterBottom>
-            <Link
+            <Anchor
               href="https://www.facebook.com/frauenundfiktion/"
               target="_blank"
             >
               frauenundfiktion auf facebook
-            </Link>
+            </Anchor>
           </Typography>
         </Section>
         <Section centered noMargin>
@@ -124,10 +134,10 @@ class IndexPage extends Component {
             <Link href="/datenschutz">Datenschutz</Link>
           </Typography>
         </Section>
-        <Project {...projectsById(5)} />
+        <Project isOpen={!!this.openProject} {...this.projectData} />
       </React.Fragment>
     );
   }
 }
 
-export default IndexPage;
+export default withRouter(IndexPage);

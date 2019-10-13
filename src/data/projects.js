@@ -1,12 +1,12 @@
 import { groupBy } from 'lodash';
 
-const projects = [
+export const allProjects = [
   {
     num: 5,
     link: 'care',
     title: 'CARE 3.0',
     text: [
-      `Frauen und Fiktion laden zu einem glamourösen Care-Contest ein. In einem Ballroom der besonderen Art treten fürsorgliche Figuren jenseits klarer Geschlechterrollen gegeneinander an. Sie battlen sich darin zu ernähren, sich zu kümmern, Geborgenheit zu geben, 'Nein' zu sagen, zuzuhören, geduldig zu sein. Wer ist der oder die ultimativ Sorgetragende? Auf der Basis von Interviews werden Erfahrungen von sorgetragenden Menschen verhandelt: Wer übernimmt hauptsächlich Sorgearbeit in unserer Gesellschaft? Welchen Stellenwert sollte sie einnehmen? Das Publikum ist aufgefordert ihre Favorit*innen anzufeuern. Es wird geputzt und getanzt, geboren, gestorben und gefeiert. We Care to Shine!`
+      `Frauen und Fiktion laden zu einem glamourösen Care-Contest ein. In einem Ballroom der besonderen Art treten fürsorgliche Figuren jenseits klarer Geschlechterrollen gegeneinander an. Sie battlen sich darin zu ernähren, sich zu kümmern, Geborgenheit zu geben, 'Nein' zu sagen, zuzuhören, geduldig zu sein. Wer ist der oder die ultimativ Sorgetragende? Auf der Basis von Interviews werden Erfahrungen von sorgetragenden Menschen verhandelt: Wer übernimmt hauptsächlich Sorgearbeit in unserer Gesellschaft? Welchen Stellenwert sollte sie einnehmen? Das Publikum ist aufgefordert ihre Favorit*innen anzufeuern. Es wird geputzt und getanzt, geboren, gestorben und gefeiert. We Care to Shine!`,
     ],
     caption: [
       `VON: Frauen und Fiktion (Anja Kerschkewicz, Felina Levits, Paula Reissig, Eva Kessler)`,
@@ -33,22 +33,23 @@ const projects = [
     link: 'weapon',
     title: 'YOU ARE A WEAPON',
     pre: [
-     `"Gewalt passiert im Schweigen. Gewalt funktioniert deswegen sehr gut, weil nicht darüber geredet wird. Und genausowenig wird über Geschichten gesprochen, in denen sich Menschen erfolgreich gegen Gewalt zur Wehr gesetzt haben."`,
-     `"Wir bewegen uns in einem gewaltvollen System und ich möchte gerne, dass es diese Gewalt nicht mehr gibt. Und gleichzeitig merke ich: dass ich mit einer immerzu pädagogisch wertvollen pazifistischen Haltung nicht mehr weiter komme und mir zu gestatten auch mal gewalttätig zu sein, ein Bruch in diesem System ist - und das finde ich wichtig und richtig!"`,
+      `"Gewalt passiert im Schweigen. Gewalt funktioniert deswegen sehr gut, weil nicht darüber geredet wird. Und genausowenig wird über Geschichten gesprochen, in denen sich Menschen erfolgreich gegen Gewalt zur Wehr gesetzt haben."`,
+      `"Wir bewegen uns in einem gewaltvollen System und ich möchte gerne, dass es diese Gewalt nicht mehr gibt. Und gleichzeitig merke ich: dass ich mit einer immerzu pädagogisch wertvollen pazifistischen Haltung nicht mehr weiter komme und mir zu gestatten auch mal gewalttätig zu sein, ein Bruch in diesem System ist - und das finde ich wichtig und richtig!"`,
     ],
     text: [
-      `Frauen und Fiktion porträtieren in YOU ARE A WEAPON! Angreiferinnen. Ihre schweißtreibende Auseinandersetzung basiert auf biografischen Interviews mit Expertinnen wie einer Selbstverteidigungs-Trainerin, einer Kneipenwirtin, einer Anti-Aggressionstrainerin, einer MMA-Kämpferin u.a.. Mit drei von ihnen und der Musikerin L. Krüger, verhandeln Frauen und Fiktion Perspektiven, die sich durch körperliches Empowerment ergeben. Sie berichten von Ohnmachtserlebnissen, Vorbildfiguren und Selbstermächtigung durch Training. Während sie die Gewalt tanzen, verwandelt sich die Bühne von einem unberechenbaren Schlachtfeld zu einem geschützten Trainingsraum. Durch Geschichten über wehrhaftes Handeln entstehen dabei alternative Bilder von Weiblichkeit.`
+      `Frauen und Fiktion porträtieren in YOU ARE A WEAPON! Angreiferinnen. Ihre schweißtreibende Auseinandersetzung basiert auf biografischen Interviews mit Expertinnen wie einer Selbstverteidigungs-Trainerin, einer Kneipenwirtin, einer Anti-Aggressionstrainerin, einer MMA-Kämpferin u.a.. Mit drei von ihnen und der Musikerin L. Krüger, verhandeln Frauen und Fiktion Perspektiven, die sich durch körperliches Empowerment ergeben. Sie berichten von Ohnmachtserlebnissen, Vorbildfiguren und Selbstermächtigung durch Training. Während sie die Gewalt tanzen, verwandelt sich die Bühne von einem unberechenbaren Schlachtfeld zu einem geschützten Trainingsraum. Durch Geschichten über wehrhaftes Handeln entstehen dabei alternative Bilder von Weiblichkeit.`,
     ],
     caption: [
       `Von und mit Frauen und Fiktion (Anja Kerschkewicz / Eva Kessler / Felina Levits / Paula Reissig ) / L. Krüger / Idalia Nwaimo / Birgit Schley / Lenza Severin // Musik L. Krüger // Bühne und Kostüme Felina Levits // Assistenz Florence Fausch // Licht/Technik Stephan Mäusel // Beratung Produktion Zwei Eulen // Outside Eye Helen Schröder / Anne Brammen Produktion Frauen und Fiktion // Koproduktion Theaterdiscounter Berlin`,
       `Gefördert durch Fonds Darstellende Künste / Hamburgische Kulturstiftung / Künstlerhaus Lukas`,
-    ]
+    ],
   },
   {
     num: 2,
     link: 'lust',
     title: 'LUST',
-    subtitle: 'EINE PERFORMANCE ÜBER SEXUELLE BIOGRAPHIEN UND EROTISCHE PHANTASIEN VON FRAUEN',
+    subtitle:
+      'EINE PERFORMANCE ÜBER SEXUELLE BIOGRAPHIEN UND EROTISCHE PHANTASIEN VON FRAUEN',
     text: [
       `Frauen und Fiktion überschreiten Schamgrenzen und geben der alltäglichen Lust eine Bühne.  Ob dark dirty talk, eine Sammlung der Sexuellen Identitäten oder Perlen perverser Sexphantasien - sie umarmen die Stereotypen und erweitern gemeinsam mit ihnen die erogenen Zonen. Von Foucault bis Tinder machen sie mehr als einen intellektuellen Striptease und füllen dabei euer Bildarchiv mit verqueerten Bildern der Lust. Ein Gespräch. Ein Tanz. Eine Einladung auf den spannenden Spielplatz der weiblichen Lust.`,
     ],
@@ -65,12 +66,9 @@ const projects = [
     text: [
       `War sie tatsächlich so geboren, oder hatte sie ihren Schwanz bei einem Unfall verloren? In Fiktion lockt uns die Vortragende mit Fragmenten aus Virginia Woolfs A Room Of One’s Own, einer Manx Katze und einem Augenzwinkern in ein Labyrinth aus literarischen Frauenbildern. Was ist dieses Eva? Frauen und Fiktion spielen mit gängigen Rollen-Klischees und lassen zwischen den Zeilen feministische Gedanken aufblitzen.`,
     ],
-    caption: [
-      `Von und Mit Anja Kerschkewicz und Eva Kessler`,
-    ],
+    caption: [`Von und Mit Anja Kerschkewicz und Eva Kessler`],
   },
 ];
 
-export const projectsByLink = link => groupBy(projects, p => p.link)[link][0];
-export const projectsById = id => groupBy(projects, p => p.num)[id][0];
-
+export const projectsByLink = link => groupBy(allProjects, p => p.link)[link][0];
+export const projectsById = id => groupBy(allProjects, p => p.num)[id][0];

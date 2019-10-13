@@ -15,6 +15,21 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+export const Anchor = props => {
+  const classes = useStyles(props);
+  const { noDecoration, ...restProps } = props;
+  return <a className={classes.root} {...restProps} />;
+};
+
+Anchor.propTypes = {
+  noDecoration: PropTypes.bool,
+  href: PropTypes.string.isRequired,
+};
+
+Anchor.defaultProps = {
+  noDecoration: false,
+};
+
 const Link = props => {
   const classes = useStyles(props);
   const { noDecoration, href, ...restProps } = props;

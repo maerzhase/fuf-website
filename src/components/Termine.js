@@ -6,28 +6,38 @@ import Typography from '@material-ui/core/Typography';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import MuiTableCell from '@material-ui/core/TableCell';
-// import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { useTheme } from '@material-ui/core/styles';
 import Section from './Section';
-import Link from './Link';
+import { Anchor as Link } from './Link';
 
 const useStyles = makeStyles(theme => ({
   cell: {
     transition: theme.transitions.color,
     color: theme.palette.common.white,
     borderBottomColor: theme.palette.grey[700],
+    [theme.breakpoints.down('sm')]: {
+      padding: theme.spacing(1),
+    },
   },
   row: {
+    [theme.breakpoints.down('md')]: {
+    },
     '&:hover $cell': {
       color: theme.palette.primary.main,
     },
   },
   projectTitle: {
+        // wordBreak: 'break-all',
     '@global': {
       b: {
         textTransform: 'uppercase',
       },
     },
+  },
+  location: {
+    // wordBreak: 'break-all',
   },
   subText: {
     color: theme.palette.grey[500],
@@ -60,6 +70,10 @@ const Termine = props => {
   const classes = useStyles(props);
   const { dates, title } = props;
   if (dates.length === 0) return null;
+  const theme = useTheme();
+  const matchesDownSm = useMediaQuery(theme.breakpoints.down('xs'));
+  const titleType = matchesDownSm ? 'h6' : 'h5';
+  const restType = matchesDownSm ? 'caption' : 'h6';
   return (
     <Section centered noMargin>
       <Typography variant="h4" gutterBottom>
@@ -75,7 +89,7 @@ const Termine = props => {
                 className={classes.row}
               >
                 <TableCell>
-                  <Typography component="span" variant="h6">
+                  <Typography component="span" variant={restType}>
                     {d.date}
                   </Typography>
                 </TableCell>
@@ -83,12 +97,12 @@ const Termine = props => {
                   <Typography
                     component="span"
                     className={classes.projectTitle}
-                    variant="h5"
+                    variant={titleType}
                   >
                     <b>{d.title}</b>
                     {hasSubtext && (
                       <Typography
-                        variant="h6"
+                        variant={restType}
                         component="span"
                         className={classes.subText}
                       >
@@ -97,13 +111,13 @@ const Termine = props => {
                     )}
                   </Typography>
                 </TableCell>
+                {!matchesDownSm && <TableCell>
+                                  <Typography component="span" variant={restType} className={classes.location}>
+                                    {d.location}
+                                  </Typography>
+                                </TableCell>}
                 <TableCell>
-                  <Typography component="span" variant="h6">
-                    {d.location}
-                  </Typography>
-                </TableCell>
-                <TableCell>
-                  <Typography component="span" variant="h6">
+                  <Typography component="span" variant={restType}>
                     <Link target="_blank" noDecoration href={d.link}>
                       Link
                     </Link>
@@ -114,7 +128,7 @@ const Termine = props => {
           })}
           <TableRow className={cx(classes.row, classes.invisble)}>
             <TableCell>
-              <Typography component="span" variant="h6">
+              <Typography component="span" variant={restType}>
                 00.00.0000
               </Typography>
             </TableCell>
@@ -122,7 +136,7 @@ const Termine = props => {
               <Typography
                 component="span"
                 className={cx(classes.projectTitle, classes.wrap)}
-                variant="h5"
+                variant={titleType}
               >
                 <b>
                   {Array(32)
@@ -130,7 +144,7 @@ const Termine = props => {
                     .join('')}
                 </b>
                 <Typography
-                  variant="h6"
+                  variant={restType}
                   component="span"
                   className={cx(classes.subText, classes.wrap)}
                 >
@@ -141,19 +155,19 @@ const Termine = props => {
                 </Typography>
               </Typography>
             </TableCell>
+           {!matchesDownSm && <TableCell>
+                         <Typography
+                           className={classes.wrap}
+                           component="span"
+                           variant={restType}
+                         >
+                           {Array(40)
+                             .fill('X')
+                             .join('')}
+                         </Typography>
+                       </TableCell>}
             <TableCell>
-              <Typography
-                className={classes.wrap}
-                component="span"
-                variant="h6"
-              >
-                {Array(40)
-                  .fill('X')
-                  .join('')}
-              </Typography>
-            </TableCell>
-            <TableCell>
-              <Typography component="span" variant="h6">
+              <Typography component="span" variant={restType}>
                 Link
               </Typography>
             </TableCell>

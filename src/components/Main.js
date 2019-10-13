@@ -64,8 +64,8 @@ class Main extends Component {
           id="weapon"
           title="You Are A Weapon!"
           num={3}
-          backgroundAlign="top right"
-          img="/static/weapon_title.jpg"
+          backgroundAlign="bottom right"
+          img="/static/weapon_title2.png"
         />
         <Teaser
           id="lust"

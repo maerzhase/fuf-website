@@ -11,11 +11,11 @@ exports.webpack = config =>
       new webpack.EnvironmentPlugin({
         ...dotenv.config().parsed,
       }),
-      isDev &&
-        clearRequireCachePlugin([
-          /\.next\/server\/static\/development\/pages/,
-          /\.next\/server\/ssr-module-cache.js/,
-          /ada-next/,
-        ]),
+      // isDev &&
+      //   clearRequireCachePlugin([
+      //     /\.next\/server\/static\/development\/pages/,
+      //     /\.next\/server\/ssr-module-cache.js/,
+      //     /ada-next/,
+      //   ]),
     ],
   });

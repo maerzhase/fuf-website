@@ -16,6 +16,12 @@ export const allProjects = [
       `In Koproduktion mit Treibstoff`,
       `Gefördert durch: Recherchestipendium Berliner Senatsverwaltung für Kultur und Europa`,
     ],
+    gallery: [
+      ['image', '/static/care/01.jpg'],
+      ['image', '/static/care/02.jpg'],
+      ['image', '/static/care/03.jpg'],
+      ['image', '/static/care/04.jpg'],
+    ],
   },
   {
     num: 4,
@@ -26,6 +32,12 @@ export const allProjects = [
     ],
     caption: [
       `Von Frauen und Fiktion & Menschen in Sorge-Berufen / Mit: Robert Craven, Christina Geiger, Jonas Mahari, Anja Kerschkewicz, Arnis Levits, Felina Levits, Paula Reissig, Sahra Abbassi / Interviewpartner*innen: Lena Biermann, Cesar Bony, Christiane Meier (www.sortiergut.de), Anastasia Reichart`,
+    ],
+    gallery: [
+      ['image', '/static/glamour/01.jpg'],
+      ['image', '/static/glamour/02.jpg'],
+      ['image', '/static/glamour/03.jpg'],
+      ['image', '/static/glamour/04.jpg'],
     ],
   },
   {
@@ -43,6 +55,16 @@ export const allProjects = [
       `Von und mit Frauen und Fiktion (Anja Kerschkewicz / Eva Kessler / Felina Levits / Paula Reissig ) / L. Krüger / Idalia Nwaimo / Birgit Schley / Lenza Severin // Musik L. Krüger // Bühne und Kostüme Felina Levits // Assistenz Florence Fausch // Licht/Technik Stephan Mäusel // Beratung Produktion Zwei Eulen // Outside Eye Helen Schröder / Anne Brammen Produktion Frauen und Fiktion // Koproduktion Theaterdiscounter Berlin`,
       `Gefördert durch Fonds Darstellende Künste / Hamburgische Kulturstiftung / Künstlerhaus Lukas`,
     ],
+    gallery: [
+      ['image', '/static/weapon/01.jpg'],
+      ['image', '/static/weapon/02.jpg'],
+      ['image', '/static/weapon/03.jpg'],
+      ['image', '/static/weapon/04.jpg'],
+      ['image', '/static/weapon/05.jpg'],
+      ['image', '/static/weapon/06.jpg'],
+      ['image', '/static/weapon/07.jpg'],
+      ['image', '/static/weapon/08.jpg'],
+    ],
   },
   {
     num: 2,
@@ -57,6 +79,15 @@ export const allProjects = [
       `Performance Eva Kessler und Patricia Carolin Mai // Eine Arbeit von Frauen und Fiktion: Anja Kerschkewicz & Eva Kessler // Choreografie: Patricia Carolin Mai // Konzeptionelle Mitarbeit & mit Texten von: Elsa-Sophie Donata Jach // Bühne und Kostüme: Felina Levits // mit Musik von: plastiq // Technik und Licht: Sönke C. Herm // Dramaturgische Mitarbeit: Alisa Tretau // Beratung Produktion: Zwei Eulen`,
       `Gefördert durch die Kulturbehörde der Freien und Hansestadt Hamburg, die Rudolf Augstein Stiftung, die Hamburgische Kulturstiftung, die LICHTHOF Stiftung, die Gerda-Weiler-Stiftung und Gängeviertel e.V. `,
     ],
+    gallery: [
+      ['image', '/static/lust/01.jpg'],
+      ['image', '/static/lust/02.jpg'],
+      ['image', '/static/lust/03.jpg'],
+      ['image', '/static/lust/04.jpg'],
+      ['image', '/static/lust/05.jpg'],
+      ['image', '/static/lust/06.jpg'],
+      ['image', '/static/lust/07.jpg'],
+    ],
   },
   {
     num: 1,
@@ -67,6 +98,10 @@ export const allProjects = [
       `War sie tatsächlich so geboren, oder hatte sie ihren Schwanz bei einem Unfall verloren? In Fiktion lockt uns die Vortragende mit Fragmenten aus Virginia Woolfs A Room Of One’s Own, einer Manx Katze und einem Augenzwinkern in ein Labyrinth aus literarischen Frauenbildern. Was ist dieses Eva? Frauen und Fiktion spielen mit gängigen Rollen-Klischees und lassen zwischen den Zeilen feministische Gedanken aufblitzen.`,
     ],
     caption: [`Von und Mit Anja Kerschkewicz und Eva Kessler`],
+    gallery: [
+      ['image', '/static/fiktion/01.jpg'],
+      ['image', '/static/fiktion/02.jpg'],
+    ],
   },
 ];
 

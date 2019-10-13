@@ -46,19 +46,27 @@ const useStyles = makeStyles(theme => ({
     top: theme.spacing(2),
   },
   gallerySection: {
-    position:'absolute',
+    [theme.breakpoints.down('sm')]: {
+      transform: props => props.isGalleryOpen ? 'translate(0, 0)' : 'translate(85%, 0)',
+    },
+    position: 'absolute',
     width: '100%',
     height: '100%',
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: theme.palette.common.black,
     transform: props => props.isGalleryOpen ? 'translate(0, 0)' : 'translate(70%, 0)',
     transition: theme.transitionHelper('transform'),
-
+  },
+  galleryWrap: {
+    overflowX: 'auto',
+    whiteSpace: 'nowrap',
   },
   playButton: {
+    [theme.breakpoints.down('sm')]: {
+      transform: props => props.isGalleryOpen ? 'translate(0, -50%) rotate(0deg)' : 'translate(-50%, -50%) translate(85vw, 0) rotate(-180deg)',
+    },
     appearance: 'none',
     position: 'absolute',
     top: '50%',
-    borderRadius: '50%',
     backgroundColor: theme.palette.common.white,
     width: 35,
     height: 35,
@@ -68,15 +76,28 @@ const useStyles = makeStyles(theme => ({
     '&:focus': {
       outline: 'none',
     },
-    transform: props => props.isGalleryOpen ? 'translate(-50%, -50%) rotate(-180deg)' : 'translate(-50%, -50%) translate(70vw, 0) rotate(0deg)',
-    transition: theme.transitionHelper('transform'),
+    borderTopLeftRadius: props => props.isGalleryOpen ? 0 : '50%',
+    borderBottomLeftRadius: props => props.isGalleryOpen ? 0 : '50%',
+    borderTopRightRadius: '50%',
+    borderBottomRightRadius: '50%',
+    transform: props => props.isGalleryOpen ? 'translate(0, -50%) rotate(0deg)' : 'translate(-50%, -50%) translate(70vw, 0) rotate(-180deg)',
+    transition: theme.transitionHelper(['transform', 'borderRadius']),
+  },
+  img: {
+    width: 'auto',
+    height: '100vh',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+    backgroundSize: 'auto',
+    display: 'inline-block',
+    // outline:  `${theme.palette.common.white} 10px solid`
   },
 }));
 
 const Project = props => {
   // if (!props.isOpen) return null;
   const classes = useStyles(props);
-  const { num, title, subtitle, pre, text, caption } = props;
+  const { num, title, subtitle, pre, text, caption, gallery } = props;
   return (
     <Slide direction={props.isOpen ? 'right' : 'left'} in={props.isOpen} mountOnEnter unmountOnExit timeout={300} onExited={() => console.log('Exited')}>
       <div className={classes.root}>
@@ -113,7 +134,19 @@ const Project = props => {
             <CloseIcon fontSize="large" />
           </IconButton>
         </section>
-        <section className={classes.gallerySection}></section>
+        <section className={classes.gallerySection}>
+          <div className={classes.galleryWrap}>
+            {
+              gallery.map(([type, url]) => {
+                switch(type) {
+                  default:
+                    return <img className={classes.img} src={url} />
+                    // return (<div className={classes.img} style={{backgroundImage: `url(${url})`}} />)
+                }
+              })
+            }
+          </div>
+        </section>
         <button className={classes.playButton} onClick={props.onOpenGallery}>
           <PlayIcon />
         </button>
@@ -129,6 +162,7 @@ Project.propTypes = {
   pre: PropTypes.array,
   text: PropTypes.array,
   caption: PropTypes.array,
+  gallery: PropTypes.array,
   onOpenGallery: PropTypes.func.isRequired,
   isOpen: PropTypes.bool.isRequired,
   isGalleryOpen: PropTypes.bool.isRequired,
@@ -139,6 +173,7 @@ Project.defaultProps = {
   pre: null,
   text: null,
   caption: null,
+  gallery: [],
   isOpen: false,
   isGalleryOpen: false,
   onOpenGallery: () => {},

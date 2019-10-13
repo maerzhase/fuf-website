@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
+import PlayIcon from '@material-ui/icons/PlayArrow';
 
 const useStyles = makeStyles(theme => ({
   '@global': {
@@ -30,6 +31,7 @@ const useStyles = makeStyles(theme => ({
     height: '100%',
     overflowY: 'auto',
     position: 'relative',
+    transition: theme.transitionHelper('width'),
   },
   closeBtn: {
     [theme.breakpoints.down('sm')]: {
@@ -42,13 +44,38 @@ const useStyles = makeStyles(theme => ({
   },
   gallerySection: {
     [theme.breakpoints.down('sm')]: {
-      width: '15%',
+      //width: props => !props.isGalleryOpen ? '15%' : '85%',
     },
-    width: '30%',
+    //width: props => !props.isGalleryOpen ? '30%' : '70%',
+    position:'absolute',
+    width: '100%',
     height: '100%',
     backgroundColor: theme.palette.primary.main,
-  },
+    transform: props => props.isGalleryOpen ? 'translate(0, 0)' : 'translate(70%, 0)',
+    transition: theme.transitionHelper('transform'),
 
+  },
+  playButton: {
+    [theme.breakpoints.down('sm')]: {
+      left: props => props.isGalleryOpen ? '15%' : '85%',
+    },
+    left: props => props.isGalleryOpen ? '30%' : '70%',
+    appearance: 'none',
+    position: 'absolute',
+    top: '50%',
+    borderRadius: '50%',
+    backgroundColor: theme.palette.common.white,
+    width: 35,
+    height: 35,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    '&:focus': {
+      outline: 'none',
+    },
+    transform: props => props.isGalleryOpen ? 'translate(-50%, -50%) rotate(-180deg)' : 'translate(-50%, -50%) rotate(0deg)',
+    transition: theme.transitionHelper(['left', 'transform']),
+  },
 }));
 
 const Project = props => {
@@ -86,11 +113,14 @@ const Project = props => {
               {caption}
             </Typography>
           ))}
-          <IconButton color="primary" className={classes.closeBtn} href="/">
-            <CloseIcon fontSize="large" />
-          </IconButton>
+        <IconButton color="primary" className={classes.closeBtn} href="/">
+          <CloseIcon fontSize="large" />
+        </IconButton>
       </section>
       <section className={classes.gallerySection}></section>
+      <button className={classes.playButton} onClick={props.onOpenGallery}>
+        <PlayIcon />
+      </button>
     </div>
   );
 };
@@ -102,6 +132,9 @@ Project.propTypes = {
   pre: PropTypes.array,
   text: PropTypes.array,
   caption: PropTypes.array,
+  onOpenGallery: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  isGalleryOpen: PropTypes.bool.isRequired,
 };
 
 Project.defaultProps = {
@@ -109,6 +142,9 @@ Project.defaultProps = {
   pre: null,
   text: null,
   caption: null,
+  isOpen: false,
+  isGalleryOpen: false,
+  onOpenGallery: () => {},
 };
 
 export default Project;

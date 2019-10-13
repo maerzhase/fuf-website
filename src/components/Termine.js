@@ -22,14 +22,13 @@ const useStyles = makeStyles(theme => ({
     },
   },
   row: {
-    [theme.breakpoints.down('md')]: {
-    },
+    [theme.breakpoints.down('md')]: {},
     '&:hover $cell': {
       color: theme.palette.primary.main,
     },
   },
   projectTitle: {
-        // wordBreak: 'break-all',
+    // wordBreak: 'break-all',
     '@global': {
       b: {
         textTransform: 'uppercase',
@@ -111,11 +110,17 @@ const Termine = props => {
                     )}
                   </Typography>
                 </TableCell>
-                {!matchesDownSm && <TableCell>
-                                  <Typography component="span" variant={restType} className={classes.location}>
-                                    {d.location}
-                                  </Typography>
-                                </TableCell>}
+                {!matchesDownSm && (
+                  <TableCell>
+                    <Typography
+                      component="span"
+                      variant={restType}
+                      className={classes.location}
+                    >
+                      {d.location}
+                    </Typography>
+                  </TableCell>
+                )}
                 <TableCell>
                   <Typography component="span" variant={restType}>
                     <Link target="_blank" noDecoration href={d.link}>
@@ -155,17 +160,19 @@ const Termine = props => {
                 </Typography>
               </Typography>
             </TableCell>
-           {!matchesDownSm && <TableCell>
-                         <Typography
-                           className={classes.wrap}
-                           component="span"
-                           variant={restType}
-                         >
-                           {Array(40)
-                             .fill('X')
-                             .join('')}
-                         </Typography>
-                       </TableCell>}
+            {!matchesDownSm && (
+              <TableCell>
+                <Typography
+                  className={classes.wrap}
+                  component="span"
+                  variant={restType}
+                >
+                  {Array(40)
+                    .fill('X')
+                    .join('')}
+                </Typography>
+              </TableCell>
+            )}
             <TableCell>
               <Typography component="span" variant={restType}>
                 Link

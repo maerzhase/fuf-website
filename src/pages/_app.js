@@ -7,6 +7,9 @@ import { withStyles, MuiThemeProvider } from '@material-ui/core/styles';
 import { ParallaxProvider } from 'react-scroll-parallax';
 import moment from 'moment';
 import smoothscroll from 'smoothscroll-polyfill';
+import { PageTransition } from 'next-page-transitions';
+import { withRouter } from 'next/router';
+
 import theme from '../theme';
 import dataStore from '../stores/index';
 
@@ -59,7 +62,8 @@ class MyApp extends App {
   }
 
   render() {
-    const { Component, pageProps } = this.props;
+    const { Component, pageProps, router } = this.props;
+    console.log(router);
     return (
       <React.Fragment>
         <Head>
@@ -69,7 +73,9 @@ class MyApp extends App {
           <CssBaseline />
           <Provider dataStore={dataStore}>
             <ParallaxProvider>
-              <Component {...pageProps} />
+              <PageTransition timeout={500} classNames="">
+                <Component {...pageProps} key={router.route} />
+              </PageTransition>
             </ParallaxProvider>
           </Provider>
         </MuiThemeProvider>
@@ -78,4 +84,4 @@ class MyApp extends App {
   }
 }
 
-export default MyApp;
+export default withRouter(MyApp);

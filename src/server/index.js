@@ -4,7 +4,6 @@ const express = require('express');
 const cookieParser = require('cookie-parser')
 const mobxReact = require('mobx-react');
 const { parse } = require('url');
-const routes = require('./routes');
 const {
   DEFAULT_HOSTNAME,
   DEFAULT_PORT,
@@ -22,10 +21,11 @@ const {
 const dev = NODE_ENV !== 'production'
 
 // create a next server instance
-const nextApp = next({ dev: true, dir: './src' });
+const nextApp = next({ dev, dir: './src' });
+const handle = nextApp.getRequestHandler()
 
 // use `next-routes` configuration and bind the next request handler to it
-const nextRouteHandle = routes.getRequestHandler(nextApp);
+// const nextRouteHandle = routes.getRequestHandler(nextApp);
 
 // prevents mobx server memory leak
 mobxReact.useStaticRendering(true);
@@ -37,8 +37,11 @@ async function boostrap(){
   // open express to have a custom server
   const server = express();
   server.use(cookieParser());
+  server.all('*', (req, res) => {
+    return handle(req, res)
+  })
   // bind the next routing handles for the other
-  server.use(nextRouteHandle);
+  // server.use(nextRouteHandle);
   server.listen(PORT, HOSTNAME, error => {
     if (error) throw error;
     console.log(`> Ready on http://${HOSTNAME}:${PORT}`); // eslint-disable-line no-console

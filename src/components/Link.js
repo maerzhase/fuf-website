@@ -32,9 +32,9 @@ Anchor.defaultProps = {
 
 const Link = props => {
   const classes = useStyles(props);
-  const { noDecoration, href, ...restProps } = props;
+  const { noDecoration, href, as, ...restProps } = props;
   return (
-    <NextLink href={href}>
+    <NextLink href={href} as={as}>
       <a className={classes.root} {...restProps} />
     </NextLink>
   );

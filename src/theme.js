@@ -61,6 +61,12 @@ const theme = createMuiTheme({
       },
     },
   },
+  transitionHelper: props => {
+    if (Array.isArray(props)) {
+      return props.map(prop => `${prop} 300ms ease-in-out`).join(', ');
+    }
+    return `${props} 300ms ease-in-out`;
+  },
 });
 
 export default responsiveFontSizes(theme, { factor: 5 });

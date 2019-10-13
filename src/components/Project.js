@@ -93,6 +93,11 @@ const useStyles = makeStyles(theme => ({
     top: theme.spacing(2),
     ...theme.teaserShadow(),
   },
+  embed: {
+    display: 'inline-block',
+    width: '90vw',
+    height: '100vh',
+  },
   img: {
     width: 'auto',
     height: '100vh',
@@ -149,7 +154,16 @@ const Project = props => {
             {
               gallery.map(([type, url, caption]) => {
                 switch(type) {
-                  default:
+                  case 'embed':
+                    return (
+                    <iframe
+                        className={classes.embed}
+                          src={url}
+                          frameBorder="0"
+                          allowFullScreen
+                        />
+                     );
+                  case 'image':
                     return (
                       <div className={classes.galleryItem}>
                         {caption && <Typography className={classes.caption} variant="caption">
@@ -158,6 +172,8 @@ const Project = props => {
                         <img className={classes.img} src={url} />
                       </div>
                     );
+                  default:
+                    return null;
                 }
               })
             }

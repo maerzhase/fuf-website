@@ -56,6 +56,7 @@ export const allProjects = [
       `Gefördert durch Fonds Darstellende Künste / Hamburgische Kulturstiftung / Künstlerhaus Lukas`,
     ],
     gallery: [
+      ['embed', 'https://player.vimeo.com/video/309847175'],
       ['image', '/static/weapon/01.jpg'],
       ['image', '/static/weapon/02.jpg'],
       ['image', '/static/weapon/03.jpg'],
@@ -81,6 +82,7 @@ export const allProjects = [
     ],
     gallery: [
       ['image', '/static/lust/01.jpg', '© Paula Reissig'],
+      ['embed', 'https://player.vimeo.com/video/188169589'],
       ['image', '/static/lust/02.jpg', '© Paula Reissig'],
       ['image', '/static/lust/03.jpg', '© Paula Reissig'],
       ['image', '/static/lust/04.jpg', '© Paula Reissig'],

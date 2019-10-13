@@ -83,6 +83,16 @@ const useStyles = makeStyles(theme => ({
     transform: props => props.isGalleryOpen ? 'translate(0, -50%) rotate(0deg)' : 'translate(-50%, -50%) translate(70vw, 0) rotate(-180deg)',
     transition: theme.transitionHelper(['transform', 'borderRadius']),
   },
+  galleryItem: {
+    display: 'inline-block',
+    position: 'relative',
+  },
+  caption: {
+    position: 'absolute',
+    left: theme.spacing(2),
+    top: theme.spacing(2),
+    ...theme.teaserShadow(),
+  },
   img: {
     width: 'auto',
     height: '100vh',
@@ -137,11 +147,17 @@ const Project = props => {
         <section className={classes.gallerySection}>
           <div className={classes.galleryWrap}>
             {
-              gallery.map(([type, url]) => {
+              gallery.map(([type, url, caption]) => {
                 switch(type) {
                   default:
-                    return <img className={classes.img} src={url} />
-                    // return (<div className={classes.img} style={{backgroundImage: `url(${url})`}} />)
+                    return (
+                      <div className={classes.galleryItem}>
+                        {caption && <Typography className={classes.caption} variant="caption">
+                              {caption}
+                                                </Typography>}
+                        <img className={classes.img} src={url} />
+                      </div>
+                    );
                 }
               })
             }

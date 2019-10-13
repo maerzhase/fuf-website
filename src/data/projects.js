@@ -80,13 +80,13 @@ export const allProjects = [
       `Gefördert durch die Kulturbehörde der Freien und Hansestadt Hamburg, die Rudolf Augstein Stiftung, die Hamburgische Kulturstiftung, die LICHTHOF Stiftung, die Gerda-Weiler-Stiftung und Gängeviertel e.V. `,
     ],
     gallery: [
-      ['image', '/static/lust/01.jpg'],
-      ['image', '/static/lust/02.jpg'],
-      ['image', '/static/lust/03.jpg'],
-      ['image', '/static/lust/04.jpg'],
-      ['image', '/static/lust/05.jpg'],
-      ['image', '/static/lust/06.jpg'],
-      ['image', '/static/lust/07.jpg'],
+      ['image', '/static/lust/01.jpg', '© Paula Reissig'],
+      ['image', '/static/lust/02.jpg', '© Paula Reissig'],
+      ['image', '/static/lust/03.jpg', '© Paula Reissig'],
+      ['image', '/static/lust/04.jpg', '© Paula Reissig'],
+      ['image', '/static/lust/05.jpg', '© Paula Reissig'],
+      ['image', '/static/lust/06.jpg', '© Paula Reissig'],
+      ['image', '/static/lust/07.jpg', '© Paula Reissig'],
     ],
   },
   {
@@ -99,8 +99,8 @@ export const allProjects = [
     ],
     caption: [`Von und Mit Anja Kerschkewicz und Eva Kessler`],
     gallery: [
-      ['image', '/static/fiktion/01.jpg'],
-      ['image', '/static/fiktion/02.jpg'],
+      ['image', '/static/fiktion/01.jpg', '© Sebastian Pircher'],
+      ['image', '/static/fiktion/02.jpg', '© Sebastian Pircher'],
     ],
   },
 ];

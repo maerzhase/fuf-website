@@ -1,5 +1,7 @@
 import moment from 'moment';
 
+moment.locale('de');
+
 const dates = [
   {
     date: '06.03.2020',
@@ -282,8 +284,6 @@ const dates = [
     text: 'Premiere',
     location: 'Brutkastenfestival Theaterakademie Hamburg',
 },
-
-
 {
     date: '01.05.2014',
     title: 'Gründung des Kollektivs',
@@ -292,22 +292,34 @@ const dates = [
 }
 ];
 
-const DATE_FORMAT = 'DD-MM-YYYY';
+export const SHORT_DATE_FORMAT = 'MM.YYYY';
+export const FULL_DATE_FORMAT = 'DD.MM.YYYY';
+export const HUMANIZED_SHORT_DATE = 'MMMM YYYY';
+
+export const humanizeDate = date => {
+  if (date.creationData().input.length === 7) return date.format(HUMANIZED_SHORT_DATE);
+  return date.format(FULL_DATE_FORMAT);
+}
+
+const parseDate = date => {
+  if (date.length === 7) return moment(date, SHORT_DATE_FORMAT);
+  return moment(date, FULL_DATE_FORMAT);
+};
 
 export default dates
   .sort((a, b) => {
-    const dateA = moment(a.date, DATE_FORMAT);
-    const dateB = moment(b.date, DATE_FORMAT);
+    const dateA = parseDate(a.date);
+    const dateB = parseDate(b.date);
     return dateB.toDate() - dateA.toDate();
   })
   .reduce(
     (acc, d) => {
       const now = moment.now();
-      const date = moment(d.date, DATE_FORMAT);
+      const date = parseDate(d.date);
       if (date.isBefore(now)) {
-        acc.past.push(d);
+        acc.past.push({...d, date});
       } else {
-        acc.future.push(d);
+        acc.future.push({...d, date});
       }
       return acc;
     },

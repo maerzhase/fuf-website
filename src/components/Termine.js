@@ -11,6 +11,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
 import Section from './Section';
 import { Anchor as Link } from './Link';
+import { humanizeDate } from '../data/dates';
 
 const useStyles = makeStyles(theme => ({
   cell: {
@@ -82,14 +83,15 @@ const Termine = props => {
         <TableBody className={classes.cell}>
           {dates.map(d => {
             const hasSubtext = d.text;
+            const humanizedDate = humanizeDate(d.date);
             return (
               <TableRow
-                key={`${d.date}-${d.title}-${d.text}-${d.location}`}
+                key={`${humanizedDate}-${d.title}-${d.text}-${d.location}`}
                 className={classes.row}
               >
                 <TableCell>
                   <Typography component="span" variant={restType}>
-                    {d.date}
+                    {humanizedDate}
                   </Typography>
                 </TableCell>
                 <TableCell>

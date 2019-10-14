@@ -59,10 +59,11 @@ const useStyles = makeStyles(theme => ({
   galleryWrap: {
     overflowX: 'auto',
     whiteSpace: 'nowrap',
+    '-webkit-overflow-scrolling': 'touch',
   },
   playButton: {
     [theme.breakpoints.down('sm')]: {
-      transform: props => props.isGalleryOpen ? 'translate(0, -50%) rotate(0deg)' : 'translate(-50%, -50%) translate(85vw, 0) rotate(-180deg)',
+      transform: props => props.isGalleryOpen ? 'translate(0, -50%) rotate(-180deg)' : 'translate(-50%, -50%) translate(85vw, 0) rotate(0deg)',
     },
     appearance: 'none',
     position: 'absolute',
@@ -80,7 +81,7 @@ const useStyles = makeStyles(theme => ({
     borderBottomLeftRadius: props => props.isGalleryOpen ? 0 : '50%',
     borderTopRightRadius: '50%',
     borderBottomRightRadius: '50%',
-    transform: props => props.isGalleryOpen ? 'translate(0, -50%) rotate(0deg)' : 'translate(-50%, -50%) translate(70vw, 0) rotate(-180deg)',
+    transform: props => props.isGalleryOpen ? 'translate(0, -50%) rotate(-180deg)' : 'translate(-50%, -50%) translate(70vw, 0) rotate(0deg)',
     transition: theme.transitionHelper(['transform', 'borderRadius']),
   },
   galleryItem: {

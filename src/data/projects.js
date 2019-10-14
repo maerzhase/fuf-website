@@ -95,9 +95,9 @@ export const allProjects = [
     num: 1,
     link: 'fiktion',
     title: 'FIKTION',
-    subtitle: `2014 BRUTKASTEN GAUSSSTRASSE, ACKERSTADTPALAST BERLIN / 2015 HAUPTSACHE FREI FESTIVAL HAMBURG, THEATERMASCHINE GIES`,
+    subtitle: `2014 BRUTKASTEN GAUSSSTRASSE, ACKERSTADTPALAST BERLIN / 2015 HAUPTSACHE FREI FESTIVAL HAMBURG, Theatermaschine Giessen`,
     text: [
-      `War sie tatsächlich so geboren, oder hatte sie ihren Schwanz bei einem Unfall verloren? In Fiktion lockt uns die Vortragende mit Fragmenten aus Virginia Woolfs A Room Of One’s Own, einer Manx Katze und einem Augenzwinkern in ein Labyrinth aus literarischen Frauenbildern. Was ist dieses Eva? Frauen und Fiktion spielen mit gängigen Rollen-Klischees und lassen zwischen den Zeilen feministische Gedanken aufblitzen.`,
+      `War sie tatsächlich so geboren, oder hatte sie ihren Schwanz bei einem Unfall verloren?  In Fiktion lockt uns die Vortragende mit Fragmenten aus Virginia Woolfs A Room Of One’s Own, einer Manx Katze und einem Augenzwinkern in ein Labyrinth aus literarischen Frauenbildern. Was ist dieses Eva? Frauen und Fiktion spielen mit gängigen Rollen-Klischees und lassen zwischen den Zeilen feministische Gedanken aufblitzen.`,
     ],
     caption: [`Von und Mit Anja Kerschkewicz und Eva Kessler`],
     gallery: [

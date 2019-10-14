@@ -19,14 +19,14 @@ const dates = [
     date: '29.08.2019',
     link: 'https://www.treibstoffbasel.ch/produktionen/care',
     title: 'CARE 3.0',
-    text: 'Premiere',
+    text: 'Auffürhung',
     location: 'Treibstoff Theatertage Basel/junges Theater Basel',
   },
   {
     date: '31.08.2019',
     link: 'https://www.treibstoffbasel.ch/produktionen/care',
     title: 'CARE 3.0',
-    text: 'Premiere',
+    text: 'Auffürhung',
     location: 'Treibstoff Theatertage Basel/junges Theater Basel',
   },
   {
@@ -223,6 +223,73 @@ const dates = [
     text: "+ Doppelvorstellung mit 'Männer fressen' ab 19h",
     link: 'http://pavillon-hannover.de/programm/veranstaltung/?nr=22231',
   },
+  {
+    date: '20.11.2016',
+    title: 'LUST',
+    text: 'Aufführung',
+    location: 'Lichthof Theater',
+    link: 'http://www.lichthof-theater.de/event-reader/events/lust.html',
+},
+
+{
+    date: '19.11.2016',
+    title: 'LUST',
+    text: 'Aufführung',
+    location: 'Lichthof Theater',
+    link: 'http://www.lichthof-theater.de/event-reader/events/lust.html',
+},
+
+{
+    date: '18.11.2016',
+    title: 'LUST',
+    text: 'Premiere',
+    location: 'Lichthof Theater',
+    link: 'http://www.lichthof-theater.de/event-reader/events/lust.html',
+},
+
+
+{
+    date: '06.2015',
+    title: 'FIKTION',
+    text: 'Gastspiel',
+    location: 'Festival Theatermaschine in Gießen',
+},
+
+{
+    date: '04.2015',
+    title: 'FIKTION',
+    text: 'Gastspiel',
+    location: 'Hauptsache Frei Festival in Hamburg',
+},
+
+{
+    date: '11.2014',
+    title: 'FIKTION',
+    text: 'Gastspiel',
+    location: 'AckerStadtPalast Berlin',
+},
+
+{
+    date: '09.2014',
+    title: 'FIKTION',
+    text: 'Gastspiel',
+    location: 'Hamburger Theaternacht im Haus 73',
+},
+
+{
+    date: '07.2014',
+    title: 'FIKTION',
+    text: 'Premiere',
+    location: 'Brutkastenfestival Theaterakademie Hamburg',
+},
+
+
+{
+    date: '01.05.2014',
+    title: 'Gründung des Kollektivs',
+    text: 'Premiere',
+    location: 'Berlin/Hamburg',
+}
 ];
 
 const DATE_FORMAT = 'DD-MM-YYYY';

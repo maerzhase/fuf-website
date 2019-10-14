@@ -123,9 +123,9 @@ const Termine = props => {
                 )}
                 <TableCell>
                   <Typography component="span" variant={restType}>
-                    <Link target="_blank" noDecoration href={d.link}>
-                      Link
-                    </Link>
+                    {d.link && <Link target="_blank" noDecoration href={d.link}>
+                                          Link
+                                        </Link>}
                   </Typography>
                 </TableCell>
               </TableRow>

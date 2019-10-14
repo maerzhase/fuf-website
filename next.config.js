@@ -82,7 +82,6 @@ const pages = {
     return acc;
   }, {}),
 };
-console.log(pages);
 
 exports.exportPathMap = async function(
     defaultPathMap,

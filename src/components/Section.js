@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/styles';
 import { Parallax } from 'react-scroll-parallax';
 import Autosizer from 'react-virtualized-auto-sizer';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { useTheme } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -14,7 +16,7 @@ const useStyles = makeStyles(theme => ({
       minHeight: props => props.minHeight && '700px',
     },
     [theme.breakpoints.down('sm')]: {
-      minHeight: props => props.minHeight && '600px',
+      minHeight: props => props.minHeight && '500px',
     },
     marginBottom: props => !props.noMargin && theme.spacing(4),
   },
@@ -35,7 +37,9 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Section = props => {
-  const classes = useStyles(props);
+  const theme = useTheme();
+  const matchesDownSm = useMediaQuery(theme.breakpoints.down('sm'));
+  const classes = useStyles({...props, isSmall: matchesDownSm});
   const {
     centered,
     minHeight,

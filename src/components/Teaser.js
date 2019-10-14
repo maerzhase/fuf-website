@@ -48,7 +48,12 @@ const Teaser = props => {
       <div className={classes.content}>
         <div className={classes.title}>
           <Typography variant="h1" className={classes.h1} component="h1">
-            <Link href={`/[projectId]`} as={`/${props.id}`} scroll={false} noDecoration>
+            <Link
+              href="/[projectId]"
+              as={`/${props.id}`}
+              scroll={false}
+              noDecoration
+            >
               {props.title}
             </Link>
             <Typography variant="h2" className={classes.h2} component="span">

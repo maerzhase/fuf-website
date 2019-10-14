@@ -27,7 +27,7 @@ class Main extends Component {
     return router.query.imageId;
   }
   handleToggleGallery = () => {
-    if (!!this.imageId) {
+    if (this.imageId) {
       Router.push(`/[projectId]`, `/${this.openProject}`);
     } else {
       Router.push(`/[projectId]/[imageId]`, `/${this.openProject}/0`);
@@ -86,8 +86,16 @@ class Main extends Component {
           <Typography variant="h4" gutterBottom>
             FRAUEN UND FIKTION sind
           </Typography>
-          <Frau name="Felina Levits" profession="Kostümbildnerin" href="https://showcase.design.haw-hamburg.de/author/felina-levits/" />
-          <Frau name="Anja Kerschkewicz" profession="Szenografin/Regisseurin" href="http://www.anjakerschkewicz.com/" />
+          <Frau
+            name="Felina Levits"
+            profession="Kostümbildnerin"
+            href="https://showcase.design.haw-hamburg.de/author/felina-levits/"
+          />
+          <Frau
+            name="Anja Kerschkewicz"
+            profession="Szenografin/Regisseurin"
+            href="http://www.anjakerschkewicz.com/"
+          />
           <Frau
             name="Eva Kessler"
             profession="Theaterwissenschaflterin/Schauspielerin"
@@ -102,14 +110,22 @@ class Main extends Component {
           <Typography variant="h4" gutterBottom>
             Kollaborateur*innen
           </Typography>
-          <Frau name="Lina Krüger" profession="Musikerin/Performerin" href="https://soundcloud.com/haffana" />
-          <Frau name="Jonas Mahari" profession="Musiker/Performer" href="#"/>
+          <Frau
+            name="Lina Krüger"
+            profession="Musikerin/Performerin"
+            href="https://soundcloud.com/haffana"
+          />
+          <Frau name="Jonas Mahari" profession="Musiker/Performer" href="#" />
           <Frau
             name="Marilyn Nova White"
             profession="Hula Hoop Dancer/Drag King"
             href="https://www.marilynnovawhite.com/"
           />
-          <Frau name="Gregor Schuster" profession="Regisseur/Performer" href="https://schustergregor.jimdo.com/" />
+          <Frau
+            name="Gregor Schuster"
+            profession="Regisseur/Performer"
+            href="https://schustergregor.jimdo.com/"
+          />
           <Frau
             name="Particia Carolin Mai"
             profession="Tänzerin/Choreografin"
@@ -151,7 +167,12 @@ class Main extends Component {
             <Link href="/datenschutz">Datenschutz</Link>
           </Typography>
         </Section>
-        <Project isOpen={!!this.openProject} isGalleryOpen={!!this.imageId} onOpenGallery={this.handleToggleGallery} {...this.projectData} />
+        <Project
+          isOpen={!!this.openProject}
+          isGalleryOpen={!!this.imageId}
+          onOpenGallery={this.handleToggleGallery}
+          {...this.projectData}
+        />
       </React.Fragment>
     );
   }

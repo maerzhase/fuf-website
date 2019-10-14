@@ -72,7 +72,7 @@ class MyApp extends App {
           <CssBaseline />
           <Provider dataStore={dataStore}>
             <ParallaxProvider>
-                <Component {...pageProps} />
+              <Component {...pageProps} />
             </ParallaxProvider>
           </Provider>
         </MuiThemeProvider>

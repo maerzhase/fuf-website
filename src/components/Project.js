@@ -48,13 +48,15 @@ const useStyles = makeStyles(theme => ({
   },
   gallerySection: {
     [theme.breakpoints.down('sm')]: {
-      transform: props => props.isGalleryOpen ? 'translate(0, 0)' : 'translate(85%, 0)',
+      transform: props =>
+        props.isGalleryOpen ? 'translate(0, 0)' : 'translate(85%, 0)',
     },
     position: 'absolute',
     width: '100%',
     height: '100%',
     backgroundColor: theme.palette.common.black,
-    transform: props => props.isGalleryOpen ? 'translate(0, 0)' : 'translate(70%, 0)',
+    transform: props =>
+      props.isGalleryOpen ? 'translate(0, 0)' : 'translate(70%, 0)',
     transition: theme.transitionHelper('transform'),
   },
   galleryWrap: {
@@ -64,7 +66,10 @@ const useStyles = makeStyles(theme => ({
   },
   playButton: {
     [theme.breakpoints.down('sm')]: {
-      transform: props => props.isGalleryOpen ? 'translate(0, -50%) rotate(0deg)' : 'translate(-50%, -50%) translate(85vw, 0) rotate(-180deg)',
+      transform: props =>
+        props.isGalleryOpen
+          ? 'translate(0, -50%) rotate(0deg)'
+          : 'translate(-50%, -50%) translate(85vw, 0) rotate(-180deg)',
     },
     appearance: 'none',
     position: 'absolute',
@@ -78,14 +83,17 @@ const useStyles = makeStyles(theme => ({
     '&:focus': {
       outline: 'none',
     },
-    borderTopLeftRadius: props => props.isGalleryOpen ? 0 : '50%',
-    borderBottomLeftRadius: props => props.isGalleryOpen ? 0 : '50%',
+    borderTopLeftRadius: props => (props.isGalleryOpen ? 0 : '50%'),
+    borderBottomLeftRadius: props => (props.isGalleryOpen ? 0 : '50%'),
     borderTopRightRadius: '50%',
     borderBottomRightRadius: '50%',
-    transform: props => props.isGalleryOpen ? 'translate(0, -50%) rotate(0deg)' : 'translate(-50%, -50%) translate(70vw, 0) rotate(-180deg)',
+    transform: props =>
+      props.isGalleryOpen
+        ? 'translate(0, -50%) rotate(0deg)'
+        : 'translate(-50%, -50%) translate(70vw, 0) rotate(-180deg)',
     transition: theme.transitionHelper(['transform', 'borderRadius']),
   },
-  playIcon:{
+  playIcon: {
     transform: 'rotate(180deg)',
   },
   galleryItem: {
@@ -131,7 +139,14 @@ const Project = props => {
   const classes = useStyles(props);
   const { num, title, subtitle, pre, text, caption, gallery } = props;
   return (
-    <Slide direction={props.isOpen ? 'right' : 'left'} in={props.isOpen} mountOnEnter unmountOnExit timeout={300} onExited={() => console.log('Exited')}>
+    <Slide
+      direction={props.isOpen ? 'right' : 'left'}
+      in={props.isOpen}
+      mountOnEnter
+      unmountOnExit
+      timeout={300}
+      onExited={() => console.log('Exited')}
+    >
       <div className={classes.root}>
         <section className={classes.textSection}>
           <Typography variant="h5">Frauen und Fiktion #{num}</Typography>
@@ -162,48 +177,59 @@ const Project = props => {
                 {caption}
               </Typography>
             ))}
-          <IconButton color="primary" className={classes.closeBtn} onClick={() => { Router.push('/')}}>
+          <IconButton
+            color="primary"
+            className={classes.closeBtn}
+            onClick={() => {
+              Router.push('/');
+            }}
+          >
             <CloseIcon fontSize="large" />
           </IconButton>
         </section>
         <section className={classes.gallerySection}>
           <div className={classes.galleryWrap}>
-            {
-              gallery.map(([type, url, caption], index) => {
-                const scollNotification = (
-                    <Typography variant="body1" className={classes.scroller}>
-                      <ArrowRight fontSize="large" className={classes.scrollArrow} />
-                    </Typography>
+            {gallery.map(([type, url, caption], index) => {
+              const scollNotification = (
+                <Typography variant="body1" className={classes.scroller}>
+                  <ArrowRight
+                    fontSize="large"
+                    className={classes.scrollArrow}
+                  />
+                </Typography>
+              );
+              switch (type) {
+                case 'embed':
+                  return (
+                    <React.Fragment>
+                      <iframe
+                        className={classes.embed}
+                        src={url}
+                        frameBorder="0"
+                        allowFullScreen
+                      />
+                      {index === 0 && scollNotification}
+                    </React.Fragment>
                   );
-                switch(type) {
-                  case 'embed':
-                    return (
-                      <React.Fragment>
-                        <iframe
-                          className={classes.embed}
-                            src={url}
-                            frameBorder="0"
-                            allowFullScreen
-                          />
-                          {index === 0 && scollNotification}
-                        </React.Fragment>
-                     );
-                  case 'image':
-                    return (
-                      <div className={classes.galleryItem}>
-                        {caption && <Typography className={classes.caption} variant="caption">
-                              {caption}
-                                                </Typography>}
-                        <img className={classes.img} src={url} />
-                                                  {index === 0 && scollNotification}
-
-                      </div>
-                    );
-                  default:
-                    return null;
-                }
-              })
-            }
+                case 'image':
+                  return (
+                    <div className={classes.galleryItem}>
+                      {caption && (
+                        <Typography
+                          className={classes.caption}
+                          variant="caption"
+                        >
+                          {caption}
+                        </Typography>
+                      )}
+                      <img className={classes.img} src={url} />
+                      {index === 0 && scollNotification}
+                    </div>
+                  );
+                default:
+                  return null;
+              }
+            })}
           </div>
         </section>
         <button className={classes.playButton} onClick={props.onOpenGallery}>

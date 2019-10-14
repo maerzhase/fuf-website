@@ -231,65 +231,64 @@ const dates = [
     text: 'Aufführung',
     location: 'Lichthof Theater',
     link: 'http://www.lichthof-theater.de/event-reader/events/lust.html',
-},
+  },
 
-{
+  {
     date: '19.11.2016',
     title: 'LUST',
     text: 'Aufführung',
     location: 'Lichthof Theater',
     link: 'http://www.lichthof-theater.de/event-reader/events/lust.html',
-},
+  },
 
-{
+  {
     date: '18.11.2016',
     title: 'LUST',
     text: 'Premiere',
     location: 'Lichthof Theater',
     link: 'http://www.lichthof-theater.de/event-reader/events/lust.html',
-},
+  },
 
-
-{
+  {
     date: '06.2015',
     title: 'FIKTION',
     text: 'Gastspiel',
     location: 'Festival Theatermaschine in Gießen',
-},
+  },
 
-{
+  {
     date: '04.2015',
     title: 'FIKTION',
     text: 'Gastspiel',
     location: 'Hauptsache Frei Festival in Hamburg',
-},
+  },
 
-{
+  {
     date: '11.2014',
     title: 'FIKTION',
     text: 'Gastspiel',
     location: 'AckerStadtPalast Berlin',
-},
+  },
 
-{
+  {
     date: '09.2014',
     title: 'FIKTION',
     text: 'Gastspiel',
     location: 'Hamburger Theaternacht im Haus 73',
-},
+  },
 
-{
+  {
     date: '07.2014',
     title: 'FIKTION',
     text: 'Premiere',
     location: 'Brutkastenfestival Theaterakademie Hamburg',
-},
-{
+  },
+  {
     date: '05.2014',
     title: 'Gründung des Kollektivs',
     text: 'Premiere',
     location: 'Berlin/Hamburg',
-}
+  },
 ];
 
 export const SHORT_DATE_FORMAT = 'MM.YYYY';
@@ -297,9 +296,10 @@ export const FULL_DATE_FORMAT = 'DD.MM.YYYY';
 export const HUMANIZED_SHORT_DATE = 'MMMM YYYY';
 
 export const humanizeDate = date => {
-  if (date.creationData().input.length === 7) return date.format(HUMANIZED_SHORT_DATE);
+  if (date.creationData().input.length === 7)
+    return date.format(HUMANIZED_SHORT_DATE);
   return date.format(FULL_DATE_FORMAT);
-}
+};
 
 const parseDate = date => {
   if (date.length === 7) return moment(date, SHORT_DATE_FORMAT);
@@ -317,9 +317,9 @@ export default dates
       const now = moment.now();
       const date = parseDate(d.date);
       if (date.isBefore(now)) {
-        acc.past.push({...d, date});
+        acc.past.push({ ...d, date });
       } else {
-        acc.future.push({...d, date});
+        acc.future.push({ ...d, date });
       }
       return acc;
     },

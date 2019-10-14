@@ -81,8 +81,8 @@ export const allProjects = [
       `Gefördert durch die Kulturbehörde der Freien und Hansestadt Hamburg, die Rudolf Augstein Stiftung, die Hamburgische Kulturstiftung, die LICHTHOF Stiftung, die Gerda-Weiler-Stiftung und Gängeviertel e.V. `,
     ],
     gallery: [
-      ['image', '/static/lust/01.jpg', '© Paula Reissig'],
       ['embed', 'https://player.vimeo.com/video/188169589'],
+      ['image', '/static/lust/01.jpg', '© Paula Reissig'],
       ['image', '/static/lust/02.jpg', '© Paula Reissig'],
       ['image', '/static/lust/03.jpg', '© Paula Reissig'],
       ['image', '/static/lust/04.jpg', '© Paula Reissig'],

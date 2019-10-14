@@ -77,7 +77,7 @@ const pages = {
   ...projects.reduce((acc,p) => {
     acc[`/${p.link}/index`] = { page: '/[projectId]/index'};
     p.gallery.forEach((image, index) => {
-      acc[`/${p.link}/${index}`] = { page: '/[projectId]/[imageId]/index'};
+      acc[`/${p.link}/${index}`] = { page: '/[projectId]/[imageId]'};
     });
     return acc;
   }, {}),

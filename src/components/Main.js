@@ -35,6 +35,7 @@ class Main extends Component {
   };
 
   render() {
+    console.log(this.openProject, this.imageId);
     return (
       <React.Fragment>
         <Section>

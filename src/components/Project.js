@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
+import ArrowRight from '@material-ui/icons/ArrowRightAlt';
 import PlayIcon from '@material-ui/icons/PlayArrow';
 import Slide from '@material-ui/core/Slide';
 import Router, { withRouter } from 'next/router';
@@ -63,7 +64,7 @@ const useStyles = makeStyles(theme => ({
   },
   playButton: {
     [theme.breakpoints.down('sm')]: {
-      transform: props => props.isGalleryOpen ? 'translate(0, -50%) rotate(-180deg)' : 'translate(-50%, -50%) translate(85vw, 0) rotate(0deg)',
+      transform: props => props.isGalleryOpen ? 'translate(0, -50%) rotate(0deg)' : 'translate(-50%, -50%) translate(85vw, 0) rotate(-180deg)',
     },
     appearance: 'none',
     position: 'absolute',
@@ -81,8 +82,11 @@ const useStyles = makeStyles(theme => ({
     borderBottomLeftRadius: props => props.isGalleryOpen ? 0 : '50%',
     borderTopRightRadius: '50%',
     borderBottomRightRadius: '50%',
-    transform: props => props.isGalleryOpen ? 'translate(0, -50%) rotate(-180deg)' : 'translate(-50%, -50%) translate(70vw, 0) rotate(0deg)',
+    transform: props => props.isGalleryOpen ? 'translate(0, -50%) rotate(0deg)' : 'translate(-50%, -50%) translate(70vw, 0) rotate(-180deg)',
     transition: theme.transitionHelper(['transform', 'borderRadius']),
+  },
+  playIcon:{
+    transform: 'rotate(180deg)',
   },
   galleryItem: {
     display: 'inline-block',
@@ -107,6 +111,18 @@ const useStyles = makeStyles(theme => ({
     backgroundSize: 'auto',
     display: 'inline-block',
     // outline:  `${theme.palette.common.white} 10px solid`
+  },
+  scroller: {
+    zIndex: 100,
+    position: 'fixed',
+    left: '100%',
+    top: '100%',
+    transform: 'translate(-100%, -100%)',
+    display: 'flex',
+    alignItems: 'center',
+  },
+  scrollArrow: {
+    fontSize: '3rem',
   },
 }));
 
@@ -153,16 +169,24 @@ const Project = props => {
         <section className={classes.gallerySection}>
           <div className={classes.galleryWrap}>
             {
-              gallery.map(([type, url, caption]) => {
+              gallery.map(([type, url, caption], index) => {
+                const scollNotification = (
+                    <Typography variant="body1" className={classes.scroller}>
+                      <ArrowRight fontSize="large" className={classes.scrollArrow} />
+                    </Typography>
+                  );
                 switch(type) {
                   case 'embed':
                     return (
-                    <iframe
-                        className={classes.embed}
-                          src={url}
-                          frameBorder="0"
-                          allowFullScreen
-                        />
+                      <React.Fragment>
+                        <iframe
+                          className={classes.embed}
+                            src={url}
+                            frameBorder="0"
+                            allowFullScreen
+                          />
+                          {index === 0 && scollNotification}
+                        </React.Fragment>
                      );
                   case 'image':
                     return (
@@ -171,6 +195,8 @@ const Project = props => {
                               {caption}
                                                 </Typography>}
                         <img className={classes.img} src={url} />
+                                                  {index === 0 && scollNotification}
+
                       </div>
                     );
                   default:
@@ -181,7 +207,7 @@ const Project = props => {
           </div>
         </section>
         <button className={classes.playButton} onClick={props.onOpenGallery}>
-          <PlayIcon />
+          <PlayIcon className={classes.playIcon} />
         </button>
       </div>
     </Slide>

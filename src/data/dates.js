@@ -285,7 +285,7 @@ const dates = [
     location: 'Brutkastenfestival Theaterakademie Hamburg',
 },
 {
-    date: '01.05.2014',
+    date: '05.2014',
     title: 'Gründung des Kollektivs',
     text: 'Premiere',
     location: 'Berlin/Hamburg',

@@ -51,28 +51,28 @@ class Main extends Component {
           title="Care 3.0"
           num={5}
           backgroundAlign="top right"
-          img="/static/care_title.png"
+          img="/static/care_title.jpg"
         />
         <Teaser
           id="glamour"
           title="Glamour"
           num={4}
           backgroundAlign="top left"
-          img="/static/glamour_title.png"
+          img="/static/glamour_title.jpg"
         />
         <Teaser
           id="weapon"
           title="You Are A Weapon!"
           num={3}
           backgroundAlign="bottom right"
-          img="/static/weapon_title2.png"
+          img="/static/weapon_title2.jpg"
         />
         <Teaser
           id="lust"
           title="Lust"
           num={2}
           backgroundAlign="bottom right"
-          img="/static/lust_title2.png"
+          img="/static/lust_title2.jpg"
         />
         <Teaser
           id="fiktion"

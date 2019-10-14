@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
+import { Anchor } from './Link';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -15,7 +16,9 @@ const Frau = props => {
   return (
     <div className={classes.root}>
       <Typography variant="h2" gutterBottom={!hasProfession}>
-        {props.name}
+        <Anchor noDecoration href={props.href} target="_blank">
+          {props.name}
+        </Anchor>
       </Typography>
       {hasProfession && (
         <Typography variant="h5" gutterBottom>

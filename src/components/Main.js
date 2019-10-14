@@ -86,30 +86,34 @@ class Main extends Component {
           <Typography variant="h4" gutterBottom>
             FRAUEN UND FIKTION sind
           </Typography>
-          <Frau name="Felina Levits" profession="Kostümbildnerin" />
-          <Frau name="Anja Kerschkewicz" profession="Szenografin/Regisseurin" />
+          <Frau name="Felina Levits" profession="Kostümbildnerin" href="https://showcase.design.haw-hamburg.de/author/felina-levits/" />
+          <Frau name="Anja Kerschkewicz" profession="Szenografin/Regisseurin" href="http://www.anjakerschkewicz.com/" />
           <Frau
             name="Eva Kessler"
             profession="Theaterwissenschaflterin/Schauspielerin"
+            href="http://www.evakessler.com/EvasWebSite/Willkommen.html"
           />
           <Frau
             name="Paula Reissig"
             profession="Kulturwissenschaftlerin/Medienkünstlerin"
+            href="http://paulareissig.de"
             gutterBottom
           />
           <Typography variant="h4" gutterBottom>
             Kollaborateur*innen
           </Typography>
-          <Frau name="Lina Krüger" profession="Musikerin/Performerin" />
-          <Frau name="Jonas Mahari" profession="Musiker/Performer" />
+          <Frau name="Lina Krüger" profession="Musikerin/Performerin" href="https://soundcloud.com/haffana" />
+          <Frau name="Jonas Mahari" profession="Musiker/Performer" href="#"/>
           <Frau
             name="Marilyn Nova White"
             profession="Hula Hoop Dancer/Drag King"
+            href="https://www.marilynnovawhite.com/"
           />
-          <Frau name="Gregor Schuster" profession="Regisseur/Performer" />
+          <Frau name="Gregor Schuster" profession="Regisseur/Performer" href="https://schustergregor.jimdo.com/" />
           <Frau
             name="Particia Carolin Mai"
             profession="Tänzerin/Choreografin"
+            href="https://vimeo.com/user45802127"
           />
         </Section>
         <Termine title="Neue Termine" dates={dates.future} />

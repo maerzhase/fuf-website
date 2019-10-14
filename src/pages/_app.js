@@ -26,6 +26,7 @@ const styles = () => ({
       '-webkit-font-smoothing': 'antialiased',
       '-moz-osx-font-smoothing': 'grayscale',
       scrollBehavior: 'smooth',
+      backgroundColor: theme.palette.common.black,
     },
     body: {
       backgroundColor: theme.palette.common.black,

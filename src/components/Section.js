@@ -6,6 +6,7 @@ import Autosizer from 'react-virtualized-auto-sizer';
 
 const useStyles = makeStyles(theme => ({
   root: {
+    backgroundColor: theme.palette.common.black,
     position: 'relative',
     textAlign: props => (props.centered ? 'center' : 'left'),
     minHeight: props => props.minHeight && '800px',

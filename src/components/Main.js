@@ -47,10 +47,9 @@ class Main extends Component {
   };
 
   render() {
-    console.log(this.isImprintOpen);
     return (
       <React.Fragment>
-        <Section>
+        <Section title>
           <Typography variant="h1">
             <Link href="#frauen">FRAUEN</Link>
             &nbsp;und&nbsp;

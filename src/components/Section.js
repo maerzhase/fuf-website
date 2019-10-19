@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 import { makeStyles } from '@material-ui/styles';
 import { Parallax } from 'react-scroll-parallax';
 import Autosizer from 'react-virtualized-auto-sizer';
@@ -34,6 +35,18 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
     height: '100%',
   },
+  title: {
+    minHeight: 650,
+    [theme.breakpoints.down('md')]: {
+      minHeight: 600,
+    },
+    [theme.breakpoints.down('sm')]: {
+      minHeight: 450,
+    },
+    [theme.breakpoints.down('xs')]: {
+      minHeight: 250,
+    },
+  }
 }));
 
 const Section = props => {
@@ -51,7 +64,7 @@ const Section = props => {
     ...restProps
   } = props;
   return (
-    <section className={classes.root} {...restProps}>
+    <section className={cx(classes.root, {[classes.title]: props.title})} {...restProps}>
       {img && (
         <Autosizer>
           {({ width, height }) => (
@@ -81,6 +94,7 @@ Section.propTypes = {
   noPadding: PropTypes.bool,
   img: PropTypes.string,
   noMargin: PropTypes.bool,
+  title: PropTypes.bool,
 };
 
 Section.defaultProps = {
@@ -90,6 +104,7 @@ Section.defaultProps = {
   noPadding: false,
   noMargin: false,
   img: null,
+  title: false,
 };
 
 export default Section;

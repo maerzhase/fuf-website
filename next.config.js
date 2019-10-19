@@ -53,6 +53,14 @@ const projects = [
       ['image', '/static/fiktion/02.jpg', '© Sebastian Pircher'],
     ],
   },
+  {
+    link: 'imprint',
+    gallery: [],
+  },
+  {
+    link: 'disclaimer',
+    gallery: [],
+  }
 ];
 
 

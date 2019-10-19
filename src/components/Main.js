@@ -172,20 +172,12 @@ class Main extends Component {
             src="/static/fuf-logo.svg"
           />
           <Typography variant="body1" gutterBottom>
-            <Link
-              href="/[projectId]"
-              as="/imprint"
-              scroll={false}
-            >
+            <Link href="/[projectId]" as="/imprint" scroll={false}>
               Impressum
             </Link>
           </Typography>
           <Typography variant="body1" gutterBottom>
-            <Link
-             href="/[projectId]"
-              scroll={false}
-                as="/disclaimer"
-            >
+            <Link href="/[projectId]" scroll={false} as="/disclaimer">
               Datenschutz
             </Link>
           </Typography>
@@ -196,7 +188,7 @@ class Main extends Component {
           onOpenGallery={this.handleToggleGallery}
           {...this.projectData}
         />
-        <Imprint isOpen={this.isImprintOpen}/>
+        <Imprint isOpen={this.isImprintOpen} />
         <Disclaimer isOpen={this.isDisclaimerOpen} />
       </React.Fragment>
     );

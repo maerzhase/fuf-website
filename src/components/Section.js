@@ -46,13 +46,13 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down('xs')]: {
       minHeight: 250,
     },
-  }
+  },
 }));
 
 const Section = props => {
   const theme = useTheme();
   const matchesDownSm = useMediaQuery(theme.breakpoints.down('sm'));
-  const classes = useStyles({...props, isSmall: matchesDownSm});
+  const classes = useStyles({ ...props, isSmall: matchesDownSm });
   const {
     centered,
     minHeight,
@@ -64,7 +64,10 @@ const Section = props => {
     ...restProps
   } = props;
   return (
-    <section className={cx(classes.root, {[classes.title]: props.title})} {...restProps}>
+    <section
+      className={cx(classes.root, { [classes.title]: props.title })}
+      {...restProps}
+    >
       {img && (
         <Autosizer>
           {({ width, height }) => (

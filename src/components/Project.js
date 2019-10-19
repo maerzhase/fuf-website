@@ -7,7 +7,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import ArrowRight from '@material-ui/icons/ArrowRightAlt';
 import PlayIcon from '@material-ui/icons/PlayArrow';
 import Slide from '@material-ui/core/Slide';
-import Router, { withRouter } from 'next/router';
+import Router from 'next/router';
 
 const useStyles = makeStyles(theme => ({
   '@global': {

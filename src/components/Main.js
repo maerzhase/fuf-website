@@ -7,6 +7,8 @@ import Teaser from '../components/Teaser';
 import Frau from '../components/Frau';
 import Termine from '../components/Termine';
 import Project from '../components/Project';
+import Imprint from '../components/Imprint';
+import Disclaimer from '../components/Disclaimer';
 
 import dates from '../data/dates';
 import { projectsByLink } from '../data/projects';
@@ -15,6 +17,8 @@ class Main extends Component {
   get openProject() {
     const { router } = this.props;
     if (!router.query.projectId) return null;
+    if (router.query.projectId === 'imprint') return null;
+    if (router.query.projectId === 'disclaimer') return null;
     return router.query.projectId;
   }
   get projectData() {
@@ -26,6 +30,14 @@ class Main extends Component {
     if (!router.query.imageId) return null;
     return router.query.imageId;
   }
+  get isImprintOpen() {
+    const { router } = this.props;
+    return router.query.projectId === 'imprint';
+  }
+  get isDisclaimerOpen() {
+    const { router } = this.props;
+    return router.query.projectId === 'disclaimer';
+  }
   handleToggleGallery = () => {
     if (this.imageId) {
       Router.push(`/[projectId]`, `/${this.openProject}`);
@@ -35,7 +47,7 @@ class Main extends Component {
   };
 
   render() {
-    console.log(this.openProject, this.imageId);
+    console.log(this.isImprintOpen);
     return (
       <React.Fragment>
         <Section>
@@ -161,10 +173,22 @@ class Main extends Component {
             src="/static/fuf-logo.svg"
           />
           <Typography variant="body1" gutterBottom>
-            <Link href="/impressum">Impressum</Link>
+            <Link
+              href="/[projectId]"
+              as="/imprint"
+              scroll={false}
+            >
+              Impressum
+            </Link>
           </Typography>
           <Typography variant="body1" gutterBottom>
-            <Link href="/datenschutz">Datenschutz</Link>
+            <Link
+             href="/[projectId]"
+              scroll={false}
+                as="/disclaimer"
+            >
+              Datenschutz
+            </Link>
           </Typography>
         </Section>
         <Project
@@ -173,6 +197,8 @@ class Main extends Component {
           onOpenGallery={this.handleToggleGallery}
           {...this.projectData}
         />
+        <Imprint isOpen={this.isImprintOpen}/>
+        <Disclaimer isOpen={this.isDisclaimerOpen} />
       </React.Fragment>
     );
   }

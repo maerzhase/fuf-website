@@ -6,8 +6,5 @@ on:
       - master
 
 jobs:
-  eslint_job:
-    name: Check ESLint
-      steps:
-        - name: ESLINT ACTION
-          uses: hallee/eslint-action@1.0.1
+  - name: Check ESLint
+    uses: hallee/eslint-action@1.0.1

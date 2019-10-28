@@ -1,10 +1,12 @@
-name: ESLINT PR
+name: PR Workflow
 
 on:
   pull_request:
-    branches: 
+    branches:
       - master
 
 jobs:
-  - name: ESLint Action
-    uses: hallee/eslint-action@1.0.1
+  eslint_job:
+    name: Check ESLint
+      steps:
+        - uses: hallee/eslint-action@1.0.1

@@ -9,4 +9,5 @@ jobs:
   eslint_job:
     name: Check ESLint
       steps:
-        - uses: hallee/eslint-action@1.0.1
+        - name: ESLINT ACTION
+          uses: hallee/eslint-action@1.0.1

@@ -52,7 +52,7 @@
     "ionicons": "^3.0.0",
     "isomorphic-fetch": "^2.2.1",
     "lethargy": "^1.0.4",
-    "lodash": "^4.16.6",
+    "lodash": "^4.17.13",
     "mock-browser": "^0.92.12",
     "mouse-wheel": "^1.2.0",
     "react": "^15.3.2",

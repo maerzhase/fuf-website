@@ -8,7 +8,7 @@ const dates = [
     title: '(save me) not',
     text: 'Premiere',
     location: 'Theater Oberhausen',
-    link: 'https://www.theater-oberhausen.de/programm/stuecke.php?SID=773=',
+    link: 'https://www.theater-oberhausen.de/programm/stuecke.php?SID=773',
   },
   {
     date: '27.08.2019',
@@ -21,14 +21,14 @@ const dates = [
     date: '29.08.2019',
     link: 'https://www.treibstoffbasel.ch/produktionen/care',
     title: 'CARE 3.0',
-    text: 'Auffürhung',
+    text: 'Aufführung',
     location: 'Treibstoff Theatertage Basel/junges Theater Basel',
   },
   {
     date: '31.08.2019',
     link: 'https://www.treibstoffbasel.ch/produktionen/care',
     title: 'CARE 3.0',
-    text: 'Auffürhung',
+    text: 'Aufführung',
     location: 'Treibstoff Theatertage Basel/junges Theater Basel',
   },
   {

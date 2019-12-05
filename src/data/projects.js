@@ -17,6 +17,7 @@ export const allProjects = [
       `Gefördert durch: Recherchestipendium Berliner Senatsverwaltung für Kultur und Europa`,
     ],
     gallery: [
+      ['embed', 'https://player.vimeo.com/video/369328260'],
       ['image', '/static/care/01.jpg'],
       ['image', '/static/care/02.jpg'],
       ['image', '/static/care/03.jpg'],

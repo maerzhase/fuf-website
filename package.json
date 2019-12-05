@@ -4,6 +4,7 @@
   "main": "server/index.js",
   "license": "MIT",
   "repository": "maerzhase/fuf-website",
+  "sideEffects": false,
   "scripts": {
     "start": "node ./src/server/index.js",
     "build": "next build",

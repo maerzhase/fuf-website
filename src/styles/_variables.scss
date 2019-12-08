@@ -1,9 +1,0 @@
-$tiny: "only screen and (max-width: 320px) and (orientation: portrait)";
-$phone-portrait: "only screen and (min-width : 321px) and (max-width: 767px) and (orientation: portrait)";
-$phone-landscape: "only screen and (min-width : 321px) and (max-width: 767px) and (orientation: landscape)";
-$pad-portrait: "only screen and (min-width : 768px) and (max-width : 1024px) and (orientation : portrait)";
-$pad-landscape: "only screen and (min-width : 768px) and (max-width : 1024px) and (orientation : landscape)";
-$desktop: "only screen and (min-width : 1025px)";
-$desktop-large: "only screen and (min-width : 1681px)";
-$desktop-huge: "only screen and (min-width : 2000px)";
-$retina: "only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi)";

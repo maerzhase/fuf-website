@@ -1,6 +1,6 @@
 {
   "name": "fuf",
-  "version": "1.0.1",
+  "version": "1.0.1-SNAPSHOT",
   "main": "server/index.js",
   "license": "MIT",
   "repository": "maerzhase/fuf-website",

@@ -1,9 +1,10 @@
-workflow "Pull Request" {
-  on = "pull_request"
-  resolves = ["ESLint"]
-}
+on: [pull_request]
 
-action "ESLint" {
-  uses = "hallee/eslint-action@master"
-  secrets = ["GITHUB_TOKEN"]
-}
+jobs: 
+  eslint:
+    name: "ESLint"
+    steps:
+      - name: Run eslint
+        uses: "hallee/eslint-action@master"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

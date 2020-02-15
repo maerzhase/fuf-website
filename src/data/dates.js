@@ -4,6 +4,42 @@ moment.locale('de');
 
 const dates = [
   {
+    date: '07.03.2020',
+    title: '(save me) not',
+    text: 'Aufführung',
+    location: 'Theater Oberhausen',
+    link: 'https://www.theater-oberhausen.de/programm/stuecke.php?SID=773=',
+  },
+  {
+    date: '11.03.2020',
+    title: '(save me) not',
+    text: 'Aufführung',
+    location: 'Theater Oberhausen',
+    link: 'https://www.theater-oberhausen.de/programm/stuecke.php?SID=773=',
+  },
+
+  {
+    date: '03.04.2020',
+    title: '(save me) not',
+    text: 'Aufführung',
+    location: 'Theater Oberhausen',
+    link: 'https://www.theater-oberhausen.de/programm/stuecke.php?SID=773=',
+  },
+  {
+    date: '04.04.2020',
+    title: '(save me) not',
+    text: 'Aufführung',
+    location: 'Theater Oberhausen',
+    link: 'https://www.theater-oberhausen.de/programm/stuecke.php?SID=773=',
+  },
+  {
+    date: '05.04.2020',
+    title: '(save me) not',
+    text: 'Aufführung',
+    location: 'Theater Oberhausen',
+    link: 'https://www.theater-oberhausen.de/programm/stuecke.php?SID=773=',
+  },
+  {
     date: '06.03.2020',
     title: '(save me) not',
     text: 'Premiere',

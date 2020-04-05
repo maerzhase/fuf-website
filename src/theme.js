@@ -33,10 +33,10 @@ const theme = createMuiTheme({
       fontWeight: 400,
     },
     body1: {
-      fontSize: 1.5,
+      fontSize: 20,
     },
     body2: {
-      fontSize: 1.1,
+     fontSize: 18,
     },
   },
   sectionPadding: () => ({

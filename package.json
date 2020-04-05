@@ -28,27 +28,27 @@
     "webpack-clear-require-cache-plugin": "0.0.2"
   },
   "dependencies": {
-    "@material-ui/core": "^4.7.2",
-    "@material-ui/icons": "^4.5.1",
-    "@material-ui/lab": "^4.0.0-alpha.35",
-    "@material-ui/styles": "^4.7.1",
+    "@material-ui/core": "^4.9.9",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/lab": "^4.0.0-alpha.48",
+    "@material-ui/styles": "^4.9.6",
     "classnames": "^2.2.6",
     "cookie-parser": "^1.4.4",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "lodash": "^4.17.15",
-    "mobx": "^5.15.0",
-    "mobx-react": "^6.1.4",
+    "mobx": "^5.15.4",
+    "mobx-react": "^6.1.8",
     "mobx-state-tree": "^3.15.0",
     "moment": "^2.24.0",
-    "next": "^9.1.4",
+    "next": "^9.3.4",
     "prop-types": "^15.7.2",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-scroll-parallax": "^2.2.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scroll-parallax": "^2.3.2",
     "react-virtualized-auto-sizer": "^1.0.2",
     "smoothscroll-polyfill": "^0.4.4",
-    "styled-jsx": "^3.2.4"
+    "styled-jsx": "^3.2.5"
   },
   "eslintConfig": {
     "extends": [

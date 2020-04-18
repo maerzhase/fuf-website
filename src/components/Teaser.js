@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
   h1: {
     textTransform: 'uppercase',
     position: 'relative',
-    lineHeight: 1,
+    lineHeight: 1.2,
     fontSize: '10rem',
     marginLeft: theme.spacing(4),
     ...theme.teaserShadow(),

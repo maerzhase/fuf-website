@@ -59,6 +59,13 @@ class Main extends Component {
           </Typography>
         </Section>
         <Teaser
+          id="savemenot"
+          title="(save me) not"
+          num={6}
+          backgroundAlign="top left"
+          img="/static/savemenot_title.jpg"
+        />
+        <Teaser
           id="care"
           title="Care 3.0"
           num={5}

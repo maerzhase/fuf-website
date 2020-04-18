@@ -2,6 +2,35 @@ import { groupBy } from 'lodash';
 
 export const allProjects = [
   {
+    num: 6,
+    link: 'savemenot',
+    title: '(save me) not',
+    text: [
+      `Kennen Sie die Erzählung über das „Fräulein in Not“? Bestimmt! Denn sie ist überall: ob in der griechischen Mythologie, im Kino oder in Computerspielen. Eine schöne, junge Frau wird von einem Ungeheuer oder Bösewicht entführt und es bedarf eines männlichen Helden, um sie zu retten. Ob als Andromeda, Rapunzel, die weiße Frau aus King Kong, als Princess Peach oder Zelda – die Erzählung der hilflosen Frau ist tief verankert in unserer Gesellschaft. Und sie hat Auswirkungen auf unsere Selbstwahrnehmung und unser Handeln.(save me) not stellt sich mit Humor dem Mythos, dass Frauen das von Natur aus schwächere Geschlecht seien. Auf Basis von Interviews mit (Kampf-)Sportlerinnen, Selbstverteidigungslehrerinnen, Sozialarbeiterinnen und vielen anderen starken Frauen aus Oberhausen und ganz Deutschland, die Gewalt erlebt und bewältigt haben, entsteht eine Geschichte über wehrhaftes Handeln. Das „Fräulein in Not“ ist die Endgegnerin in einer feministischen Auseinandersetzung über Gewalt, Opfer- und Täterrollen, aus der eine Heldin hervorgeht. Rette mich nicht! Wir retten uns!`,
+    ],
+    caption: [
+      `RECHERCHE, TEXT, REGIE, KOSTÜMBILD, VIDEO: Frauen und Fiktion`,
+      `MIT: Shari Asha Crosson, Elisabeth Hoppe, Philipp Joy Reinhardt`,
+      `BÜHNE: Luisa Wandschneider`,
+      `MUSIK: Lina Krüger / Jonas Mahari`,
+      `DRAMATURGIE: Hannah Saar`,
+      `INTERVIEWPARTNER*INNEN: Safeyya Auf der Mauer, Aylin Caka, Carola Cremer, Sunny Graff, Sigrid Happ, Sandra Levits, Mária Nagy, Yehudit Yinhar, Anika Ziemba`,
+      `In Koproduktion mit dem Theater Oberhausen`,
+      `Gefördert durch Fonds darstellende Künste, Kunststiftung NRW`,
+    ],
+    gallery: [
+      ['embed', 'https://www.youtube.com/embed/2OgUPhWQ1DU'],
+      ['image', '/static/savemenot/01.jpg'],
+      ['image', '/static/savemenot/02.jpg'],
+      ['image', '/static/savemenot/03.jpg'],
+      ['image', '/static/savemenot/04.jpg'],
+      ['image', '/static/savemenot/05.jpg'],
+      ['image', '/static/savemenot/06.jpg'],
+      ['image', '/static/savemenot/07.jpg'],
+      ['image', '/static/savemenot/08.jpg'],
+    ],
+  },
+  {
     num: 5,
     link: 'care',
     title: 'CARE 3.0',

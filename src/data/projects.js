@@ -19,7 +19,7 @@ export const allProjects = [
       `Gefördert durch Fonds darstellende Künste, Kunststiftung NRW`,
     ],
     gallery: [
-      ['embed', 'https://www.youtube.com/embed/2OgUPhWQ1DU'],
+      ['embed', 'https://player.vimeo.com/video/403254335'],
       ['image', '/static/savemenot/01.jpg'],
       ['image', '/static/savemenot/02.jpg'],
       ['image', '/static/savemenot/03.jpg'],

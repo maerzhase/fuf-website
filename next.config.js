@@ -2,6 +2,20 @@ const dotenv = require('dotenv');
 const webpack = require('webpack');
 const projects = [
   {
+    link: 'savemenot',
+    gallery: [
+      ['embed', 'https://player.vimeo.com/video/403254335'],
+      ['image', '/static/savemenot/01.jpg'],
+      ['image', '/static/savemenot/02.jpg'],
+      ['image', '/static/savemenot/03.jpg'],
+      ['image', '/static/savemenot/04.jpg'],
+      ['image', '/static/savemenot/05.jpg'],
+      ['image', '/static/savemenot/06.jpg'],
+      ['image', '/static/savemenot/07.jpg'],
+      ['image', '/static/savemenot/08.jpg'],
+    ],
+  },
+  {
     link: 'care',
     gallery: [
       ['image', '/static/care/01.jpg'],
@@ -60,7 +74,7 @@ const projects = [
   {
     link: 'disclaimer',
     gallery: [],
-  }
+  },
 ];
 
 

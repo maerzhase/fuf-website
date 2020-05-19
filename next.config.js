@@ -97,7 +97,7 @@ exports.webpack = config =>
 const pages = {
   '/': { page: '/' },
   ...projects.reduce((acc,p) => {
-    acc[`/${p.link}/index`] = { page: '/[projectId]/index'};
+    acc[`/${p.link}/index`] = { page: '/index', query: { projectId: p.link }};
     p.gallery.forEach((image, index) => {
       acc[`/${p.link}/${index}`] = { page: '/[projectId]/[imageId]'};
     });

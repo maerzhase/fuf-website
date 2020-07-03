@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
 import Router, { withRouter } from 'next/router';
 import Section from '../components/Section';
 import Link, { Anchor } from '../components/Link';
@@ -28,7 +29,7 @@ class Main extends Component {
   get imageId() {
     const { router } = this.props;
     if (!router.query.imageId) return null;
-    return router.query.imageId;
+    return router.query.imageTId;
   }
   get isImprintOpen() {
     const { router } = this.props;
@@ -64,6 +65,7 @@ class Main extends Component {
           num={6}
           backgroundAlign="top left"
           img="/static/savemenot_title.jpg"
+          special={<Box mt={4} ml={4}><Typography variant="h2"><Anchor href="https://www.deutschlandfunkkultur.de/hoerspiel-feministische-selbstverteidigung-save-me-not.3683.de.html?dram:article_id=476911" rel="noopener noreferrer"  target="_blank">Zum Hörspiel</Anchor></Typography></Box>}
         />
         <Teaser
           id="care"

@@ -4,18 +4,32 @@ moment.locale('de');
 
 const dates = [
   {
+    date: '17.10.2020',
+    title: 'Care Affair',
+    text: 'Performance',
+    location: 'Lichthof Theater Hamburg',
+    link: 'http://www.lichthof-theater.de',
+  },
+  {
+    date: '28.04.2020',
+    title: 'Care 3.0',
+    text: 'Heidelberger Stückemarkt - Nominierung Jugendstückepreis',
+    location: 'Theater Heidelberg',
+    link: 'https://www.theaterheidelberg.de/festival/heidelberger-stueckemarkt/',
+  },
+  {
     date: '07.03.2020',
     title: '(save me) not',
     text: 'Aufführung',
     location: 'Theater Oberhausen',
-    link: 'https://www.theater-oberhausen.de/programm/stuecke.php?SID=773=',
+    link: 'https://www.theater-oberhausen.de/programm/stuecke.php?SID=773',
   },
   {
     date: '11.03.2020',
     title: '(save me) not',
     text: 'Aufführung',
     location: 'Theater Oberhausen',
-    link: 'https://www.theater-oberhausen.de/programm/stuecke.php?SID=773=',
+    link: 'https://www.theater-oberhausen.de/programm/stuecke.php?SID=773',
   },
 
   {
@@ -23,21 +37,21 @@ const dates = [
     title: '(save me) not',
     text: 'Aufführung',
     location: 'Theater Oberhausen',
-    link: 'https://www.theater-oberhausen.de/programm/stuecke.php?SID=773=',
+    link: 'https://www.theater-oberhausen.de/programm/stuecke.php?SID=773',
   },
   {
     date: '04.04.2020',
     title: '(save me) not',
     text: 'Aufführung',
     location: 'Theater Oberhausen',
-    link: 'https://www.theater-oberhausen.de/programm/stuecke.php?SID=773=',
+    link: 'https://www.theater-oberhausen.de/programm/stuecke.php?SID=773',
   },
   {
     date: '05.04.2020',
     title: '(save me) not',
     text: 'Aufführung',
     location: 'Theater Oberhausen',
-    link: 'https://www.theater-oberhausen.de/programm/stuecke.php?SID=773=',
+    link: 'https://www.theater-oberhausen.de/programm/stuecke.php?SID=773',
   },
   {
     date: '06.03.2020',

@@ -56,6 +56,7 @@ const Teaser = props => {
             >
               {props.title}
             </Link>
+            {props.special && props.special}
             <Typography variant="h2" className={classes.h2} component="span">
               <Link color="inherit" noDecoration href={`#${props.id}`}>
                 #0{props.num}

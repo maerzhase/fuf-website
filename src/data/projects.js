@@ -2,6 +2,22 @@ import { groupBy } from 'lodash';
 
 export const allProjects = [
   {
+    num: 7,
+    link: 'careaffair',
+    title: 'Care Affair',
+    text: [
+      `Frauen und Fiktion laden zu einem glamourösen Abend der Sorgetragenden, zu einer Feier fürsorglicher Figuren jenseits klarer Geschlechterrollen. Aus Gesprächen mit Menschen, die professionell und/oder privat Fürsorge-Arbeit leisten, kreieren Frauen und Fiktion zusammen mit ihren Kompliz*innen sinnliche Bilder fürsorglicher Tätigkeiten wie körperliche Pflege, 'Nein' sagen, zuhören, geduldig sein, ernähren, kurz: sich kümmern. Sie setzen die Attribute Sicherheit, Verbundenheit und Geborgenheit in einer glamourösen Kostümshow so sexy in Pose, dass wir wieder realisieren, wie grundlegend wichtig sie sind.`,
+      `In ihrer Performance hinterfragen Frauen und Fiktion, warum Fürsorge traditionellerweise an den biologischen, gebärfähigen Körper gebunden ist. Sie imaginieren fürsorgliche Gemeinschaften jenseits einer kapitalistischen Verwertungslogik und stellen reale Geschichten des Gelingens vor.`,
+    ],
+    caption: [
+      `Von und mit: Gregor Schuster, Jonas Mahari, Marilyn Nova White und Geraldine Schabraque / Konzept und Recherche: Frauen und Fiktion (Anja Kerschkewicz, Eva Kessler, Felina Levits, Paula Reissig) / Textfassung: Anja Kerschkewicz, Eva Kessler und Anngret Schulze / Inszenierung: Anja Kerschkewicz und Felina Levits / Recherche und Regieassistenz: Anngret Schulze / Mitarbeit Proben und Inszenierung: Eva Kessler / Kostüme, Maske und Raum: Felina Levits und Hanna Scherwinski / Video: Paula Reissig / Musik: Jonas Mahari / Produktionsleitung: Maike Tödter / Presse und Öffentlichkeitsarbeit: Stückliesel / Technik: Sönke Christian Herm`,
+      `Gefördert durch: Behörde für Kultur und Medien Hamburg, Hamburgische Kulturstiftung, Claussen-Simon-Stiftung`,
+    ],
+    gallery: [
+      ['image', '/static/careaffair/01.jpg'],
+    ],
+  },
+  {
     num: 6,
     link: 'savemenot',
     title: '(save me) not',

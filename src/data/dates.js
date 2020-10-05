@@ -3,6 +3,122 @@ import moment from 'moment';
 moment.locale('de');
 
 const dates = [
+{
+    date: "17.10.2020",
+    title: "Care Affair",
+    text: "Premiere",
+    location: "Lichthof Theater",
+    link: "https://www.lichthof-theater.de/event-reader/events/care-affair.html",
+},
+
+{
+    date: "18.10.2020",
+    title: "Care Affair",
+    text: "Vorstellung",
+    location: "Lichthof Theater",
+    link: "https://www.lichthof-theater.de/event-reader/events/care-affair.html",
+},
+
+{
+    date: "22.10.2020",
+    title: "Care Affair",
+    text: "Vorstellung",
+    location: "Lichthof Theater",
+    link: "https://www.lichthof-theater.de/event-reader/events/care-affair.html",
+},
+
+{
+    date: "23.10.2020",
+    title: "Care Affair",
+    text: "Vorstellung",
+    location: "Lichthof Theater",
+    link: "https://www.lichthof-theater.de/event-reader/events/care-affair.html",
+},
+
+{
+    date: "24.10.2020",
+    title: "Care Affair",
+    text: "Vorstellung",
+    location: "Lichthof Theater",
+    link: "https://www.lichthof-theater.de/event-reader/events/care-affair.html",
+},
+
+{
+    date: "25.10.2020",
+    title: "Care Affair",
+    text: "Vorstellung",
+    location: "Lichthof Theater",
+    link: "https://www.lichthof-theater.de/event-reader/events/care-affair.html",
+},
+
+{
+    date: "12.11.2020",
+    title: "Care Affair",
+    text: "Berlin-Premiere",
+    location: "Theaterdiscounter",
+    link: "https://theaterdiscounter.de/vorschau",
+},
+
+{
+    date: "13.11.2020",
+    title: "Care Affair",
+    text: "Vorstellung",
+    location: "Theaterdiscounter",
+    link: "https://theaterdiscounter.de/vorschau",
+},
+
+{
+    date: "14.11.2020",
+    title: "Care Affair",
+    text: "Vorstellung",
+    location: "Theaterdiscounter",
+    link: "https://theaterdiscounter.de/vorschau",
+},
+
+{
+    date: "15.11.2020",
+    title: "Care Affair",
+    text: "Vorstellung",
+    location: "Theaterdiscounter",
+    link: "https://theaterdiscounter.de/vorschau",
+},
+
+{
+    date: "22.01.2021",
+    title: "(save me) not",
+    text: "Wiederaufnahme",
+    location: "Theater Oberhausen",
+    link: "https://www.theater-oberhausen.de/programm/stuecke.php?SID=773=",
+},
+
+{
+    date: "23.01.2021",
+    title: "(save me) not",
+    text: "Wiederaufnahme",
+    location: "Theater Oberhausen",
+    link: "https://www.theater-oberhausen.de/programm/stuecke.php?SID=773=",
+},
+{
+    date: "24.01.2021",
+    title: "(save me) not",
+    text: "Wiederaufnahme",
+    location: "Theater Oberhausen",
+    link: "https://www.theater-oberhausen.de/programm/stuecke.php?SID=773=",
+},
+{
+    date: "27.02.2021",
+    title: "Suit Your Body",
+    text: "Premiere",
+    location: "Theaterdiscounter",
+    link: "https://theaterdiscounter.de/vorschau",
+},
+{
+    date: "24.09.2020",
+    title: "Save Me Not",
+    text: "Hörspiel",
+    location: "Internationales Frauen Theater Festival",
+    link: "https://iftf-frankfurt.com/iftf-2020/",
+},
   {
     date: '17.10.2020',
     title: 'Care Affair',

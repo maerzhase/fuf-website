@@ -29,7 +29,7 @@ class Main extends Component {
   get imageId() {
     const { router } = this.props;
     if (!router.query.imageId) return null;
-    return router.query.imageTId;
+    return router.query.imageId;
   }
   get isImprintOpen() {
     const { router } = this.props;
@@ -59,6 +59,13 @@ class Main extends Component {
             Gedankenexperimenten über Geschlechterrollen.
           </Typography>
         </Section>
+        <Teaser
+          id="careaffair"
+          title="Care Affair"
+          num={7}
+          backgroundAlign="bottom center"
+          img="/static/careaffair_title.jpg"
+        />
         <Teaser
           id="savemenot"
           title="(save me) not"

@@ -2,6 +2,12 @@ const dotenv = require('dotenv');
 const webpack = require('webpack');
 const projects = [
   {
+    link: 'careaffair',
+    gallery: [
+      ['image', '/static/careaffair/01.jpg'],
+    ],
+  },
+  {
     link: 'savemenot',
     gallery: [
       ['embed', 'https://player.vimeo.com/video/403254335'],

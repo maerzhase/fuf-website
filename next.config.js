@@ -5,6 +5,10 @@ const projects = [
     link: 'careaffair',
     gallery: [
       ['image', '/static/careaffair/01.jpg'],
+      ['image', '/static/careaffair/02.jpg'],
+      ['image', '/static/careaffair/03.jpg'],
+      ['image', '/static/careaffair/04.jpg'],
+      ['image', '/static/careaffair/05.jpg'],
     ],
   },
   {

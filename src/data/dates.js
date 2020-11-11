@@ -52,35 +52,35 @@ const dates = [
 },
 
 {
-    date: "12.11.2020",
+    date: "19.11.2020",
     title: "Care Affair",
     text: "Berlin-Premiere",
     location: "Theaterdiscounter",
-    link: "https://theaterdiscounter.de/vorschau",
+    link: "https://theaterdiscounter.de/stuecke/care-affair",
 },
 
 {
-    date: "13.11.2020",
+    date: "20.11.2020",
     title: "Care Affair",
     text: "Vorstellung",
     location: "Theaterdiscounter",
-    link: "https://theaterdiscounter.de/vorschau",
+    link: "https://theaterdiscounter.de/stuecke/care-affair",
 },
 
 {
-    date: "14.11.2020",
+    date: "21.11.2020",
     title: "Care Affair",
     text: "Vorstellung",
     location: "Theaterdiscounter",
-    link: "https://theaterdiscounter.de/vorschau",
+    link: "https://theaterdiscounter.de/stuecke/care-affair",
 },
 
 {
-    date: "15.11.2020",
+    date: "22.11.2020",
     title: "Care Affair",
     text: "Vorstellung",
     location: "Theaterdiscounter",
-    link: "https://theaterdiscounter.de/vorschau",
+    link: "https://theaterdiscounter.de/stuecke/care-affair",
 },
 
 {

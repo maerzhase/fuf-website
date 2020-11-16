@@ -4,6 +4,7 @@ const projects = [
   {
     link: 'careaffair',
     gallery: [
+      ['embed', 'https://player.vimeo.com/video/476348398'],
       ['image', '/static/careaffair/01.jpg'],
       ['image', '/static/careaffair/02.jpg'],
       ['image', '/static/careaffair/03.jpg'],
@@ -107,7 +108,7 @@ exports.webpack = config =>
 const pages = {
   '/': { page: '/' },
   ...projects.reduce((acc,p) => {
-    acc[`/${p.link}/index`] = { page: '/index', query: { projectId: p.link }};
+    acc[`/${p.link}/index`] = { page: '/', query: { projectId: p.link }};
     p.gallery.forEach((image, index) => {
       acc[`/${p.link}/${index}`] = { page: '/[projectId]/[imageId]'};
     });

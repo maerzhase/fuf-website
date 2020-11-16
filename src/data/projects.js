@@ -14,6 +14,7 @@ export const allProjects = [
       `Gefördert durch: Behörde für Kultur und Medien Hamburg, Hamburgische Kulturstiftung, Claussen-Simon-Stiftung`,
     ],
     gallery: [
+      ['embed', 'https://player.vimeo.com/video/476348398'],
       ['image', '/static/careaffair/01.jpg'],
       ['image', '/static/careaffair/02.jpg'],
       ['image', '/static/careaffair/03.jpg'],

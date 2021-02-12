@@ -60,6 +60,13 @@ class Main extends Component {
           </Typography>
         </Section>
         <Teaser
+          id="suityourbody"
+          title="Suit Your Body"
+          num={8}
+          backgroundAlign="bottom center"
+          img={null}
+        />
+        <Teaser
           id="careaffair"
           title="Care Affair"
           num={7}

@@ -4,6 +4,41 @@ moment.locale('de');
 
 const dates = [
 {
+    date: '27.02.2021',
+    title: 'SUIT YOUR BODY',
+    text: 'Hörspiel',
+    location: 'TD Berlin',
+    link: 'https://td.berlin/stuecke/suit-your-body',
+},
+{
+    date: '27.02.2021',
+    title: 'SUIT YOUR BODY',
+    text: 'Hörspiel',
+    location: 'Pathos München',
+    link: 'https://www.pathosmuenchen.de/veranstaltung/suit-your-body/?occurrence=2021-02-27&time=1614456000',
+},
+{
+    date: '28.02.2021',
+    title: 'SUIT YOUR BODY',
+    text: 'Hörspiel',
+    location: 'TD Berlin',
+    link: 'https://td.berlin/stuecke/suit-your-body',
+},
+{
+    date: '07.03.2021',
+    title: 'SUIT YOUR BODY',
+    text: 'Hörspiel',
+    location: 'TD Berlin',
+    link: 'https://td.berlin/stuecke/suit-your-body',
+},
+{
+    date: '08.03.2021',
+    title: 'SUIT YOUR BODY',
+    text: 'Hörspiel',
+    location: 'TD Berlin',
+    link: 'https://td.berlin/stuecke/suit-your-body',
+},
+{
     date: "17.10.2020",
     title: "Care Affair",
     text: "Premiere",

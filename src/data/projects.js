@@ -12,12 +12,16 @@ export const allProjects = [
       `Hier wird der Wettstreit der Körper aufgehoben und ein neuer Blick geübt. Im interessierten und wohlwollenden Zuhören entdecken wir vieles, was wir oft schmerzlich vermissen und finden eine Schönheit, die uns von der Last des Mangels befreit. Mit einer Ode an die Vielfalt im Ohr schweben wir schließlich mit Leichtigkeit auseinander.`,
     ],
     caption: [
-      `Mit Natalie Rosenke (Interview) / Projektchor der IPU: Daniela Acosta / Anna Beckh / Azemine Qorraj / Lea Stein / Kathrin Vogt / Frieda Völk / Maria Weiße / Maria Ilona Zwißler Konzept Frauen und Fiktion (Anja Kerschkewicz / Eva Kessler / Felina Levits / Paula Reissig) Textfassung / Dramaturgie Anja Kerschkewicz / Eva Kessler / Paula Reissig / Alisa Tretau Raum Klaas Hübner / Anja Kerschkewicz / Felina Levits / Paula Reissig Chorleitung (Koordination, Textarbeit) Eva Kessler Chorleitung (Stimmbildung, Einstudierung) Eva Späth Musikalische Leitung / Sounddesign Panagiotis Iliopoulos Interviewleitung Anja Kerschkewicz / Alisa Tretau Tonschnitt Florian Hohnhorst / Panagiotis Iliopoulos / Paula Reissig Toneinrichtung Raum Florian Hohnhorst / Marcus Thomas Studioaufnahmen Martin Lutz / Marcus Thomas Technik / Lichtdesign Jones Seitz – Gefährliche Arbeit Mitarbeit Licht Anja Kerschkewicz Produktionsleitung/ Presse und Öffentlichkeitsarbeit Florian Hohnhorst Grafik Kevin Visdeloup`,
+      `Mit: Natalie Rosenke (Interview); Daniela Acosta, Anna Beckh, Azemine Qorraj, Lea Stein, Kathrin Vogt, Frieda Völk, Maria Weiße, Maria Ilona Zwißler (Chor, Studentinnen der IPU) / Konzept: Frauen und Fiktion (Anja Kerschkewicz, Eva Kessler, Felina Levits, Paula Reissig) / Textfassung, Dramaturgie: Anja Kerschkewicz , Eva Kessler, Paula Reissig, Alisa Tretau / Raum: Klaas Hübner, Anja Kerschkewicz , Felina Levits , Paula Reissig / Chorleitung (Koordination, Textarbeit): Eva Kessler / Chorleitung (Stimmbildung, Einstudierung): Eva Späth / Musikalische Leitung, Sounddesign: Panagiotis Iliopoulos / Interviewleitung: Anja Kerschkewicz, Alisa Tretau / Tonschnitt: Florian Hohnhorst, Panagiotis Iliopoulos, Paula Reissig / Toneinrichtung Raum: Florian Hohnhorst, Marcus Thomas Studioaufnahmen: Martin Lutz, Marcus Thomas / Technik, Video: Paula Reissig, Lichtdesign: Jones Seitz – Gefährliche Arbeit / Mitarbeit Licht: Anja Kerschkewicz / Produktionsleitung, Presse und Öffentlichkeitsarbeit: Florian Hohnhorst / Grafik: Kevin Visdeloup`,
       `Gefördert von der Berliner Senatsverwaltung für Kultur und Europa und dem Berliner Projektfonds Kulturelle Bildung (BPKB)`,
       `In Kooperation mit der International Psychoanalytic University Berlin (IPU)`,
+      `Deutschlandweite Online-Ausstrahlung unterstützt durch Netzwerk freie Theater - NFT im Programm "Verbindungen Fördern"`,
     ],
     gallery: [
       ['image', '/static/suityourbody/01.jpg'],
+      ['image', '/static/suityourbody/03.jpg', '© Paula Reissig'],
+      ['image', '/static/suityourbody/04.jpg', '© Paula Reissig'],
+      ['image', '/static/suityourbody/05.jpg', '© Paula Reissig'],
     ]
   },
   {

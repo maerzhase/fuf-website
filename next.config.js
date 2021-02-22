@@ -2,6 +2,15 @@ const dotenv = require('dotenv');
 const webpack = require('webpack');
 const projects = [
   {
+    link: 'suityourbody',
+    gallery: [
+      ['image', '/static/suityourbody/01.jpg'],
+      ['image', '/static/suityourbody/03.jpg', '© Paula Reissig'],
+      ['image', '/static/suityourbody/04.jpg', '© Paula Reissig'],
+      ['image', '/static/suityourbody/05.jpg', '© Paula Reissig'],
+    ],
+  },
+  {
     link: 'careaffair',
     gallery: [
       ['embed', 'https://player.vimeo.com/video/476348398'],

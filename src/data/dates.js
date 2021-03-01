@@ -130,13 +130,6 @@ const dates = [
     link: "https://studionaxos.de/programm/audio-suit-you-body",
 },
 {
-    date: "08.03.2021",
-    title: "SUIT YOUR BODY",
-    text: "Hörspiel",
-    location: "zeitraum exit, Mannheim",
-    link: "https://www.zeitraumexit.de/programm",
-},
-{
     date: "17.10.2020",
     title: "Care Affair",
     text: "Premiere",

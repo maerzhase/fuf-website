@@ -4,6 +4,27 @@ moment.locale('de');
 
 const dates = [
 {
+    date: '06.03.2021',
+    title: 'care affair',
+    text: 'Stream mit anschließendem Publikumsgespräch',
+    location: 'Theater Konstanz',
+    link: 'https://www.theaterkonstanz.de/programm/lets-ally',
+},
+{
+    date: '07.03.2021',
+    title: 'care affair',
+    text: 'Stream',
+    location: 'Theater Konstanz',
+    link: 'https://www.theaterkonstanz.de/programm/lets-ally',
+},
+{
+    date: '08.03.2021',
+    title: 'care affair',
+    text: 'Stream',
+    location: 'Theater Konstanz',
+    link: 'https://www.theaterkonstanz.de/programm/lets-ally',
+},
+{
     date: "27.02.2021",
     title: "SUIT YOUR BODY",
     text: "Hörspiel",

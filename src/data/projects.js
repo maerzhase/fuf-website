@@ -36,6 +36,7 @@ export const allProjects = [
     caption: [
       `Von und mit: Gregor Schuster, Jonas Mahari, Marilyn Nova White und Geraldine Schabraque / Konzept und Recherche: Frauen und Fiktion (Anja Kerschkewicz, Eva Kessler, Felina Levits, Paula Reissig) / Textfassung: Anja Kerschkewicz, Eva Kessler und Anngret Schulze / Inszenierung: Anja Kerschkewicz und Felina Levits / Recherche und Regieassistenz: Anngret Schulze / Mitarbeit Proben und Inszenierung: Eva Kessler / Kostüme, Maske und Raum: Felina Levits und Hanna Scherwinski / Video: Paula Reissig / Musik: Jonas Mahari / Produktionsleitung: Maike Tödter / Presse und Öffentlichkeitsarbeit: Stückliesel / Technik: Sönke Christian Herm`,
       `Gefördert durch: Behörde für Kultur und Medien Hamburg, Hamburgische Kulturstiftung, Claussen-Simon-Stiftung`,
+      `Ermöglicht durch die Förderung Produzieren unter Coronabedingungen des Dachverbands freie darstellende Künste Hamburg, im Auftrag der Freien und Hansestadt Hamburg, Behörde für Kultur und Medien.`
     ],
     gallery: [
       ['embed', 'https://player.vimeo.com/video/476348398'],

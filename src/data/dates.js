@@ -4,6 +4,62 @@ moment.locale('de');
 
 const dates = [
 {
+    date: '27.05.2021',
+    title: 'Care Affair',
+    text: 'Gastspiel',
+    location: 'TD Berlin',
+    link: 'https://www.performingarts-festival.de/de/programm/care-affair',
+},
+{
+    date: '28.05.2021',
+    title: 'Care Affair',
+    text: 'Gastspiel',
+    location: 'PAF@TD Berlin',
+    link: 'https://www.performingarts-festival.de/de/programm/care-affair',
+},
+{
+    date: '29.05.2021',
+    title: 'Care Affair',
+    text: 'Gastspiel',
+    location: 'PAF@TD Berlin',
+    link: 'https://www.performingarts-festival.de/de/programm/care-affair',
+},
+{
+    date: '30.05.2021',
+    title: 'Care Affair',
+    text: 'Gastspiel',
+    location: 'TD Berlin',
+    link: 'https://td.berlin/stuecke/care-affair',
+},
+{
+    date: '09.06.2021',
+    title: 'Care Affair',
+    text: 'digitales Gastspiel',
+    location: 'Dramatiker*innenfestival Graz',
+    link: 'https://www.dramatikerinnenfestival.at/jart/prj3/dramaturgenfestival18/main.jart?rel=de_2021&reserve-mode=active&content-id=1543324866439&event_id=1619321625196&termin_id=1619321618927&jahr_id=1619321580411',
+},
+{
+    date: '17.06.2021',
+    title: 'Care Affair',
+    text: 'digitales Gastspiel',
+    location: 'Ruhrfestspiele Recklinghausen',
+    link: 'https://www.ruhrfestspiele.de/programm/2021/care-affair',
+},
+{
+    date: '18.06.2021',
+    title: 'Care Affair',
+    text: 'digitales Gastspiel',
+    location: 'Ruhrfestspiele Recklinghausen',
+    link: 'https://www.ruhrfestspiele.de/programm/2021/care-affair',
+},
+{
+    date: '19.06.2021',
+    title: 'Care Affair',
+    text: 'digitales Gastspiel',
+    location: 'Ruhrfestspiele Recklinghausen',
+    link: 'https://www.ruhrfestspiele.de/programm/2021/care-affair',
+},
+{
     date: '06.03.2021',
     title: 'care affair',
     text: 'Stream mit anschließendem Publikumsgespräch',

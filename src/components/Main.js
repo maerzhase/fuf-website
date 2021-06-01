@@ -64,7 +64,7 @@ class Main extends Component {
           title="Suit Your Body"
           num={8}
           backgroundAlign="bottom center"
-          img={null}
+          img={"/static/syb_title.jpg"}
         />
         <Teaser
           id="careaffair"

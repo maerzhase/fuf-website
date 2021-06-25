@@ -4,6 +4,61 @@ moment.locale('de');
 
 const dates = [
 {
+    date: "05.06.2021",
+    title: "(save me) not!",
+    text: "Hörspiel",
+    location: "WDR",
+    link: "https://www1.wdr.de/mediathek/audio/wdr3/wdr3-hoerspiel/audio-save-me-not---geschichten-von-frauen-die-sich-selbst-retten-100.html",
+},
+
+{
+    date: "02.07.2021",
+    title: "(save me) not!",
+    text: "Hörspiel",
+    location: "SRF",
+    link: "https://www.deutschlandfunkkultur.de/hoerspiel-feministische-selbstverteidigung-save-me-not.3683.de.html?dram:article_id=476911",
+},
+
+{
+    date: "17.07.2021",
+    title: "(save me) not!",
+    text: "Hörspiel",
+    location: "SRF",
+    link: "https://www.srf.ch/audio/hoerspiel/save-me-not-von-frauen-und-fiktion?id=11994812",
+},
+
+{
+    date: "19.08.2021",
+    title: "SUIT YOUR BODY",
+    text: "Premiere",
+    location: "TD Berlin",
+    link: "https://td.berlin/vorschau",
+},
+
+{
+    date: "20.08.2021",
+    title: "SUIT YOUR BODY",
+    text: "Aufführung",
+    location: "TD Berlin",
+    link: "https://td.berlin/vorschau",
+},
+
+{
+    date: "21.08.2021",
+    title: "SUIT YOUR BODY",
+    text: "Aufführung",
+    location: "TD Berlin",
+    link: "https://td.berlin/vorschau",
+},
+
+{
+    date: "22.08.2021",
+    title: "SUIT YOUR BODY",
+    text: "Aufführung",
+    location: "TD Berlin",
+    link: "https://td.berlin/vorschau",
+},
+{
     date: '27.05.2021',
     title: 'Care Affair',
     text: 'Gastspiel',

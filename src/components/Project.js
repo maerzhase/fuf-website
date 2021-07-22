@@ -169,7 +169,7 @@ const Project = props => {
           {caption &&
             caption.map((caption, index) => (
               <Typography
-                key={`caption-${index}`}
+                key={`caption-${caption}`}
                 variant="body2"
                 gutterBottom={caption.length > 1}
                 color="textSecondary"
@@ -201,7 +201,7 @@ const Project = props => {
               switch (type) {
                 case 'embed':
                   return (
-                    <React.Fragment>
+                    <React.Fragment key={url}>
                       <iframe
                         className={classes.embed}
                         src={url}
@@ -213,7 +213,7 @@ const Project = props => {
                   );
                 case 'image':
                   return (
-                    <div className={classes.galleryItem}>
+                    <div key={url} className={classes.galleryItem}>
                       {caption && (
                         <Typography
                           className={classes.caption}

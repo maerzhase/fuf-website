@@ -1,0 +1,150 @@
+import React from 'react';
+import { useRouter } from 'next/router'
+import ErrorPage from 'next/error'
+import Container from '@/components/container'
+import Layout from '@/components/layout'
+import { getProjectById, getCollectionEntries } from '@/api/api'
+import Head from 'next/head'
+import { CMS_NAME } from '@/api/constants'
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
+import { getImageSrc } from '@/api/constants';
+import { makeStyles } from '@material-ui/core/styles';
+import SliderArrowLarge from '@/icons/SliderArrowLarge';
+import IconButton from '@material-ui/core/IconButton';
+
+const GALLERY_HEIGHT = '70vh';
+const SCROLLBAR_HEIGHT = 10;
+const PROJECT_CONTENT_WIDTH = 0.8;
+
+const perc = val => `${val * 100}%`
+
+const useStyles  = makeStyles(theme => ({
+  root: {
+  },
+  title: {
+    marginTop: theme.spacing(10),
+    // position: 'sticky',
+    // top: theme.spacing(4),
+  },
+  content: {
+    display: 'flex',
+    alignItems: 'flex-start',
+    position: 'relative',
+    overflow: 'hidden',
+    minHeight: GALLERY_HEIGHT
+  },
+  textContent: {
+    width: '70%',
+    paddingRight: theme.spacing(10),
+  },
+  galleryContent: {
+    position: 'fixed',
+    width: '100%',
+    height: '100%',
+    transition: theme.transitions.create('transform'),
+    transform: props =>
+      props.isGalleryOpen ? 'translate(0, 0)' : 'translate(70%, 0)',
+  },
+  galleryWrap: {
+    overflowX: 'auto',
+    overflowY: 'hidden',
+    whiteSpace: 'nowrap',
+    '-webkit-overflow-scrolling': 'touch',
+    display: 'flex',
+    height: GALLERY_HEIGHT,
+    backgroundColor: theme.palette.common.black,
+    '& > *': {
+      marginRight: theme.spacing(2),
+    }
+  },
+  trailer: {
+    height: '100%',
+    width: '100vw',
+    '& > iframe': {
+      width: `calc(((${GALLERY_HEIGHT} - ${SCROLLBAR_HEIGHT}px ) / 9) * 16)`,
+      height: `calc(${GALLERY_HEIGHT} - ${SCROLLBAR_HEIGHT}px)`,
+    }
+  },
+  galleryToggle: {
+    position: 'absolute',
+    top: `calc(${GALLERY_HEIGHT} / 2)`,
+    transform: 'translate(-50%,-50%)',
+    zIndex: 100,
+  },
+  sliderArrowLarge: {
+    fontSize: 70,
+  },
+  img: {
+    width: 'auto',
+    height: '100%',
+  }
+}));
+
+export default function Post({ project, preview }) {
+  const router = useRouter()
+  const [isGalleryOpen, setIsGalleryOpen] = React.useState(false);
+  const [trailer, setTrailer] = React.useState(null);
+  const classes = useStyles({ isGalleryOpen });  
+  if (!project) {
+    return <ErrorPage statusCode={404} />
+  }
+
+  const handleToggleIsGalleryOpen = () => {
+    setIsGalleryOpen(!isGalleryOpen);
+  }
+
+  React.useEffect(() => {
+    if(!trailer && project.trailer) {
+      setTrailer(project.trailer);
+    }
+  }, [])
+
+  console.log(project.trailer);
+  return (
+    <>
+      <Layout preview={preview}>
+        <Container className={classes.root}>
+          <Typography className={classes.title} variant="h1">{project.title}</Typography>
+          <div className={classes.content}>
+            <div className={classes.textContent}>
+              <Typography variant="h5" gutterBottom>{project.abstract}</Typography>
+              <Typography variant="h6" gutterBottom>{project.subtitle}</Typography>
+              <Typography variant="body1">{project.credits}</Typography>
+            </div>
+            <div className={classes.galleryContent}>
+              <IconButton className={classes.galleryToggle} onClick={handleToggleIsGalleryOpen}>
+                <SliderArrowLarge fontSize="large" className={classes.sliderArrowLarge} />
+              </IconButton>
+              <div className={classes.galleryWrap}>
+                <div className={classes.trailer} dangerouslySetInnerHTML={{__html: trailer}} />
+                {
+                  project.gallery.map(img => <img className={classes.img} src={getImageSrc(img.path)} />)
+                }
+              </div>
+            </div>
+          </div>
+        </Container>
+      </Layout>
+    </>
+  )
+}
+
+export async function getStaticProps({ params, preview = null }) {
+  const project = await getProjectById(params.id)
+
+  return {
+    props: {
+      preview,
+      project: project.entries[0],
+    },
+  }
+}
+
+export async function getStaticPaths() {
+  const allEntries = (await getCollectionEntries("project")) || []
+  return {
+    paths: allEntries.entries?.map((post) => `/projects/${post._id}`) || [],
+    fallback: true,
+  }
+}

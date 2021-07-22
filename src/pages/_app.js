@@ -1,84 +1,39 @@
 import React from 'react';
-import App from 'next/app';
+import PropTypes from 'prop-types';
 import Head from 'next/head';
-import { Provider } from 'mobx-react';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { withStyles, MuiThemeProvider } from '@material-ui/core/styles';
-import { ParallaxProvider } from 'react-scroll-parallax';
-import moment from 'moment';
-import smoothscroll from 'smoothscroll-polyfill';
-import { withRouter } from 'next/router';
+import { ThemeProvider } from '@material-ui/core/styles';
+import Navigation from '@/components/Navigation';
+import CssBaseline from '@/theme/CssBaseline';
+import theme from '@/theme/index';
 
-import theme from '../theme';
-import dataStore from '../stores/index';
+export default function MyApp(props) {
+  const { Component, pageProps } = props;
 
-if (global.window) {
-  smoothscroll.polyfill();
-}
-moment.locale('de');
-
-const styles = () => ({
-  '@global': {
-    '*': {
-      // outline: 'red 1px solid',
-    },
-    html: {
-      '-webkit-font-smoothing': 'antialiased',
-      '-moz-osx-font-smoothing': 'grayscale',
-      scrollBehavior: 'smooth',
-      backgroundColor: theme.palette.common.black,
-    },
-    body: {
-      backgroundColor: theme.palette.common.black,
-      color: theme.palette.common.white,
-    },
-  },
-});
-
-@withStyles(styles)
-class MyApp extends App {
-  static async getInitialProps({ Component, ctx }) {
-    const isServer = typeof window === 'undefined';
-
-    let pageProps = {};
-    if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx);
-    }
-    return {
-      isServer,
-      pageProps,
-    };
-  }
-  constructor(props) {
-    super(props);
-  }
-
-  componentDidMount() {
+  React.useEffect(() => {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector('#jss-server-side');
     if (jssStyles) {
-      jssStyles.parentNode.removeChild(jssStyles);
+      jssStyles.parentElement.removeChild(jssStyles);
     }
-  }
+  }, []);
 
-  render() {
-    const { Component, pageProps, router } = this.props;
-    return (
-      <React.Fragment>
-        <Head>
-          <title>FUF - Frauen und Fiktion</title>
-        </Head>
-        <MuiThemeProvider theme={theme}>
-          <CssBaseline />
-          <Provider dataStore={dataStore}>
-            <ParallaxProvider>
-              <Component {...pageProps} />
-            </ParallaxProvider>
-          </Provider>
-        </MuiThemeProvider>
-      </React.Fragment>
-    );
-  }
+  return (
+    <React.Fragment>
+      <Head>
+        <title>My page</title>
+        <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
+      </Head>
+      <ThemeProvider theme={theme}>
+        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+        <CssBaseline />
+        <Navigation />
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </React.Fragment>
+  );
 }
 
-export default withRouter(MyApp);
+MyApp.propTypes = {
+  Component: PropTypes.elementType.isRequired,
+  pageProps: PropTypes.object.isRequired,
+};

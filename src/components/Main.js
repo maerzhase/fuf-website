@@ -11,7 +11,7 @@ import Project from '../components/Project';
 import Imprint from '../components/Imprint';
 import Disclaimer from '../components/Disclaimer';
 
-import dates from '../data/dates';
+import getDates from '../data/dates';
 import { projectsByLink } from '../data/projects';
 
 class Main extends Component {
@@ -48,6 +48,7 @@ class Main extends Component {
   };
 
   render() {
+    const dates = getDates();
     return (
       <React.Fragment>
         <Section title>

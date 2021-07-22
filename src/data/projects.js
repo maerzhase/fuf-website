@@ -19,10 +19,16 @@ export const allProjects = [
       `Deutschlandweite Online-Ausstrahlung unterstützt durch Netzwerk freie Theater - NFT im Programm "Verbindungen Fördern"`,
     ],
     gallery: [
-      ['image', '/static/suityourbody/01.jpg'],
+      ['embed', 'https://player.vimeo.com/video/529327672'],
+      ['image', '/static/suityourbody/01.jpg', '© Paula Reissig'],
+      ['image', '/static/suityourbody/02.jpg', '© Paula Reissig'],
       ['image', '/static/suityourbody/03.jpg', '© Paula Reissig'],
       ['image', '/static/suityourbody/04.jpg', '© Paula Reissig'],
       ['image', '/static/suityourbody/05.jpg', '© Paula Reissig'],
+      ['image', '/static/suityourbody/06.jpg', '© Paula Reissig'],
+      ['image', '/static/suityourbody/07.jpg', '© Paula Reissig'],
+      ['image', '/static/suityourbody/08.jpg', '© Paula Reissig'],
+      ['image', '/static/suityourbody/09.jpg', '© Paula Reissig'],
     ]
   },
   {

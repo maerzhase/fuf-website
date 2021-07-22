@@ -730,7 +730,7 @@ const parseDate = date => {
   return moment(date, FULL_DATE_FORMAT);
 };
 
-export default dates
+const getDates = () => dates
   .sort((a, b) => {
     const dateA = parseDate(a.date);
     const dateB = parseDate(b.date);
@@ -749,3 +749,6 @@ export default dates
     },
     { past: [], future: [] },
   );
+
+
+export default getDates;

@@ -61,6 +61,7 @@ const Section = props => {
     img,
     backgroundAlign,
     noMargin,
+    title,
     ...restProps
   } = props;
   return (

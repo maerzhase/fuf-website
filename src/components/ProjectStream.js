@@ -12,6 +12,7 @@ import { Scrollama, Step } from 'react-scrollama';
 const useStyles = makeStyles(theme => ({
   root: {
     position: 'relative',
+    top: 0,
     height: '100vh',
     display: 'flex',
     alignItems: 'center',
@@ -30,19 +31,20 @@ const Teaser = React.forwardRef((props, ref) => {
   const { project, progress, isActive, currentStepIndex, index } = props;
   const classes = useStyles(props);
   const isVisible = currentStepIndex -1 < index;
+  const nextActive = currentStepIndex > index ;
+  const progVal = progress.toFixed(2);
   return (
     <Box ref={ref} className={classes.root}>
       <div className={classes.headline}>
-        <Zoom in={isVisible}>
-        	<Link href={`/projects/${project._id}`}>
-	          <a>
-		          <Typography  variant="h1">{project.title}</Typography>
-		          <Typography  variant="h6">{project.theme.display}</Typography>
-	          </a>
-          </Link>
-        </Zoom>
+      	<Link href={`/projects/${project._id}`}>
+          <a>
+	          <Typography  variant="h1">{project.title}</Typography>
+	          <Typography  variant="h6">{project.theme.display} {progVal}</Typography>
+          </a>
+        </Link>
       </div>
       <Box
+        // style={{transform: nextActive ? `translate(0, ${progVal * 100}%)` : 'translate(0,0)', opacity: nextActive ? 1 - progVal : 1 }}
       	width="100%"
       	component="img"
       	src={getHeroImageSrc(project.heroImage.path)}
@@ -57,7 +59,7 @@ const ProjectStream = props => {
     <Scrollama
     	onStepEnter={onStepEnter}
     	onStepProgress={onStepProgress}
-    	offset={0.8}
+    	offset={1}
     >
       {projects.map((e,i) => 
       	<Step

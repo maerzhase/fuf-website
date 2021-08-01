@@ -23,6 +23,9 @@ const theme = createTheme({
     background: {
       default: '#fff',
     },
+    text: {
+      secondary: '#6a6a6a',
+    }
   },
   typography: {
     sans: SANS,
@@ -38,8 +41,21 @@ const theme = createTheme({
       fontSize: 75,
       textTransform: 'uppercase',
     },
+    h3: {
+      fontSize: 35,
+      textTransform: 'uppercase',
+    },
+    h4: {
+      fontSize: 25,
+    },
     h6: {
       fontSize: 20,
+    },
+    body1: {
+      fontSize: 15,
+    },
+    body2: {
+      fontSize: 13,
     },
     button: {
       fontSize: 20,
@@ -63,7 +79,7 @@ theme.overrides = {
   },
  PrivateTabIndicator: {
    root: {
-     top: 0,
+     top: 1,
    },
  },
 }

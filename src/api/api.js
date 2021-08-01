@@ -44,7 +44,7 @@ export async function getAllSingletons() {
 }
 
 export async function getSingleton(name) {
-  const response = await api(`api/singletons/get/${name}`);
+  const response = await api(`api/singletons/get/${name}?populate=1`);
   const json = await response.json();
   return json;
 

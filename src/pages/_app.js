@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { ThemeProvider } from '@material-ui/core/styles';
 import Navigation from '@/components/Navigation';
-import CssBaseline from '@/theme/CssBaseline';
+import CssBaseline from '@/components/CssBaseline';
 import theme from '@/theme/index';
 
 export default function MyApp(props) {

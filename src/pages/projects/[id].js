@@ -12,6 +12,7 @@ import { getImageSrc } from '@/api/constants';
 import { makeStyles } from '@material-ui/core/styles';
 import SliderArrowLarge from '@/icons/SliderArrowLarge';
 import IconButton from '@material-ui/core/IconButton';
+import ReactMarkdown from 'react-markdown';
 
 const GALLERY_HEIGHT = '70vh';
 const SCROLLBAR_HEIGHT = 10;
@@ -21,25 +22,29 @@ const perc = val => `${val * 100}%`
 
 const useStyles  = makeStyles(theme => ({
   root: {
+ 
   },
   title: {
     marginTop: theme.spacing(10),
-    // position: 'sticky',
-    // top: theme.spacing(4),
+    position: 'sticky',
+    top: theme.spacing(4),
   },
   content: {
     display: 'flex',
     alignItems: 'flex-start',
-    position: 'relative',
-    overflow: 'hidden',
-    minHeight: GALLERY_HEIGHT
+    // position: 'relative',
+    // overflow: 'hidden',
+    // minHeight: GALLERY_HEIGHT
   },
   textContent: {
-    width: '70%',
+    position: 'relative',
+    minWidth: '70vw',
     paddingRight: theme.spacing(10),
   },
   galleryContent: {
-    position: 'fixed',
+    position: 'sticky',
+    top: 0,
+    right: 0,
     width: '100%',
     height: '100%',
     transition: theme.transitions.create('transform'),
@@ -108,9 +113,9 @@ export default function Post({ project, preview }) {
           <Typography className={classes.title} variant="h1">{project.title}</Typography>
           <div className={classes.content}>
             <div className={classes.textContent}>
-              <Typography variant="h5" gutterBottom>{project.abstract}</Typography>
-              <Typography variant="h6" gutterBottom>{project.subtitle}</Typography>
-              <Typography variant="body1">{project.credits}</Typography>
+              <Typography variant="h5" gutterBottom><ReactMarkdown>{project.abstract}</ReactMarkdown></Typography>
+              <Typography variant="h6" gutterBottom><ReactMarkdown>{project.subtitle}</ReactMarkdown></Typography>
+              <Typography variant="body1"><ReactMarkdown>{project.credits}</ReactMarkdown></Typography>
             </div>
             <div className={classes.galleryContent}>
               <IconButton className={classes.galleryToggle} onClick={handleToggleIsGalleryOpen}>

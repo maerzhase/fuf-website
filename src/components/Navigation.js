@@ -10,13 +10,14 @@ import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import Slide from '@material-ui/core/Slide';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import { useRouter } from 'next/router'
 
 
 const LINKS = ['about', 'projekte', 'themen', 'spielplan']
 
 const useStyles = makeStyles(theme => ({
   root: {
-    backgroundColor: 'transparent',
+    background: 'linear-gradient(180deg, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%)',
   },
   toolbar: {
     display: 'flex',
@@ -24,9 +25,23 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+function LinkTab(props) {
+  const { href, ...rest } = props;
+  return (
+    <Link href={href} passHref>
+      <Tab
+        component="a"
+        {...rest}
+      />
+    </Link>
+  );
+}
+
 export default function Header() {
-  const trigger = useScrollTrigger();
+  const trigger = useScrollTrigger({threshold: 50});
   const classes = useStyles();
+  const router = useRouter();
+  console.log(router);
   return (
     <div>
       <Slide appear={false} direction="down" in={!trigger}>
@@ -40,13 +55,14 @@ export default function Header() {
                   </a>
                 </Link>
               </Box>
-              <Tabs value="about">
-                {LINKS.map(l => <Tab key={l} value={l} label={l}/>)}
+              <Tabs value={router.asPath}>
+                {LINKS.map(l => <LinkTab key={l} label={l} href={`/${l}`} value={`/${l}`} />)}
               </Tabs>
             </Box>
           </Toolbar>
         </AppBar>
       </Slide>
+      <Box zIndex={100} position="fixed" bottom={0} left={0} width="100%" height="33vh" style={{pointerEvents: 'none', background: 'linear-gradient(180deg, rgba(0,0,0,0) 0%, #ff6e56 100%)'}} />
     </div>
   )
 }

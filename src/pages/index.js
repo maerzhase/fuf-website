@@ -10,7 +10,7 @@ import Zoom from '@material-ui/core/Zoom';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import dynamic from 'next/dynamic';
-
+import ReactMarkdown from 'react-markdown';
 const ProjectStream = dynamic(() => import('@/components/ProjectStream'), { ssr: false });
 
 export default function Index({ allCollections, preview, allEntries, startPage }) {
@@ -35,7 +35,7 @@ export default function Index({ allCollections, preview, allEntries, startPage }
         </Head>
         <Container>
         <Box p={5} minHeight="100vh" display="flex" alignItems="center">
-          <Typography align="center" variant="h2">{startPage.introText}</Typography>
+          <Typography align="center" variant="h2"><ReactMarkdown>{startPage.introText}</ReactMarkdown></Typography>
         </Box>
         <ProjectStream
           currentStepIndex={currentStepIndex}

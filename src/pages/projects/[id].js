@@ -22,12 +22,10 @@ const perc = val => `${val * 100}%`
 
 const useStyles  = makeStyles(theme => ({
   root: {
- 
+
   },
   title: {
     marginTop: theme.spacing(10),
-    position: 'sticky',
-    top: theme.spacing(4),
   },
   content: {
     display: 'flex',
@@ -43,6 +41,7 @@ const useStyles  = makeStyles(theme => ({
     paddingRight: theme.spacing(4),
   },
   galleryContent: {
+    display: 'none',
     position: 'sticky',
     top: 0,
     right: 0,
@@ -92,7 +91,7 @@ export default function Post({ project, preview }) {
   const router = useRouter()
   const [isGalleryOpen, setIsGalleryOpen] = React.useState(false);
   const [trailer, setTrailer] = React.useState(null);
-  const classes = useStyles({ isGalleryOpen });  
+  const classes = useStyles({ isGalleryOpen });
   if (!project) {
     return <ErrorPage statusCode={404} />
   }
@@ -107,9 +106,8 @@ export default function Post({ project, preview }) {
     }
   }, [])
 
-  console.log(project.trailer);
   return (
-    <>
+    <React.Fragment>
       <Layout preview={preview}>
         <Container className={classes.root}>
           <div className={classes.content}>
@@ -133,7 +131,7 @@ export default function Post({ project, preview }) {
           </div>
         </Container>
       </Layout>
-    </>
+    </React.Fragment>
   )
 }
 

@@ -1,7 +1,7 @@
-import {makeStyles } from '@material-ui/core/styles';
-import cx from 'classnames';
+import { makeStyles } from "@material-ui/core/styles";
+import cx from "classnames";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     ...theme.mixins.maxWidth(),
   },
@@ -9,6 +9,5 @@ const useStyles = makeStyles(theme => ({
 export default function Container({ children, className }) {
   const classes = useStyles();
 
-
-  return <div className={cx(classes.root, className)}>{children}</div>
+  return <div className={cx(classes.root, className)}>{children}</div>;
 }

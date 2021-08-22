@@ -1,12 +1,12 @@
-import React from 'react';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/styles';
-import { Anchor } from './Link';
-import Overlay from './Overlay';
+import React from "react";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/styles";
+import { Anchor } from "./Link";
+import Overlay from "./Overlay";
 
-const useStyles = makeStyles(theme => ({}));
+const useStyles = makeStyles((theme) => ({}));
 
-const Imprint = props => {
+const Imprint = (props) => {
   const classes = useStyles(props);
   return (
     <Overlay isOpen={props.isOpen}>

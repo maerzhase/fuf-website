@@ -1,151 +1,151 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/styles';
-import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
-import CloseIcon from '@material-ui/icons/Close';
-import ArrowRight from '@material-ui/icons/ArrowRightAlt';
-import PlayIcon from '@material-ui/icons/PlayArrow';
-import Slide from '@material-ui/core/Slide';
-import Router from 'next/router';
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+import { makeStyles } from "@material-ui/styles";
+import Typography from "@material-ui/core/Typography";
+import IconButton from "@material-ui/core/IconButton";
+import CloseIcon from "@material-ui/icons/Close";
+import ArrowRight from "@material-ui/icons/ArrowRightAlt";
+import PlayIcon from "@material-ui/icons/PlayArrow";
+import Slide from "@material-ui/core/Slide";
+import Router from "next/router";
 
-const useStyles = makeStyles(theme => ({
-  '@global': {
+const useStyles = makeStyles((theme) => ({
+  "@global": {
     body: {
-      overflow: props => (props.isOpen ? 'hidden' : null),
+      overflow: (props) => (props.isOpen ? "hidden" : null),
     },
   },
   root: {
-    position: 'fixed',
+    position: "fixed",
     top: 0,
     left: 0,
-    height: '100%',
-    width: '100%',
+    height: "100%",
+    width: "100%",
     backgroundColor: theme.palette.common.black,
-    display: 'flex',
+    display: "flex",
     // transform: props => props.isOpen ? 'translate(0,0)' : 'translate(-100%, 0)',
     // transition: theme.transitionHelper('transform'),
   },
   textSection: {
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down("sm")]: {
       padding: theme.spacing(1),
-      width: '85%',
+      width: "85%",
     },
     padding: theme.spacing(4),
-    width: '70%',
-    height: '100%',
-    overflowY: 'auto',
-    position: 'relative',
+    width: "70%",
+    height: "100%",
+    overflowY: "auto",
+    position: "relative",
   },
   closeBtn: {
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down("sm")]: {
       right: 0,
       top: 0,
     },
-    position: 'absolute',
+    position: "absolute",
     right: theme.spacing(2),
     top: theme.spacing(2),
   },
   gallerySection: {
-    [theme.breakpoints.down('sm')]: {
-      transform: props =>
-        props.isGalleryOpen ? 'translate(0, 0)' : 'translate(85%, 0)',
+    [theme.breakpoints.down("sm")]: {
+      transform: (props) =>
+        props.isGalleryOpen ? "translate(0, 0)" : "translate(85%, 0)",
     },
-    position: 'absolute',
-    width: '100%',
-    height: '100%',
+    position: "absolute",
+    width: "100%",
+    height: "100%",
     backgroundColor: theme.palette.common.black,
-    transform: props =>
-      props.isGalleryOpen ? 'translate(0, 0)' : 'translate(70%, 0)',
-    transition: theme.transitionHelper('transform'),
+    transform: (props) =>
+      props.isGalleryOpen ? "translate(0, 0)" : "translate(70%, 0)",
+    transition: theme.transitionHelper("transform"),
   },
   galleryWrap: {
-    overflowX: 'auto',
-    whiteSpace: 'nowrap',
-    '-webkit-overflow-scrolling': 'touch',
+    overflowX: "auto",
+    whiteSpace: "nowrap",
+    "-webkit-overflow-scrolling": "touch",
   },
   playButton: {
-    [theme.breakpoints.down('sm')]: {
-      transform: props =>
+    [theme.breakpoints.down("sm")]: {
+      transform: (props) =>
         props.isGalleryOpen
-          ? 'translate(0, -50%) rotate(0deg)'
-          : 'translate(-50%, -50%) translate(85vw, 0) rotate(-180deg)',
+          ? "translate(0, -50%) rotate(0deg)"
+          : "translate(-50%, -50%) translate(85vw, 0) rotate(-180deg)",
     },
-    appearance: 'none',
-    position: 'absolute',
-    top: '50%',
+    appearance: "none",
+    position: "absolute",
+    top: "50%",
     backgroundColor: theme.palette.common.white,
     width: 35,
     height: 35,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    '&:focus': {
-      outline: 'none',
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    "&:focus": {
+      outline: "none",
     },
-    borderTopLeftRadius: props => (props.isGalleryOpen ? 0 : '50%'),
-    borderBottomLeftRadius: props => (props.isGalleryOpen ? 0 : '50%'),
-    borderTopRightRadius: '50%',
-    borderBottomRightRadius: '50%',
-    transform: props =>
+    borderTopLeftRadius: (props) => (props.isGalleryOpen ? 0 : "50%"),
+    borderBottomLeftRadius: (props) => (props.isGalleryOpen ? 0 : "50%"),
+    borderTopRightRadius: "50%",
+    borderBottomRightRadius: "50%",
+    transform: (props) =>
       props.isGalleryOpen
-        ? 'translate(0, -50%) rotate(0deg)'
-        : 'translate(-50%, -50%) translate(70vw, 0) rotate(-180deg)',
-    transition: theme.transitionHelper(['transform', 'borderRadius']),
+        ? "translate(0, -50%) rotate(0deg)"
+        : "translate(-50%, -50%) translate(70vw, 0) rotate(-180deg)",
+    transition: theme.transitionHelper(["transform", "borderRadius"]),
   },
   playIcon: {
-    transform: 'rotate(180deg)',
+    transform: "rotate(180deg)",
   },
   galleryItem: {
-    display: 'inline-block',
-    position: 'relative',
+    display: "inline-block",
+    position: "relative",
   },
   caption: {
-    position: 'absolute',
+    position: "absolute",
     left: theme.spacing(2),
     top: theme.spacing(2),
     ...theme.teaserShadow(),
   },
   embed: {
-    display: 'inline-block',
-    width: '90vw',
-    height: '100vh',
+    display: "inline-block",
+    width: "90vw",
+    height: "100vh",
   },
   img: {
-    width: 'auto',
-    height: '100vh',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center',
-    backgroundSize: 'auto',
-    display: 'inline-block',
+    width: "auto",
+    height: "100vh",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
+    backgroundSize: "auto",
+    display: "inline-block",
     // outline:  `${theme.palette.common.white} 10px solid`
   },
   scroller: {
     zIndex: 100,
-    position: 'fixed',
-    left: '100%',
-    top: '100%',
-    transform: 'translate(-100%, -100%)',
-    display: 'flex',
-    alignItems: 'center',
+    position: "fixed",
+    left: "100%",
+    top: "100%",
+    transform: "translate(-100%, -100%)",
+    display: "flex",
+    alignItems: "center",
   },
   scrollArrow: {
-    fontSize: '3rem',
+    fontSize: "3rem",
   },
 }));
 
-const Project = props => {
+const Project = (props) => {
   // if (!props.isOpen) return null;
   const classes = useStyles(props);
   const { num, title, subtitle, pre, text, caption, gallery } = props;
   return (
     <Slide
-      direction={props.isOpen ? 'right' : 'left'}
+      direction={props.isOpen ? "right" : "left"}
       in={props.isOpen}
       mountOnEnter
       unmountOnExit
       timeout={300}
-      onExited={() => console.log('Exited')}
+      onExited={() => console.log("Exited")}
     >
       <div className={classes.root}>
         <section className={classes.textSection}>
@@ -181,7 +181,7 @@ const Project = props => {
             color="primary"
             className={classes.closeBtn}
             onClick={() => {
-              Router.push('/');
+              Router.push("/");
             }}
           >
             <CloseIcon fontSize="large" />
@@ -199,7 +199,7 @@ const Project = props => {
                 </Typography>
               );
               switch (type) {
-                case 'embed':
+                case "embed":
                   return (
                     <React.Fragment key={url}>
                       <iframe
@@ -211,7 +211,7 @@ const Project = props => {
                       {index === 0 && scollNotification}
                     </React.Fragment>
                   );
-                case 'image':
+                case "image":
                   return (
                     <div key={url} className={classes.galleryItem}>
                       {caption && (

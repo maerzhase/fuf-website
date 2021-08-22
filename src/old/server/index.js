@@ -1,28 +1,25 @@
 /* eslint-disable */
-const next = require('next');
-const express = require('express');
-const cookieParser = require('cookie-parser')
-const mobxReact = require('mobx-react');
-const { parse } = require('url');
-const {
-  DEFAULT_HOSTNAME,
-  DEFAULT_PORT,
-} = require('./constants');
-const dotenv = require('dotenv');
+const next = require("next");
+const express = require("express");
+const cookieParser = require("cookie-parser");
+const mobxReact = require("mobx-react");
+const { parse } = require("url");
+const { DEFAULT_HOSTNAME, DEFAULT_PORT } = require("./constants");
+const dotenv = require("dotenv");
 
 dotenv.config();
 
 const {
-  NODE_ENV='development',
-  HOSTNAME=DEFAULT_HOSTNAME,
-  PORT=DEFAULT_PORT
+  NODE_ENV = "development",
+  HOSTNAME = DEFAULT_HOSTNAME,
+  PORT = DEFAULT_PORT,
 } = process.env;
 
-const dev = NODE_ENV !== 'production'
+const dev = NODE_ENV !== "production";
 
 // create a next server instance
-const nextApp = next({ dev, dir: './src' });
-const handle = nextApp.getRequestHandler()
+const nextApp = next({ dev, dir: "./src" });
+const handle = nextApp.getRequestHandler();
 
 // use `next-routes` configuration and bind the next request handler to it
 // const nextRouteHandle = routes.getRequestHandler(nextApp);
@@ -31,26 +28,25 @@ const handle = nextApp.getRequestHandler()
 mobxReact.useStaticRendering(true);
 
 // boots the custom server
-async function boostrap(){
+async function boostrap() {
   // wait until next is ready
   await nextApp.prepare();
   // open express to have a custom server
   const server = express();
   server.use(cookieParser());
-  server.all('*', (req, res) => {
-    return handle(req, res)
-  })
+  server.all("*", (req, res) => {
+    return handle(req, res);
+  });
   // bind the next routing handles for the other
   // server.use(nextRouteHandle);
-  server.listen(PORT, HOSTNAME, error => {
+  server.listen(PORT, HOSTNAME, (error) => {
     if (error) throw error;
     console.log(`> Ready on http://${HOSTNAME}:${PORT}`); // eslint-disable-line no-console
   });
 }
 
 // prepare nextApp, start express and config… then
-boostrap()
-  .catch(exception => {
-    console.error(exception.stack); // eslint-disable-line no-console
-    process.exit(1);
-  });
+boostrap().catch((exception) => {
+  console.error(exception.stack); // eslint-disable-line no-console
+  process.exit(1);
+});

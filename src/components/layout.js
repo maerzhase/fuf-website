@@ -1,8 +1,8 @@
-import Footer from './Footer'
-import Meta from './meta'
-import {makeStyles } from '@material-ui/core/styles';
+import Footer from "./Footer";
+import Meta from "./meta";
+import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     ...theme.mixins.gutter(),
   },
@@ -15,5 +15,5 @@ export default function Layout({ preview, children }) {
       <main className={classes.root}>{children}</main>
       <Footer />
     </>
-  )
+  );
 }

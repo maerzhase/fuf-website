@@ -1,11 +1,11 @@
-import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
+import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
 
 const muiTheme = createMuiTheme();
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#ff8c69',
+      main: "#ff8c69",
     },
     text: {
       secondary: muiTheme.palette.grey[500],
@@ -36,34 +36,34 @@ const theme = createMuiTheme({
       fontSize: 20,
     },
     body2: {
-     fontSize: 18,
+      fontSize: 18,
     },
   },
   sectionPadding: () => ({
     padding: theme.spacing(8),
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down("md")]: {
       padding: theme.spacing(2),
     },
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down("sm")]: {
       padding: theme.spacing(2),
     },
   }),
   teaserShadow: () => ({
-    textShadow: '1px 1px 3px rgba(0,0,0,0.70)',
+    textShadow: "1px 1px 3px rgba(0,0,0,0.70)",
   }),
   transitions: {
-    color: 'color ease-in-out 150ms',
+    color: "color ease-in-out 150ms",
   },
   overrides: {
     MuiTypography: {
       gutterBottom: {
-        marginBottom: '0.6em',
+        marginBottom: "0.6em",
       },
     },
   },
-  transitionHelper: props => {
+  transitionHelper: (props) => {
     if (Array.isArray(props)) {
-      return props.map(prop => `${prop} 300ms ease-in-out`).join(', ');
+      return props.map((prop) => `${prop} 300ms ease-in-out`).join(", ");
     }
     return `${props} 300ms ease-in-out`;
   },

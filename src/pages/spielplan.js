@@ -59,7 +59,7 @@ const useRowStyles = makeStyles((theme) => ({
 
 const toDate = (date) => {
   const [year, month, day] = date.split("-");
-  return new Date(year, month, day);
+  return new Date(year, month-1, day);
 };
 
 const useFormatedDate = (date) => {

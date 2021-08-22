@@ -1,10 +1,10 @@
-import {makeStyles } from '@material-ui/core/styles';
-import MuiCssBaseline from '@/theme/CssBaseline';
+import { makeStyles } from "@material-ui/core/styles";
+import MuiCssBaseline from "@/theme/CssBaseline";
 
-const useStyles = makeStyles(theme => ({
-  '@global': {
+const useStyles = makeStyles((theme) => ({
+  "@global": {
     body: {
-      overflowX: 'hidden',
+      overflowX: "hidden",
       // touchAction: 'none',
       // '-ms-touch-action': 'none',
     },
@@ -12,8 +12,8 @@ const useStyles = makeStyles(theme => ({
       // overflowX: 'hidden',
       // touchAction: 'none',
       // '-ms-touch-action': 'none',
-    }
-  }
+    },
+  },
 }));
 
 export default function CssBaseline() {
@@ -22,5 +22,5 @@ export default function CssBaseline() {
     <>
       <MuiCssBaseline />
     </>
-  )
+  );
 }

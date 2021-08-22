@@ -1,25 +1,25 @@
-import React, { Component } from 'react';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-import Router, { withRouter } from 'next/router';
-import Section from '../components/Section';
-import Link, { Anchor } from '../components/Link';
-import Teaser from '../components/Teaser';
-import Frau from '../components/Frau';
-import Termine from '../components/Termine';
-import Project from '../components/Project';
-import Imprint from '../components/Imprint';
-import Disclaimer from '../components/Disclaimer';
+import React, { Component } from "react";
+import Typography from "@material-ui/core/Typography";
+import Box from "@material-ui/core/Box";
+import Router, { withRouter } from "next/router";
+import Section from "../components/Section";
+import Link, { Anchor } from "../components/Link";
+import Teaser from "../components/Teaser";
+import Frau from "../components/Frau";
+import Termine from "../components/Termine";
+import Project from "../components/Project";
+import Imprint from "../components/Imprint";
+import Disclaimer from "../components/Disclaimer";
 
-import getDates from '../data/dates';
-import { projectsByLink } from '../data/projects';
+import getDates from "../data/dates";
+import { projectsByLink } from "../data/projects";
 
 class Main extends Component {
   get openProject() {
     const { router } = this.props;
     if (!router.query.projectId) return null;
-    if (router.query.projectId === 'imprint') return null;
-    if (router.query.projectId === 'disclaimer') return null;
+    if (router.query.projectId === "imprint") return null;
+    if (router.query.projectId === "disclaimer") return null;
     return router.query.projectId;
   }
   get projectData() {
@@ -33,11 +33,11 @@ class Main extends Component {
   }
   get isImprintOpen() {
     const { router } = this.props;
-    return router.query.projectId === 'imprint';
+    return router.query.projectId === "imprint";
   }
   get isDisclaimerOpen() {
     const { router } = this.props;
-    return router.query.projectId === 'disclaimer';
+    return router.query.projectId === "disclaimer";
   }
   handleToggleGallery = () => {
     if (this.imageId) {
@@ -80,7 +80,19 @@ class Main extends Component {
           num={6}
           backgroundAlign="top left"
           img="/static/savemenot_title.jpg"
-          special={<Box mt={4} ml={4}><Typography variant="h2"><Anchor href="https://www.deutschlandfunkkultur.de/hoerspiel-feministische-selbstverteidigung-save-me-not.3683.de.html?dram:article_id=476911" rel="noopener noreferrer"  target="_blank">Zum Hörspiel</Anchor></Typography></Box>}
+          special={
+            <Box mt={4} ml={4}>
+              <Typography variant="h2">
+                <Anchor
+                  href="https://www.deutschlandfunkkultur.de/hoerspiel-feministische-selbstverteidigung-save-me-not.3683.de.html?dram:article_id=476911"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  Zum Hörspiel
+                </Anchor>
+              </Typography>
+            </Box>
+          }
         />
         <Teaser
           id="care"
@@ -192,7 +204,7 @@ class Main extends Component {
         </Section>
         <Section centered noMargin>
           <img
-            style={{ opacity: 0.5, transform: 'translate(10px, 0)' }}
+            style={{ opacity: 0.5, transform: "translate(10px, 0)" }}
             src="/static/fuf-logo.svg"
           />
           <Typography variant="body1" gutterBottom>

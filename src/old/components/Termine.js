@@ -1,38 +1,38 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/styles';
-import cx from 'classnames';
-import PropTypes from 'prop-types';
-import Typography from '@material-ui/core/Typography';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import MuiTableCell from '@material-ui/core/TableCell';
-import TableRow from '@material-ui/core/TableRow';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import { useTheme } from '@material-ui/core/styles';
-import Section from './Section';
-import { Anchor as Link } from './Link';
-import { humanizeDate } from '../data/dates';
+import React from "react";
+import { makeStyles } from "@material-ui/styles";
+import cx from "classnames";
+import PropTypes from "prop-types";
+import Typography from "@material-ui/core/Typography";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import MuiTableCell from "@material-ui/core/TableCell";
+import TableRow from "@material-ui/core/TableRow";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { useTheme } from "@material-ui/core/styles";
+import Section from "./Section";
+import { Anchor as Link } from "./Link";
+import { humanizeDate } from "../data/dates";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   cell: {
     transition: theme.transitions.color,
     color: theme.palette.common.white,
     borderBottomColor: theme.palette.grey[700],
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down("sm")]: {
       padding: theme.spacing(1),
     },
   },
   row: {
-    [theme.breakpoints.down('md')]: {},
-    '&:hover $cell': {
+    [theme.breakpoints.down("md")]: {},
+    "&:hover $cell": {
       color: theme.palette.primary.main,
     },
   },
   projectTitle: {
     // wordBreak: 'break-all',
-    '@global': {
+    "@global": {
       b: {
-        textTransform: 'uppercase',
+        textTransform: "uppercase",
       },
     },
   },
@@ -43,14 +43,14 @@ const useStyles = makeStyles(theme => ({
     color: theme.palette.grey[500],
   },
   wrap: {
-    wordBreak: 'break-all',
+    wordBreak: "break-all",
   },
   invisble: {
-    visibility: 'hidden',
+    visibility: "hidden",
   },
 }));
 
-const TableCell = props => {
+const TableCell = (props) => {
   const classes = useStyles(props);
   const { className, ...restProps } = props;
   return (
@@ -63,17 +63,17 @@ TableCell.propTypes = {
 };
 
 TableCell.defaultProps = {
-  className: '',
+  className: "",
 };
 
-const Termine = props => {
+const Termine = (props) => {
   const classes = useStyles(props);
   const { dates, title } = props;
   if (dates.length === 0) return null;
   const theme = useTheme();
-  const matchesDownSm = useMediaQuery(theme.breakpoints.down('xs'));
-  const titleType = matchesDownSm ? 'h6' : 'h5';
-  const restType = matchesDownSm ? 'caption' : 'h6';
+  const matchesDownSm = useMediaQuery(theme.breakpoints.down("xs"));
+  const titleType = matchesDownSm ? "h6" : "h5";
+  const restType = matchesDownSm ? "caption" : "h6";
   return (
     <Section centered noMargin>
       <Typography variant="h4" gutterBottom>
@@ -81,7 +81,7 @@ const Termine = props => {
       </Typography>
       <Table className={classes.table}>
         <TableBody className={classes.cell}>
-          {dates.map(d => {
+          {dates.map((d) => {
             const hasSubtext = d.text;
             const humanizedDate = humanizeDate(d.date);
             return (
@@ -147,20 +147,14 @@ const Termine = props => {
                 className={cx(classes.projectTitle, classes.wrap)}
                 variant={titleType}
               >
-                <b>
-                  {Array(32)
-                    .fill('X')
-                    .join('')}
-                </b>
+                <b>{Array(32).fill("X").join("")}</b>
                 <Typography
                   variant={restType}
                   component="span"
                   className={cx(classes.subText, classes.wrap)}
                 >
                   &nbsp;
-                  {Array(32)
-                    .fill('X')
-                    .join('')}
+                  {Array(32).fill("X").join("")}
                 </Typography>
               </Typography>
             </TableCell>
@@ -171,9 +165,7 @@ const Termine = props => {
                   component="span"
                   variant={restType}
                 >
-                  {Array(40)
-                    .fill('X')
-                    .join('')}
+                  {Array(40).fill("X").join("")}
                 </Typography>
               </TableCell>
             )}
@@ -196,7 +188,7 @@ Termine.propTypes = {
 
 Termine.defaultProps = {
   dates: [],
-  title: '',
+  title: "",
 };
 
 export default Termine;

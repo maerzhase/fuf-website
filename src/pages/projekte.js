@@ -1,17 +1,24 @@
-import React, { useState} from 'react';
-import { getAllCollections, getCollectionEntries, getSingleton, getAllSingletons } from '@/api/api'
-import Head from 'next/head'
-import Link from 'next/link'
-import { CMS_NAME } from '@/api/constants'
-import Layout from '@/components/layout';
-import Container from '@/components/container'
-import Box from '@material-ui/core/Box';
-import Zoom from '@material-ui/core/Zoom';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import dynamic from 'next/dynamic';
+import React, { useState } from "react";
+import {
+  getAllCollections,
+  getCollectionEntries,
+  getSingleton,
+  getAllSingletons,
+} from "@/api/api";
+import Head from "next/head";
+import Link from "next/link";
+import { CMS_NAME } from "@/api/constants";
+import Layout from "@/components/layout";
+import Container from "@/components/container";
+import Box from "@material-ui/core/Box";
+import Zoom from "@material-ui/core/Zoom";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import dynamic from "next/dynamic";
 
-const ProjectStream = dynamic(() => import('@/components/ProjectStream'), { ssr: false });
+const ProjectStream = dynamic(() => import("@/components/ProjectStream"), {
+  ssr: false,
+});
 
 export default function Index({ preview, allEntries }) {
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
@@ -25,7 +32,7 @@ export default function Index({ preview, allEntries }) {
 
   const onStepProgress = ({ progress, ...rest }) => {
     setStepProgress(progress);
-  }
+  };
 
   return (
     <>
@@ -33,21 +40,21 @@ export default function Index({ preview, allEntries }) {
         <Head>
           <title>Next.js Blog Example with {CMS_NAME}</title>
         </Head>
-          <ProjectStream
-            currentStepIndex={currentStepIndex}
-            currentStepProgress={stepProgress}
-            onStepEnter={onStepEnter}
-            onStepProgress={onStepProgress}
-            projects={allEntries.entries}
-          />
+        <ProjectStream
+          currentStepIndex={currentStepIndex}
+          currentStepProgress={stepProgress}
+          onStepEnter={onStepEnter}
+          onStepProgress={onStepProgress}
+          projects={allEntries.entries}
+        />
       </Layout>
     </>
-  )
+  );
 }
 
 export async function getStaticProps({ preview = null }) {
-  const allEntries = (await getCollectionEntries("project")) || []
+  const allEntries = (await getCollectionEntries("project")) || [];
   return {
     props: { preview, allEntries },
-  }
+  };
 }

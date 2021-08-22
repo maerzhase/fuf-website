@@ -1,16 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/styles';
-import Typography from '@material-ui/core/Typography';
-import { Anchor } from './Link';
+import React from "react";
+import PropTypes from "prop-types";
+import { makeStyles } from "@material-ui/styles";
+import Typography from "@material-ui/core/Typography";
+import { Anchor } from "./Link";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
-    marginBottom: props => (props.gutterBottom ? theme.spacing(8) : null),
+    marginBottom: (props) => (props.gutterBottom ? theme.spacing(8) : null),
   },
 }));
 
-const Frau = props => {
+const Frau = (props) => {
   const classes = useStyles(props);
   const hasProfession = !!props.profession;
   return (

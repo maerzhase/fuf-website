@@ -165,7 +165,7 @@ export default function Index({ preview, allEntries }) {
                     pastByYear &&
                     pastByYear.map(([year, dates]) => {
                       return (
-                        <React.Fragment>
+                        <React.Fragment key={year}>
                           <TableRow>
                             <TypoCell color="secondary" variant="h3">
                               {year}
@@ -195,7 +195,7 @@ export default function Index({ preview, allEntries }) {
                 pastByYear &&
                 pastByYear.map(([year, dates]) => {
                   return (
-                    <React.Fragment>
+                    <React.Fragment key={year}>
                       <Box mb={5}>
                         <Typography color="textSecondary" variant="h3">
                           {year}

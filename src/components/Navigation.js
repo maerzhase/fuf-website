@@ -127,7 +127,7 @@ const MobileNav = () => {
   );
 };
 
-export default function Header() {
+export default function Navigation() {
   const trigger = useScrollTrigger({ threshold: 50 });
   const classes = useStyles();
   return (

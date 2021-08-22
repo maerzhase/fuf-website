@@ -90,9 +90,6 @@ export default function Post({ project, preview }) {
   const [isGalleryOpen, setIsGalleryOpen] = React.useState(false);
   const [trailer, setTrailer] = React.useState(null);
   const classes = useStyles({ isGalleryOpen });
-  if (!project) {
-    return <ErrorPage statusCode={404} />;
-  }
 
   const handleToggleIsGalleryOpen = () => {
     setIsGalleryOpen(!isGalleryOpen);
@@ -103,6 +100,10 @@ export default function Post({ project, preview }) {
       setTrailer(project.trailer);
     }
   }, []);
+
+  if (!project) {
+    return <ErrorPage statusCode={404} />;
+  }
 
   return (
     <React.Fragment>
@@ -141,7 +142,7 @@ export default function Post({ project, preview }) {
                   />
                 )}
                 {project.gallery.map((img) => (
-                  <img className={classes.img} src={getImageSrc(img.path)} />
+                  <img key={img.path} className={classes.img} src={getImageSrc(img.path)} />
                 ))}
               </div>
             </div>

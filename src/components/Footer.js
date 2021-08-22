@@ -1,4 +1,4 @@
-import Container from "./Container";
+import Container from "./container";
 import { EXAMPLE_PATH } from "@/api/constants";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";

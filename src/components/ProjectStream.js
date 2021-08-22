@@ -28,10 +28,16 @@ const useStyles = makeStyles((theme) => ({
     transform: "translate(-50%, -50%)",
     textAlign: "center",
     // opacity: props => props.isActive ? 1 - props.progress : 1,
+    '&:hover': {
+      color: theme.palette.primary.main,
+    }
   },
+  heroImage: {
+    width: '100%',
+  }
 }));
 
-const Teaser = React.forwardRef((props, ref) => {
+export const Teaser = React.forwardRef((props, ref) => {
   const { project, progress, isActive, currentStepIndex, index } = props;
   const classes = useStyles(props);
   const isVisible = currentStepIndex - 1 < index;
@@ -44,15 +50,13 @@ const Teaser = React.forwardRef((props, ref) => {
           <a>
             <Typography variant="h1">{project.title}</Typography>
             <Typography variant="h6">
-              {project.theme.display} {progVal}
+              {project.theme.display}
             </Typography>
           </a>
         </Link>
       </div>
-      <Box
-        // style={{transform: nextActive ? `translate(0, ${progVal * 100}%)` : 'translate(0,0)', opacity: nextActive ? 1 - progVal : 1 }}
-        width="100%"
-        component="img"
+      <img
+        className={classes.heroImage}
         src={getHeroImageSrc(project.heroImage.path)}
       />
     </Box>
@@ -60,6 +64,31 @@ const Teaser = React.forwardRef((props, ref) => {
 });
 
 Teaser.displayName = "Teaser";
+
+export const SimpleTeaser = React.forwardRef((props, ref) => {
+  const { project } = props;
+  const classes = useStyles();
+  return (
+    <Box ref={ref} className={classes.root}>
+      <div className={classes.headline}>
+        <Link href={`/projects/${project._id}`}>
+          <a>
+            <Typography variant="h1">{project.title}</Typography>
+            <Typography variant="h6">
+              {project.theme.display}
+            </Typography>
+          </a>
+        </Link>
+      </div>
+      <img
+        className={classes.heroImage}
+        src={getHeroImageSrc(project.heroImage.path)}
+      />
+    </Box>
+  );
+});
+
+SimpleTeaser.displayName = "SimpleTeaser";
 
 const ProjectStream = (props) => {
   const {

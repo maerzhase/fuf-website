@@ -22,6 +22,7 @@ const LINKS = ["about", "projekte", "themen", "spielplan"];
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    zIndex: 1301,
     background:
       "linear-gradient(180deg, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%)",
     ...theme.mixins.gutter(),
@@ -40,10 +41,21 @@ const useStyles = makeStyles((theme) => ({
       display: "none",
     },
   },
+  mobileNav: {
+    [theme.breakpoints.up("lg")]: {
+      display: "none",
+    },
+  },
   mobileNavPaper: {
     height: "100%",
     backgroundColor: theme.palette.common.black,
   },
+  mobileNavList: {
+    width: '100%',
+    position: 'absolute',
+    top: "50%",
+    transform: 'translate(0, -50%)',
+  }
 }));
 
 function LinkTab(props) {
@@ -76,11 +88,16 @@ const MobileListItem = withStyles((theme) => {})(ListItem);
 const MobileNav = () => {
   const classes = useStyles();
   const [isOpen, setIsOpen] = React.useState(false);
+  const router = useRouter();
+
   const toggleDrawer = () => {
     setIsOpen(!isOpen);
   };
+  React.useEffect(() => {
+    setIsOpen(false);
+  }, [router.route]);
   return (
-    <React.Fragment>
+    <div className={classes.mobileNav}>
       <IconButton onClick={toggleDrawer}>
         <MenuIcon />
       </IconButton>
@@ -90,24 +107,23 @@ const MobileNav = () => {
         open={isOpen}
         onClose={toggleDrawer}
       >
-        <List>
+        <List className={classes.mobileNavList}>
           {LINKS.map((l) => (
+            <Link               href={`/${l}`}
+              key={l} passHref>
             <MobileListItem
               button
-              key={l}
-              label={l}
-              href={`/${l}`}
-              value={`/${l}`}
             >
               <ListItemText
                 primary={l}
-                primaryTypographyProps={{ variant: "h1", align: "center" }}
+                primaryTypographyProps={{ variant: "h1", align: "center", color: router.asPath === `/${l}` ? 'primary' : 'default' }}
               />
             </MobileListItem>
+            </Link>
           ))}
         </List>
       </Drawer>
-    </React.Fragment>
+    </div>
   );
 };
 

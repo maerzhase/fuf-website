@@ -18,7 +18,7 @@ export async function getAllCollections() {
 }
 
 export async function getCollectionEntries(collection) {
-  const response = await api(`api/collections/get/${collection}`, {
+  const response = await api(`api/collections/get/${collection}?populate=1`, {
     method: "post",
     body: JSON.stringify({
       filter: { published: true },

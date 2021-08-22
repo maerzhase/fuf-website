@@ -4,7 +4,7 @@ import MuiCssBaseline from '@/theme/CssBaseline';
 const useStyles = makeStyles(theme => ({
   '@global': {
     body: {
-      // overflowX: 'hidden',
+      overflowX: 'hidden',
       // touchAction: 'none',
       // '-ms-touch-action': 'none',
     },

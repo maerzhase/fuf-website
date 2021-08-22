@@ -8,7 +8,7 @@ import {
 import Head from "next/head";
 import Link from "next/link";
 import { CMS_NAME } from "@/api/constants";
-import Layout from "@/components/layout";
+import Layout from "@/components/Layout";
 import Container from "@/components/container";
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
@@ -151,7 +151,7 @@ export default function Index({ preview, allEntries }) {
           <title>Next.js Blog Example with {CMS_NAME}</title>
         </Head>
         <Container>
-          <Box mt={14}>
+          <Box mt={10}>
             <Box mb={4}>
               <Typography variant="h2">Spielplan</Typography>
             </Box>

@@ -5,10 +5,11 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
   root: {
     ...theme.mixins.gutter(),
+    minHeight: props => props.minHeight ? '80vh' : 'none',
   },
 }));
-export default function Layout({ preview, children }) {
-  const classes = useStyles();
+export default function Layout({ preview, children, ...rest }) {
+  const classes = useStyles(rest);
   return (
     <>
       <Meta />

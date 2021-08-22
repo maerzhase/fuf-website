@@ -8,7 +8,7 @@ import {
 import Head from "next/head";
 import Link from "next/link";
 import { CMS_NAME } from "@/api/constants";
-import Layout from "@/components/layout";
+import Layout from "@/components/Layout";
 import Container from "@/components/container";
 import Box from "@material-ui/core/Box";
 import Zoom from "@material-ui/core/Zoom";

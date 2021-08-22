@@ -2,7 +2,7 @@ import React from "react";
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
 import Container from "@/components/container";
-import Layout from "@/components/layout";
+import Layout from "@/components/Layout";
 import { getProjectById, getCollectionEntries } from "@/api/api";
 import Head from "next/head";
 import { CMS_NAME } from "@/api/constants";

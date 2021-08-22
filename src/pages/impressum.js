@@ -15,12 +15,12 @@ import Zoom from "@material-ui/core/Zoom";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import dynamic from "next/dynamic";
+import ReactMarkdown from "react-markdown";
 
-const ProjectStream = dynamic(() => import("@/components/ProjectStream"), {
-  ssr: false,
-});
-
-export default function Index({ preview, allEntries }) {
+export default function ImpressumPage({
+  page,
+  preview,
+}) {
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
   const [stepProgress, setStepProgress] = useState(0);
 
@@ -35,26 +35,29 @@ export default function Index({ preview, allEntries }) {
   };
 
   return (
-    <>
+    <React.Fragment>
       <Layout>
         <Head>
-          <title>Next.js Blog Example with {CMS_NAME}</title>
+          <title>Impressum - Frauen und Fiktion</title>
         </Head>
-        <ProjectStream
-          currentStepIndex={currentStepIndex}
-          currentStepProgress={stepProgress}
-          onStepEnter={onStepEnter}
-          onStepProgress={onStepProgress}
-          projects={allEntries.entries}
-        />
+        <Container>
+          <Box mt={10}>
+            <Typography variant="h1">Impressum</Typography>
+            <Typography>
+              <ReactMarkdown>
+                {page.content}
+              </ReactMarkdown>
+              </Typography>
+            </Box>
+        </Container>
       </Layout>
-    </>
+    </React.Fragment>
   );
 }
 
 export async function getStaticProps({ preview = null }) {
-  const allEntries = (await getCollectionEntries("project")) || [];
+  const page = await getSingleton("impressum");
   return {
-    props: { preview, allEntries },
+    props: { page, preview, },
   };
 }

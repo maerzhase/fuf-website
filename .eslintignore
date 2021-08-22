@@ -12,3 +12,4 @@ npm-debug.log
 .env
 _src
 .npmrc
+src/old

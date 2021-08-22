@@ -1,7 +1,10 @@
-import { createTheme } from '@material-ui/core/styles';
+import { createTheme, responsiveFontSizes } from '@material-ui/core/styles';
 import { red } from '@material-ui/core/colors';
 
 const SANS = ['Trash', 'system-ui', 'sans-serif'];
+
+const WHITE = '#ffffff';
+const SALMON = '#ff6e56';
 
 const FONTWEIGHT_REGULAR = 400;
 const FONTWEIGHT_MEDIUM = 500;
@@ -12,7 +15,8 @@ const theme = createTheme({
   palette: {
     type: 'dark',
     primary: {
-      main: '#556cd6',
+      main: SALMON,
+      contrastText: WHITE,
     },
     secondary: {
       main: '#19857b',
@@ -34,11 +38,11 @@ const theme = createTheme({
     fontWeightMedium: FONTWEIGHT_MEDIUM,
     fontWeightBold: FONTWEIGHT_BOLD,
     h1: {
-      fontSize: 110,
+      fontSize: 90,
       textTransform: 'uppercase',
     },
     h2: {
-      fontSize: 75,
+      fontSize: 50,
       textTransform: 'uppercase',
     },
     h3: {
@@ -61,7 +65,23 @@ const theme = createTheme({
       fontSize: 20,
     }
   },
+  shape: {
+    maxWidth: 1280,
+  }
 });
+
+theme.mixins = {
+  maxWidth: () => ({
+    maxWidth: theme.shape.maxWidth,
+    margin: 'auto',
+  }),
+  gutter: () => ({
+    [theme.breakpoints.down('sm')]: {
+      padding: theme.spacing(0, 1),
+    },
+    padding: theme.spacing(0, 2),
+  }),
+}
 
 theme.overrides = {
   MuiButton: {
@@ -84,4 +104,4 @@ theme.overrides = {
  },
 }
 
-export default theme;
+export default responsiveFontSizes(theme, { factor: 5 });

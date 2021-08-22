@@ -18,10 +18,16 @@ const LINKS = ['about', 'projekte', 'themen', 'spielplan']
 const useStyles = makeStyles(theme => ({
   root: {
     background: 'linear-gradient(180deg, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%)',
+    ...theme.mixins.gutter(),
   },
   toolbar: {
     display: 'flex',
     alignItems: 'flex-start',
+    ...theme.mixins.maxWidth(),
+    width: "100%",
+  },
+  logo: {
+    whiteSpace: 'nowrap',
   }
 }));
 
@@ -51,11 +57,11 @@ export default function Header() {
               <Box flexGrow={1} display="flex" alignItems="center" alignSelf="center">
                 <Link href="/">
                   <a>
-                    <Typography variant="h5">Frauen und Fiktion</Typography>
+                    <Typography className={classes.logo} variant="h5">Frauen und Fiktion</Typography>
                   </a>
                 </Link>
               </Box>
-              <Tabs value={router.asPath}>
+              <Tabs indicatorColor="primary" value={router.asPath}>
                 {LINKS.map(l => <LinkTab key={l} label={l} href={`/${l}`} value={`/${l}`} />)}
               </Tabs>
             </Box>

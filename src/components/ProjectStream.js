@@ -53,6 +53,8 @@ const Teaser = React.forwardRef((props, ref) => {
   );
 });
 
+Teaser.displayName = "Teaser";
+
 const ProjectStream = props => {
 	const {projects, currentStepIndex, currentStepProgress, onStepProgress, onStepEnter } = props
 	return (
@@ -65,7 +67,6 @@ const ProjectStream = props => {
       	<Step
       		key={i}
       		data={i}
-      		key={i}
       	>
       		<Teaser
       			index={i}

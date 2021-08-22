@@ -33,7 +33,6 @@ export default function Index({ preview, allEntries }) {
         <Head>
           <title>Next.js Blog Example with {CMS_NAME}</title>
         </Head>
-        <Container>
           <ProjectStream
             currentStepIndex={currentStepIndex}
             currentStepProgress={stepProgress}
@@ -41,7 +40,6 @@ export default function Index({ preview, allEntries }) {
             onStepProgress={onStepProgress}
             projects={allEntries.entries}
           />
-        </Container>
       </Layout>
     </>
   )

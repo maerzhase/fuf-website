@@ -42,9 +42,19 @@ const useRowStyles = makeStyles((theme) => ({
       theme.palette.text[props.color] || theme.palette.text.primary,
     transition: theme.transitions.create("color"),
     "&:hover": {
-      color: theme.palette.primary.main,
+      color: theme.palette.primary.light,
     },
   },
+  desktop: {
+    [theme.breakpoints.down('sm')]: {
+      display: 'none',
+    }
+  },
+  mobile: {
+    [theme.breakpoints.up('md')]: {
+      display: 'none',
+    },
+  }
 }));
 
 const toDate = (date) => {
@@ -56,6 +66,29 @@ const useFormatedDate = (date) => {
   const d = toDate(date);
   return format(d, "d. MMMM yyyy", { locale: de });
 };
+
+const MobileRow = (props) => {
+  const { date, isPast } = props;
+  const classes = useRowStyles(props);
+  const formatedDate = useFormatedDate(date.date);
+  return (
+    <Box mb={5} py={1} borderBottom={1} color="grey.700" width="100%" display="flex" flexDirection="column">
+      <Typography color="textPrimary" variant="subtitle1" component="div">{formatedDate}</Typography>
+      <Typography color="textPrimary" variant="h5" component="div">{date.title}</Typography>
+      <Typography  variant="subtitle1" component="div">{date.location}</Typography>
+      <Button
+        style={{marginLeft: 'auto'}}
+        size="small"
+        href={date.link}
+        target="_blank"
+        endIcon={<LinkIcon fontSize="inherit" />}
+        color={isPast ? 'secondary' : 'default'}
+      >
+        Tickets
+      </Button>
+    </Box>
+  )
+}
 
 const DateRow = (props) => {
   const { date, color } = props;
@@ -84,6 +117,7 @@ const DateRow = (props) => {
 
 export default function Index({ preview, allEntries }) {
   const today = new Date();
+  const classes = useRowStyles({});
   const [showPast, setShowPast] = React.useState(false);
   const [past, future] = allEntries.entries.reduce(
     (acc, e) => {
@@ -111,7 +145,7 @@ export default function Index({ preview, allEntries }) {
     setShowPast(!showPast);
   };
   return (
-    <>
+    <React.Fragment>
       <Layout>
         <Head>
           <title>Next.js Blog Example with {CMS_NAME}</title>
@@ -121,7 +155,7 @@ export default function Index({ preview, allEntries }) {
             <Box mb={4}>
               <Typography variant="h2">Spielplan</Typography>
             </Box>
-            <TableContainer>
+            <TableContainer className={classes.desktop}>
               <Table aria-label="simple table">
                 <TableBody>
                   {future.map((date) => (
@@ -131,7 +165,7 @@ export default function Index({ preview, allEntries }) {
                     pastByYear &&
                     pastByYear.map(([year, dates]) => {
                       return (
-                        <>
+                        <React.Fragment>
                           <TableRow>
                             <TypoCell color="secondary" variant="h3">
                               {year}
@@ -147,12 +181,37 @@ export default function Index({ preview, allEntries }) {
                               color="secondary"
                             />
                           ))}
-                        </>
+                        </React.Fragment>
                       );
                     })}
                 </TableBody>
               </Table>
             </TableContainer>
+            <Box className={classes.mobile}>
+            {future.map((date) => (
+              <MobileRow key={date._id} date={date} />
+            ))}
+            {showPast &&
+                pastByYear &&
+                pastByYear.map(([year, dates]) => {
+                  return (
+                    <React.Fragment>
+                      <Box mb={5}>
+                        <Typography color="textSecondary" variant="h3">
+                          {year}
+                        </Typography>
+                      </Box>
+                      {dates.map((date) => (
+                        <MobileRow
+                          key={date._id}
+                          date={date}
+                          isPast
+                        />
+                      ))}
+                    </React.Fragment>
+                  );
+                })}
+            </Box>
             <Box mt={4}>
               <Button
                 onClick={handleToggleArchive}
@@ -165,7 +224,7 @@ export default function Index({ preview, allEntries }) {
           </Box>
         </Container>
       </Layout>
-    </>
+    </React.Fragment>
   );
 }
 

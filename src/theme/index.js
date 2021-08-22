@@ -104,4 +104,4 @@ theme.overrides = {
   },
 };
 
-export default responsiveFontSizes(theme, { factor: 5 });
+export default responsiveFontSizes(theme, { factor: 4 });

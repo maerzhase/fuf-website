@@ -14,7 +14,7 @@ import SliderArrowLarge from '@/icons/SliderArrowLarge';
 import IconButton from '@material-ui/core/IconButton';
 import ReactMarkdown from 'react-markdown';
 
-const GALLERY_HEIGHT = '70vh';
+const GALLERY_HEIGHT = '100vh';
 const SCROLLBAR_HEIGHT = 10;
 const PROJECT_CONTENT_WIDTH = 0.8;
 
@@ -38,8 +38,9 @@ const useStyles  = makeStyles(theme => ({
   },
   textContent: {
     position: 'relative',
-    minWidth: '70vw',
-    paddingRight: theme.spacing(10),
+    minWidth: '70%',
+    maxWidth: '70%',
+    paddingRight: theme.spacing(4),
   },
   galleryContent: {
     position: 'sticky',
@@ -49,7 +50,7 @@ const useStyles  = makeStyles(theme => ({
     height: '100%',
     transition: theme.transitions.create('transform'),
     transform: props =>
-      props.isGalleryOpen ? 'translate(0, 0)' : 'translate(70%, 0)',
+      props.isGalleryOpen ? 'translate(70%, 0)' : 'translate(0, 0)',
   },
   galleryWrap: {
     overflowX: 'auto',
@@ -74,7 +75,8 @@ const useStyles  = makeStyles(theme => ({
   galleryToggle: {
     position: 'absolute',
     top: `calc(${GALLERY_HEIGHT} / 2)`,
-    transform: 'translate(-50%,-50%)',
+    transition: theme.transitions.create('transform'),
+    transform: props => props.isGalleryOpen ? 'translate(-50%,-50%) rotate(0deg)' : 'translate(0,-50%) rotate(180deg)',
     zIndex: 100,
   },
   sliderArrowLarge: {
@@ -110,9 +112,9 @@ export default function Post({ project, preview }) {
     <>
       <Layout preview={preview}>
         <Container className={classes.root}>
-          <Typography className={classes.title} variant="h1">{project.title}</Typography>
           <div className={classes.content}>
             <div className={classes.textContent}>
+          <Typography className={classes.title} variant="h1">{project.title}</Typography>
               <Typography variant="h5" gutterBottom><ReactMarkdown>{project.abstract}</ReactMarkdown></Typography>
               <Typography variant="h6" gutterBottom><ReactMarkdown>{project.subtitle}</ReactMarkdown></Typography>
               <Typography variant="body1"><ReactMarkdown>{project.credits}</ReactMarkdown></Typography>
@@ -122,7 +124,7 @@ export default function Post({ project, preview }) {
                 <SliderArrowLarge fontSize="large" className={classes.sliderArrowLarge} />
               </IconButton>
               <div className={classes.galleryWrap}>
-                <div className={classes.trailer} dangerouslySetInnerHTML={{__html: trailer}} />
+                {trailer && <div className={classes.trailer} dangerouslySetInnerHTML={{__html: trailer}} />}
                 {
                   project.gallery.map(img => <img className={classes.img} src={getImageSrc(img.path)} />)
                 }

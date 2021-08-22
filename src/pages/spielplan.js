@@ -6,6 +6,7 @@ import { CMS_NAME } from '@/api/constants'
 import Layout from '@/components/layout';
 import Container from '@/components/container'
 import Box from '@material-ui/core/Box';
+import Button from '@material-ui/core/Button';
 import Zoom from '@material-ui/core/Zoom';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
@@ -19,16 +20,60 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import LinkIcon from '@/icons/Link';
-import { isBefore, parse } from 'date-fns';
+import { isBefore, parse, format } from 'date-fns';
+import { de } from 'date-fns/locale'
+import { groupBy, orderBy } from 'lodash';
 
 const TypoCell = withStyles(theme => ({
-  root: {
-    ...theme.typography.button,
-  },
+  root: props => ({
+    ...theme.typography[props.variant] || theme.typography.button,
+    color: theme.palette.text.[props.color] || 'inherit',  
+  }),
 }))(TableCell)
+
+const useRowStyles = makeStyles(theme => ({
+  root: {
+    color: props => theme.palette.text.[props.color] || theme.palette.text.primary,
+    transition: theme.transitions.create('color'),
+    '&:hover': {
+      color: theme.palette.primary.main,
+    }
+  }
+}));
+
+const toDate = date => {
+  const [year, month, day] = date.split('-');;
+  return new Date(year, month, day);
+}
+
+const useFormatedDate = date => {
+  const d = toDate(date);
+  return format(d, 'd. MMMM yyyy', {locale: de});
+}
+
+const DateRow = props => {
+  const { date, color } = props;
+  const classes = useRowStyles(props);
+  const formatedDate = useFormatedDate(date.date);
+  return (
+    <TableRow className={classes.root}>
+      <TypoCell width="25%" variant="body1">
+        {formatedDate}
+      </TypoCell>
+      <TypoCell width="40%">{date.title}</TypoCell>
+      <TypoCell width="35%">{date.location}</TypoCell>
+      <TypoCell width="40px">
+        <Button href={date.link} target="_blank" endIcon={<LinkIcon fontSize="inherit"/>} color={color}>
+          Tickets
+        </Button>
+      </TypoCell>
+    </TableRow>
+  )
+}
 
 export default function Index({ preview, allEntries }) {
   const today = new Date();
+  const [showPast, setShowPast] = React.useState(false); 
   const [past, future] = allEntries.entries.reduce((acc, e) => {
     const date = parse(e.date, 'yyyy-MM-dd', new Date());
     if(isBefore(date, today)) {
@@ -38,7 +83,20 @@ export default function Index({ preview, allEntries }) {
     }
     return acc;
   }, [[], []]);
-  console.log(past, future)
+
+
+  const groupedPast = groupBy(past, p => p.date.split('-')[0]);
+
+  const pastByYear = Object.keys(groupedPast)
+    .reverse()
+    .map(year => ([
+      year, 
+      orderBy(groupedPast[year], d => toDate(d.date), 'desc')
+    ]));
+
+  const handleToggleArchive = () => {
+    setShowPast(!showPast);
+  }
   return (
     <>
       <Layout>
@@ -46,40 +104,40 @@ export default function Index({ preview, allEntries }) {
           <title>Next.js Blog Example with {CMS_NAME}</title>
         </Head>
         <Container>
-          <Box mt={10}>
-            <Typography variant="h2">Spielplan</Typography>
+          <Box mt={14}>
+            <Box mb={4}>
+              <Typography variant="h2">Spielplan</Typography>
+            </Box>
             <TableContainer >
               <Table aria-label="simple table">
                 <TableBody>
                   {future.map((date) => (
-                    <TableRow key={date._id}>
-                      <TypoCell>
-                        {date.date}
-                      </TypoCell>
-                      <TypoCell>{date.title}</TypoCell>
-                      <TypoCell>{date.location}</TypoCell>
-                      <TypoCell><LinkIcon fontSize="small"/></TypoCell>
-                    </TableRow>
+                    <DateRow key={date._id} date={date} />
                   ))}
+                  {
+                   showPast && pastByYear && pastByYear.map(([year, dates]) => {
+
+                      return (
+                        <>
+                        <TableRow>
+                          <TypoCell color="secondary" variant="h3">{year}</TypoCell>
+                          <TypoCell />
+                          <TypoCell />
+                          <TypoCell />
+                        </TableRow>
+                        {
+                          dates.map(date => <DateRow key={date._id} date={date} color="secondary" />)
+                        }
+                        </>
+                      );
+                    })
+                  }
                 </TableBody>
               </Table>
             </TableContainer>
-            <TableContainer >
-              <Table aria-label="simple table">
-                <TableBody>
-                  {past.map((date) => (
-                    <TableRow key={date._id}>
-                      <TypoCell>
-                        {date.date}
-                      </TypoCell>
-                      <TypoCell>{date.title}</TypoCell>
-                      <TypoCell>{date.location}</TypoCell>
-                      <TypoCell><LinkIcon fontSize="small"/></TypoCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </TableContainer>
+            <Box mt={4}>
+              <Button onClick={handleToggleArchive} variant="outlined" fullWidth>{showPast ? 'Hide' : 'Show'} Archive</Button>
+            </Box>
           </Box>
         </Container>
       </Layout>

@@ -53,12 +53,12 @@ export default function Index({  preview, aboutPage }) {
           <title>Next.js Blog Example with {CMS_NAME}</title>
         </Head>
         <Container>
-          <Box minHeight="80vh" display="flex" alignItems="center">
+          <Box minHeight="100vh" display="flex" alignItems="center">
             <Typography variant="h4"><ReactMarkdown>{aboutPage.intro}</ReactMarkdown></Typography>
           </Box>
           <Box>
             {
-              aboutPage.team.map(p => <Person person={p} />)
+              aboutPage.team.map(p => <Person key={p._id} person={p} />)
             }
             <Box display="flex" mb={4}>
               <LeftColumn>
@@ -66,7 +66,7 @@ export default function Index({  preview, aboutPage }) {
               </LeftColumn>
               <RightColumn>
                 {
-                  aboutPage.collaborators.map(c => <Collaborator person={c} />)
+                  aboutPage.collaborators.map(c => <Collaborator key={c._id} person={c} />)
                 }
               </RightColumn>
             </Box>

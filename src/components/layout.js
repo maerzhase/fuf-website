@@ -1,9 +1,10 @@
 import Footer from './Footer'
 import Meta from './meta'
 import {makeStyles } from '@material-ui/core/styles';
+
 const useStyles = makeStyles(theme => ({
   root: {
-    marginTop: theme.spacing(10),
+    ...theme.mixins.gutter(),
   },
 }));
 export default function Layout({ preview, children }) {
@@ -11,7 +12,7 @@ export default function Layout({ preview, children }) {
   return (
     <>
       <Meta />
-      <main>{children}</main>
+      <main className={classes.root}>{children}</main>
       <Footer />
     </>
   )

@@ -4,14 +4,14 @@ import MuiCssBaseline from '@/theme/CssBaseline';
 const useStyles = makeStyles(theme => ({
   '@global': {
     body: {
-        overflowX: 'hidden',
-      touchAction: 'none',
-      '-ms-touch-action': 'none',
+      // overflowX: 'hidden',
+      // touchAction: 'none',
+      // '-ms-touch-action': 'none',
     },
     html: {
-        overflowX: 'hidden',
-      touchAction: 'none',
-      '-ms-touch-action': 'none',
+      // overflowX: 'hidden',
+      // touchAction: 'none',
+      // '-ms-touch-action': 'none',
     }
   }
 }));

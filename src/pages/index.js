@@ -34,9 +34,10 @@ export default function Index({ allCollections, preview, allEntries, startPage }
           <title>Next.js Blog Example with {CMS_NAME}</title>
         </Head>
         <Container>
-        <Box p={5} minHeight="100vh" display="flex" alignItems="center">
+        <Box minHeight="100vh" display="flex" alignItems="center">
           <Typography align="center" variant="h2"><ReactMarkdown>{startPage.introText}</ReactMarkdown></Typography>
         </Box>
+</Container>
         <ProjectStream
           currentStepIndex={currentStepIndex}
           currentStepProgress={stepProgress}
@@ -44,7 +45,6 @@ export default function Index({ allCollections, preview, allEntries, startPage }
           onStepProgress={onStepProgress}
           projects={allEntries.entries}
         />
-        </Container>
       </Layout>
     </>
   )

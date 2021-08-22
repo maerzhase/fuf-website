@@ -10,7 +10,7 @@ const LINKS = ['instagram', 'facebook', 'datenschutz', 'impressum']
 export default function Footer() {
   return (
     <footer>
-      <Box mt={10} display="flex" alignItems="center" width="100%" mb={10}>
+      <Box mt={10} display="flex" alignItems="center" width="100%">
         <Box flexGrow={1} display="flex" alignItems="center">
           <Typography variant="subtitle1"> &copy; {new Date().getFullYear()} Frauen und Fiktion</Typography>
         </Box>

@@ -28,16 +28,16 @@ export default function Index({ allCollections, preview, allEntries, startPage }
   }
 
   return (
-    <>
+    <React.Fragment>
       <Layout>
         <Head>
           <title>Next.js Blog Example with {CMS_NAME}</title>
         </Head>
         <Container>
-        <Box minHeight="100vh" display="flex" alignItems="center">
-          <Typography align="center" variant="h2"><ReactMarkdown>{startPage.introText}</ReactMarkdown></Typography>
-        </Box>
-</Container>
+          <Box minHeight="100vh" display="flex" alignItems="center">
+            <Typography align="center" variant="h2"><ReactMarkdown>{startPage.introText}</ReactMarkdown></Typography>
+          </Box>
+        </Container>
         <ProjectStream
           currentStepIndex={currentStepIndex}
           currentStepProgress={stepProgress}
@@ -46,7 +46,7 @@ export default function Index({ allCollections, preview, allEntries, startPage }
           projects={allEntries.entries}
         />
       </Layout>
-    </>
+    </React.Fragment>
   )
 }
 

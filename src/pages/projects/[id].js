@@ -22,10 +22,9 @@ const perc = val => `${val * 100}%`
 
 const useStyles  = makeStyles(theme => ({
   root: {
-
+    paddingTop  : theme.spacing(10),
   },
   title: {
-    marginTop: theme.spacing(10),
   },
   content: {
     display: 'flex',
@@ -33,23 +32,20 @@ const useStyles  = makeStyles(theme => ({
     // position: 'relative',
     // overflow: 'hidden',
     // minHeight: GALLERY_HEIGHT
+    // overflowX: 'hidden',
   },
   textContent: {
     position: 'relative',
+    paddingRight: theme.spacing(4),
     minWidth: '70%',
     maxWidth: '70%',
-    paddingRight: theme.spacing(4),
   },
   galleryContent: {
-    display: 'none',
-    position: 'sticky',
-    top: 0,
-    right: 0,
     width: '100%',
-    height: '100%',
+    height: `calc(100vh - ${theme.spacing(10)}px)`,
     transition: theme.transitions.create('transform'),
     transform: props =>
-      props.isGalleryOpen ? 'translate(70%, 0)' : 'translate(0, 0)',
+      props.isGalleryOpen ? 'translate(-70%, 0)' : 'translate(0, 0)',
   },
   galleryWrap: {
     overflowX: 'auto',
@@ -57,7 +53,7 @@ const useStyles  = makeStyles(theme => ({
     whiteSpace: 'nowrap',
     '-webkit-overflow-scrolling': 'touch',
     display: 'flex',
-    height: GALLERY_HEIGHT,
+    height: '100%',
     backgroundColor: theme.palette.common.black,
     '& > *': {
       marginRight: theme.spacing(2),
@@ -65,15 +61,15 @@ const useStyles  = makeStyles(theme => ({
   },
   trailer: {
     height: '100%',
-    width: '100vw',
+    width: '100%',
     '& > iframe': {
-      width: `calc(((${GALLERY_HEIGHT} - ${SCROLLBAR_HEIGHT}px ) / 9) * 16)`,
-      height: `calc(${GALLERY_HEIGHT} - ${SCROLLBAR_HEIGHT}px)`,
+      width: `calc(((100vh - ${theme.spacing(10)}px) / 9) * 16)`,
+    height: `calc(100vh - ${theme.spacing(10)}px)`,
     }
   },
   galleryToggle: {
     position: 'absolute',
-    top: `calc(${GALLERY_HEIGHT} / 2)`,
+    top: '50%',
     transition: theme.transitions.create('transform'),
     transform: props => props.isGalleryOpen ? 'translate(-50%,-50%) rotate(0deg)' : 'translate(0,-50%) rotate(180deg)',
     zIndex: 100,

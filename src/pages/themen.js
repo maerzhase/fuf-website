@@ -50,7 +50,7 @@ export default function ThemenPage({
           allThemes.entries.map(theme => {
             const { title, description } = theme;
             return (
-              <Box>
+              <Box key={title}>
                 <Container>
                   <Box minHeight="100vh" display="flex" alignItems="center">
                     <Box>
@@ -60,7 +60,7 @@ export default function ThemenPage({
                       <Typography variant="h1" align="center">{title}</Typography>
                       {
                         groupedProjects[title].map(project => (
-                          <React.Fragment>
+                          <React.Fragment key={project._id}>
                             <Link href={`/projects/${project._id}`} passHref>
                               <Button color="primary" variant="text" fullWidth align="center">{project.title}</Button>
                             </Link>

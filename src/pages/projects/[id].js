@@ -65,6 +65,7 @@ const useStyles = makeStyles((theme) => ({
     "& > iframe": {
       width: `calc(((100vh - ${theme.spacing(12)}px) / 9) * 16)`,
       height: `calc(100vh - ${theme.spacing(12)}px)`,
+      maxWidth: '100vw'
     },
   },
   galleryToggle: {
@@ -115,13 +116,13 @@ export default function Post({ project, preview }) {
               <Typography className={classes.title} variant="h1">
                 {project.title}
               </Typography>
-              <Typography variant="h5" gutterBottom>
+              <Typography variant="h5" gutterBottom component="div">
                 <ReactMarkdown>{project.abstract}</ReactMarkdown>
               </Typography>
-              <Typography variant="h6" gutterBottom>
+              <Typography variant="h6" gutterBottom component="div">
                 <ReactMarkdown>{project.subtitle}</ReactMarkdown>
               </Typography>
-              <Typography variant="body1">
+              <Typography variant="body1" component="div">
                 <ReactMarkdown>{project.credits}</ReactMarkdown>
               </Typography>
             </div>

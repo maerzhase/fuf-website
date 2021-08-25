@@ -116,7 +116,7 @@ const MobileNav = () => {
             >
               <ListItemText
                 primary={l}
-                primaryTypographyProps={{ variant: "h1", align: "center", color: router.asPath === `/${l}` ? 'primary' : 'default' }}
+                primaryTypographyProps={{ variant: "h1", align: "center", color: router.asPath === `/${l}` ? 'primary' : 'initial' }}
               />
             </MobileListItem>
             </Link>

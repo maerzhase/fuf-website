@@ -23,6 +23,7 @@ const perc = (val) => `${val * 100}%`;
 const useStyles = makeStyles((theme) => ({
   root: {
     paddingTop: theme.spacing(10),
+    overflowX: 'hidden',
   },
   title: {},
   content: {
@@ -62,8 +63,8 @@ const useStyles = makeStyles((theme) => ({
     height: "100%",
     width: "100%",
     "& > iframe": {
-      width: `calc(((100vh - ${theme.spacing(10)}px) / 9) * 16)`,
-      height: `calc(100vh - ${theme.spacing(10)}px)`,
+      width: `calc(((100vh - ${theme.spacing(12)}px) / 9) * 16)`,
+      height: `calc(100vh - ${theme.spacing(12)}px)`,
     },
   },
   galleryToggle: {

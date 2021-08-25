@@ -7,9 +7,11 @@ const useStyles = makeStyles((theme) => ({
       overflowX: "hidden",
       // touchAction: 'none',
       // '-ms-touch-action': 'none',
+      // position: 'relative',
     },
     html: {
       // overflowX: 'hidden',
+      //  position: 'relative',
       // touchAction: 'none',
       // '-ms-touch-action': 'none',
     },

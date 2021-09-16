@@ -15,6 +15,7 @@ import Zoom from "@material-ui/core/Zoom";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import dynamic from "next/dynamic";
+import { motion, useTransform , useViewportScroll, useMotionValue} from "framer-motion";
 
 const ProjectStream = dynamic(() => import("@/components/ProjectStream"), {
   ssr: false,
@@ -23,6 +24,7 @@ const ProjectStream = dynamic(() => import("@/components/ProjectStream"), {
 export default function Index({ preview, allEntries }) {
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
   const [stepProgress, setStepProgress] = useState(0);
+  const prog = useMotionValue(0)
 
   // This callback fires when a Step hits the offset threshold. It receives the
   // data prop of the step, which in this demo stores the index of the step.
@@ -31,7 +33,8 @@ export default function Index({ preview, allEntries }) {
   };
 
   const onStepProgress = ({ progress, ...rest }) => {
-    setStepProgress(progress);
+    console.log(progress, currentStepIndex);
+   prog.set(progress + (1 * currentStepIndex));
   };
 
   return (
@@ -42,7 +45,7 @@ export default function Index({ preview, allEntries }) {
         </Head>
         <ProjectStream
           currentStepIndex={currentStepIndex}
-          currentStepProgress={stepProgress}
+          currentStepProgress={prog}
           onStepEnter={onStepEnter}
           onStepProgress={onStepProgress}
           projects={allEntries.entries}

@@ -55,7 +55,7 @@ export default function Index({
   );
 }
 
-export async function getStaticProps({ preview = null }) {
+export async function getServerSideProps({ preview = null }) {
   const page = await getSingleton("datenschutz");
   return {
     props: { page, preview, },

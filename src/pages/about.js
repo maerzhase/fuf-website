@@ -132,7 +132,7 @@ export default function Index({ preview, aboutPage }) {
   );
 }
 
-export async function getStaticProps({ preview = null }) {
+export async function getServerSideProps({ preview = null }) {
   const aboutPage = await getSingleton("about");
   return {
     props: { preview, aboutPage },

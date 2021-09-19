@@ -79,7 +79,7 @@ export default function ThemenPage({
   );
 }
 
-export async function getStaticProps({ preview = null }) {
+export async function getServerSideProps({ preview = null }) {
   const allProjects = (await getCollectionEntries("project")) || [];
   const allThemes = (await getCollectionEntries("theme")) || [];
   return {

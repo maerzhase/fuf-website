@@ -64,7 +64,7 @@ export default function Index({
   );
 }
 
-export async function getStaticProps({ preview = null }) {
+export async function getServerSideProps({ preview = null }) {
   const allCollections = (await getAllCollections(preview)) || [];
   const allEntries = (await getCollectionEntries("project")) || [];
   const startPage = await getSingleton("Landinpage");

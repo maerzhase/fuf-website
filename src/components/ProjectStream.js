@@ -57,7 +57,7 @@ export const Teaser = React.forwardRef((props, ref) => {
       </div>
       <img
         className={classes.heroImage}
-        src={getHeroImageSrc(project.heroImage.path)}
+        src={getHeroImageSrc(project.heroImage?.path)}
       />
     </Box>
   );

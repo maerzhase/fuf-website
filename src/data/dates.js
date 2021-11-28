@@ -4,6 +4,52 @@ moment.locale('de');
 
 const dates = [
 {
+    date: "27.09.2021",
+    title: "CARE AFFAIR",
+    text: "Performance",
+    location: "Festival Hauptsache Frei Hamburg",
+    link: "https://hauptsachefrei.de/de/performances/care-affair",
+},
+
+{
+    date: "19.09.2021",
+    title: "CARE AFFAIR",
+    text: "Performance",
+    location: "Multitude Festival Pavillon Hannover",
+    link: "https://multitude-festival.de/programm/care-affair-frauen-und-fiktion",
+},
+
+{
+    date: "07.10.2021",
+    title: "CARE AFFAIR",
+    text: "Performance",
+    location: "Frauenzentrum Weiberwirtschaft Halle",
+    link: "https://www.dornrosa.de/frauenzentrum",
+},
+
+{
+    date: "27.10.2021",
+    title: "FUTURE LOVE",
+    text: "Performance",
+    location: "Monologfestival TD Berlin",
+    link: "https://monologfestival.de/",
+},
+
+{
+    date: "28.10.2021",
+    title: "FUTURE LOVE",
+    text: "Performance",
+    location: "Monologfestival TD Berlin",
+    link: "https://monologfestival.de/",
+},
+{
+   date: "27.10.2021",
+   title: "FUTURE LOVE",
+   text: "Performance",
+   location: "TD Berlin",
+   link: "https://monologfestival.de/de/program/2021-10-27/2000",
+},
+{
     date: "05.06.2021",
     title: "(save me) not!",
     text: "Hörspiel",

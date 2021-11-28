@@ -143,7 +143,7 @@ export default function Post({ project, preview }) {
                     dangerouslySetInnerHTML={{ __html: trailer }}
                   />
                 )}
-                {project.gallery.map((img) => (
+                {project.gallery?.map((img) => (
                   <img key={img.path} className={classes.img} src={getImageSrc(img.path)} />
                 ))}
               </div>

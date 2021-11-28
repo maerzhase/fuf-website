@@ -74,8 +74,8 @@ export const Teaser = React.forwardRef((props, ref) => {
       </div>
       <motion.img
         className={classes.heroImage}
-        src={getHeroImageSrc(project.heroImage.path)}
         style={{y: y2}}
+        src={getHeroImageSrc(project.heroImage?.path)}
       />
       {isVisible && <motion.div style={{scaleY: scale, transformOrigin: 'bottom center'}} className={classes.overlay}  />}
     </motion.div>
@@ -101,7 +101,7 @@ export const SimpleTeaser = React.forwardRef((props, ref) => {
       </div>
       <img
         className={classes.heroImage}
-        src={getHeroImageSrc(project.heroImage.path)}
+        src={getHeroImageSrc(project.heroImage?.path)}
       />
     </motion.div>
   );

@@ -228,7 +228,7 @@ export default function Index({ preview, allEntries }) {
   );
 }
 
-export async function getStaticProps({ preview = null }) {
+export async function getServerSideProps({ preview = null }) {
   const allEntries = (await getCollectionEntries("event")) || [];
   return {
     props: { preview, allEntries },

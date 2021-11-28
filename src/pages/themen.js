@@ -59,7 +59,7 @@ export default function ThemenPage({
                       </Typography>
                       <Typography variant="h1" align="center">{title}</Typography>
                       {
-                        groupedProjects[title].map(project => (
+                        groupedProjects[title]?.map(project => (
                           <React.Fragment key={project._id}>
                             <Link href={`/projects/${project._id}`} passHref>
                               <Button color="primary" variant="text" fullWidth align="center">{project.title}</Button>

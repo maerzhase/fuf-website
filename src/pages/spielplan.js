@@ -64,12 +64,14 @@ const toDate = (date) => {
 
 const useFormatedDate = (date) => {
   const d = toDate(date);
+  console.log(date, d);
   return format(d, "d. MMMM yyyy", { locale: de });
 };
 
 const MobileRow = (props) => {
   const { date, isPast } = props;
   const classes = useRowStyles(props);
+  console.log(date.title);
   const formatedDate = useFormatedDate(date.date);
   return (
     <Box mb={5} py={1} borderBottom={1} color="grey.700" width="100%" display="flex" flexDirection="column">
@@ -93,6 +95,7 @@ const MobileRow = (props) => {
 const DateRow = (props) => {
   const { date, color } = props;
   const classes = useRowStyles(props);
+  console.log(date.title);
   const formatedDate = useFormatedDate(date.date);
   return (
     <TableRow className={classes.root}>
@@ -115,31 +118,9 @@ const DateRow = (props) => {
   );
 };
 
-export default function Index({ preview, allEntries }) {
-  const today = new Date();
+export default function Index({ preview, allEntries, future, pastByYear }) {
   const classes = useRowStyles({});
   const [showPast, setShowPast] = React.useState(false);
-  const [past, future] = allEntries.entries.reduce(
-    (acc, e) => {
-      const date = parse(e.date, "yyyy-MM-dd", new Date());
-      if (isBefore(date, today)) {
-        acc[0].push(e);
-      } else {
-        acc[1].push(e);
-      }
-      return acc;
-    },
-    [[], []]
-  );
-
-  const groupedPast = groupBy(past, (p) => p.date.split("-")[0]);
-
-  const pastByYear = Object.keys(groupedPast)
-    .reverse()
-    .map((year) => [
-      year,
-      orderBy(groupedPast[year], (d) => toDate(d.date), "desc"),
-    ]);
 
   const handleToggleArchive = () => {
     setShowPast(!showPast);
@@ -229,8 +210,35 @@ export default function Index({ preview, allEntries }) {
 }
 
 export async function getServerSideProps({ preview = null }) {
+  const today = new Date();
   const allEntries = (await getCollectionEntries("event")) || [];
+
+  const [past, future] = allEntries.entries.reduce(
+    (acc, e) => {
+      const date = parse(e.date, "yyyy-MM-dd", new Date());
+      if (isBefore(date, today)) {
+        acc[0].push(e);
+      } else {
+        acc[1].push(e);
+      }
+      return acc;
+    },
+    [[], []]
+  );
+
+  const sortedFuture = orderBy(future, d => toDate(d.date), "desc");
+
+  const groupedPast = groupBy(past, (p) => p.date.split("-")[0]);
+
+  const pastByYear = Object.keys(groupedPast)
+    .reverse()
+    .map((year) => [
+      year,
+      orderBy(groupedPast[year], (d) => toDate(d.date), "desc"),
+    ]);
+
+
   return {
-    props: { preview, allEntries },
+    props: { preview, pastByYear, future: sortedFuture },
   };
 }

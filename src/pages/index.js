@@ -29,20 +29,25 @@ export default function Index({
   startPage,
 }) {
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
+  const [currentDirection, setCurrentDirection] = useState('down');
   const [stepProgress, setStepProgress] = useState(0);
   const prog = useMotionValue(0)
 
   // This callback fires when a Step hits the offset threshold. It receives the
   // data prop of the step, which in this demo stores the index of the step.
-  const onStepEnter = ({ data }) => {
+  const onStepEnter = ({ data, direction }) => {
+    console.log('enter',  data, direction);
+
     setCurrentStepIndex(data);
+   // setCurrentDirection(direction)
   };
 
-  const onStepProgress = ({ progress, ...rest }) => {
-    console.log(progress, currentStepIndex);
-   prog.set(progress + (1 * currentStepIndex));
+  const onStepProgress = ({data,  progress, direction,  ...rest }) => {
+    if(data === currentStepIndex) {
+      console.log(progress) 
+      prog.set(progress + (1 * currentStepIndex));
+    }
   };
-
 
   return (
     <React.Fragment>
@@ -62,7 +67,8 @@ export default function Index({
           currentStepProgress={prog}
           onStepEnter={onStepEnter}
           onStepProgress={onStepProgress}
-          projects={allEntries.entries}
+	  projects={allEntries.entries}
+	  currentDirection={currentDirection}
         />
       </Layout>
     </React.Fragment>

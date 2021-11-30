@@ -14,29 +14,37 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Scrollama, Step } from "react-scrollama";
 import { motion, useTransform , useViewportScroll, useMotionValue} from "framer-motion";
 
+import { useScrollDirection } from 'react-use-scroll-direction'
 const useStyles = makeStyles((theme) => ({
   root: {
-    position: "relative",
-    top: 0,
+    position: "absolute",
+    top: 0, 
     height: "100vh",
+    width: '100%', 
     display: "flex",
     alignItems: "center",
-    marginTop: theme.spacing(15),
+   // border: '2px solid white', 
+   // overflow: 'hidden', 
   },
   headline: {
-    zIndex: 100,
-    position: "absolute",
-    top: "33%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
+    position: 'absolute',
+    top: '50%',
+    left: '50%', 
+    transform: 'translate(-50%, -50%)',
     textAlign: "center",
-    // opacity: props => props.isActive ? 1 - props.progress : 1,
+    width: '100%',
+    maxWidth: 1000,
+    margin: "auto",
     '&:hover': {
       color: theme.palette.primary.main,
     }
   },
   heroImage: {
     width: '100%',
+    height: '100%', 
+    position: 'absolute',
+    //backgroundColor: 'red',
+    top:0, 
   },
   overlay: {
     width: '100%',
@@ -44,24 +52,71 @@ const useStyles = makeStyles((theme) => ({
     position: 'fixed',
     bottom: 0,
     left: 0,
-    background: "linear-gradient(180deg, rgba(0,0,0,0) 0%, #ff6e56 100%)",
+//    background: "linear-gradient(180deg, rgba(0,0,0,0) 0%, #ff6e56 100%)",
     zIndex: 10000,
   }
 }));
 
-export const Teaser = React.forwardRef((props, ref) => {
-  const { project, progress, isActive, currentStepIndex, index } = props;
-  const y = useTransform(progress, [index, index + 1], [500, 0]);
-  const y2 = useTransform(progress, [index, index +0.5 ,index + 1], [500, 0, 1000]);
-  const scale = useTransform(progress, [index, index +0.5, index + 1], [0.25, 1, 0.25]);
-  const classes = useStyles(props);
-  const isVisible = currentStepIndex - 1 < index;
-  const nextActive = currentStepIndex > index;
 
+const generateRanges = (length, index, valIn, valOut, valOut2) => {
+  const rangeIn =  Array(length).fill().map((v, i) => i);
+  const rangeOut = rangeIn.map((i) => i === index +1  ? valIn : i > index ? valOut2 : valOut);
+  return [rangeIn, rangeOut];
+}
+
+export const Teaser = React.forwardRef((props, ref) => {
+ const { 
+    isScrolling,
+    isScrollingX,
+    isScrollingY,
+    isScrollingUp, 
+    isScrollingDown,
+    isScrollingLeft,
+    isScrollingRight,
+    scrollDirection,
+  } = useScrollDirection(); 
+  const { project, progress, currentDirection, isActive, currentStepIndex, index } = props;
+  const classes = useStyles(props);
+  const motvalue = useMotionValue(1);
+  const nextActive = index == currentStepIndex + 1;
+  const [rangeIn, rangeOut] = generateRanges(6, index, 0, 1000, 1000); 
+  const [rangeInY2, rangeOutY2] = generateRanges(6, index, 0, 1000, -1000); 
+  //console.log(index, rangeIn, rangeOut); 
+  const y1 = useTransform(progress, rangeIn, rangeOut);
+  const y2 = useTransform(progress, rangeInY2, rangeOutY2);
+  const isVisible = currentStepIndex === index && progress.current > 0.5;
+  const show = isScrollingUp || currentStepIndex > index;
+  console.log(progress.current);
   return (
-    <motion.div  ref={ref} className={classes.root}>
-      <div className={classes.headline}>
-        <motion.div style={{y}} >
+    <motion.div   ref={ref} className={classes.root}>
+      <motion.div
+	className={classes.heroImage}
+	// initial={{y: '0%'}}	
+	//animate={{y: show ? '100%' :  '0%'}}
+	style={{
+	  y:y1,
+	  backgroundSize: '100% auto',
+	  backgroundRepeat: 'no-repeat',
+	  backgroundPosition: 'center', 
+	  backgroundImage: `url(${getHeroImageSrc(project.heroImage?.path)})` 
+	}}
+	transition={{
+	  duration: 0.5 
+	}}
+      />
+      <motion.div
+
+	style={{
+	y: y2,
+	  width: '100%',
+	  height: '100%',
+	  position: 'relative',
+	}}
+//	initial={{y: '0%'}}	
+//	animate={{y: show ? '-100%' :  '0%'}}
+      >
+	<div className={classes.headline}>
+      
           <Link href={`/projects/${project._id}`}>
             <a>
               <Typography variant="h1">{project.title}</Typography>
@@ -69,16 +124,10 @@ export const Teaser = React.forwardRef((props, ref) => {
                 {project.theme.display}
               </Typography>
             </a>
-          </Link>
-        </motion.div>
+	  </Link>
       </div>
-      <motion.img
-        className={classes.heroImage}
-        style={{y: y2}}
-        src={getHeroImageSrc(project.heroImage?.path)}
-      />
-      {isVisible && <motion.div style={{scaleY: scale, transformOrigin: 'bottom center'}} className={classes.overlay}  />}
-    </motion.div>
+      </motion.div>
+	</motion.div>
   );
 });
 
@@ -88,7 +137,8 @@ export const SimpleTeaser = React.forwardRef((props, ref) => {
   const { project } = props;
   const classes = useStyles();
   return (
-    <motion.div ref={ref} className={classes.root}>
+    <div ref={ref}>
+    <motion.div  className={classes.root}>
       <div className={classes.headline}>
         <Link href={`/projects/${project._id}`}>
           <a>
@@ -104,6 +154,7 @@ export const SimpleTeaser = React.forwardRef((props, ref) => {
         src={getHeroImageSrc(project.heroImage?.path)}
       />
     </motion.div>
+    </div>
   );
 });
 
@@ -116,25 +167,48 @@ const ProjectStream = (props) => {
     currentStepProgress,
     onStepProgress,
     onStepEnter,
+    currentDirection, 
   } = props;
+  const classes = useStyles();
   return (
+    <>
     <Scrollama
       onStepEnter={onStepEnter}
       onStepProgress={onStepProgress}
-      offset={1}
+      offset={0.99}
+      debug
     >
       {projects.map((e, i) => (
         <Step key={i} data={i}>
+	  <div style={{
+
+	    height: '100vh',
+	    width: '100%',
+//	    border: '1px solid white'
+	  }} />
+	</Step>
+      ))}
+    </Scrollama>
+      <div
+	style={{
+	  position: 'fixed', 
+	  top: 0,
+	  width: '100%', 
+	  height: '100%', 
+	}}
+      >
+      {projects.map((e, i) => (
           <Teaser
             index={i}
             project={e}
             currentStepIndex={currentStepIndex}
             isActive={currentStepIndex === i}
-            progress={currentStepProgress}
-          />
-        </Step>
+	    progress={currentStepProgress}
+	    currentDirection={currentDirection}
+	  />
       ))}
-    </Scrollama>
+      </div>
+    </>
   );
 };
 

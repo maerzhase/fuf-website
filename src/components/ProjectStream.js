@@ -240,7 +240,7 @@ const ProjectStream = (props) => {
       >
         {projects.map((e, i) => (
           <Step key={i} data={i}>
-            <div
+	    <div
               style={{
                 height: "100vh",
                 width: "100%",
@@ -258,7 +258,8 @@ const ProjectStream = (props) => {
         }}
       >
         {projects.map((e, i) => (
-          <Teaser
+	  <Teaser
+	    key={e.uuid}
             isSticky={stickyAnimation}
             length={projects.length}
             index={i}

@@ -228,7 +228,7 @@ const ProjectStream = (props) => {
     onStepProgress,
     onStepEnter,
     currentDirection,
-    stickyAnimation, 
+    stickyAnimation,
   } = props;
   return (
     <>
@@ -258,8 +258,8 @@ const ProjectStream = (props) => {
         }}
       >
         {projects.map((e, i) => (
-	  <Teaser
-	    isSticky={stickyAnimation}
+          <Teaser
+            isSticky={stickyAnimation}
             length={projects.length}
             index={i}
             project={e}
@@ -276,6 +276,6 @@ const ProjectStream = (props) => {
 
 ProjectStream.defaultProps = {
   stickyAnimation: false,
-}; 
+};
 
 export default ProjectStream;

@@ -1,14 +1,10 @@
 import React, { useState } from "react";
-import {
-  getCollectionEntries,
-} from "@/api/api";
+import { getCollectionEntries } from "@/api/api";
 import Head from "next/head";
 import { CMS_NAME } from "@/api/constants";
 import Layout from "@/components/Layout";
 import dynamic from "next/dynamic";
-import {
-  useMotionValue,
-} from "framer-motion";
+import { useMotionValue } from "framer-motion";
 
 const ProjectStream = dynamic(() => import("@/components/ProjectStream"), {
   ssr: false,
@@ -36,8 +32,8 @@ export default function Index({ preview, allEntries }) {
         <Head>
           <title>Next.js Blog Example with {CMS_NAME}</title>
         </Head>
-	<ProjectStream
-	  stickyAnimation
+        <ProjectStream
+          stickyAnimation
           currentStepIndex={currentStepIndex}
           currentStepProgress={prog}
           onStepEnter={onStepEnter}

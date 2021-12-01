@@ -51,11 +51,11 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.common.black,
   },
   mobileNavList: {
-    width: '100%',
-    position: 'absolute',
+    width: "100%",
+    position: "absolute",
     top: "50%",
-    transform: 'translate(0, -50%)',
-  }
+    transform: "translate(0, -50%)",
+  },
 }));
 
 function LinkTab(props) {
@@ -109,16 +109,17 @@ const MobileNav = () => {
       >
         <List className={classes.mobileNavList}>
           {LINKS.map((l) => (
-            <Link               href={`/${l}`}
-              key={l} passHref>
-            <MobileListItem
-              button
-            >
-              <ListItemText
-                primary={l}
-                primaryTypographyProps={{ variant: "h1", align: "center", color: router.asPath === `/${l}` ? 'primary' : 'initial' }}
-              />
-            </MobileListItem>
+            <Link href={`/${l}`} key={l} passHref>
+              <MobileListItem button>
+                <ListItemText
+                  primary={l}
+                  primaryTypographyProps={{
+                    variant: "h1",
+                    align: "center",
+                    color: router.asPath === `/${l}` ? "primary" : "initial",
+                  }}
+                />
+              </MobileListItem>
             </Link>
           ))}
         </List>

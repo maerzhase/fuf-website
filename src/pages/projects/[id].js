@@ -23,7 +23,7 @@ const perc = (val) => `${val * 100}%`;
 const useStyles = makeStyles((theme) => ({
   root: {
     paddingTop: theme.spacing(10),
-    overflowX: 'hidden',
+    overflowX: "hidden",
   },
   title: {},
   content: {
@@ -65,7 +65,7 @@ const useStyles = makeStyles((theme) => ({
     "& > iframe": {
       width: `calc(((100vh - ${theme.spacing(12)}px) / 9) * 16)`,
       height: `calc(100vh - ${theme.spacing(12)}px)`,
-      maxWidth: '100vw'
+      maxWidth: "100vw",
     },
   },
   galleryToggle: {
@@ -144,7 +144,11 @@ export default function Post({ project, preview }) {
                   />
                 )}
                 {project.gallery?.map((img) => (
-                  <img key={img.path} className={classes.img} src={getImageSrc(img.path)} />
+                  <img
+                    key={img.path}
+                    className={classes.img}
+                    src={getImageSrc(img.path)}
+                  />
                 ))}
               </div>
             </div>

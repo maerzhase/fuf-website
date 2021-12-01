@@ -12,9 +12,7 @@ import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import dynamic from "next/dynamic";
 import ReactMarkdown from "react-markdown";
-import {
-  useMotionValue,
-} from "framer-motion";
+import { useMotionValue } from "framer-motion";
 
 const ProjectStream = dynamic(() => import("@/components/ProjectStream"), {
   ssr: false,

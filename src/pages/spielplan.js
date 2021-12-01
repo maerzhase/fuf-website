@@ -46,20 +46,20 @@ const useRowStyles = makeStyles((theme) => ({
     },
   },
   desktop: {
-    [theme.breakpoints.down('sm')]: {
-      display: 'none',
-    }
+    [theme.breakpoints.down("sm")]: {
+      display: "none",
+    },
   },
   mobile: {
-    [theme.breakpoints.up('md')]: {
-      display: 'none',
+    [theme.breakpoints.up("md")]: {
+      display: "none",
     },
-  }
+  },
 }));
 
 const toDate = (date) => {
   const [year, month, day] = date.split("-");
-  return new Date(year, month-1, day);
+  return new Date(year, month - 1, day);
 };
 
 const useFormatedDate = (date) => {
@@ -74,23 +74,37 @@ const MobileRow = (props) => {
   console.log(date.title);
   const formatedDate = useFormatedDate(date.date);
   return (
-    <Box mb={5} py={1} borderBottom={1} color="grey.700" width="100%" display="flex" flexDirection="column">
-      <Typography color="textPrimary" variant="subtitle1" component="div">{formatedDate}</Typography>
-      <Typography color="textPrimary" variant="h5" component="div">{date.title}</Typography>
-      <Typography  variant="subtitle1" component="div">{date.location}</Typography>
+    <Box
+      mb={5}
+      py={1}
+      borderBottom={1}
+      color="grey.700"
+      width="100%"
+      display="flex"
+      flexDirection="column"
+    >
+      <Typography color="textPrimary" variant="subtitle1" component="div">
+        {formatedDate}
+      </Typography>
+      <Typography color="textPrimary" variant="h5" component="div">
+        {date.title}
+      </Typography>
+      <Typography variant="subtitle1" component="div">
+        {date.location}
+      </Typography>
       <Button
-        style={{marginLeft: 'auto'}}
+        style={{ marginLeft: "auto" }}
         size="small"
         href={date.link}
         target="_blank"
         endIcon={<LinkIcon fontSize="inherit" />}
-        color={isPast ? 'secondary' : 'default'}
+        color={isPast ? "secondary" : "default"}
       >
         Tickets
       </Button>
     </Box>
-  )
-}
+  );
+};
 
 const DateRow = (props) => {
   const { date, color } = props;
@@ -169,10 +183,10 @@ export default function Index({ preview, allEntries, future, pastByYear }) {
               </Table>
             </TableContainer>
             <Box className={classes.mobile}>
-            {future.map((date) => (
-              <MobileRow key={date._id} date={date} />
-            ))}
-            {showPast &&
+              {future.map((date) => (
+                <MobileRow key={date._id} date={date} />
+              ))}
+              {showPast &&
                 pastByYear &&
                 pastByYear.map(([year, dates]) => {
                   return (
@@ -183,11 +197,7 @@ export default function Index({ preview, allEntries, future, pastByYear }) {
                         </Typography>
                       </Box>
                       {dates.map((date) => (
-                        <MobileRow
-                          key={date._id}
-                          date={date}
-                          isPast
-                        />
+                        <MobileRow key={date._id} date={date} isPast />
                       ))}
                     </React.Fragment>
                   );
@@ -226,7 +236,7 @@ export async function getServerSideProps({ preview = null }) {
     [[], []]
   );
 
-  const sortedFuture = orderBy(future, d => toDate(d.date), "desc");
+  const sortedFuture = orderBy(future, (d) => toDate(d.date), "desc");
 
   const groupedPast = groupBy(past, (p) => p.date.split("-")[0]);
 
@@ -236,7 +246,6 @@ export async function getServerSideProps({ preview = null }) {
       year,
       orderBy(groupedPast[year], (d) => toDate(d.date), "desc"),
     ]);
-
 
   return {
     props: { preview, pastByYear, future: sortedFuture },

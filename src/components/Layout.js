@@ -5,7 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
   root: {
     ...theme.mixins.gutter(),
-    minHeight: props => props.minHeight ? '80vh' : 'none',
+    minHeight: (props) => (props.minHeight ? "80vh" : "none"),
   },
 }));
 export default function Layout({ preview, children, ...rest }) {

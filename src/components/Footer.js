@@ -2,31 +2,31 @@ import Container from "./container";
 import { EXAMPLE_PATH } from "@/api/constants";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
-import Link from 'next/link';
+import Link from "next/link";
 import Button from "@material-ui/core/Button";
 
 const LINKS = [
   {
     label: "instagram",
-    href: 'https://www.instagram.com/frauenundfiktion/',
+    href: "https://www.instagram.com/frauenundfiktion/",
     props: {
-      target: '_blank',
-    }
+      target: "_blank",
+    },
   },
   {
     label: "facebook",
-    href: 'https://www.facebook.com/frauenundfiktion/',
+    href: "https://www.facebook.com/frauenundfiktion/",
     props: {
-      target: '_blank',
-    }
+      target: "_blank",
+    },
   },
   {
     label: "datenschutz",
-    href: '/datenschutz',
+    href: "/datenschutz",
   },
   {
     label: "impressum",
-    href: '/impressum',
+    href: "/impressum",
   },
 ];
 
@@ -44,7 +44,7 @@ export default function Footer() {
           <Box>
             {LINKS.map((l) => (
               <Link key={l.href} href={l.href} passHref>
-                <Button component="a" {...l.props}  size="small">
+                <Button component="a" {...l.props} size="small">
                   {l.label}
                 </Button>
               </Link>

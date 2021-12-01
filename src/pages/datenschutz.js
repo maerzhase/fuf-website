@@ -17,10 +17,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import dynamic from "next/dynamic";
 import ReactMarkdown from "react-markdown";
 
-export default function Index({
-  page,
-  preview,
-}) {
+export default function Index({ page, preview }) {
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
   const [stepProgress, setStepProgress] = useState(0);
 
@@ -44,11 +41,9 @@ export default function Index({
           <Box mt={10}>
             <Typography variant="h1">Datenschutz</Typography>
             <Typography>
-              <ReactMarkdown>
-                {page.content}
-              </ReactMarkdown>
-              </Typography>
-            </Box>
+              <ReactMarkdown>{page.content}</ReactMarkdown>
+            </Typography>
+          </Box>
         </Container>
       </Layout>
     </React.Fragment>
@@ -58,6 +53,6 @@ export default function Index({
 export async function getServerSideProps({ preview = null }) {
   const page = await getSingleton("datenschutz");
   return {
-    props: { page, preview, },
+    props: { page, preview },
   };
 }

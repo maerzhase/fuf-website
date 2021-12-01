@@ -3,20 +3,18 @@ import {
   getAllCollections,
   getCollectionEntries,
   getSingleton,
-  getAllSingletons,
 } from "@/api/api";
 import Head from "next/head";
-import Link from "next/link";
 import { CMS_NAME } from "@/api/constants";
 import Layout from "@/components/Layout";
 import Container from "@/components/container";
 import Box from "@material-ui/core/Box";
-import Zoom from "@material-ui/core/Zoom";
 import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
 import dynamic from "next/dynamic";
 import ReactMarkdown from "react-markdown";
-import { motion, useTransform , useViewportScroll, useMotionValue} from "framer-motion";
+import {
+  useMotionValue,
+} from "framer-motion";
 
 const ProjectStream = dynamic(() => import("@/components/ProjectStream"), {
   ssr: false,
@@ -29,23 +27,22 @@ export default function Index({
   startPage,
 }) {
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
-  const [currentDirection, setCurrentDirection] = useState('down');
-  const [stepProgress, setStepProgress] = useState(0);
-  const prog = useMotionValue(0)
+  const [currentDirection, setCurrentDirection] = useState("down");
+  const prog = useMotionValue(0);
 
   // This callback fires when a Step hits the offset threshold. It receives the
   // data prop of the step, which in this demo stores the index of the step.
   const onStepEnter = ({ data, direction }) => {
-    console.log('enter',  data, direction);
+    console.log("enter", data, direction);
 
     setCurrentStepIndex(data);
-   // setCurrentDirection(direction)
+    // setCurrentDirection(direction)
   };
 
-  const onStepProgress = ({data,  progress, direction,  ...rest }) => {
-    if(data === currentStepIndex) {
-      console.log(progress) 
-      prog.set(progress + (1 * currentStepIndex));
+  const onStepProgress = ({ data, progress, direction, ...rest }) => {
+    if (data === currentStepIndex) {
+      console.log(progress + 1 * currentStepIndex);
+      prog.set(progress + 1 * currentStepIndex);
     }
   };
 
@@ -67,8 +64,8 @@ export default function Index({
           currentStepProgress={prog}
           onStepEnter={onStepEnter}
           onStepProgress={onStepProgress}
-	  projects={allEntries.entries}
-	  currentDirection={currentDirection}
+          projects={allEntries.entries}
+          currentDirection={currentDirection}
         />
       </Layout>
     </React.Fragment>

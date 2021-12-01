@@ -12,122 +12,184 @@ import Zoom from "@material-ui/core/Zoom";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import { Scrollama, Step } from "react-scrollama";
-import { motion, useTransform , useViewportScroll, useMotionValue} from "framer-motion";
+import {
+  motion,
+  useTransform,
+  useViewportScroll,
+  useMotionValue,
+} from "framer-motion";
 
-import { useScrollDirection } from 'react-use-scroll-direction'
+import { useScrollDirection } from "react-use-scroll-direction";
 const useStyles = makeStyles((theme) => ({
   root: {
     position: "absolute",
-    top: 0, 
+    top: 0,
     height: "100vh",
-    width: '100%', 
+    width: "100%",
     display: "flex",
     alignItems: "center",
-   // border: '2px solid white', 
-   // overflow: 'hidden', 
+    // border: '2px solid white',
+    // overflow: 'hidden',
   },
   headline: {
-    position: 'absolute',
-    top: '50%',
-    left: '50%', 
-    transform: 'translate(-50%, -50%)',
+    position: "absolute",
+    top: "20%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
     textAlign: "center",
-    width: '100%',
+    width: "100%",
     maxWidth: 1000,
     margin: "auto",
-    '&:hover': {
+    "&:hover": {
       color: theme.palette.primary.main,
-    }
+    },
   },
   heroImage: {
-    width: '100%',
-    height: '100%', 
-    position: 'absolute',
+    width: "100%",
+    height: "100%",
+    position: "absolute",
     //backgroundColor: 'red',
-    top:0, 
+    top: 0,
   },
   overlay: {
-    width: '100%',
-    height: '100%',
-    position: 'fixed',
+    width: "100%",
+    height: "100%",
+    position: "fixed",
     bottom: 0,
     left: 0,
-//    background: "linear-gradient(180deg, rgba(0,0,0,0) 0%, #ff6e56 100%)",
+    //    background: "linear-gradient(180deg, rgba(0,0,0,0) 0%, #ff6e56 100%)",
     zIndex: 10000,
-  }
+  },
 }));
 
-
 const generateRanges = (length, index, valIn, valOut, valOut2) => {
-  const rangeIn =  Array(length).fill().map((v, i) => i);
-  const rangeOut = rangeIn.map((i) => i === index +1  ? valIn : i > index ? valOut2 : valOut);
+  const rangeIn = Array(length)
+    .fill()
+    .map((v, i) => i);
+  const rangeOut = rangeIn.map((i) =>
+    i === index + 1 || i === index + 1
+      ? valIn
+      : i > index + 0.5
+      ? valOut2
+      : valOut
+  );
   return [rangeIn, rangeOut];
-}
+};
+
+const generateStickyRanges = (length, index, valIn, valOut, valOut2) => {
+  const rangeIn = Array(length * 2)
+    .fill()
+    .map((v, i) => i * 0.5);
+  const rangeOut = rangeIn.map((i) =>
+    i === index + 1 || i === index + 1.5
+      ? valIn
+      : i > index + 0.5
+      ? valOut2
+      : valOut
+  );
+  return [rangeIn, rangeOut];
+};
+const useAnimationProperty = (
+  isSticky,
+  motionValue,
+  length,
+  index,
+  valIn,
+  valOut,
+  valOut2
+) => {
+  const [rangeIn, rangeOut] = isSticky
+    ? generateStickyRanges(length, index, valIn, valOut, valOut2)
+    : generateRanges(length, index, valIn, valOut, valOut2);
+  const val = useTransform(motionValue, rangeIn, rangeOut);
+  return val;
+};
 
 export const Teaser = React.forwardRef((props, ref) => {
- const { 
-    isScrolling,
-    isScrollingX,
-    isScrollingY,
-    isScrollingUp, 
-    isScrollingDown,
-    isScrollingLeft,
-    isScrollingRight,
-    scrollDirection,
-  } = useScrollDirection(); 
-  const { project, progress, currentDirection, isActive, currentStepIndex, index } = props;
+  const {
+    project,
+    isSticky,
+    progress,
+    currentDirection,
+    currentStepIndex,
+    index,
+    length,
+  } = props;
   const classes = useStyles(props);
-  const motvalue = useMotionValue(1);
-  const nextActive = index == currentStepIndex + 1;
-  const [rangeIn, rangeOut] = generateRanges(6, index, 0, 1000, 1000); 
-  const [rangeInY2, rangeOutY2] = generateRanges(6, index, 0, 1000, -1000); 
-  //console.log(index, rangeIn, rangeOut); 
-  const y1 = useTransform(progress, rangeIn, rangeOut);
-  const y2 = useTransform(progress, rangeInY2, rangeOutY2);
-  const isVisible = currentStepIndex === index && progress.current > 0.5;
-  const show = isScrollingUp || currentStepIndex > index;
-  console.log(progress.current);
+  const y1 = useAnimationProperty(
+    isSticky,
+    progress,
+    4 + 2,
+    index,
+    "0%",
+    "100%",
+    "100%"
+  );
+  const y2 = useAnimationProperty(
+    isSticky,
+    progress,
+    4 + 2,
+    index,
+    "0%",
+    "100%",
+    "-100%"
+  );
+  const zIndex = useAnimationProperty(
+    isSticky,
+    progress,
+    4 + 2,
+    index,
+    1,
+    0,
+    0
+  );
   return (
-    <motion.div   ref={ref} className={classes.root}>
+    <motion.div
+      ref={ref}
+      className={classes.root}
+      style={{
+        pointerEvents: "none",
+        //	position: 'relative',
+        //	zIndex
+      }}
+    >
       <motion.div
-	className={classes.heroImage}
-	// initial={{y: '0%'}}	
-	//animate={{y: show ? '100%' :  '0%'}}
-	style={{
-	  y:y1,
-	  backgroundSize: '100% auto',
-	  backgroundRepeat: 'no-repeat',
-	  backgroundPosition: 'center', 
-	  backgroundImage: `url(${getHeroImageSrc(project.heroImage?.path)})` 
-	}}
-	transition={{
-	  duration: 0.5 
-	}}
+        className={classes.heroImage}
+        // initial={{y: '0%'}}
+        //animate={{y: show ? '100%' :  '0%'}}
+        style={{
+          pointerEvents: "none",
+          y: y1,
+          backgroundSize: "100% auto",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          backgroundImage: `url(${getHeroImageSrc(project.heroImage?.path)})`,
+        }}
+        transition={{
+          duration: 0.5,
+        }}
       />
       <motion.div
-
-	style={{
-	y: y2,
-	  width: '100%',
-	  height: '100%',
-	  position: 'relative',
-	}}
-//	initial={{y: '0%'}}	
-//	animate={{y: show ? '-100%' :  '0%'}}
+        style={{
+          y: y2,
+          width: "100%",
+          height: "100%",
+          position: "relative",
+          pointerEvents: "auto",
+        }}
+        //	initial={{y: '0%'}}
+        //	animate={{y: show ? '-100%' :  '0%'}}
       >
-	<div className={classes.headline}>
-      
+        <div className={classes.headline}>
           <Link href={`/projects/${project._id}`}>
             <a>
               <Typography variant="h1">{project.title}</Typography>
-              <Typography variant="h6">
-                {project.theme.display}
-              </Typography>
+              <Typography variant="h6">{project.theme.display}</Typography>
             </a>
-	  </Link>
-      </div>
+          </Link>
+        </div>
       </motion.div>
-	</motion.div>
+    </motion.div>
   );
 });
 
@@ -138,22 +200,20 @@ export const SimpleTeaser = React.forwardRef((props, ref) => {
   const classes = useStyles();
   return (
     <div ref={ref}>
-    <motion.div  className={classes.root}>
-      <div className={classes.headline}>
-        <Link href={`/projects/${project._id}`}>
-          <a>
-            <Typography variant="h1">{project.title}</Typography>
-            <Typography variant="h6">
-              {project.theme.display}
-            </Typography>
-          </a>
-        </Link>
-      </div>
-      <img
-        className={classes.heroImage}
-        src={getHeroImageSrc(project.heroImage?.path)}
-      />
-    </motion.div>
+      <motion.div className={classes.root}>
+        <div className={classes.headline}>
+          <Link href={`/projects/${project._id}`}>
+            <a>
+              <Typography variant="h1">{project.title}</Typography>
+              <Typography variant="h6">{project.theme.display}</Typography>
+            </a>
+          </Link>
+        </div>
+        <img
+          className={classes.heroImage}
+          src={getHeroImageSrc(project.heroImage?.path)}
+        />
+      </motion.div>
     </div>
   );
 });
@@ -167,49 +227,55 @@ const ProjectStream = (props) => {
     currentStepProgress,
     onStepProgress,
     onStepEnter,
-    currentDirection, 
+    currentDirection,
+    stickyAnimation, 
   } = props;
-  const classes = useStyles();
   return (
     <>
-    <Scrollama
-      onStepEnter={onStepEnter}
-      onStepProgress={onStepProgress}
-      offset={0.99}
-      debug
-    >
-      {projects.map((e, i) => (
-        <Step key={i} data={i}>
-	  <div style={{
-
-	    height: '100vh',
-	    width: '100%',
-//	    border: '1px solid white'
-	  }} />
-	</Step>
-      ))}
-    </Scrollama>
-      <div
-	style={{
-	  position: 'fixed', 
-	  top: 0,
-	  width: '100%', 
-	  height: '100%', 
-	}}
+      <Scrollama
+        onStepEnter={onStepEnter}
+        onStepProgress={onStepProgress}
+        offset={0.99}
+        debug
       >
-      {projects.map((e, i) => (
-          <Teaser
+        {projects.map((e, i) => (
+          <Step key={i} data={i}>
+            <div
+              style={{
+                height: "100vh",
+                width: "100%",
+              }}
+            />
+          </Step>
+        ))}
+      </Scrollama>
+      <div
+        style={{
+          position: "fixed",
+          top: 0,
+          width: "100%",
+          height: "100%",
+        }}
+      >
+        {projects.map((e, i) => (
+	  <Teaser
+	    isSticky={stickyAnimation}
+            length={projects.length}
             index={i}
             project={e}
             currentStepIndex={currentStepIndex}
             isActive={currentStepIndex === i}
-	    progress={currentStepProgress}
-	    currentDirection={currentDirection}
-	  />
-      ))}
+            progress={currentStepProgress}
+            currentDirection={currentDirection}
+          />
+        ))}
       </div>
     </>
   );
 };
+
+ProjectStream.defaultProps = {
+  stickyAnimation: false,
+}; 
 
 export default ProjectStream;

@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     position: "absolute",
     top: 0,
-    left:0, 
+    left: 0,
     height: "100vh",
     width: "100%",
     display: "flex",
@@ -68,11 +68,7 @@ const generateRanges = (length, index, valIn, valOut, valOut2) => {
     .fill()
     .map((v, i) => i);
   const rangeOut = rangeIn.map((i) =>
-    i === index + 1
-      ? valIn
-      : i > index + 0.5
-      ? valOut2
-      : valOut
+    i === index + 1 ? valIn : i > index + 0.5 ? valOut2 : valOut
   );
   return [rangeIn, rangeOut];
 };
@@ -232,23 +228,24 @@ const ProjectStream = (props) => {
         offset={0.99}
         debug
       >
-        {Array(numSlides).fill().map((e, i) => (
-          <Step key={i} data={i}>
-            <div
-              style={{
-		height: i === projects.length ? '50vh' :  "100vh",
-		width: "100%",
-              }}
-	    >
-	    </div>
-          </Step>
-        ))}
+        {Array(numSlides)
+          .fill()
+          .map((e, i) => (
+            <Step key={i} data={i}>
+              <div
+                style={{
+                  height: i === projects.length ? "50vh" : "100vh",
+                  width: "100%",
+                }}
+              ></div>
+            </Step>
+          ))}
       </Scrollama>
       <div
         style={{
           position: "fixed",
-	  top: 0,
-	  left: 0, 
+          top: 0,
+          left: 0,
           width: "100%",
           height: "100%",
         }}

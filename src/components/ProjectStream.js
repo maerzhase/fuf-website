@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     position: "absolute",
     top: 0,
+    left:0, 
     height: "100vh",
     width: "100%",
     display: "flex",
@@ -57,8 +58,8 @@ const useStyles = makeStyles((theme) => ({
     position: "fixed",
     bottom: 0,
     left: 0,
-    //    background: "linear-gradient(180deg, rgba(0,0,0,0) 0%, #ff6e56 100%)",
-    zIndex: 10000,
+    background: "linear-gradient(180deg, rgba(0,0,0,0) 66%, #ff6e56 100%)",
+    zIndex: 1,
   },
 }));
 
@@ -67,7 +68,7 @@ const generateRanges = (length, index, valIn, valOut, valOut2) => {
     .fill()
     .map((v, i) => i);
   const rangeOut = rangeIn.map((i) =>
-    i === index + 1 || i === index + 1
+    i === index + 1
       ? valIn
       : i > index + 0.5
       ? valOut2
@@ -119,7 +120,7 @@ export const Teaser = React.forwardRef((props, ref) => {
   const y1 = useAnimationProperty(
     isSticky,
     progress,
-    4 + 2,
+    length + 1,
     index,
     "0%",
     "100%",
@@ -128,20 +129,11 @@ export const Teaser = React.forwardRef((props, ref) => {
   const y2 = useAnimationProperty(
     isSticky,
     progress,
-    4 + 2,
+    length + 1,
     index,
     "0%",
     "100%",
     "-100%"
-  );
-  const zIndex = useAnimationProperty(
-    isSticky,
-    progress,
-    4 + 2,
-    index,
-    1,
-    0,
-    0
   );
   return (
     <motion.div
@@ -230,6 +222,8 @@ const ProjectStream = (props) => {
     currentDirection,
     stickyAnimation,
   } = props;
+  const classes = useStyles();
+  const numSlides = projects.length + 1;
   return (
     <>
       <Scrollama
@@ -238,21 +232,23 @@ const ProjectStream = (props) => {
         offset={0.99}
         debug
       >
-        {projects.map((e, i) => (
+        {Array(numSlides).fill().map((e, i) => (
           <Step key={i} data={i}>
             <div
               style={{
-                height: "100vh",
-                width: "100%",
+		height: i === projects.length ? '50vh' :  "100vh",
+		width: "100%",
               }}
-            />
+	    >
+	    </div>
           </Step>
         ))}
       </Scrollama>
       <div
         style={{
           position: "fixed",
-          top: 0,
+	  top: 0,
+	  left: 0, 
           width: "100%",
           height: "100%",
         }}
@@ -261,7 +257,7 @@ const ProjectStream = (props) => {
           <Teaser
             key={e.uuid}
             isSticky={stickyAnimation}
-            length={projects.length}
+            length={numSlides}
             index={i}
             project={e}
             currentStepIndex={currentStepIndex}
@@ -271,6 +267,7 @@ const ProjectStream = (props) => {
           />
         ))}
       </div>
+      <div className={classes.overlay} />
     </>
   );
 };

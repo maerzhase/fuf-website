@@ -226,7 +226,6 @@ const ProjectStream = (props) => {
         onStepEnter={onStepEnter}
         onStepProgress={onStepProgress}
         offset={0.99}
-        debug
       >
         {Array(numSlides)
           .fill()

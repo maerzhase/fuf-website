@@ -252,7 +252,7 @@ const ProjectStream = (props) => {
       >
         {projects.map((e, i) => (
           <Teaser
-            key={e.uuid}
+            key={e._id}
             isSticky={stickyAnimation}
             length={numSlides}
             index={i}

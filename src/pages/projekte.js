@@ -13,7 +13,7 @@ const ProjectStream = dynamic(() => import("@/components/ProjectStream"), {
 export default function Index({ preview, allEntries }) {
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
   const [stepProgress, setStepProgress] = useState(0);
-  const prog = useMotionValue(0);
+  const prog = useMotionValue(1);
 
   // This callback fires when a Step hits the offset threshold. It receives the
   // data prop of the step, which in this demo stores the index of the step.
@@ -22,7 +22,6 @@ export default function Index({ preview, allEntries }) {
   };
 
   const onStepProgress = ({ progress, ...rest }) => {
-    console.log(progress, currentStepIndex);
     prog.set(progress + 1 * currentStepIndex);
   };
 
@@ -33,7 +32,6 @@ export default function Index({ preview, allEntries }) {
           <title>Next.js Blog Example with {CMS_NAME}</title>
         </Head>
         <ProjectStream
-          stickyAnimation
           currentStepIndex={currentStepIndex}
           currentStepProgress={prog}
           onStepEnter={onStepEnter}

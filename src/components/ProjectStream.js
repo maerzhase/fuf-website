@@ -60,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
     left: 0,
     background: "linear-gradient(180deg, rgba(0,0,0,0) 66%, #ff6e56 100%)",
     zIndex: 1,
-    pointerEvents: 'none'
+    pointerEvents: "none",
   },
 }));
 

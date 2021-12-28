@@ -16,7 +16,7 @@ import LinkIcon from "@/icons/Link";
 import { isBefore, parse, format } from "date-fns";
 import { de } from "date-fns/locale";
 import { groupBy, orderBy } from "lodash";
-
+import Link from "next/link/";
 const TypoCell = withStyles((theme) => ({
   root: (props) => ({
     ...(theme.typography[props.variant] || theme.typography.button),
@@ -52,14 +52,28 @@ const toDate = (date) => {
 
 const useFormatedDate = (date) => {
   const d = toDate(date);
-  console.log(date, d);
   return format(d, "d. MMMM yyyy", { locale: de });
 };
+
+const ProjectLink = props => {
+  const {project, children} = props;
+  if(!project) return <React.Fragment>{children}</React.Fragment>
+    return (
+      <Button color="inherit">
+    <Link
+      target="_blank"
+      href="/projects/[id]"
+      as={`/projects/${project?._id}`}
+     >
+      {children}
+    </Link>
+	</Button>
+  );
+}
 
 const MobileRow = (props) => {
   const { date, isPast } = props;
   const classes = useRowStyles(props);
-  console.log(date.title);
   const formatedDate = useFormatedDate(date.date);
   return (
     <Box
@@ -75,7 +89,10 @@ const MobileRow = (props) => {
         {formatedDate}
       </Typography>
       <Typography color="textPrimary" variant="h5" component="div">
-        {date.title}
+        <ProjectLink project={date.project}
+        >
+	  {date.title}
+	</ProjectLink>
       </Typography>
       <Typography variant="subtitle1" component="div">
         {date.location}
@@ -97,14 +114,18 @@ const MobileRow = (props) => {
 const DateRow = (props) => {
   const { date, color } = props;
   const classes = useRowStyles(props);
-  console.log(date.title);
   const formatedDate = useFormatedDate(date.date);
   return (
     <TableRow className={classes.root}>
       <TypoCell width="25%" variant="body1">
         {formatedDate}
       </TypoCell>
-      <TypoCell width="40%">{date.title}</TypoCell>
+      <TypoCell width="40%">
+        <ProjectLink project={date.project}
+        >
+          {date.title}
+        </ProjectLink>
+      </TypoCell>
       <TypoCell width="35%">{date.location}</TypoCell>
       <TypoCell width="40px">
         <Button

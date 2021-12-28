@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { getCollectionEntries } from "@/api/api";
 import Head from "next/head";
-import { CMS_NAME } from "@/api/constants";
 import Layout from "@/components/Layout";
 import dynamic from "next/dynamic";
 import { useMotionValue } from "framer-motion";
@@ -12,7 +11,6 @@ const ProjectStream = dynamic(() => import("@/components/ProjectStream"), {
 
 export default function Index({ preview, allEntries }) {
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
-  const [stepProgress, setStepProgress] = useState(0);
   const prog = useMotionValue(1);
 
   // This callback fires when a Step hits the offset threshold. It receives the
@@ -29,7 +27,7 @@ export default function Index({ preview, allEntries }) {
     <>
       <Layout>
         <Head>
-          <title>Next.js Blog Example with {CMS_NAME}</title>
+          <title>Projekte - Frauen und Fiktion </title>
         </Head>
         <ProjectStream
           currentStepIndex={currentStepIndex}

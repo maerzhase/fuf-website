@@ -31,15 +31,11 @@ export default function Index({
   // This callback fires when a Step hits the offset threshold. It receives the
   // data prop of the step, which in this demo stores the index of the step.
   const onStepEnter = ({ data, direction }) => {
-    console.log("enter", data, direction);
-
     setCurrentStepIndex(data);
-    // setCurrentDirection(direction)
   };
 
   const onStepProgress = ({ data, progress, direction, ...rest }) => {
     if (data === currentStepIndex) {
-      console.log(progress + 1 * currentStepIndex);
       prog.set(progress + 1 * currentStepIndex);
     }
   };
@@ -48,7 +44,7 @@ export default function Index({
     <React.Fragment>
       <Layout>
         <Head>
-          <title>Next.js Blog Example with {CMS_NAME}</title>
+          <title>Home - Frauen und Fiktion </title>
         </Head>
         <Container>
           <Box minHeight="100vh" display="flex" alignItems="center">

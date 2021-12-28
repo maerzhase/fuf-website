@@ -1,13 +1,6 @@
 import React, { useState } from "react";
-import {
-  getAllCollections,
-  getCollectionEntries,
-  getSingleton,
-  getAllSingletons,
-} from "@/api/api";
+import { getSingleton } from "@/api/api";
 import Head from "next/head";
-import Link from "next/link";
-import { CMS_NAME } from "@/api/constants";
 import Layout from "@/components/Layout";
 import Container from "@/components/container";
 import Box from "@material-ui/core/Box";

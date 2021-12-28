@@ -1,29 +1,17 @@
-import React, { useState } from "react";
-import {
-  getAllCollections,
-  getCollectionEntries,
-  getSingleton,
-  getAllSingletons,
-} from "@/api/api";
+import React from "react";
+import { getCollectionEntries } from "@/api/api";
 import Head from "next/head";
-import Link from "next/link";
-import { CMS_NAME } from "@/api/constants";
 import Layout from "@/components/Layout";
 import Container from "@/components/container";
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
-import Zoom from "@material-ui/core/Zoom";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
-import dynamic from "next/dynamic";
-
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
-import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
-import Paper from "@material-ui/core/Paper";
 import LinkIcon from "@/icons/Link";
 import { isBefore, parse, format } from "date-fns";
 import { de } from "date-fns/locale";
@@ -134,16 +122,12 @@ const DateRow = (props) => {
 
 export default function Index({ preview, allEntries, future, pastByYear }) {
   const classes = useRowStyles({});
-  const [showPast, setShowPast] = React.useState(false);
 
-  const handleToggleArchive = () => {
-    setShowPast(!showPast);
-  };
   return (
     <React.Fragment>
       <Layout>
         <Head>
-          <title>Next.js Blog Example with {CMS_NAME}</title>
+          <title>Spielplan - Frauen und Fiktion </title>
         </Head>
         <Container>
           <Box mt={10}>
@@ -156,8 +140,7 @@ export default function Index({ preview, allEntries, future, pastByYear }) {
                   {future.map((date) => (
                     <DateRow key={date._id} date={date} />
                   ))}
-                  {showPast &&
-                    pastByYear &&
+                  {pastByYear &&
                     pastByYear.map(([year, dates]) => {
                       return (
                         <React.Fragment key={year}>
@@ -186,8 +169,7 @@ export default function Index({ preview, allEntries, future, pastByYear }) {
               {future.map((date) => (
                 <MobileRow key={date._id} date={date} />
               ))}
-              {showPast &&
-                pastByYear &&
+              {pastByYear &&
                 pastByYear.map(([year, dates]) => {
                   return (
                     <React.Fragment key={year}>
@@ -202,15 +184,6 @@ export default function Index({ preview, allEntries, future, pastByYear }) {
                     </React.Fragment>
                   );
                 })}
-            </Box>
-            <Box mt={4}>
-              <Button
-                onClick={handleToggleArchive}
-                variant="outlined"
-                fullWidth
-              >
-                {showPast ? "Hide" : "Show"} Archive
-              </Button>
             </Box>
           </Box>
         </Container>

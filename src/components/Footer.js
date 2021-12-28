@@ -1,5 +1,5 @@
 import Container from "./container";
-import { EXAMPLE_PATH } from "@/api/constants";
+import { makeStyles } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import Link from "next/link";
@@ -30,9 +30,16 @@ const LINKS = [
   },
 ];
 
+const useStyles = makeStyles(theme => ({
+  root: {
+    marginBottom: 200,
+  }
+}));
+
 export default function Footer() {
+  const classes = useStyles();
   return (
-    <footer>
+    <footer className={classes.root}>
       <Container>
         <Box mt={10} display="flex" alignItems="center" width="100%">
           <Box flexGrow={1} display="flex" alignItems="center">

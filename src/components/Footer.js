@@ -30,10 +30,10 @@ const LINKS = [
   },
 ];
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     marginBottom: 200,
-  }
+  },
 }));
 
 export default function Footer() {

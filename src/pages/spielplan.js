@@ -55,21 +55,21 @@ const useFormatedDate = (date) => {
   return format(d, "d. MMMM yyyy", { locale: de });
 };
 
-const ProjectLink = props => {
-  const {project, children} = props;
-  if(!project) return <React.Fragment>{children}</React.Fragment>
-    return (
-      <Button color="inherit">
-    <Link
-      target="_blank"
-      href="/projects/[id]"
-      as={`/projects/${project?._id}`}
-     >
-      {children}
-    </Link>
-	</Button>
+const ProjectLink = (props) => {
+  const { project, children } = props;
+  if (!project) return <React.Fragment>{children}</React.Fragment>;
+  return (
+    <Button color="inherit">
+      <Link
+        target="_blank"
+        href="/projects/[id]"
+        as={`/projects/${project?._id}`}
+      >
+        {children}
+      </Link>
+    </Button>
   );
-}
+};
 
 const MobileRow = (props) => {
   const { date, isPast } = props;
@@ -89,10 +89,7 @@ const MobileRow = (props) => {
         {formatedDate}
       </Typography>
       <Typography color="textPrimary" variant="h5" component="div">
-        <ProjectLink project={date.project}
-        >
-	  {date.title}
-	</ProjectLink>
+        <ProjectLink project={date.project}>{date.title}</ProjectLink>
       </Typography>
       <Typography variant="subtitle1" component="div">
         {date.location}
@@ -121,10 +118,7 @@ const DateRow = (props) => {
         {formatedDate}
       </TypoCell>
       <TypoCell width="40%">
-        <ProjectLink project={date.project}
-        >
-          {date.title}
-        </ProjectLink>
+        <ProjectLink project={date.project}>{date.title}</ProjectLink>
       </TypoCell>
       <TypoCell width="35%">{date.location}</TypoCell>
       <TypoCell width="40px">

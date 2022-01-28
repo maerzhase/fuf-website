@@ -5,7 +5,7 @@ import { ThemeProvider } from "@material-ui/core/styles";
 import Navigation from "@/components/Navigation";
 import CssBaseline from "@/components/CssBaseline";
 import theme from "@/theme/index";
-import GradientOverlay from '@/components/GradientOverlay';
+import GradientOverlay from "@/components/GradientOverlay";
 
 export default function MyApp(props) {
   const { Component, pageProps } = props;
@@ -31,7 +31,7 @@ export default function MyApp(props) {
         <CssBaseline />
         <Navigation />
         <Component {...pageProps} />
-      <GradientOverlay/> 
+        <GradientOverlay />
       </ThemeProvider>
     </React.Fragment>
   );

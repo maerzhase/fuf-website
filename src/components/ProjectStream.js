@@ -52,16 +52,6 @@ const useStyles = makeStyles((theme) => ({
     //backgroundColor: 'red',
     top: 0,
   },
-  overlay: {
-    width: "100%",
-    height: "100%",
-    position: "fixed",
-    bottom: 0,
-    left: 0,
-    background: "linear-gradient(180deg, rgba(0,0,0,0) 66%, #ff6e56 100%)",
-    zIndex: 1,
-    pointerEvents: "none",
-  },
 }));
 
 const generateRanges = (length, index, valIn, valOut, valOut2) => {
@@ -264,7 +254,6 @@ const ProjectStream = (props) => {
           />
         ))}
       </div>
-      <div className={classes.overlay} />
     </>
   );
 };

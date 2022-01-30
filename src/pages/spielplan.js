@@ -75,6 +75,7 @@ const MobileRow = (props) => {
   const { date, isPast } = props;
   const classes = useRowStyles(props);
   const formatedDate = useFormatedDate(date.date);
+  console.log(date.link);
   return (
     <Box
       mb={5}
@@ -94,16 +95,18 @@ const MobileRow = (props) => {
       <Typography variant="subtitle1" component="div">
         {date.location}
       </Typography>
-      <Button
-        style={{ marginLeft: "auto" }}
-        size="small"
-        href={date.link}
-        target="_blank"
-        endIcon={<LinkIcon fontSize="inherit" />}
-        color={isPast ? "secondary" : "default"}
-      >
-        Tickets
-      </Button>
+      {date.link && (
+        <Button
+          style={{ marginLeft: "auto" }}
+          size="small"
+          href={date.link}
+          target="_blank"
+          endIcon={<LinkIcon fontSize="inherit" />}
+          color={isPast ? "secondary" : "default"}
+        >
+          Tickets
+        </Button>
+      )}
     </Box>
   );
 };
@@ -112,6 +115,7 @@ const DateRow = (props) => {
   const { date, color } = props;
   const classes = useRowStyles(props);
   const formatedDate = useFormatedDate(date.date);
+  console.log(date.link);
   return (
     <TableRow className={classes.root}>
       <TypoCell width="25%" variant="body1">
@@ -122,14 +126,16 @@ const DateRow = (props) => {
       </TypoCell>
       <TypoCell width="35%">{date.location}</TypoCell>
       <TypoCell width="40px">
-        <Button
-          href={date.link}
-          target="_blank"
-          endIcon={<LinkIcon fontSize="inherit" />}
-          color={color}
-        >
-          Tickets
-        </Button>
+        {date.link && (
+          <Button
+            href={date.link}
+            target="_blank"
+            endIcon={<LinkIcon fontSize="inherit" />}
+            color={color}
+          >
+            Tickets
+          </Button>
+        )}
       </TypoCell>
     </TableRow>
   );

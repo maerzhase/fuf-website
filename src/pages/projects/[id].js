@@ -128,7 +128,7 @@ export default function Post({ project, preview }) {
         <Container className={classes.root}>
           <div className={classes.content}>
             <div className={classes.textContent}>
-              <Typography className={classes.title} variant="h1">
+              <Typography className={classes.title} variant="h2">
                 {project.title}
               </Typography>
               <Typography variant="h5" gutterBottom component="div">

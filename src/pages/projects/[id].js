@@ -21,6 +21,9 @@ const PROJECT_CONTENT_WIDTH = 0.8;
 const perc = (val) => `${val * 100}%`;
 
 const useStyles = makeStyles((theme) => ({
+  iconWrap: {
+    position: 'relative', 
+  },
   root: {
     paddingTop: theme.spacing(10),
     overflowX: "hidden",
@@ -70,12 +73,13 @@ const useStyles = makeStyles((theme) => ({
   },
   galleryToggle: {
     position: "absolute",
-    top: "50%",
-    transition: theme.transitions.create("transform"),
+    top: "50vh",
+    left: props => props.isGalleryOpen ? "0%" : '70%', 
+    transition: theme.transitions.create(["transform", "left"]),
     transform: (props) =>
       props.isGalleryOpen
         ? "translate(-50%,-50%) rotate(0deg)"
-        : "translate(0,-50%) rotate(180deg)",
+        : "translate(-50%,-50%) rotate(180deg)",
     zIndex: 100,
   },
   sliderArrowLarge: {
@@ -110,6 +114,17 @@ export default function Post({ project, preview }) {
   return (
     <React.Fragment>
       <Layout preview={preview}>
+	<Container className={classes.iconWrap}>
+          <IconButton
+            className={classes.galleryToggle}
+            onClick={handleToggleIsGalleryOpen}
+          >
+            <SliderArrowLarge
+              fontSize="large"
+              className={classes.sliderArrowLarge}
+            />
+          </IconButton>
+	</Container>
         <Container className={classes.root}>
           <div className={classes.content}>
             <div className={classes.textContent}>
@@ -127,15 +142,6 @@ export default function Post({ project, preview }) {
               </Typography>
             </div>
             <div className={classes.galleryContent}>
-              <IconButton
-                className={classes.galleryToggle}
-                onClick={handleToggleIsGalleryOpen}
-              >
-                <SliderArrowLarge
-                  fontSize="large"
-                  className={classes.sliderArrowLarge}
-                />
-              </IconButton>
               <div className={classes.galleryWrap}>
                 {trailer && (
                   <div

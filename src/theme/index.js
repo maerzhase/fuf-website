@@ -38,19 +38,22 @@ const theme = createTheme({
     fontWeightMedium: FONTWEIGHT_MEDIUM,
     fontWeightBold: FONTWEIGHT_BOLD,
     h1: {
-      fontSize: 90,
+      fontSize: 140,
       textTransform: "uppercase",
     },
     h2: {
-      fontSize: 50,
+      fontSize: 90,
       textTransform: "uppercase",
     },
     h3: {
-      fontSize: 35,
+      fontSize: 50,
       textTransform: "uppercase",
     },
     h4: {
-      fontSize: 25,
+      fontSize: 35,
+    },
+    h5: {
+      fontSize: 28, 
     },
     h6: {
       fontSize: 20,

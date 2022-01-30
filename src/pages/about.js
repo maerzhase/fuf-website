@@ -49,8 +49,8 @@ const Person = (props) => {
   return (
     <div className={classes.person}>
       <LeftColumn>
-        <Typography variant="h3">{person.name}</Typography>
-        <Typography variant="h3" gutterBottom>
+        <Typography variant="h4">{person.name}</Typography>
+        <Typography variant="h4" gutterBottom>
           {person.lastname}
         </Typography>
       </LeftColumn>
@@ -65,7 +65,7 @@ const Collaborator = (props) => {
   const { person } = props;
   return (
     <React.Fragment>
-      <Typography variant="h3">
+      <Typography variant="h4">
         {person.name} {person.lastname}
       </Typography>
       <Typography variant="body1">{person.position}</Typography>

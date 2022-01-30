@@ -7,17 +7,38 @@ import Container from "@/components/container";
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import IconButton from "@material-ui/core/IconButton";
 import { groupBy } from "lodash";
 import ReactMarkdown from "react-markdown";
 import { getImageSrc } from "@/api/constants";
 import Slide from "@material-ui/core/Slide";
+import AddIcon from "@material-ui/icons/Add";
+import RemoveIcon from "@material-ui/icons/Remove";
+import { makeStyles } from "@material-ui/core";
 
+const useBoxStyles = makeStyles((theme) => ({
+  iconButton: {
+    marginRight: theme.spacing(2), 
+    transform: props => props.showDescription ?'translate(0, 0%)'  : 'translate(0, 0%)', 
+  },
+  description: {
+    '& > p': {
+      margin: 0,
+      marginBottom: theme.spacing(4),
+    }
+  },
+}));
 const ThemeBox = (props) => {
   const { theme, groupedProjects } = props;
-
   const { title, description } = theme;
+  const [showDescription, setShowDescription] = React.useState(false);
   const [activeProject, setActiveProject] = React.useState(null);
-  console.log(groupedProjects);
+
+  const classes = useBoxStyles({showDescription});
+  const handleToggleShowDescription = () => {
+    setShowDescription(!showDescription);
+  };
+
   const createMouseEnterHandler = (project) => () => {
     setActiveProject(project);
   };
@@ -33,13 +54,23 @@ const ThemeBox = (props) => {
           display="flex"
           alignItems="center"
         >
-          <Box>
-            <Typography align="center" variant="h4">
-              <ReactMarkdown>{description}</ReactMarkdown>
-            </Typography>
-            <Typography variant="h1" align="center">
-              {title}
-            </Typography>
+	  <Box width="100%" maxWidth={850} margin="auto" display="flex" justifyContent="center">
+	    <Box>
+	      <IconButton className={classes.iconButton} onClick={handleToggleShowDescription}>
+	      {showDescription ? <RemoveIcon/> : <AddIcon />}
+	    </IconButton>
+	    </Box>
+	    <Box>
+            {showDescription && (
+              <Typography variant="h5" className={classes.description}>
+                  <ReactMarkdown >{description}</ReactMarkdown>
+              </Typography>
+            )}
+            {!showDescription && (
+              <Typography variant="h1" align="center">
+                  {title}
+              </Typography>
+            )}
             {groupedProjects[title]?.map((project) => (
               <React.Fragment key={project._id}>
                 <Link href={`/projects/${project._id}`} passHref>
@@ -55,7 +86,8 @@ const ThemeBox = (props) => {
                   </Button>
                 </Link>
               </React.Fragment>
-            ))}
+	    ))}
+	    </Box>
           </Box>
         </Box>
       </Container>

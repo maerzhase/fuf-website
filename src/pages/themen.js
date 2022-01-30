@@ -18,14 +18,15 @@ import { makeStyles } from "@material-ui/core";
 
 const useBoxStyles = makeStyles((theme) => ({
   iconButton: {
-    marginRight: theme.spacing(2), 
-    transform: props => props.showDescription ?'translate(0, 0%)'  : 'translate(0, 0%)', 
+    marginRight: theme.spacing(2),
+    transform: (props) =>
+      props.showDescription ? "translate(0, 0%)" : "translate(0, 0%)",
   },
   description: {
-    '& > p': {
+    "& > p": {
       margin: 0,
       marginBottom: theme.spacing(4),
-    }
+    },
   },
 }));
 const ThemeBox = (props) => {
@@ -34,7 +35,7 @@ const ThemeBox = (props) => {
   const [showDescription, setShowDescription] = React.useState(false);
   const [activeProject, setActiveProject] = React.useState(null);
 
-  const classes = useBoxStyles({showDescription});
+  const classes = useBoxStyles({ showDescription });
   const handleToggleShowDescription = () => {
     setShowDescription(!showDescription);
   };
@@ -54,40 +55,49 @@ const ThemeBox = (props) => {
           display="flex"
           alignItems="center"
         >
-	  <Box width="100%" maxWidth={850} margin="auto" display="flex" justifyContent="center">
-	    <Box>
-	      <IconButton className={classes.iconButton} onClick={handleToggleShowDescription}>
-	      {showDescription ? <RemoveIcon/> : <AddIcon />}
-	    </IconButton>
-	    </Box>
-	    <Box>
-            {showDescription && (
-              <Typography variant="h5" className={classes.description}>
-                  <ReactMarkdown >{description}</ReactMarkdown>
-              </Typography>
-            )}
-            {!showDescription && (
-              <Typography variant="h1" align="center">
+          <Box
+            width="100%"
+            maxWidth={850}
+            margin="auto"
+            display="flex"
+            justifyContent="center"
+          >
+            <Box>
+              <IconButton
+                className={classes.iconButton}
+                onClick={handleToggleShowDescription}
+              >
+                {showDescription ? <RemoveIcon /> : <AddIcon />}
+              </IconButton>
+            </Box>
+            <Box>
+              {showDescription && (
+                <Typography variant="h5" className={classes.description}>
+                  <ReactMarkdown>{description}</ReactMarkdown>
+                </Typography>
+              )}
+              {!showDescription && (
+                <Typography variant="h1" align="center">
                   {title}
-              </Typography>
-            )}
-            {groupedProjects[title]?.map((project) => (
-              <React.Fragment key={project._id}>
-                <Link href={`/projects/${project._id}`} passHref>
-                  <Button
-                    onMouseEnter={createMouseEnterHandler(project)}
-                    onMouseLeave={createMouseLeaveHandler(project)}
-                    color="primary"
-                    variant="text"
-                    fullWidth
-                    align="center"
-                  >
-                    {project.title}
-                  </Button>
-                </Link>
-              </React.Fragment>
-	    ))}
-	    </Box>
+                </Typography>
+              )}
+              {groupedProjects[title]?.map((project) => (
+                <React.Fragment key={project._id}>
+                  <Link href={`/projects/${project._id}`} passHref>
+                    <Button
+                      onMouseEnter={createMouseEnterHandler(project)}
+                      onMouseLeave={createMouseLeaveHandler(project)}
+                      color="primary"
+                      variant="text"
+                      fullWidth
+                      align="center"
+                    >
+                      {project.title}
+                    </Button>
+                  </Link>
+                </React.Fragment>
+              ))}
+            </Box>
           </Box>
         </Box>
       </Container>

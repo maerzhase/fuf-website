@@ -162,7 +162,7 @@ export const Teaser = React.forwardRef((props, ref) => {
         <div className={classes.headline}>
           <Link href={`/projects/${project._id}`}>
             <a>
-              <Typography variant="h1">{project.title}</Typography>
+              <Typography variant="h2">{project.title}</Typography>
               <Typography variant="h6">{project.theme?.display}</Typography>
             </a>
           </Link>
@@ -183,7 +183,7 @@ export const SimpleTeaser = React.forwardRef((props, ref) => {
         <div className={classes.headline}>
           <Link href={`/projects/${project._id}`}>
             <a>
-              <Typography variant="h1">{project.title}</Typography>
+              <Typography variant="h2">{project.title}</Typography>
               <Typography variant="h6">{project.theme?.display}</Typography>
             </a>
           </Link>

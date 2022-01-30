@@ -22,7 +22,7 @@ const perc = (val) => `${val * 100}%`;
 
 const useStyles = makeStyles((theme) => ({
   iconWrap: {
-    position: 'relative', 
+    position: "relative",
   },
   root: {
     paddingTop: theme.spacing(10),
@@ -74,7 +74,7 @@ const useStyles = makeStyles((theme) => ({
   galleryToggle: {
     position: "absolute",
     top: "50vh",
-    left: props => props.isGalleryOpen ? "0%" : '70%', 
+    left: (props) => (props.isGalleryOpen ? "0%" : "70%"),
     transition: theme.transitions.create(["transform", "left"]),
     transform: (props) =>
       props.isGalleryOpen
@@ -114,7 +114,7 @@ export default function Post({ project, preview }) {
   return (
     <React.Fragment>
       <Layout preview={preview}>
-	<Container className={classes.iconWrap}>
+        <Container className={classes.iconWrap}>
           <IconButton
             className={classes.galleryToggle}
             onClick={handleToggleIsGalleryOpen}
@@ -124,7 +124,7 @@ export default function Post({ project, preview }) {
               className={classes.sliderArrowLarge}
             />
           </IconButton>
-	</Container>
+        </Container>
         <Container className={classes.root}>
           <div className={classes.content}>
             <div className={classes.textContent}>

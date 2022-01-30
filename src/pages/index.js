@@ -48,7 +48,7 @@ export default function Index({
         </Head>
         <Container>
           <Box minHeight="100vh" display="flex" alignItems="center">
-            <Typography align="center" variant="h2">
+            <Typography align="center" variant="h3">
               <ReactMarkdown>{startPage.introText}</ReactMarkdown>
             </Typography>
           </Box>

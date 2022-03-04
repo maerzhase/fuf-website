@@ -11,7 +11,7 @@ import IconButton from "@material-ui/core/IconButton";
 import { groupBy } from "lodash";
 import ReactMarkdown from "react-markdown";
 import { getImageSrc } from "@/api/constants";
-import Slide from "@material-ui/core/Slide";
+import Fade from "@material-ui/core/Fade";
 import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
 import { makeStyles } from "@material-ui/core";
@@ -102,7 +102,7 @@ const ThemeBox = (props) => {
         </Box>
       </Container>
       {groupedProjects[title]?.map((project) => (
-        <Slide key={project._id} in={activeProject === project} direction="up">
+	<Fade timeout={{enter:1000, exit: 1000 }} key={project._id} in={activeProject === project} direction="up">
           <Box
             style={{
               zIndex: 0,
@@ -118,7 +118,7 @@ const ThemeBox = (props) => {
               backgroundSize: "cover",
             }}
           />
-        </Slide>
+        </Fade>
       ))}
     </Box>
   );

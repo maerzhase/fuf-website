@@ -146,7 +146,7 @@ export default function Navigation() {
                 <Link href="/">
                   <a>
                     <Typography className={classes.logo} variant="h5">
-                      Frauen und Fiktion
+                      frauen und fiktion
                     </Typography>
                   </a>
                 </Link>

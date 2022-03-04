@@ -141,7 +141,7 @@ export const Teaser = React.forwardRef((props, ref) => {
           y: y1,
           backgroundSize: "100% auto",
           backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
+          backgroundPosition: "top center",
           backgroundImage: `url(${getHeroImageSrc(project.heroImage?.path)})`,
         }}
         transition={{

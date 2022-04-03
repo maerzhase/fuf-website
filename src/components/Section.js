@@ -12,12 +12,12 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.common.black,
     position: 'relative',
     textAlign: props => (props.centered ? 'center' : 'left'),
-    minHeight: props => props.minHeight && '800px',
+    height: props => props.minHeight && '800px',
     [theme.breakpoints.down('md')]: {
-      minHeight: props => props.minHeight && '700px',
+      height: props => props.minHeight && '700px',
     },
     [theme.breakpoints.down('sm')]: {
-      minHeight: props => props.minHeight && '500px',
+      height: props => props.minHeight && '500px',
     },
     marginBottom: props => !props.noMargin && theme.spacing(4),
   },

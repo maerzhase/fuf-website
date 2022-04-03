@@ -4,6 +4,51 @@ moment.locale('de');
 
 const dates = [
 {
+   date: "07.03.2022",
+    title: "SUIT YOUR BODY",
+    text: "Hörspielinstallation",
+    location: "Theater Chur",
+    link: "https://www.theaterchur.ch/programm/suit-your-body",
+},
+ 
+{
+   date: "08.03.2022",
+    title: "SUIT YOUR BODY",
+    text: "Hörspielinstallation",
+    location: "Theater Chur",
+    link: "https://www.theaterchur.ch/programm/suit-your-body",
+},
+ 
+{
+   date: "09.03.2022",
+    title: "SUIT YOUR BODY",
+    text: "Hörspielinstallation",
+    location: "Theater Chur",
+    link: "https://www.theaterchur.ch/programm/suit-your-body",
+},
+ 
+{
+   date: "10.03.2022",
+    title: "SUIT YOUR BODY",
+    text: "Hörspielinstallation",
+    location: "Theater Chur",
+    link: "https://www.theaterchur.ch/programm/suit-your-body",
+},
+ 
+{
+   date: "26.04.2022",
+    title: "CARE AFFAIR",
+    text: "digitales Gastspiel",
+    location: "Theater Chur",
+    link: "https://calendar.boell.de/de/event/care-affair-ein-abend-fuer-gute-pflege",
+}  ,
+
+
+
+
+
+
+  {
     date: "27.09.2021",
     title: "CARE AFFAIR",
     text: "Performance",

@@ -3,22 +3,15 @@ import { useRouter } from "next/router";
 import ErrorPage from "next/error";
 import Container from "@/components/container";
 import Layout from "@/components/Layout";
+import Gallery from "@/components/Gallery";
 import { getProjectById, getCollectionEntries } from "@/api/api";
-import Head from "next/head";
-import { CMS_NAME } from "@/api/constants";
 import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
 import { getImageSrc } from "@/api/constants";
 import { makeStyles } from "@material-ui/core/styles";
 import SliderArrowLarge from "@/icons/SliderArrowLarge";
 import IconButton from "@material-ui/core/IconButton";
 import ReactMarkdown from "react-markdown";
-
-const GALLERY_HEIGHT = "100vh";
-const SCROLLBAR_HEIGHT = 10;
-const PROJECT_CONTENT_WIDTH = 0.8;
-
-const perc = (val) => `${val * 100}%`;
+import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 
 const useStyles = makeStyles((theme) => ({
   iconWrap: {
@@ -43,34 +36,6 @@ const useStyles = makeStyles((theme) => ({
     minWidth: "70%",
     maxWidth: "70%",
   },
-  galleryContent: {
-    width: "100%",
-    height: `calc(100vh - ${theme.spacing(10)}px)`,
-    transition: theme.transitions.create("transform"),
-    transform: (props) =>
-      props.isGalleryOpen ? "translate(-70%, 0)" : "translate(0, 0)",
-  },
-  galleryWrap: {
-    overflowX: "auto",
-    overflowY: "hidden",
-    whiteSpace: "nowrap",
-    "-webkit-overflow-scrolling": "touch",
-    display: "flex",
-    height: "100%",
-    backgroundColor: theme.palette.common.black,
-    "& > *": {
-      marginRight: theme.spacing(2),
-    },
-  },
-  trailer: {
-    height: "100%",
-    width: "100%",
-    "& > iframe": {
-      width: `calc(((100vh - ${theme.spacing(12)}px) / 9) * 16)`,
-      height: `calc(100vh - ${theme.spacing(12)}px)`,
-      maxWidth: "100vw",
-    },
-  },
   galleryToggle: {
     position: "absolute",
     top: "50vh",
@@ -85,27 +50,37 @@ const useStyles = makeStyles((theme) => ({
   sliderArrowLarge: {
     fontSize: 70,
   },
-  img: {
-    width: "auto",
-    height: "100%",
+  nextButton: {
+    position: "absolute",
+    top: "50vh",
+    right: 0,
+    zIndex: 100,
+    transform: "translate(50%,-50%)",
+    outline: "1px solid currentColor",
   },
 }));
 
 export default function Post({ project, preview }) {
-  const router = useRouter();
   const [isGalleryOpen, setIsGalleryOpen] = React.useState(false);
-  const [trailer, setTrailer] = React.useState(null);
+  const [itemIndex, setItemIndex] = React.useState(0);
   const classes = useStyles({ isGalleryOpen });
 
   const handleToggleIsGalleryOpen = () => {
     setIsGalleryOpen(!isGalleryOpen);
   };
 
-  React.useEffect(() => {
-    if (!trailer && project.trailer) {
-      setTrailer(project.trailer);
+  const hasTrailer = !!project.trailer;
+  const maxIndex = project.gallery.length + (hasTrailer ? 1 : 0);
+
+  const handleClickNextButton = (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    if (itemIndex < maxIndex - 1) {
+      setItemIndex(itemIndex + 1);
+    } else {
+      setItemIndex(0);
     }
-  }, []);
+  };
 
   if (!project) {
     return <ErrorPage statusCode={404} />;
@@ -124,6 +99,13 @@ export default function Post({ project, preview }) {
               className={classes.sliderArrowLarge}
             />
           </IconButton>
+          <IconButton
+            variant="outlined"
+            className={classes.nextButton}
+            onClick={handleClickNextButton}
+          >
+            <ArrowRightIcon />
+          </IconButton>
         </Container>
         <Container className={classes.root}>
           <div className={classes.content}>
@@ -141,23 +123,11 @@ export default function Post({ project, preview }) {
                 <ReactMarkdown>{project.credits}</ReactMarkdown>
               </Typography>
             </div>
-            <div className={classes.galleryContent}>
-              <div className={classes.galleryWrap}>
-                {trailer && (
-                  <div
-                    className={classes.trailer}
-                    dangerouslySetInnerHTML={{ __html: trailer }}
-                  />
-                )}
-                {project.gallery?.map((img) => (
-                  <img
-                    key={img.path}
-                    className={classes.img}
-                    src={getImageSrc(img.path)}
-                  />
-                ))}
-              </div>
-            </div>
+            <Gallery
+              project={project}
+              isOpen={isGalleryOpen}
+              scrollToIndex={itemIndex}
+            />
           </div>
         </Container>
       </Layout>

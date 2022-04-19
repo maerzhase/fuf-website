@@ -22,8 +22,8 @@
     "isomorphic-unfetch": "3.0.0",
     "lodash": "^4.17.21",
     "next": "^12.0.4",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "react-markdown": "^8.0.0",
     "react-scrollama": "^2.3.0-beta.0",
     "react-use-scroll-direction": "^0.1.0"

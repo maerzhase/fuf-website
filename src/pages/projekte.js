@@ -4,6 +4,7 @@ import Head from "next/head";
 import Layout from "@/components/Layout";
 import dynamic from "next/dynamic";
 import { useMotionValue } from "framer-motion";
+import ScrollIndicator from "@/components/ScrollIndicator";
 
 const ProjectStream = dynamic(() => import("@/components/ProjectStream"), {
   ssr: false,
@@ -25,8 +26,9 @@ export default function Index({ preview, allEntries }) {
 
   return (
     <>
+      <ScrollIndicator />
       <Layout>
-        <Head>
+	<Head>
           <title>Projekte - Frauen und Fiktion </title>
         </Head>
         <ProjectStream

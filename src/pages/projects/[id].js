@@ -69,7 +69,7 @@ export default function Post({ project, preview }) {
     setIsGalleryOpen(!isGalleryOpen);
   };
 
-  const hasTrailer = !!project.trailer;
+  const hasTrailer = !!project?.trailer;
   const maxIndex = project.gallery.length + (hasTrailer ? 1 : 0);
 
   const handleClickNextButton = (e) => {

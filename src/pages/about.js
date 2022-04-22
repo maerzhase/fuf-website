@@ -3,11 +3,11 @@ import { getSingleton } from "@/api/api";
 import Head from "next/head";
 import Layout from "@/components/Layout";
 import Container from "@/components/container";
-import ScrollIndicator from "@/components/ScrollIndicator";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import ReactMarkdown from "react-markdown";
+import ScrollIndicator from "@/components/ScrollIndicator";
 
 const useColumnStyles = makeStyles((theme) => ({
   left: {
@@ -93,11 +93,12 @@ export default function Index({ preview, aboutPage }) {
   const classes = useStyles();
   return (
     <React.Fragment>
+      <ScrollIndicator />
       <Layout>
         <Head>
           <title>About - Frauen und Fiktion</title>
         </Head>
-        <Container>
+	<Container>
           <Box minHeight="100vh" display="flex" alignItems="center">
             <Typography variant="h4">
               <ReactMarkdown>{aboutPage.intro}</ReactMarkdown>

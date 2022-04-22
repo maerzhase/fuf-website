@@ -13,6 +13,7 @@ import Typography from "@material-ui/core/Typography";
 import dynamic from "next/dynamic";
 import ReactMarkdown from "react-markdown";
 import { useMotionValue } from "framer-motion";
+import ScrollIndicator from "@/components/ScrollIndicator";
 
 const ProjectStream = dynamic(() => import("@/components/ProjectStream"), {
   ssr: false,
@@ -42,6 +43,7 @@ export default function Index({
 
   return (
     <React.Fragment>
+      <ScrollIndicator />
       <Layout>
         <Head>
           <title>Home - Frauen und Fiktion </title>

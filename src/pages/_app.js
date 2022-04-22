@@ -6,7 +6,6 @@ import Navigation from "@/components/Navigation";
 import CssBaseline from "@/components/CssBaseline";
 import theme from "@/theme/index";
 import GradientOverlay from "@/components/GradientOverlay";
-import ScrollIndicator from "@/components/ScrollIndicator";
 
 export default function MyApp(props) {
   const { Component, pageProps } = props;
@@ -32,7 +31,6 @@ export default function MyApp(props) {
         <CssBaseline />
         <Navigation />
         <Component {...pageProps} />
-	<ScrollIndicator />
 	<GradientOverlay />
       </ThemeProvider>
     </React.Fragment>

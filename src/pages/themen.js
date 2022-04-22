@@ -15,6 +15,7 @@ import Fade from "@material-ui/core/Fade";
 import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
 import { makeStyles } from "@material-ui/core";
+import ScrollIndicator from "@/components/ScrollIndicator";
 
 const useBoxStyles = makeStyles((theme) => ({
   iconButton: {
@@ -141,6 +142,7 @@ export default function ThemenPage({ preview, allProjects, allThemes }) {
 
   return (
     <React.Fragment>
+      <ScrollIndicator />
       <Layout>
         <Head>
           <title>Themen - Frauen und Fiktion </title>

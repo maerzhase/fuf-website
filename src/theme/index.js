@@ -47,6 +47,7 @@ const theme = createTheme({
     h2: {
       fontSize: 90,
       textTransform: "uppercase",
+      fontFamily: SANS_HEADLINE
     },
     h3: {
       fontSize: 50,

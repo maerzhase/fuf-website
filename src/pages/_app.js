@@ -31,7 +31,7 @@ export default function MyApp(props) {
         <CssBaseline />
         <Navigation />
         <Component {...pageProps} />
-	<GradientOverlay />
+        <GradientOverlay />
       </ThemeProvider>
     </React.Fragment>
   );

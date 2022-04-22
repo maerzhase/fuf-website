@@ -28,7 +28,7 @@ export default function Index({ preview, allEntries }) {
     <>
       <ScrollIndicator />
       <Layout>
-	<Head>
+        <Head>
           <title>Projekte - Frauen und Fiktion </title>
         </Head>
         <ProjectStream

@@ -42,12 +42,12 @@ const theme = createTheme({
     h1: {
       fontSize: 140,
       textTransform: "uppercase",
-      fontFamily: SANS_HEADLINE
+      fontFamily: SANS_HEADLINE,
     },
     h2: {
       fontSize: 90,
       textTransform: "uppercase",
-      fontFamily: SANS_HEADLINE
+      fontFamily: SANS_HEADLINE,
     },
     h3: {
       fontSize: 50,

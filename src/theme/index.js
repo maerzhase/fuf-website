@@ -1,7 +1,8 @@
 import { createTheme, responsiveFontSizes } from "@material-ui/core/styles";
 import { red } from "@material-ui/core/colors";
 
-const SANS = ["Trash", "system-ui", "sans-serif"];
+const SANS = ["Commuters Sans Regular", "system-ui", "sans-serif"];
+const SANS_HEADLINE = ["Trash", "system-ui", "sans-serif"];
 
 const WHITE = "#ffffff";
 const SALMON = "#ff6e56";
@@ -33,6 +34,7 @@ const theme = createTheme({
   },
   typography: {
     sans: SANS,
+    sansHeadline: SANS_HEADLINE,
     fontFamily: SANS,
     fontWeightRegular: FONTWEIGHT_REGULAR,
     fontWeightMedium: FONTWEIGHT_MEDIUM,
@@ -40,6 +42,7 @@ const theme = createTheme({
     h1: {
       fontSize: 140,
       textTransform: "uppercase",
+      fontFamily: SANS_HEADLINE
     },
     h2: {
       fontSize: 90,

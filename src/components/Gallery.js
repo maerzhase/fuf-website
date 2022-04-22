@@ -15,8 +15,8 @@ const useStyles = makeStyles((theme) => ({
     overflowX: "auto",
     overflowY: "hidden",
     whiteSpace: "nowrap",
-    position: 'relative', 
-"-webkit-overflow-scrolling": "touch",
+    position: "relative",
+    "-webkit-overflow-scrolling": "touch",
     display: "flex",
     height: "100%",
     backgroundColor: theme.palette.common.black,
@@ -70,21 +70,20 @@ const Gallery = (props) => {
     }
   }, [scrollToIndex, scrollContainerRef, trailer]);
 
-
   React.useEffect(() => {
-    if(isOpen) {
-      document.body.style.overflow = 'hidden'
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'auto'
+      document.body.style.overflow = "auto";
     }
     return () => {
       // TODO: This is a hack for a bug
       // https://github.com/mui/material-ui/issues/32251
       setTimeout(() => {
-        document.body.style.overflow = 'auto'; 
-      }, 1)
-    }
-  }, [isOpen])
+        document.body.style.overflow = "auto";
+      }, 1);
+    };
+  }, [isOpen]);
 
   return (
     <>

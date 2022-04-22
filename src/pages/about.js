@@ -98,11 +98,11 @@ export default function Index({ preview, aboutPage }) {
         <Head>
           <title>About - Frauen und Fiktion</title>
         </Head>
-	<Container>
+        <Container>
           <Box minHeight="100vh" display="flex" alignItems="center">
             <Typography variant="h4">
               <ReactMarkdown>{aboutPage.intro}</ReactMarkdown>
-	    </Typography>
+            </Typography>
           </Box>
           <Box>
             {aboutPage.team.map((p) => (

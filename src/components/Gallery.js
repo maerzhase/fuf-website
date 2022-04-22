@@ -15,7 +15,8 @@ const useStyles = makeStyles((theme) => ({
     overflowX: "auto",
     overflowY: "hidden",
     whiteSpace: "nowrap",
-    "-webkit-overflow-scrolling": "touch",
+    position: 'relative', 
+"-webkit-overflow-scrolling": "touch",
     display: "flex",
     height: "100%",
     backgroundColor: theme.palette.common.black,
@@ -58,7 +59,7 @@ const Gallery = (props) => {
   }, []);
 
   React.useEffect(() => {
-    if (scrollContainerRef.current) {
+    if (scrollContainerRef.current && project.trailer == trailer) {
       const { offsetLeft } =
         scrollContainerRef.current.children?.[scrollToIndex];
       scrollContainerRef.current.scroll({
@@ -67,7 +68,7 @@ const Gallery = (props) => {
         behavior: "smooth",
       });
     }
-  }, [scrollToIndex, scrollContainerRef]);
+  }, [scrollToIndex, scrollContainerRef, trailer]);
 
 
   React.useEffect(() => {

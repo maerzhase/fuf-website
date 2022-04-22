@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
     top: "50vh",
     right: 0,
     zIndex: 100,
-    transform: "translate(50%,-50%)",
+    transform: "translate(0%,-50%)",
     outline: "1px solid currentColor",
   },
 }));

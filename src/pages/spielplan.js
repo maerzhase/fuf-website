@@ -217,7 +217,7 @@ export default function Index({ preview, allEntries, future, pastByYear }) {
                   ))}
                   {pastByYear &&
                     pastByYear.map(([year, dates]) => (
-                      <YearGroup year={year} dates={dates} />
+                      <YearGroup key={year} year={year} dates={dates} />
                     ))}
                 </TableBody>
               </Table>
@@ -228,7 +228,7 @@ export default function Index({ preview, allEntries, future, pastByYear }) {
               ))}
               {pastByYear &&
                 pastByYear.map(([year, dates]) => (
-                  <YearGroupMobile year={year} dates={dates} />
+                  <YearGroupMobile key={year} year={year} dates={dates} />
                 ))}
             </Box>
           </Box>

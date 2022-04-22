@@ -1,0 +1,7 @@
+
+@font-face {
+    font-family:"Commuters Sans Regular";
+    src:url("commuters-sans-regular.woff2") format("woff2"),url("commuters-sans-regular.woff") format("woff"),url("commuters-sans-regular.otf") format("opentype");
+    font-style:normal;font-weight:400;
+}
+        

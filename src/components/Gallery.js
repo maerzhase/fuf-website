@@ -59,7 +59,7 @@ const Gallery = (props) => {
   }, []);
 
   React.useEffect(() => {
-    if (scrollContainerRef.current && project.trailer == trailer) {
+    if (scrollContainerRef.current) {
       const { offsetLeft } =
         scrollContainerRef.current.children?.[scrollToIndex];
       scrollContainerRef.current.scroll({
@@ -68,7 +68,7 @@ const Gallery = (props) => {
         behavior: "smooth",
       });
     }
-  }, [scrollToIndex, scrollContainerRef, trailer]);
+  }, [scrollToIndex, scrollContainerRef]);
 
   React.useEffect(() => {
     if (isOpen) {

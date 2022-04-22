@@ -17,6 +17,8 @@ import { isBefore, parse, format } from "date-fns";
 import { de } from "date-fns/locale";
 import { groupBy, orderBy } from "lodash";
 import Link from "next/link/";
+import Collapse from "@material-ui/core/Collapse";
+
 const TypoCell = withStyles((theme) => ({
   root: (props) => ({
     ...(theme.typography[props.variant] || theme.typography.button),
@@ -41,6 +43,12 @@ const useRowStyles = makeStyles((theme) => ({
   mobile: {
     [theme.breakpoints.up("md")]: {
       display: "none",
+    },
+  },
+  interactive: {
+    cursor: "pointer",
+    "&:hover > *": {
+      color: `${theme.palette.primary.main} !important`,
     },
   },
 }));
@@ -73,9 +81,7 @@ const ProjectLink = (props) => {
 
 const MobileRow = (props) => {
   const { date, isPast } = props;
-  const classes = useRowStyles(props);
   const formatedDate = useFormatedDate(date.date);
-  console.log(date.link);
   return (
     <Box
       mb={5}
@@ -115,7 +121,6 @@ const DateRow = (props) => {
   const { date, color } = props;
   const classes = useRowStyles(props);
   const formatedDate = useFormatedDate(date.date);
-  console.log(date.link);
   return (
     <TableRow className={classes.root}>
       <TypoCell width="25%" variant="body1">
@@ -141,6 +146,55 @@ const DateRow = (props) => {
   );
 };
 
+const YearGroup = (props) => {
+  const { year, dates } = props;
+  const [isOpen, setIsOpen] = React.useState(false);
+  const classes = useRowStyles();
+  const handleClickYearRow = () => {
+    setIsOpen(!isOpen);
+  };
+
+  return (
+    <React.Fragment>
+      <TableRow onClick={handleClickYearRow} className={classes.interactive}>
+        <TypoCell color="secondary" variant="h3">
+          {year}
+        </TypoCell>
+        <TypoCell />
+        <TypoCell />
+        <TypoCell />
+      </TableRow>
+      <Collapse in={isOpen}>
+        {dates.map((date) => (
+          <DateRow key={date._id} date={date} color="secondary" />
+        ))}
+      </Collapse>
+    </React.Fragment>
+  );
+};
+
+const YearGroupMobile = (props) => {
+  const { year, dates } = props;
+  const [isOpen, setIsOpen] = React.useState(false);
+  const handleClickYearRow = () => {
+    setIsOpen(!isOpen);
+  };
+
+  return (
+    <React.Fragment>
+      <Box mb={5} onClick={handleClickYearRow}>
+        <Typography color="textSecondary" variant="h3">
+          {year}
+        </Typography>
+      </Box>
+      <Collapse in={isOpen}>
+        {dates.map((date) => (
+          <MobileRow key={date._id} date={date} isPast />
+        ))}
+      </Collapse>
+    </React.Fragment>
+  );
+};
 export default function Index({ preview, allEntries, future, pastByYear }) {
   const classes = useRowStyles({});
 
@@ -162,27 +216,9 @@ export default function Index({ preview, allEntries, future, pastByYear }) {
                     <DateRow key={date._id} date={date} />
                   ))}
                   {pastByYear &&
-                    pastByYear.map(([year, dates]) => {
-                      return (
-                        <React.Fragment key={year}>
-                          <TableRow>
-                            <TypoCell color="secondary" variant="h3">
-                              {year}
-                            </TypoCell>
-                            <TypoCell />
-                            <TypoCell />
-                            <TypoCell />
-                          </TableRow>
-                          {dates.map((date) => (
-                            <DateRow
-                              key={date._id}
-                              date={date}
-                              color="secondary"
-                            />
-                          ))}
-                        </React.Fragment>
-                      );
-                    })}
+                    pastByYear.map(([year, dates]) => (
+                      <YearGroup year={year} dates={dates} />
+                    ))}
                 </TableBody>
               </Table>
             </TableContainer>
@@ -191,20 +227,9 @@ export default function Index({ preview, allEntries, future, pastByYear }) {
                 <MobileRow key={date._id} date={date} />
               ))}
               {pastByYear &&
-                pastByYear.map(([year, dates]) => {
-                  return (
-                    <React.Fragment key={year}>
-                      <Box mb={5}>
-                        <Typography color="textSecondary" variant="h3">
-                          {year}
-                        </Typography>
-                      </Box>
-                      {dates.map((date) => (
-                        <MobileRow key={date._id} date={date} isPast />
-                      ))}
-                    </React.Fragment>
-                  );
-                })}
+                pastByYear.map(([year, dates]) => (
+                  <YearGroupMobile year={year} dates={dates} />
+                ))}
             </Box>
           </Box>
         </Container>

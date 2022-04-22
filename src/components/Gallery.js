@@ -78,7 +78,11 @@ const Gallery = (props) => {
       document.body.style.overflow = 'auto'
     }
     return () => {
-      document.body.style.overflow = 'auto'; 
+      // TODO: This is a hack for a bug
+      // https://github.com/mui/material-ui/issues/32251
+      setTimeout(() => {
+        document.body.style.overflow = 'auto'; 
+      }, 1)
     }
   }, [isOpen])
 

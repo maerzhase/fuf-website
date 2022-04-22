@@ -96,6 +96,7 @@ const MobileNav = () => {
   React.useEffect(() => {
     setIsOpen(false);
   }, [router.route]);
+
   return (
     <div className={classes.mobileNav}>
       <IconButton onClick={toggleDrawer}>

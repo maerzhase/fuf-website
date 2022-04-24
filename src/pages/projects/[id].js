@@ -114,10 +114,6 @@ export default function Post({ project, preview }) {
     }
   };
 
-  if (!project) {
-    return <ErrorPage statusCode={404} />;
-  }
-
   const itemActions = React.useMemo(() => {
     return {
       trailer: () => {
@@ -147,7 +143,7 @@ export default function Post({ project, preview }) {
         item: project.trailer,
       });
     }
-    if (project.gallery) {
+    if (project?.gallery) {
       items.push({
         label: "image",
         item: project.gallery,
@@ -156,7 +152,10 @@ export default function Post({ project, preview }) {
     return items;
   }, [project]);
 
-  console.log(project);
+  if (!project) {
+    return <ErrorPage statusCode={404} />;
+  }
+
   return (
     <React.Fragment>
       <Layout preview={preview}>
@@ -205,8 +204,8 @@ export default function Post({ project, preview }) {
             {specialItems.map((i) => {
               const Icon = ITEM_ICON[i.label];
               return (
-		<Grid
-		  key={i.label}
+                <Grid
+                  key={i.label}
                   className={classes.item}
                   onClick={itemActions[i.label]}
                   item

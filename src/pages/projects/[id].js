@@ -14,8 +14,8 @@ import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import ReactMarkdown from "react-markdown";
 import ArrowRightIcon from "@material-ui/icons/ArrowRight";
-import PlayArrowIcon from '@material-ui/icons/PlayArrow';
-import ImageIcon from '@material-ui/icons/Image';
+import PlayArrowIcon from "@material-ui/icons/PlayArrow";
+import ImageIcon from "@material-ui/icons/Image";
 const useStyles = makeStyles((theme) => ({
   iconWrap: {
     position: "relative",
@@ -61,36 +61,36 @@ const useStyles = makeStyles((theme) => ({
     transform: "translate(0%,-50%)",
     outline: "1px solid currentColor",
   },
-  itemWrapper: { 
+  itemWrapper: {
     borderTop: `1px solid ${theme.palette.grey[800]}`,
   },
   item: {
-    '&:hover': {
+    "&:hover": {
       color: theme.palette.primary.main,
-      cursor: 'default', 
+      cursor: "default",
     },
-    height: 200, 
+    height: 200,
     borderBottom: `1px solid ${theme.palette.grey[800]}`,
     borderRight: `1px solid ${theme.palette.grey[800]}`,
-    '&:nth-child(3n+3)': {
-      borderRight: 'none', 
+    "&:nth-child(3n+3)": {
+      borderRight: "none",
     },
-    display: 'flex',
-    alignItems: 'center',
-    flexDirection: 'column', 
-    justifyContent: 'center', 
-  }
+    display: "flex",
+    alignItems: "center",
+    flexDirection: "column",
+    justifyContent: "center",
+  },
 }));
 
 const ITEM_TEXT = {
-  trailer: 'Trailer ansehen',
-  image: 'Galerie ansehen',
+  trailer: "Trailer ansehen",
+  image: "Galerie ansehen",
 };
 
 const ITEM_ICON = {
   trailer: PlayArrowIcon,
-  image: ImageIcon, 
-}
+  image: ImageIcon,
+};
 
 export default function Post({ project, preview }) {
   const [isGalleryOpen, setIsGalleryOpen] = React.useState(false);
@@ -118,45 +118,45 @@ export default function Post({ project, preview }) {
     return <ErrorPage statusCode={404} />;
   }
 
-  const itemActions = React.useMemo( () => {
+  const itemActions = React.useMemo(() => {
     return {
       trailer: () => {
-	setIsGalleryOpen(true);
-	setItemIndex(0);
-	window.scroll({
-	    top: 0,
-	    behavior: 'smooth'
-	});
+        setIsGalleryOpen(true);
+        setItemIndex(0);
+        window.scroll({
+          top: 0,
+          behavior: "smooth",
+        });
       },
       image: () => {
-	setIsGalleryOpen(true);
-	setItemIndex(1);
-	window.scroll({
-	    top: 0,
-	    behavior: 'smooth'
-	});
-      }
-    }; 
+        setIsGalleryOpen(true);
+        setItemIndex(1);
+        window.scroll({
+          top: 0,
+          behavior: "smooth",
+        });
+      },
+    };
   }, []);
 
   const specialItems = React.useMemo(() => {
     const items = [];
-    if(hasTrailer) {
+    if (hasTrailer) {
       items.push({
-	label: 'trailer', 
-	item: project.trailer,
-      })
+        label: "trailer",
+        item: project.trailer,
+      });
     }
-    if(project.gallery) {
-	items.push({
-	  label: 'image',
-	  item: project.gallery, 
-	})
+    if (project.gallery) {
+      items.push({
+        label: "image",
+        item: project.gallery,
+      });
     }
     return items;
-  }, [project])
+  }, [project]);
 
-  console.log(project)
+  console.log(project);
   return (
     <React.Fragment>
       <Layout preview={preview}>
@@ -199,24 +199,33 @@ export default function Post({ project, preview }) {
               isOpen={isGalleryOpen}
               scrollToIndex={itemIndex}
             />
-	  </div>
+          </div>
 
-	  <Grid className={classes.itemWrapper} container spacing={0} >
-	    {
-	      specialItems.map(i =>{
-		const Icon = ITEM_ICON[i.label];
-		return (
-		<Grid className={classes.item} onClick={itemActions[i.label]} item xs={4}>
-		  <Typography variant="subtitle2" align="center">{project.title}</Typography>  
-		  <Typography variant="h5" align="center">{ITEM_TEXT[i.label]}</Typography>  
-		  
-		  <Box mt={2}><Icon /></Box>
-		</Grid>
-	      )})
-	    }
+          <Grid className={classes.itemWrapper} container spacing={0}>
+            {specialItems.map((i) => {
+              const Icon = ITEM_ICON[i.label];
+              return (
+                <Grid
+                  className={classes.item}
+                  onClick={itemActions[i.label]}
+                  item
+                  xs={4}
+                >
+                  <Typography variant="subtitle2" align="center">
+                    {project.title}
+                  </Typography>
+                  <Typography variant="h5" align="center">
+                    {ITEM_TEXT[i.label]}
+                  </Typography>
 
-	  </Grid>
-	   </Container>
+                  <Box mt={2}>
+                    <Icon />
+                  </Box>
+                </Grid>
+              );
+            })}
+          </Grid>
+        </Container>
       </Layout>
     </React.Fragment>
   );

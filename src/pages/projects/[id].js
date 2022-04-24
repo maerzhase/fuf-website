@@ -205,7 +205,8 @@ export default function Post({ project, preview }) {
             {specialItems.map((i) => {
               const Icon = ITEM_ICON[i.label];
               return (
-                <Grid
+		<Grid
+		  key={i.label}
                   className={classes.item}
                   onClick={itemActions[i.label]}
                   item

@@ -189,7 +189,7 @@ export default function Post({ project, preview }) {
               <Typography variant="h6" gutterBottom component="div">
                 <ReactMarkdown>{project.subtitle}</ReactMarkdown>
               </Typography>
-              <Typography variant="body1" component="div">
+              <Typography variant="body1" component="div" color="textSecondary">
                 <ReactMarkdown>{project.credits}</ReactMarkdown>
               </Typography>
             </div>

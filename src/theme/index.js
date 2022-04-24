@@ -71,6 +71,9 @@ const theme = createTheme({
     button: {
       fontSize: 20,
     },
+    subtitle2: {
+      fontSize: 13, 
+    }
   },
   shape: {
     maxWidth: 1280,

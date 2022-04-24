@@ -157,7 +157,7 @@ const YearGroup = (props) => {
   return (
     <React.Fragment>
       <TableRow onClick={handleClickYearRow} className={classes.interactive}>
-        <TypoCell color="secondary" variant="h3">
+        <TypoCell color={isOpen ? "primary" : "secondary"} variant="h3">
           {year}
         </TypoCell>
         <TypoCell />
@@ -183,7 +183,10 @@ const YearGroupMobile = (props) => {
   return (
     <React.Fragment>
       <Box mb={5} onClick={handleClickYearRow}>
-        <Typography color="textSecondary" variant="h3">
+        <Typography
+          color={isOpen ? "textPrimary" : "textSecondary"}
+          variant="h3"
+        >
           {year}
         </Typography>
       </Box>

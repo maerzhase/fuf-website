@@ -70,7 +70,7 @@ const theme = createTheme({
     },
     button: {
       fontSize: 20,
-      fontSize: FONTWEIGHT_REGULAR,
+      fontWeight: FONTWEIGHT_REGULAR,
     },
     subtitle2: {
       fontSize: 13,

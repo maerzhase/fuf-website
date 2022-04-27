@@ -6,7 +6,7 @@ import Container from "@/components/container";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import ReactMarkdown from "react-markdown";
+import ReactMarkdown from "@/components/Markdown";
 import ScrollIndicator from "@/components/ScrollIndicator";
 
 const useColumnStyles = makeStyles((theme) => ({
@@ -99,7 +99,7 @@ export default function Index({ preview, aboutPage }) {
           <title>About - Frauen und Fiktion</title>
         </Head>
         <Container>
-          <Box minHeight="100vh" display="flex" alignItems="center">
+          <Box minHeight="100vh" display="flex" alignItems="center" mt={8} mb={8}>
             <Typography variant="h4">
               <ReactMarkdown>{aboutPage.intro}</ReactMarkdown>
             </Typography>

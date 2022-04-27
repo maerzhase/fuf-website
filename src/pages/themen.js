@@ -24,8 +24,8 @@ const useBoxStyles = makeStyles((theme) => ({
       props.showDescription ? "translate(0, 0%)" : "translate(0, 0%)",
   },
   description: {
-   // position: "absolute",
-  //  bottom: 0,
+    // position: "absolute",
+    //  bottom: 0,
     "& > p": {
       margin: 0,
       marginBottom: theme.spacing(4),
@@ -75,16 +75,16 @@ const ThemeBox = (props) => {
             </Box>
             <Box>
               <Box position="relative">
-		{!showDescription &&
-		<Typography variant="h1" align="center">
+                {!showDescription && (
+                  <Typography variant="h1" align="center">
                     {title}
                   </Typography>
-		}
-		{showDescription &&
-		  <Typography variant="h5" className={classes.description}>
+                )}
+                {showDescription && (
+                  <Typography variant="h5" className={classes.description}>
                     <ReactMarkdown>{description}</ReactMarkdown>
-		  </Typography>
-		}
+                  </Typography>
+                )}
               </Box>
               {groupedProjects[title]?.map((project) => (
                 <React.Fragment key={project._id}>
@@ -165,6 +165,13 @@ export async function getServerSideProps({ preview = null }) {
   const allProjects = (await getCollectionEntries("project")) || [];
   const allThemes = (await getCollectionEntries("theme")) || [];
   return {
-    props: { preview, allProjects, allThemes },
+    props: {
+      preview,
+      allProjects,
+      allThemes: {
+        ...allThemes,
+        entries: allThemes.entries.filter((t) => !t.hidden),
+      },
+    },
   };
 }

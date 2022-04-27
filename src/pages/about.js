@@ -99,7 +99,13 @@ export default function Index({ preview, aboutPage }) {
           <title>About - Frauen und Fiktion</title>
         </Head>
         <Container>
-          <Box minHeight="100vh" display="flex" alignItems="center" mt={8} mb={8}>
+          <Box
+            minHeight="100vh"
+            display="flex"
+            alignItems="center"
+            mt={8}
+            mb={8}
+          >
             <Typography variant="h4">
               <ReactMarkdown>{aboutPage.intro}</ReactMarkdown>
             </Typography>

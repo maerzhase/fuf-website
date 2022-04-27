@@ -110,7 +110,7 @@ export default function Index({ preview, aboutPage }) {
             ))}
             <Box className={classes.collaboratorWrapper} display="flex" mb={4}>
               <Typography variant="h3" className={classes.collaboratorHeadline}>
-                Kolaborateur*innen
+                Kollaborateu*innen
               </Typography>
               <div className={classes.collaborators}>
                 {aboutPage.collaborators.map((c) => (

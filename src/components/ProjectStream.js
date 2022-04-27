@@ -49,8 +49,12 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     height: "100%",
     position: "absolute",
-    //backgroundColor: 'red',
+    backgroundPosition: "top center",
     top: 0,
+    [theme.breakpoints.down("sm")]: {
+      backgroundPosition: "center",
+    },
+    //backgroundColor: 'red',
   },
 }));
 
@@ -141,7 +145,6 @@ export const Teaser = React.forwardRef((props, ref) => {
           y: y1,
           backgroundSize: "100% auto",
           backgroundRepeat: "no-repeat",
-          backgroundPosition: "top center",
           backgroundImage: `url(${getHeroImageSrc(project.heroImage?.path)})`,
         }}
         transition={{

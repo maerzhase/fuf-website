@@ -24,8 +24,8 @@ const useBoxStyles = makeStyles((theme) => ({
       props.showDescription ? "translate(0, 0%)" : "translate(0, 0%)",
   },
   description: {
-    position: "absolute",
-    bottom: 0,
+   // position: "absolute",
+  //  bottom: 0,
     "& > p": {
       margin: 0,
       marginBottom: theme.spacing(4),
@@ -75,16 +75,16 @@ const ThemeBox = (props) => {
             </Box>
             <Box>
               <Box position="relative">
-                <Fade in={!showDescription}>
-                  <Typography variant="h1" align="center">
+		{!showDescription &&
+		<Typography variant="h1" align="center">
                     {title}
                   </Typography>
-                </Fade>
-                <Fade in={showDescription}>
-                  <Typography variant="h5" className={classes.description}>
+		}
+		{showDescription &&
+		  <Typography variant="h5" className={classes.description}>
                     <ReactMarkdown>{description}</ReactMarkdown>
-                  </Typography>
-                </Fade>
+		  </Typography>
+		}
               </Box>
               {groupedProjects[title]?.map((project) => (
                 <React.Fragment key={project._id}>

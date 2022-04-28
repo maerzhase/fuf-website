@@ -74,13 +74,13 @@ export async function getServerSideProps({ preview = null }) {
   const startPage = await getSingleton("Landinpage");
   return {
     props: {
-      allCollections, 
+      allCollections,
       preview,
       allEntries: {
         ...allEntries,
         entries: allEntries.entries.filter((t) => !t.hidden),
       },
-      startPage
+      startPage,
     },
   };
 }

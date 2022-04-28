@@ -46,6 +46,12 @@ export default function Index({ preview, allEntries }) {
 export async function getServerSideProps({ preview = null }) {
   const allEntries = (await getCollectionEntries("project")) || [];
   return {
-    props: { preview, allEntries },
+    props: { 
+      preview,
+      allEntries: {
+        ...allEntries,
+        entries: allEntries.entries.filter((t) => !t.hidden),
+      },
+    },
   };
 }

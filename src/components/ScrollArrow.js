@@ -62,8 +62,8 @@ export default function Arrow(props) {
     >
       <ArrowDropDownIcon
         fill={fill}
-	id="CaretDown32"
-	style={{width: SIZE, height: SIZE}}
+        id="CaretDown32"
+        style={{ width: SIZE, height: SIZE }}
       />
     </motion.div>
   );

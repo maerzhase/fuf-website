@@ -26,7 +26,7 @@ const useBoxStyles = makeStyles((theme) => ({
   description: {
     // position: "absolute",
     //  bottom: 0,
-    paddingTop: theme.spacing(10), 
+    paddingTop: theme.spacing(10),
     "& > p": {
       margin: 0,
       marginBottom: theme.spacing(4),
@@ -53,7 +53,7 @@ const ThemeBox = (props) => {
   return (
     <Box key={title} style={{ position: "relative" }}>
       <Container>
-	<Box
+        <Box
           style={{ zIndex: 1, position: "relative" }}
           minHeight="100vh"
           display="flex"
@@ -64,7 +64,7 @@ const ThemeBox = (props) => {
             maxWidth={850}
             margin="auto"
             display="flex"
-	    justifyContent="center"
+            justifyContent="center"
           >
             <Box>
               <IconButton
@@ -156,7 +156,7 @@ export default function ThemenPage({ preview, allProjects, allThemes }) {
               theme={theme}
             />
           );
-	})}
+        })}
       </Layout>
     </React.Fragment>
   );

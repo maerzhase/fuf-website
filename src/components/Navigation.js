@@ -93,6 +93,10 @@ const MobileNav = () => {
   const toggleDrawer = () => {
     setIsOpen(!isOpen);
   };
+
+  const handleCloseSame = l => e => {
+    if(router.route === `/${l}`) setIsOpen(false)
+  }
   React.useEffect(() => {
     setIsOpen(false);
   }, [router.route]);
@@ -110,8 +114,8 @@ const MobileNav = () => {
       >
         <List className={classes.mobileNavList}>
           {LINKS.map((l) => (
-            <Link href={`/${l}`} key={l} passHref>
-              <MobileListItem button>
+            <Link  href={`/${l}`} key={l} passHref>
+              <MobileListItem button onClick={handleCloseSame(l)}>
                 <ListItemText
                   primary={l}
                   primaryTypographyProps={{

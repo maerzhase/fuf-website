@@ -61,6 +61,7 @@ const theme = createTheme({
     },
     h6: {
       fontSize: 20,
+      fontWeight: FONTWEIGHT_REGULAR,
     },
     body1: {
       fontSize: 15,

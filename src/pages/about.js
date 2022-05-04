@@ -106,7 +106,7 @@ export default function Index({ preview, aboutPage }) {
             mt={8}
             mb={8}
           >
-            <Typography variant="h4">
+            <Typography variant="h6">
               <ReactMarkdown>{aboutPage.intro}</ReactMarkdown>
             </Typography>
           </Box>

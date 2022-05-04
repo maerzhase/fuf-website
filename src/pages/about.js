@@ -44,14 +44,25 @@ const RightColumn = (props) => {
   return <div className={classes.right} {...props} />;
 };
 
-const ExternalLink = (person) => (props) =>
-  <a {...props} href={person.website} target="_blank" />;
+const ExternalLink = ({ person, props }) => (
+  <a
+    {...props}
+    href={person.website}
+    target="_blank"
+    rel="noopener noreferrer"
+  />
+);
+
+const createExternalLinkComponent = (person) => (
+  <ExternalLink person={person} />
+);
 
 const Person = (props) => {
   const { person } = props;
   const classes = useColumnStyles();
   const LinkWrap = React.useMemo(
-    () => (person.website ? ExternalLink(person) : React.Fragment),
+    () =>
+      person.website ? createExternalLinkComponent(person) : React.Fragment,
     [person]
   );
   return (

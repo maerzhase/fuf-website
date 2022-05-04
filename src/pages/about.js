@@ -44,16 +44,21 @@ const RightColumn = (props) => {
   return <div className={classes.right} {...props} />;
 };
 
+const ExternalLink = (person) => props => <a {...props} href={person.website} target="_blank" />
+
 const Person = (props) => {
   const { person } = props;
-  const classes = useColumnStyles();
+  const classes = useColumnStyles()
+  const LinkWrap = React.useMemo(() => person.website ? ExternalLink(person) : React.Fragment, [person]);
   return (
     <div className={classes.person}>
       <LeftColumn>
-        <Typography variant="h4">{person.name}</Typography>
-        <Typography variant="h4" gutterBottom>
-          {person.lastname}
-        </Typography>
+	<LinkWrap>
+	  <Typography variant="h4">{person.name}</Typography>
+	  <Typography variant="h4" gutterBottom>
+	    {person.lastname}
+	  </Typography>
+	</LinkWrap>
       </LeftColumn>
       <RightColumn>
         <Typography variant="body1">{person.abstract}</Typography>

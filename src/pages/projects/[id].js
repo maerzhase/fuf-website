@@ -13,11 +13,10 @@ import IconButton from "@material-ui/core/IconButton";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import ReactMarkdown from "react-markdown";
-import {PlayIcon} from '@/icons/Play';
-import {GalleryIcon} from '@/icons/Gallery';
+import { PlayIcon } from "@/icons/Play";
+import { GalleryIcon } from "@/icons/Gallery";
 
 import ArrowRightIcon from "@material-ui/icons/ArrowRight";
-
 
 const useStyles = makeStyles((theme) => ({
   iconWrap: {

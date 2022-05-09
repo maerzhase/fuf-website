@@ -13,9 +13,12 @@ import IconButton from "@material-ui/core/IconButton";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import ReactMarkdown from "react-markdown";
+import {PlayIcon} from '@/icons/Play';
+import {GalleryIcon} from '@/icons/Gallery';
+
 import ArrowRightIcon from "@material-ui/icons/ArrowRight";
-import PlayArrowIcon from "@material-ui/icons/PlayArrow";
-import ImageIcon from "@material-ui/icons/Image";
+
+
 const useStyles = makeStyles((theme) => ({
   iconWrap: {
     position: "relative",
@@ -88,8 +91,8 @@ const ITEM_TEXT = {
 };
 
 const ITEM_ICON = {
-  trailer: PlayArrowIcon,
-  image: ImageIcon,
+  trailer: PlayIcon,
+  image: GalleryIcon,
 };
 
 export default function Post({ project, preview }) {

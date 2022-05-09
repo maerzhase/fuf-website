@@ -44,7 +44,7 @@ const RightColumn = (props) => {
   return <div className={classes.right} {...props} />;
 };
 
-const ExternalLink = ({ person, props }) => (
+const ExternalLink = ({ person, ...props }) => (
   <a
     {...props}
     href={person.website}
@@ -53,8 +53,8 @@ const ExternalLink = ({ person, props }) => (
   />
 );
 
-const createExternalLinkComponent = (person) => (
-  <ExternalLink person={person} />
+const createExternalLinkComponent = (person) => (props) => (
+  <ExternalLink {...props} person={person} />
 );
 
 const Person = (props) => {

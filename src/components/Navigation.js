@@ -76,6 +76,7 @@ const DesktopNav = () => {
       indicatorColor="primary"
       value={router.asPath}
     >
+      <LinkTab href="/" value="/" style={{ display: 'none' }} />	
       {LINKS.map((l) => (
         <LinkTab key={l} label={l} href={`/${l}`} value={`/${l}`} />
       ))}

@@ -44,7 +44,7 @@ export default function Arrow(props) {
 
   return (
     <motion.div
-      initial={false} 
+      initial={false}
       onClick={onClick}
       className={classes.root}
       style={{
@@ -62,10 +62,7 @@ export default function Arrow(props) {
         ease: "easeOut",
       }}
     >
-      <SliderArrowLarge
-	fontSize="large"
-	className={classes.sliderArrowLarge}
-      />
+      <SliderArrowLarge fontSize="large" className={classes.sliderArrowLarge} />
     </motion.div>
   );
 }

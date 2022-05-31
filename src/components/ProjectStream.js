@@ -18,8 +18,9 @@ import {
   useViewportScroll,
   useMotionValue,
 } from "framer-motion";
+import Image from "next/image";
 
-import { useScrollDirection } from "react-use-scroll-direction";
+	  layout="fill"
 const useStyles = makeStyles((theme) => ({
   root: {
     position: "absolute",
@@ -191,9 +192,10 @@ export const SimpleTeaser = React.forwardRef((props, ref) => {
             </a>
           </Link>
         </div>
-        <img
+        <Image
           className={classes.heroImage}
           src={getHeroImageSrc(project.heroImage?.path)}
+          layout="fill"
         />
       </motion.div>
     </div>

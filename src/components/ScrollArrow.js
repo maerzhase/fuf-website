@@ -2,6 +2,7 @@ import { makeStyles } from "@material-ui/core";
 import { motion } from "framer-motion";
 import React from "react";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
+import SliderArrowLarge from "@/icons/SliderArrowLarge";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -15,19 +16,19 @@ const SIZE = 32;
 
 const variants = {
   up: {
-    visible: { opacity: 1, scale: [1, 1.5, 1], rotate: "180deg" },
+    visible: { opacity: 1, scale: [1, 1.5, 1], rotate: "-90deg" },
     hidden: {
       opacity: 0,
       scale: 0,
-      rotate: "180deg",
+      rotate: "-90deg",
     },
   },
   down: {
-    visible: { opacity: 1, scale: [1, 1.5, 1], rotate: "0deg" },
+    visible: { opacity: 1, scale: [1, 1.5, 1], rotate: "90deg" },
     hidden: {
       opacity: 0,
       scale: 0,
-      rotate: "0deg",
+      rotate: "90deg",
     },
   },
 };
@@ -43,6 +44,7 @@ export default function Arrow(props) {
 
   return (
     <motion.div
+      initial={false} 
       onClick={onClick}
       className={classes.root}
       style={{
@@ -60,10 +62,9 @@ export default function Arrow(props) {
         ease: "easeOut",
       }}
     >
-      <ArrowDropDownIcon
-        fill={fill}
-        id="CaretDown32"
-        style={{ width: SIZE, height: SIZE }}
+      <SliderArrowLarge
+	fontSize="large"
+	className={classes.sliderArrowLarge}
       />
     </motion.div>
   );

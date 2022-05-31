@@ -20,7 +20,6 @@ import {
 } from "framer-motion";
 import Image from "next/image";
 
-	  layout="fill"
 const useStyles = makeStyles((theme) => ({
   root: {
     position: "absolute",

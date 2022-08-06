@@ -111,6 +111,9 @@ theme.overrides = {
       '&:hover': {
 	color: PRIMARY, 
       }	
+    },
+    textSizeSmall: {
+      fontSize: 16, 
     }
   },
   MuiTab: {

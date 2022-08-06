@@ -15,8 +15,7 @@ import Box from "@material-ui/core/Box";
 import ReactMarkdown from "react-markdown";
 import { PlayIcon } from "@/icons/Play";
 import { GalleryIcon } from "@/icons/Gallery";
-
-import ArrowRightIcon from "@material-ui/icons/ArrowRight";
+import ScrollArrow from '@/components/ScrollArrow'; 
 
 const useStyles = makeStyles((theme) => ({
   iconWrap: {
@@ -61,7 +60,6 @@ const useStyles = makeStyles((theme) => ({
     right: 0,
     zIndex: 100,
     transform: "translate(0%,-50%)",
-    outline: "1px solid currentColor",
   },
   itemWrapper: {
     borderTop: `1px solid ${theme.palette.grey[800]}`,
@@ -174,9 +172,10 @@ export default function Post({ project, preview }) {
           <IconButton
             variant="outlined"
             className={classes.nextButton}
-            onClick={handleClickNextButton}
+	    onClick={handleClickNextButton}
+	    disableRipple
           >
-            <ArrowRightIcon />
+            <SliderArrowLarge />
           </IconButton>
         </Container>
         <Container className={classes.root}>

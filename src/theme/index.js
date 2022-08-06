@@ -104,9 +104,12 @@ theme.overrides = {
   },
   MuiTab: {
     root: {
-      // fontSize: 20,
+      fontSize: '28px !important',
       textTransform: "none",
       lineHeight: 1,
+    },
+    textColorInherit: {
+      opacity: 1, 
     },
   },
   PrivateTabIndicator: {

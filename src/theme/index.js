@@ -55,6 +55,7 @@ const theme = createTheme({
     },
     h4: {
       fontSize: 35,
+      textTransform: "uppercase",
     },
     h5: {
       fontSize: 28,

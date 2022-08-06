@@ -60,6 +60,7 @@ const useStyles = makeStyles((theme) => ({
   },
   itemWrapper: {
     borderTop: `1px solid ${theme.palette.grey[800]}`,
+    borderBottom: `1px solid ${theme.palette.grey[800]}`,
   },
   item: {
     "&:hover": {
@@ -67,7 +68,7 @@ const useStyles = makeStyles((theme) => ({
       cursor: "default",
     },
     height: 200,
-    borderBottom: `1px solid ${theme.palette.grey[800]}`,
+    //borderBottom: `1px solid ${theme.palette.grey[800]}`,
     borderRight: `1px solid ${theme.palette.grey[800]}`,
     "&:nth-child(3n+3)": {
       borderRight: "none",

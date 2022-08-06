@@ -23,6 +23,9 @@ const TypoCell = withStyles((theme) => ({
   root: (props) => ({
     ...(theme.typography[props.variant] || theme.typography.button),
     color: theme.palette.text[props.color] || "inherit",
+    '& a': {
+      textTransform: 'uppercase', 
+    }
   }),
 }))(TableCell);
 
@@ -60,14 +63,14 @@ const toDate = (date) => {
 
 const useFormatedDate = (date) => {
   const d = toDate(date);
-  return format(d, "d. MMMM yyyy", { locale: de });
+  return format(d, "d MMM yyyy", { locale: de });
 };
 
 const ProjectLink = (props) => {
   const { project, children } = props;
   if (!project) return <React.Fragment>{children}</React.Fragment>;
   return (
-    <Button color="inherit">
+    <Button color="primary" variant="text">
       <Link
         target="_blank"
         href="/projects/[id]"
@@ -80,7 +83,7 @@ const ProjectLink = (props) => {
 };
 
 const MobileRow = (props) => {
-  const { date, isPast } = props;
+  const { date } = props;
   const formatedDate = useFormatedDate(date.date);
   return (
     <Box
@@ -92,13 +95,13 @@ const MobileRow = (props) => {
       display="flex"
       flexDirection="column"
     >
-      <Typography color="textPrimary" variant="subtitle1" component="div">
+      <Typography color="textPrimary" variant="subtitle2" component="div" style={{marginLeft: 8, textTransform: 'uppercase'}}>
         {formatedDate}
       </Typography>
       <Typography color="textPrimary" variant="h5" component="div">
         <ProjectLink project={date.project}>{date.title}</ProjectLink>
       </Typography>
-      <Typography variant="subtitle1" component="div">
+      <Typography color="textPrimary" variant="subtitle1" component="div" style={{marginLeft: 8, textTransform: 'uppercase' }}>
         {date.location}
       </Typography>
       {date.link && (
@@ -108,7 +111,6 @@ const MobileRow = (props) => {
           href={date.link}
           target="_blank"
           endIcon={<LinkIcon fontSize="inherit" />}
-          color={isPast ? "secondary" : "default"}
         >
           Tickets
         </Button>
@@ -123,7 +125,7 @@ const DateRow = (props) => {
   const formatedDate = useFormatedDate(date.date);
   return (
     <TableRow className={classes.root}>
-      <TypoCell width="25%" variant="body1">
+      <TypoCell width="25%">
         {formatedDate}
       </TypoCell>
       <TypoCell width="40%">
@@ -136,9 +138,10 @@ const DateRow = (props) => {
             href={date.link}
             target="_blank"
             endIcon={<LinkIcon fontSize="inherit" />}
-            color={color}
+	    color={color}
+	    variant="text"
           >
-            Tickets
+	    Tickets
           </Button>
         )}
       </TypoCell>
@@ -166,7 +169,7 @@ const YearGroup = (props) => {
       </TableRow>
       <Collapse in={isOpen}>
         {dates.map((date) => (
-          <DateRow key={date._id} date={date} color="secondary" />
+          <DateRow key={date._id} date={date} color="primary" />
         ))}
       </Collapse>
     </React.Fragment>
@@ -192,7 +195,7 @@ const YearGroupMobile = (props) => {
       </Box>
       <Collapse in={isOpen}>
         {dates.map((date) => (
-          <MobileRow key={date._id} date={date} isPast />
+          <MobileRow key={date._id} date={date} />
         ))}
       </Collapse>
     </React.Fragment>

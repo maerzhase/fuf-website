@@ -4,7 +4,6 @@ import ScrollArrow from "./ScrollArrow";
 const SIZE = 70;
 
 function ScrollIndicator() {
-
   const [isVisible, setIsVisible] = useState(false);
   const [direction, setDirection] = useState("down");
 

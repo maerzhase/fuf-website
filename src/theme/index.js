@@ -100,41 +100,41 @@ theme.overrides = {
   MuiButton: {
     root: {
       textTransform: "none",
-      '&$textPrimary': {
-	'&:hover': {
-	  backgroundColor: 'transparent'
-	}
-      }
+      "&$textPrimary": {
+        "&:hover": {
+          backgroundColor: "transparent",
+        },
+      },
     },
     textPrimary: {
       color: WHITE,
-      '&:hover': {
-	color: PRIMARY, 
-      }	
+      "&:hover": {
+        color: PRIMARY,
+      },
     },
     textSizeSmall: {
-      fontSize: 16, 
-    }
+      fontSize: 16,
+    },
   },
   MuiTab: {
     root: {
-      fontSize: '28px !important',
+      fontSize: "28px !important",
       textTransform: "none",
       lineHeight: 1,
     },
     textColorInherit: {
-      opacity: 1, 
+      opacity: 1,
     },
   },
   PrivateTabIndicator: {
     root: {
       top: 1,
     },
-  }, 
+  },
   MuiSvgIcon: {
     fontSizeLarge: {
-      fontSize: 70
-    }
+      fontSize: 70,
+    },
   },
 };
 

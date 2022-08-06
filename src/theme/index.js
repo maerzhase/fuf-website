@@ -5,7 +5,7 @@ const SANS = ["Commuters Sans", "system-ui", "sans-serif"];
 const SANS_HEADLINE = ["Trash", "system-ui", "sans-serif"];
 
 const WHITE = "#ffffff";
-const SALMON = "#ff6e56";
+const PRIMARY = "#ff6e56";
 
 const FONTWEIGHT_REGULAR = 400;
 const FONTWEIGHT_MEDIUM = 500;
@@ -16,7 +16,7 @@ const theme = createTheme({
   palette: {
     type: "dark",
     primary: {
-      main: SALMON,
+      main: PRIMARY,
       contrastText: WHITE,
     },
     secondary: {
@@ -98,9 +98,19 @@ theme.mixins = {
 theme.overrides = {
   MuiButton: {
     root: {
-      // fontSize: 20,
       textTransform: "none",
+      '&$textPrimary': {
+	'&:hover': {
+	  backgroundColor: 'transparent'
+	}
+      }
     },
+    textPrimary: {
+      color: WHITE,
+      '&:hover': {
+	color: PRIMARY, 
+      }	
+    }
   },
   MuiTab: {
     root: {

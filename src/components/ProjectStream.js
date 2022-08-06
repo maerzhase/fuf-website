@@ -1,22 +1,12 @@
 import React, { useState } from "react";
-import {
-  getAllCollections,
-  getCollectionEntries,
-  getSingleton,
-  getAllSingletons,
-} from "@/api/api";
 import { getHeroImageSrc } from "@/api/constants";
 import Link from "next/link";
-import Box from "@material-ui/core/Box";
-import Zoom from "@material-ui/core/Zoom";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import { Scrollama, Step } from "react-scrollama";
 import {
   motion,
   useTransform,
-  useViewportScroll,
-  useMotionValue,
 } from "framer-motion";
 import Image from "next/image";
 

@@ -6,8 +6,8 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
   root: {
     "& a": {
-      color: theme.palette.primary.main,
       "&:hover": {
+        color: theme.palette.primary.main,
         textDecoration: "underline",
       },
     },

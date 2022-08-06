@@ -13,7 +13,6 @@ const useStyles = makeStyles((theme) => ({
       color: theme.palette.text.default,
     },
     a: {
-      textDecoration: "none",
       color: "inherit",
     },
     "::-webkit-scrollbar": {

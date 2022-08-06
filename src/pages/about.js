@@ -32,12 +32,12 @@ const useColumnStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       flexDirection: "column",
     },
-    '& a': {
-      textDecoration: 'none',
-      '&:hover': {
-	color: theme.palette.primary.main
-      }
-    }
+    "& a": {
+      textDecoration: "none",
+      "&:hover": {
+        color: theme.palette.primary.main,
+      },
+    },
   },
 }));
 
@@ -87,10 +87,9 @@ const Collaborator = (props) => {
 };
 
 const useStyles = makeStyles((theme) => ({
-  collaboratorWrapper: {
-  },
+  collaboratorWrapper: {},
   collaboratorHeadline: {
-    wordBreak: 'break-all', 
+    wordBreak: "break-all",
     minWidth: "50%",
     marginRight: theme.spacing(4),
     marginBottom: theme.spacing(10),
@@ -100,8 +99,8 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(5),
   },
   collaborators: {
-    width: '50%', 
-  }
+    width: "50%",
+  },
 }));
 
 export default function Index({ preview, aboutPage }) {
@@ -129,20 +128,24 @@ export default function Index({ preview, aboutPage }) {
             {aboutPage.team.map((p) => (
               <Person key={p._id} person={p} />
             ))}
-	    <Box className={classes.collaboratorWrapper} display="flex" mb={4}>
-	      <LeftColumn>
-              <Typography variant="h3" className={classes.collaboratorHeadline}>
-		Kollab-<br/>
-		rateur:innen
-	      </Typography>
-	      </LeftColumn>
-	      <RightColumn>
+            <Box className={classes.collaboratorWrapper} display="flex" mb={4}>
+              <LeftColumn>
+                <Typography
+                  variant="h3"
+                  className={classes.collaboratorHeadline}
+                >
+                  Kollab-
+                  <br />
+                  rateur:innen
+                </Typography>
+              </LeftColumn>
+              <RightColumn>
                 {aboutPage.collaborators.map((c) => (
                   <div className={classes.collaborator} key={c._id}>
                     <Collaborator person={c} />
                   </div>
                 ))}
-	      </RightColumn>
+              </RightColumn>
             </Box>
           </Box>
         </Container>

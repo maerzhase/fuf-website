@@ -4,10 +4,7 @@ import Link from "next/link";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import { Scrollama, Step } from "react-scrollama";
-import {
-  motion,
-  useTransform,
-} from "framer-motion";
+import { motion, useTransform } from "framer-motion";
 import Image from "next/image";
 
 const useStyles = makeStyles((theme) => ({
@@ -154,7 +151,7 @@ export const Teaser = React.forwardRef((props, ref) => {
       >
         <div className={classes.headline}>
           <Link href={`/projects/${project._id}`}>
-	    <a style={{textDecoration: 'none'}}>
+            <a style={{ textDecoration: "none" }}>
               <Typography variant="h2">{project.title}</Typography>
               <Typography variant="h6">{project.theme?.display}</Typography>
             </a>

@@ -23,9 +23,9 @@ const TypoCell = withStyles((theme) => ({
   root: (props) => ({
     ...(theme.typography[props.variant] || theme.typography.button),
     color: theme.palette.text[props.color] || "inherit",
-    '& a': {
-      textTransform: 'uppercase', 
-    }
+    "& a": {
+      textTransform: "uppercase",
+    },
   }),
 }))(TableCell);
 
@@ -95,13 +95,23 @@ const MobileRow = (props) => {
       display="flex"
       flexDirection="column"
     >
-      <Typography color="textPrimary" variant="subtitle2" component="div" style={{marginLeft: 8, textTransform: 'uppercase'}}>
+      <Typography
+        color="textPrimary"
+        variant="subtitle2"
+        component="div"
+        style={{ marginLeft: 8, textTransform: "uppercase" }}
+      >
         {formatedDate}
       </Typography>
       <Typography color="textPrimary" variant="h5" component="div">
         <ProjectLink project={date.project}>{date.title}</ProjectLink>
       </Typography>
-      <Typography color="textPrimary" variant="subtitle1" component="div" style={{marginLeft: 8, textTransform: 'uppercase' }}>
+      <Typography
+        color="textPrimary"
+        variant="subtitle1"
+        component="div"
+        style={{ marginLeft: 8, textTransform: "uppercase" }}
+      >
         {date.location}
       </Typography>
       {date.link && (
@@ -125,9 +135,7 @@ const DateRow = (props) => {
   const formatedDate = useFormatedDate(date.date);
   return (
     <TableRow className={classes.root}>
-      <TypoCell width="25%">
-        {formatedDate}
-      </TypoCell>
+      <TypoCell width="25%">{formatedDate}</TypoCell>
       <TypoCell width="40%">
         <ProjectLink project={date.project}>{date.title}</ProjectLink>
       </TypoCell>
@@ -138,10 +146,10 @@ const DateRow = (props) => {
             href={date.link}
             target="_blank"
             endIcon={<LinkIcon fontSize="inherit" />}
-	    color={color}
-	    variant="text"
+            color={color}
+            variant="text"
           >
-	    Tickets
+            Tickets
           </Button>
         )}
       </TypoCell>

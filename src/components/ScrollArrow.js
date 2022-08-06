@@ -12,7 +12,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const SIZE = 32;
+const SIZE = 70;
 
 const variants = {
   up: {

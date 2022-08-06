@@ -116,6 +116,11 @@ theme.overrides = {
     root: {
       top: 1,
     },
+  }, 
+  MuiSvgIcon: {
+    fontSizeLarge: {
+      fontSize: 70
+    }
   },
 };
 

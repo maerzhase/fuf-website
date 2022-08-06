@@ -154,7 +154,7 @@ export const Teaser = React.forwardRef((props, ref) => {
       >
         <div className={classes.headline}>
           <Link href={`/projects/${project._id}`}>
-            <a>
+	    <a style={{textDecoration: 'none'}}>
               <Typography variant="h2">{project.title}</Typography>
               <Typography variant="h6">{project.theme?.display}</Typography>
             </a>

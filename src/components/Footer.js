@@ -51,7 +51,7 @@ export default function Footer() {
           <Box>
             {LINKS.map((l) => (
               <Link key={l.href} href={l.href} passHref>
-                <Button component="a" {...l.props} size="small">
+                <Button component="a" {...l.props} size="small" variant="text" color="primary">
                   {l.label}
                 </Button>
               </Link>

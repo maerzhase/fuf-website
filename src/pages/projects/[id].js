@@ -51,9 +51,6 @@ const useStyles = makeStyles((theme) => ({
         : "translate(-50%,-50%) rotate(180deg)",
     zIndex: 100,
   },
-  sliderArrowLarge: {
-    fontSize: 70,
-  },
   nextButton: {
     position: "absolute",
     top: "50vh",
@@ -166,16 +163,13 @@ export default function Post({ project, preview }) {
           >
             <SliderArrowLarge
               fontSize="large"
-              className={classes.sliderArrowLarge}
             />
           </IconButton>
           <IconButton
-            variant="outlined"
             className={classes.nextButton}
 	    onClick={handleClickNextButton}
-	    disableRipple
           >
-            <SliderArrowLarge />
+            <SliderArrowLarge fontSize="large" />
           </IconButton>
         </Container>
         <Container className={classes.root}>

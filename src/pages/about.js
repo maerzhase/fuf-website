@@ -134,7 +134,7 @@ export default function Index({ preview, aboutPage }) {
                   variant="h3"
                   className={classes.collaboratorHeadline}
                 >
-                  Kollab-
+                  Kollabo-
                   <br />
                   rateur:innen
                 </Typography>

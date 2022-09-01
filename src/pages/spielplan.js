@@ -31,12 +31,10 @@ const TypoCell = withStyles((theme) => ({
 
 const useRowStyles = makeStyles((theme) => ({
   root: {
+    width: '100%', 
     color: (props) =>
       theme.palette.text[props.color] || theme.palette.text.primary,
     transition: theme.transitions.create("color"),
-    "&:hover": {
-      color: theme.palette.primary.light,
-    },
   },
   desktop: {
     [theme.breakpoints.down("sm")]: {
@@ -50,10 +48,10 @@ const useRowStyles = makeStyles((theme) => ({
   },
   interactive: {
     cursor: "pointer",
-    "&:hover > *": {
-      color: `${theme.palette.primary.main} !important`,
-    },
   },
+  collapseSize: {
+    minWidth: '100%', 
+  }
 }));
 
 const toDate = (date) => {
@@ -70,15 +68,16 @@ const ProjectLink = (props) => {
   const { project, children } = props;
   if (!project) return <React.Fragment>{children}</React.Fragment>;
   return (
-    <Button color="primary" variant="text">
       <Link
         target="_blank"
         href="/projects/[id]"
-        as={`/projects/${project?._id}`}
+	as={`/projects/${project?._id}`}
+	passHref
       >
+	<Button color="primary" variant="text" style={{wordBreak: 'break-all'}}>
         {children}
-      </Link>
     </Button>
+      </Link>
   );
 };
 
@@ -120,7 +119,9 @@ const MobileRow = (props) => {
           size="small"
           href={date.link}
           target="_blank"
-          endIcon={<LinkIcon fontSize="inherit" />}
+	  endIcon={<LinkIcon fontSize="small" />}
+	  variant="text"
+	  color="primary"
         >
           Tickets
         </Button>
@@ -130,29 +131,32 @@ const MobileRow = (props) => {
 };
 
 const DateRow = (props) => {
-  const { date, color } = props;
+  const { date, color, open } = props;
   const classes = useRowStyles(props);
   const formatedDate = useFormatedDate(date.date);
   return (
     <TableRow className={classes.root}>
-      <TypoCell width="25%">{formatedDate}</TypoCell>
-      <TypoCell width="40%">
+      <Collapse in={open}>
+      <TypoCell width="20%">{formatedDate}</TypoCell>
+      <TypoCell width="35%">
         <ProjectLink project={date.project}>{date.title}</ProjectLink>
       </TypoCell>
-      <TypoCell width="35%">{date.location}</TypoCell>
-      <TypoCell width="40px">
+	<TypoCell width="45%" style={{wordBreak: 'break-all'}}>{date.location}</TypoCell>
+      <TypoCell >
         {date.link && (
           <Button
             href={date.link}
             target="_blank"
-            endIcon={<LinkIcon fontSize="inherit" />}
+	    endIcon={<LinkIcon style={{fontSize: 12}} />}
             color={color}
-            variant="text"
+	    variant="text"
+	    color="primary"
           >
             Tickets
           </Button>
         )}
       </TypoCell>
+      </Collapse>
     </TableRow>
   );
 };
@@ -175,11 +179,9 @@ const YearGroup = (props) => {
         <TypoCell />
         <TypoCell />
       </TableRow>
-      <Collapse in={isOpen}>
-        {dates.map((date) => (
-          <DateRow key={date._id} date={date} color="primary" />
-        ))}
-      </Collapse>
+      {dates.map((date) => (
+	<DateRow key={date._id} date={date} color="primary" open={isOpen}/>
+      ))}
     </React.Fragment>
   );
 };
@@ -227,7 +229,7 @@ export default function Index({ preview, allEntries, future, pastByYear }) {
               <Table aria-label="simple table">
                 <TableBody>
                   {future.map((date) => (
-                    <DateRow key={date._id} date={date} />
+                    <DateRow key={date._id} date={date} open />
                   ))}
                   {pastByYear &&
                     pastByYear.map(([year, dates]) => (

@@ -41,14 +41,8 @@ export default function Footer() {
   return (
     <footer className={classes.root}>
       <Container>
-        <Box mt={10} display="flex" alignItems="center" width="100%">
-          <Box flexGrow={1} display="flex" alignItems="center">
-            <Typography variant="subtitle1">
-              {" "}
-              &copy; {new Date().getFullYear()} Frauen und Fiktion
-            </Typography>
-          </Box>
-          <Box>
+        <Box mt={10} display="flex" alignItems="center" width="100%" px={4}>
+	  <Box>
             {LINKS.map((l) => (
               <Link key={l.href} href={l.href} passHref>
                 <Button
@@ -61,7 +55,11 @@ export default function Footer() {
                   {l.label}
                 </Button>
               </Link>
-            ))}
+	    ))}
+	    <br/>
+	    <Typography variant="caption" style={{height: 29, padding: '4px 5px'}}>
+              &copy; {new Date().getFullYear()} Frauen und Fiktion
+            </Typography>
           </Box>
         </Box>
       </Container>

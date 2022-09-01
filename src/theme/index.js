@@ -119,7 +119,7 @@ theme.overrides = {
       },
     },
     textSizeSmall: {
-      fontSize: 16,
+      fontSize: 12,
     },
   },
   MuiTab: {

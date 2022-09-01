@@ -99,8 +99,8 @@ theme.mixins = {
 theme.props = {
   MuiButtonBase: {
     disableRipple: true,
-  }
-}
+  },
+};
 
 theme.overrides = {
   MuiButton: {

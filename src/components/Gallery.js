@@ -8,7 +8,8 @@ const MOBILE_HEIGHT = "300px";
 const useStyles = makeStyles((theme) => ({
   galleryContent: {
     width: "100%",
-    height: props => props.mobile ? MOBILE_HEIGHT : `calc(100vh - ${theme.spacing(10)}px)`,
+    height: (props) =>
+      props.mobile ? MOBILE_HEIGHT : `calc(100vh - ${theme.spacing(10)}px)`,
     transition: theme.transitions.create("transform"),
     transform: (props) =>
       props.isOpen ? "translate(-70%, 0)" : "translate(0, 0)",
@@ -30,8 +31,14 @@ const useStyles = makeStyles((theme) => ({
     height: "100%",
     width: "100%",
     "& > iframe": {
-      width: props => `calc(((${props.mobile ? MOBILE_HEIGHT  : '100vh'} - ${theme.spacing(12)}px) / 9) * 16)`,
-      height: props => `calc(${props.mobile ? MOBILE_HEIGHT : "100vh"} - ${theme.spacing(12)}px)`,
+      width: (props) =>
+        `calc(((${props.mobile ? MOBILE_HEIGHT : "100vh"} - ${theme.spacing(
+          12
+        )}px) / 9) * 16)`,
+      height: (props) =>
+        `calc(${props.mobile ? MOBILE_HEIGHT : "100vh"} - ${theme.spacing(
+          12
+        )}px)`,
       maxWidth: "100vw",
     },
   },

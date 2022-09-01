@@ -14,8 +14,8 @@ import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import ReactMarkdown from "react-markdown";
 import { PlayIcon } from "@/icons/Play";
+import { CloseIcon } from "@/icons/Close";
 import { GalleryIcon } from "@/icons/Gallery";
-import ScrollArrow from "@/components/ScrollArrow";
 
 const useStyles = makeStyles((theme) => ({
   iconWrap: {
@@ -162,7 +162,7 @@ export default function Post({ project, preview }) {
             className={classes.galleryToggle}
             onClick={handleToggleIsGalleryOpen}
           >
-            <SliderArrowLarge fontSize="large" />
+	    { isGalleryOpen ?<CloseIcon fontSize="large"/>: <SliderArrowLarge fontSize="large" /> }
           </IconButton>
           <IconButton
             className={classes.nextButton}

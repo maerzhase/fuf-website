@@ -3,10 +3,12 @@ import { getImageSrc } from "@/api/constants";
 import { makeStyles } from "@material-ui/core/styles";
 import { IconButton } from "@material-ui/core";
 
+const MOBILE_HEIGHT = "300px";
+
 const useStyles = makeStyles((theme) => ({
   galleryContent: {
     width: "100%",
-    height: `calc(100vh - ${theme.spacing(10)}px)`,
+    height: props => props.mobile ? MOBILE_HEIGHT : `calc(100vh - ${theme.spacing(10)}px)`,
     transition: theme.transitions.create("transform"),
     transform: (props) =>
       props.isOpen ? "translate(-70%, 0)" : "translate(0, 0)",
@@ -28,8 +30,8 @@ const useStyles = makeStyles((theme) => ({
     height: "100%",
     width: "100%",
     "& > iframe": {
-      width: `calc(((100vh - ${theme.spacing(12)}px) / 9) * 16)`,
-      height: `calc(100vh - ${theme.spacing(12)}px)`,
+      width: props => `calc(((${props.mobile ? MOBILE_HEIGHT  : '100vh'} - ${theme.spacing(12)}px) / 9) * 16)`,
+      height: props => `calc(${props.mobile ? MOBILE_HEIGHT : "100vh"} - ${theme.spacing(12)}px)`,
       maxWidth: "100vw",
     },
   },
@@ -47,10 +49,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Gallery = (props) => {
-  const { project, isOpen, scrollToIndex } = props;
+  const { project, isOpen, scrollToIndex, mobile } = props;
   const scrollContainerRef = React.useRef();
   const [trailer, setTrailer] = React.useState(null);
-  const classes = useStyles({ isOpen });
+  const classes = useStyles({ isOpen, mobile });
 
   React.useEffect(() => {
     if (!trailer && project.trailer) {

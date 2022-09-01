@@ -18,7 +18,7 @@ import { de } from "date-fns/locale";
 import { groupBy, orderBy } from "lodash";
 import Link from "next/link/";
 import Collapse from "@material-ui/core/Collapse";
-import cx from 'classnames';
+import cx from "classnames";
 
 const TypoCell = withStyles((theme) => ({
   root: (props) => ({
@@ -54,8 +54,8 @@ const useRowStyles = makeStyles((theme) => ({
     minWidth: "100%",
   },
   hiddenRow: {
-    display: 'none'
-  }
+    display: "none",
+  },
 }));
 
 const toDate = (date) => {
@@ -139,27 +139,25 @@ const DateRow = (props) => {
   const classes = useRowStyles(props);
   const formatedDate = useFormatedDate(date.date);
   return (
-    <TableRow className={cx(classes.root, {[classes.hiddenRow]: !open })}>
-        <TypoCell>{formatedDate}</TypoCell>
-        <TypoCell>
-          <ProjectLink project={date.project}>{date.title}</ProjectLink>
-        </TypoCell>
-        <TypoCell style={{ wordBreak: "break-all" }}>
-          {date.location}
-        </TypoCell>
-        <TypoCell>
-          {date.link && (
-            <Button
-              href={date.link}
-              target="_blank"
-              endIcon={<LinkIcon style={{ fontSize: 12 }} />}
-              variant="text"
-              color="primary"
-            >
-              Tickets
-            </Button>
-          )}
-	</TypoCell>
+    <TableRow className={cx(classes.root, { [classes.hiddenRow]: !open })}>
+      <TypoCell>{formatedDate}</TypoCell>
+      <TypoCell>
+        <ProjectLink project={date.project}>{date.title}</ProjectLink>
+      </TypoCell>
+      <TypoCell style={{ wordBreak: "break-all" }}>{date.location}</TypoCell>
+      <TypoCell>
+        {date.link && (
+          <Button
+            href={date.link}
+            target="_blank"
+            endIcon={<LinkIcon style={{ fontSize: 12 }} />}
+            variant="text"
+            color="primary"
+          >
+            Tickets
+          </Button>
+        )}
+      </TypoCell>
     </TableRow>
   );
 };

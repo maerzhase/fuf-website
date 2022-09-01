@@ -88,8 +88,8 @@ const Collaborator = (props) => {
 
 const useStyles = makeStyles((theme) => ({
   collaboratorWrapper: {
-    display: 'flex',
-    marginBottom: theme.spacing(4), 
+    display: "flex",
+    marginBottom: theme.spacing(4),
     [theme.breakpoints.down("sm")]: {
       display: "block",
     },

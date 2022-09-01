@@ -18,6 +18,7 @@ import { de } from "date-fns/locale";
 import { groupBy, orderBy } from "lodash";
 import Link from "next/link/";
 import Collapse from "@material-ui/core/Collapse";
+import cx from 'classnames';
 
 const TypoCell = withStyles((theme) => ({
   root: (props) => ({
@@ -52,6 +53,9 @@ const useRowStyles = makeStyles((theme) => ({
   collapseSize: {
     minWidth: "100%",
   },
+  hiddenRow: {
+    display: 'none'
+  }
 }));
 
 const toDate = (date) => {
@@ -135,13 +139,12 @@ const DateRow = (props) => {
   const classes = useRowStyles(props);
   const formatedDate = useFormatedDate(date.date);
   return (
-    <TableRow className={classes.root}>
-      <Collapse in={open} unmountOnExit>
-        <TypoCell width="20%">{formatedDate}</TypoCell>
-        <TypoCell width="35%">
+    <TableRow className={cx(classes.root, {[classes.hiddenRow]: !open })}>
+        <TypoCell>{formatedDate}</TypoCell>
+        <TypoCell>
           <ProjectLink project={date.project}>{date.title}</ProjectLink>
         </TypoCell>
-        <TypoCell width="45%" style={{ wordBreak: "break-all" }}>
+        <TypoCell style={{ wordBreak: "break-all" }}>
           {date.location}
         </TypoCell>
         <TypoCell>
@@ -156,8 +159,7 @@ const DateRow = (props) => {
               Tickets
             </Button>
           )}
-        </TypoCell>
-      </Collapse>
+	</TypoCell>
     </TableRow>
   );
 };

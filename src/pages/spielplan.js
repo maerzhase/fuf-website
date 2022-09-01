@@ -150,7 +150,6 @@ const DateRow = (props) => {
               href={date.link}
               target="_blank"
               endIcon={<LinkIcon style={{ fontSize: 12 }} />}
-              color={color}
               variant="text"
               color="primary"
             >

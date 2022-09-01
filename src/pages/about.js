@@ -117,7 +117,7 @@ export default function Index({ preview, aboutPage }) {
             minHeight="100vh"
             display="flex"
             alignItems="center"
-            mt={8}
+            mt={23}
             mb={8}
           >
             <Typography variant="h5">

@@ -39,11 +39,11 @@ const useStyles = makeStyles((theme) => ({
     paddingRight: theme.spacing(4),
     minWidth: "70%",
     maxWidth: "70%",
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down("md")]: {
       minWidth: "100%",
       maxWidth: "100%",
       paddingRight: 0,
-    }
+    },
   },
   galleryToggle: {
     position: "absolute",
@@ -55,9 +55,9 @@ const useStyles = makeStyles((theme) => ({
         ? "translate(-50%,-50%) rotate(0deg)"
         : "translate(-50%,-50%) rotate(180deg)",
     zIndex: 100,
-    [theme.breakpoints.down('md')]: {
-      display: 'none' 
-    }
+    [theme.breakpoints.down("md")]: {
+      display: "none",
+    },
   },
   nextButton: {
     position: "absolute",
@@ -65,9 +65,9 @@ const useStyles = makeStyles((theme) => ({
     right: 0,
     zIndex: 100,
     transform: "translate(0%,-50%)",
-    [theme.breakpoints.down('md')]: {
-      display: 'none' 
-    }
+    [theme.breakpoints.down("md")]: {
+      display: "none",
+    },
   },
   itemWrapper: {
     borderTop: `1px solid ${theme.palette.grey[800]}`,
@@ -90,15 +90,15 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
   },
   hideMobile: {
-    [theme.breakpoints.down('md')]: {
-      display: 'none' 
-    }
+    [theme.breakpoints.down("md")]: {
+      display: "none",
+    },
   },
   hideDesktop: {
-    [theme.breakpoints.up('lg')]: {
-      display: 'none' 
-    }
-  }
+    [theme.breakpoints.up("lg")]: {
+      display: "none",
+    },
+  },
 }));
 
 const ITEM_TEXT = {
@@ -183,7 +183,11 @@ export default function Post({ project, preview }) {
             className={classes.galleryToggle}
             onClick={handleToggleIsGalleryOpen}
           >
-	    { isGalleryOpen ?<CloseIcon fontSize="large"/>: <SliderArrowLarge fontSize="large" /> }
+            {isGalleryOpen ? (
+              <CloseIcon fontSize="large" />
+            ) : (
+              <SliderArrowLarge fontSize="large" />
+            )}
           </IconButton>
           <IconButton
             className={classes.nextButton}
@@ -200,29 +204,29 @@ export default function Post({ project, preview }) {
               </Typography>
               <Typography variant="h5" gutterBottom component="div">
                 <ReactMarkdown>{project.abstract}</ReactMarkdown>
-	      </Typography>
-	      <div className={classes.hideDesktop}>
-	      <Gallery
-		mobile
-		project={project}
-		isOpen={isGalleryOpen}
-		scrollToIndex={itemIndex}
-	      />
-	      </div>
+              </Typography>
+              <div className={classes.hideDesktop}>
+                <Gallery
+                  mobile
+                  project={project}
+                  isOpen={isGalleryOpen}
+                  scrollToIndex={itemIndex}
+                />
+              </div>
               <Typography variant="h6" gutterBottom component="div">
                 <ReactMarkdown>{project.subtitle}</ReactMarkdown>
               </Typography>
               <Typography variant="body1" component="div" color="textSecondary">
                 <ReactMarkdown>{project.credits}</ReactMarkdown>
               </Typography>
-	    </div>
-	    <div className={classes.hideMobile}>
-            <Gallery
-              project={project}
-              isOpen={isGalleryOpen}
-              scrollToIndex={itemIndex}
-	    />
-	    </div>
+            </div>
+            <div className={classes.hideMobile}>
+              <Gallery
+                project={project}
+                isOpen={isGalleryOpen}
+                scrollToIndex={itemIndex}
+              />
+            </div>
           </div>
 
           <Grid className={classes.itemWrapper} container spacing={0}>

@@ -151,9 +151,13 @@ export default function Navigation() {
                 alignSelf="center"
               >
                 <Link href="/" passHref>
-		  <Typography className={classes.logo} variant="h5" component="a">
-		    frauen und fiktion
-		  </Typography>
+                  <Typography
+                    className={classes.logo}
+                    variant="h5"
+                    component="a"
+                  >
+                    frauen und fiktion
+                  </Typography>
                 </Link>
               </Box>
               <DesktopNav />

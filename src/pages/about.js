@@ -87,12 +87,21 @@ const Collaborator = (props) => {
 };
 
 const useStyles = makeStyles((theme) => ({
-  collaboratorWrapper: {},
+  collaboratorWrapper: {
+    display: 'flex',
+    marginBottom: theme.spacing(4), 
+    [theme.breakpoints.down("sm")]: {
+      display: "block",
+    },
+  },
   collaboratorHeadline: {
     wordBreak: "break-all",
     minWidth: "50%",
     marginRight: theme.spacing(4),
     marginBottom: theme.spacing(10),
+    [theme.breakpoints.down("sm")]: {
+      marginBottom: theme.spacing(6),
+    },
   },
   collaborator: {
     marginRight: theme.spacing(4),
@@ -128,7 +137,7 @@ export default function Index({ preview, aboutPage }) {
             {aboutPage.team.map((p) => (
               <Person key={p._id} person={p} />
             ))}
-            <Box className={classes.collaboratorWrapper} display="flex" mb={4}>
+            <Box className={classes.collaboratorWrapper}>
               <LeftColumn>
                 <Typography
                   variant="h3"

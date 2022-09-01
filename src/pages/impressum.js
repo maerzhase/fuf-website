@@ -7,7 +7,7 @@ import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import ReactMarkdown from "react-markdown";
 import Image from "next/image";
-import BKUMHH_IMG from "../public/bkumhh.jpg";
+import BKUMHH_IMG from "../public/Logo-BKM-Hamburg-weiss.svg";
 
 export default function ImpressumPage({ page, preview }) {
   return (

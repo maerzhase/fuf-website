@@ -136,7 +136,7 @@ const DateRow = (props) => {
   const formatedDate = useFormatedDate(date.date);
   return (
     <TableRow className={classes.root}>
-      <Collapse in={open}>
+      <Collapse in={open} unmountOnExit>
         <TypoCell width="20%">{formatedDate}</TypoCell>
         <TypoCell width="35%">
           <ProjectLink project={date.project}>{date.title}</ProjectLink>

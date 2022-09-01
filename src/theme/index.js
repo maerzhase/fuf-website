@@ -138,6 +138,9 @@ theme.overrides = {
     },
   },
   MuiSvgIcon: {
+    root: {
+      fontSize: 30,
+    },
     fontSizeLarge: {
       fontSize: 70,
     },

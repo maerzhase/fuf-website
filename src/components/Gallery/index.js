@@ -1,7 +1,7 @@
 import React from "react";
-import { getImageSrc } from "@/api/constants";
 import { makeStyles } from "@material-ui/core/styles";
-import { IconButton } from "@material-ui/core";
+import { Image } from "./Image";
+import cx from "classnames";
 
 const MOBILE_HEIGHT = "300px";
 
@@ -42,10 +42,6 @@ const useStyles = makeStyles((theme) => ({
       maxWidth: "100vw",
     },
   },
-  img: {
-    width: "auto",
-    height: "100%",
-  },
   nextButton: {
     zIndex: 100,
     position: "absolute",
@@ -56,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Gallery = (props) => {
-  const { project, isOpen, scrollToIndex, mobile } = props;
+  const { project, isOpen, scrollToIndex, mobile, className } = props;
   const scrollContainerRef = React.useRef();
   const [trailer, setTrailer] = React.useState(null);
   const classes = useStyles({ isOpen, mobile });
@@ -96,7 +92,7 @@ const Gallery = (props) => {
 
   return (
     <>
-      <div className={classes.galleryContent}>
+      <div className={cx(classes.galleryContent, className)}>
         <div className={classes.galleryWrap} ref={scrollContainerRef}>
           {trailer && (
             <div
@@ -105,11 +101,7 @@ const Gallery = (props) => {
             />
           )}
           {project.gallery?.map((img) => (
-            <img
-              key={img.path}
-              className={classes.img}
-              src={getImageSrc(img.path)}
-            />
+            <Image item={img} key={img.path} />
           ))}
         </div>
       </div>

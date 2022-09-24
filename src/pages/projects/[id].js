@@ -132,6 +132,7 @@ export default function Post({ project, preview }) {
       setItemIndex(0);
     }
   };
+  console.log(itemIndex)
 
   const itemActions = React.useMemo(() => {
     return {
@@ -205,14 +206,13 @@ export default function Post({ project, preview }) {
               <Typography variant="h5" gutterBottom component="div">
                 <ReactMarkdown>{project.abstract}</ReactMarkdown>
               </Typography>
-              <div className={classes.hideDesktop}>
-                <Gallery
-                  mobile
-                  project={project}
-                  isOpen={isGalleryOpen}
-                  scrollToIndex={itemIndex}
-                />
-              </div>
+              <Gallery
+                mobile
+                className={classes.hideDesktop}
+                project={project}
+                isOpen={isGalleryOpen}
+                scrollToIndex={itemIndex}
+              />
               <Typography variant="h6" gutterBottom component="div">
                 <ReactMarkdown>{project.subtitle}</ReactMarkdown>
               </Typography>
@@ -220,13 +220,12 @@ export default function Post({ project, preview }) {
                 <ReactMarkdown>{project.credits}</ReactMarkdown>
               </Typography>
             </div>
-            <div className={classes.hideMobile}>
-              <Gallery
-                project={project}
-                isOpen={isGalleryOpen}
-                scrollToIndex={itemIndex}
-              />
-            </div>
+            <Gallery
+              className={classes.hideMobile}
+              project={project}
+              isOpen={isGalleryOpen}
+              scrollToIndex={itemIndex}
+            />
           </div>
 
           <Grid className={classes.itemWrapper} container spacing={0}>

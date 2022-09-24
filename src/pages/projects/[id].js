@@ -132,7 +132,7 @@ export default function Post({ project, preview }) {
       setItemIndex(0);
     }
   };
-  console.log(itemIndex)
+  console.log(itemIndex);
 
   const itemActions = React.useMemo(() => {
     return {

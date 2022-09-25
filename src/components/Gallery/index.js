@@ -2,7 +2,10 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Image } from "./Image";
 import cx from "classnames";
-
+import smoothscroll from "smoothscroll-polyfill";
+if (global.window) {
+  smoothscroll.polyfill();
+}
 const MOBILE_HEIGHT = "300px";
 
 const useStyles = makeStyles((theme) => ({
@@ -12,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
       props.mobile ? MOBILE_HEIGHT : `calc(100vh - ${theme.spacing(10)}px)`,
     transition: theme.transitions.create("transform"),
     transform: (props) =>
-      props.isOpen ? "translate(-70%, 0)" : "translate(0, 0)",
+      props.isOpen && !props.mobile ? "translate(-70%, 0)" : "translate(0, 0)",
   },
   galleryWrap: {
     overflowX: "auto",

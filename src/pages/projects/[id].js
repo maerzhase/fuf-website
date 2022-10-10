@@ -266,6 +266,7 @@ export async function getStaticProps({ params, preview = null }) {
       preview,
       project: project.entries[0],
     },
+    revalidate: 10,
   };
 }
 

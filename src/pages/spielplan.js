@@ -255,7 +255,7 @@ export default function Index({ preview, allEntries, future, pastByYear }) {
   );
 }
 
-export async function getServerSideProps({ preview = null }) {
+export async function getStaticProps({ preview = null }) {
   const today = new Date();
   const allEntries = (await getCollectionEntries("event")) || [];
 
@@ -285,5 +285,6 @@ export async function getServerSideProps({ preview = null }) {
 
   return {
     props: { preview, pastByYear, future: sortedFuture },
+    revalidate: 10,
   };
 }

@@ -41,9 +41,10 @@ export default function ImpressumPage({ page, preview }) {
   );
 }
 
-export async function getServerSideProps({ preview = null }) {
+export async function getStaticProps({ preview = null }) {
   const page = await getSingleton("impressum");
   return {
     props: { page, preview },
+    revalidate: 10,
   };
 }

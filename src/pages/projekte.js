@@ -43,7 +43,7 @@ export default function Index({ preview, allEntries }) {
   );
 }
 
-export async function getServerSideProps({ preview = null }) {
+export async function getStaticProps({ preview = null }) {
   const allEntries = (await getCollectionEntries("project")) || [];
   return {
     props: {
@@ -53,5 +53,6 @@ export async function getServerSideProps({ preview = null }) {
         entries: allEntries.entries.filter((t) => !t.hidden),
       },
     },
+    revalidate: 10,
   };
 }

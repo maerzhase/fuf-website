@@ -68,7 +68,7 @@ export default function Index({
   );
 }
 
-export async function getServerSideProps({ preview = null }) {
+export async function getStaticProps({ preview = null }) {
   const allCollections = (await getAllCollections(preview)) || [];
   const allEntries = (await getCollectionEntries("project")) || [];
   const startPage = await getSingleton("Landinpage");
@@ -82,5 +82,6 @@ export async function getServerSideProps({ preview = null }) {
       },
       startPage,
     },
+    revalidate: 10,
   };
 }

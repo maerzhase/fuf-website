@@ -104,6 +104,7 @@ export default function Post({ project, preview }) {
   };
 
   const hasTrailer = !!project?.trailer;
+  const hasGallery = project.gallery?.length > 0;
   const maxIndex = project?.gallery.length + (hasTrailer ? 1 : 0);
 
   const handleClickNextButton = (e) => {
@@ -145,20 +146,19 @@ export default function Post({ project, preview }) {
         item: project.trailer,
       });
     }
-    if (project?.gallery) {
+    if (hasGallery) {
       items.push({
         label: "image",
         item: project.gallery,
       });
     }
     return items;
-  }, [project]);
+  }, [project, hasGallery, hasTrailer]);
 
   if (!project) {
     return <ErrorPage statusCode={404} />;
   }
 
-  const hasGallery = project.gallery?.length > 0;
 
   return (
     <React.Fragment>

@@ -159,7 +159,6 @@ export default function Post({ project, preview }) {
     return <ErrorPage statusCode={404} />;
   }
 
-
   return (
     <React.Fragment>
       <Layout preview={preview}>

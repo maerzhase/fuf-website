@@ -158,27 +158,31 @@ export default function Post({ project, preview }) {
     return <ErrorPage statusCode={404} />;
   }
 
+  const hasGallery = project.gallery?.length > 0;
+
   return (
     <React.Fragment>
       <Layout preview={preview}>
-        <Container className={classes.iconWrap}>
-          <IconButton
-            className={classes.galleryToggle}
-            onClick={handleToggleIsGalleryOpen}
-          >
-            <SliderArrowLarge
-              fontSize="large"
-              className={classes.sliderArrowLarge}
-            />
-          </IconButton>
-          <IconButton
-            variant="outlined"
-            className={classes.nextButton}
-            onClick={handleClickNextButton}
-          >
-            <ArrowRightIcon />
-          </IconButton>
-        </Container>
+        {hasGallery && (
+          <Container className={classes.iconWrap}>
+            <IconButton
+              className={classes.galleryToggle}
+              onClick={handleToggleIsGalleryOpen}
+            >
+              <SliderArrowLarge
+                fontSize="large"
+                className={classes.sliderArrowLarge}
+              />
+            </IconButton>
+            <IconButton
+              variant="outlined"
+              className={classes.nextButton}
+              onClick={handleClickNextButton}
+            >
+              <ArrowRightIcon />
+            </IconButton>
+          </Container>
+        )}
         <Container className={classes.root}>
           <div className={classes.content}>
             <div className={classes.textContent}>
@@ -195,11 +199,13 @@ export default function Post({ project, preview }) {
                 <ReactMarkdown>{project.credits}</ReactMarkdown>
               </Typography>
             </div>
-            <Gallery
-              project={project}
-              isOpen={isGalleryOpen}
-              scrollToIndex={itemIndex}
-            />
+            {hasGallery && (
+              <Gallery
+                project={project}
+                isOpen={isGalleryOpen}
+                scrollToIndex={itemIndex}
+              />
+            )}
           </div>
 
           <Grid className={classes.itemWrapper} container spacing={0}>

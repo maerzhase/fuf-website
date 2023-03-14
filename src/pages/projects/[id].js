@@ -104,7 +104,7 @@ export default function Post({ project, preview }) {
   };
 
   const hasTrailer = !!project?.trailer;
-  const hasGallery = project.gallery?.length > 0;
+  const hasGallery = project?.gallery?.length > 0;
   const maxIndex = project?.gallery.length + (hasTrailer ? 1 : 0);
 
   const handleClickNextButton = (e) => {

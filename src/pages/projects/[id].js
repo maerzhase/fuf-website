@@ -1,12 +1,10 @@
 import React from "react";
-import { useRouter } from "next/router";
 import ErrorPage from "next/error";
 import Container from "@/components/container";
 import Layout from "@/components/Layout";
 import Gallery from "@/components/Gallery";
 import { getProjectById, getCollectionEntries } from "@/api/api";
 import Typography from "@material-ui/core/Typography";
-import { getImageSrc } from "@/api/constants";
 import { makeStyles } from "@material-ui/core/styles";
 import SliderArrowLarge from "@/icons/SliderArrowLarge";
 import IconButton from "@material-ui/core/IconButton";
@@ -121,6 +119,7 @@ export default function Post({ project, preview }) {
   };
 
   const hasTrailer = !!project?.trailer;
+  const hasGallery = project?.gallery?.length > 0;
   const maxIndex = project?.gallery.length + (hasTrailer ? 1 : 0);
 
   const handleClickNextButton = (e) => {
@@ -162,14 +161,14 @@ export default function Post({ project, preview }) {
         item: project.trailer,
       });
     }
-    if (project?.gallery) {
+    if (hasGallery) {
       items.push({
         label: "image",
         item: project.gallery,
       });
     }
     return items;
-  }, [project]);
+  }, [project, hasGallery, hasTrailer]);
 
   if (!project) {
     return <ErrorPage statusCode={404} />;
@@ -178,6 +177,7 @@ export default function Post({ project, preview }) {
   return (
     <React.Fragment>
       <Layout preview={preview}>
+        {hasGallery && (
         <Container className={classes.iconWrap}>
           <IconButton
             className={classes.galleryToggle}
@@ -196,6 +196,7 @@ export default function Post({ project, preview }) {
             <SliderArrowLarge fontSize="large" />
           </IconButton>
         </Container>
+        )}
         <Container className={classes.root}>
           <div className={classes.content}>
             <div className={classes.textContent}>
@@ -219,12 +220,14 @@ export default function Post({ project, preview }) {
                 <ReactMarkdown>{project.credits}</ReactMarkdown>
               </Typography>
             </div>
-            <Gallery
-              className={classes.hideMobile}
-              project={project}
-              isOpen={isGalleryOpen}
-              scrollToIndex={itemIndex}
-            />
+            {hasGallery && (
+              <Gallery
+                className={classes.hideMobile}
+                project={project}
+                isOpen={isGalleryOpen}
+                scrollToIndex={itemIndex}
+              />
+            )}
           </div>
 
           <Grid className={classes.itemWrapper} container spacing={0}>

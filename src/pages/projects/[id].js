@@ -1,12 +1,10 @@
 import React from "react";
-import { useRouter } from "next/router";
 import ErrorPage from "next/error";
 import Container from "@/components/container";
 import Layout from "@/components/Layout";
 import Gallery from "@/components/Gallery";
 import { getProjectById, getCollectionEntries } from "@/api/api";
 import Typography from "@material-ui/core/Typography";
-import { getImageSrc } from "@/api/constants";
 import { makeStyles } from "@material-ui/core/styles";
 import SliderArrowLarge from "@/icons/SliderArrowLarge";
 import IconButton from "@material-ui/core/IconButton";
@@ -14,9 +12,8 @@ import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import ReactMarkdown from "react-markdown";
 import { PlayIcon } from "@/icons/Play";
+import { CloseIcon } from "@/icons/Close";
 import { GalleryIcon } from "@/icons/Gallery";
-
-import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 
 const useStyles = makeStyles((theme) => ({
   iconWrap: {
@@ -40,6 +37,11 @@ const useStyles = makeStyles((theme) => ({
     paddingRight: theme.spacing(4),
     minWidth: "70%",
     maxWidth: "70%",
+    [theme.breakpoints.down("md")]: {
+      minWidth: "100%",
+      maxWidth: "100%",
+      paddingRight: 0,
+    },
   },
   galleryToggle: {
     position: "absolute",
@@ -51,9 +53,9 @@ const useStyles = makeStyles((theme) => ({
         ? "translate(-50%,-50%) rotate(0deg)"
         : "translate(-50%,-50%) rotate(180deg)",
     zIndex: 100,
-  },
-  sliderArrowLarge: {
-    fontSize: 70,
+    [theme.breakpoints.down("md")]: {
+      display: "none",
+    },
   },
   nextButton: {
     position: "absolute",
@@ -61,10 +63,13 @@ const useStyles = makeStyles((theme) => ({
     right: 0,
     zIndex: 100,
     transform: "translate(0%,-50%)",
-    outline: "1px solid currentColor",
+    [theme.breakpoints.down("md")]: {
+      display: "none",
+    },
   },
   itemWrapper: {
     borderTop: `1px solid ${theme.palette.grey[800]}`,
+    borderBottom: `1px solid ${theme.palette.grey[800]}`,
   },
   item: {
     "&:hover": {
@@ -72,7 +77,7 @@ const useStyles = makeStyles((theme) => ({
       cursor: "default",
     },
     height: 200,
-    borderBottom: `1px solid ${theme.palette.grey[800]}`,
+    //borderBottom: `1px solid ${theme.palette.grey[800]}`,
     borderRight: `1px solid ${theme.palette.grey[800]}`,
     "&:nth-child(3n+3)": {
       borderRight: "none",
@@ -81,6 +86,16 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     flexDirection: "column",
     justifyContent: "center",
+  },
+  hideMobile: {
+    [theme.breakpoints.down("md")]: {
+      display: "none",
+    },
+  },
+  hideDesktop: {
+    [theme.breakpoints.up("lg")]: {
+      display: "none",
+    },
   },
 }));
 
@@ -168,17 +183,17 @@ export default function Post({ project, preview }) {
               className={classes.galleryToggle}
               onClick={handleToggleIsGalleryOpen}
             >
-              <SliderArrowLarge
-                fontSize="large"
-                className={classes.sliderArrowLarge}
-              />
+              {isGalleryOpen ? (
+                <CloseIcon fontSize="large" />
+              ) : (
+                <SliderArrowLarge fontSize="large" />
+              )}
             </IconButton>
             <IconButton
-              variant="outlined"
               className={classes.nextButton}
               onClick={handleClickNextButton}
             >
-              <ArrowRightIcon />
+              <SliderArrowLarge fontSize="large" />
             </IconButton>
           </Container>
         )}
@@ -191,6 +206,13 @@ export default function Post({ project, preview }) {
               <Typography variant="h5" gutterBottom component="div">
                 <ReactMarkdown>{project.abstract}</ReactMarkdown>
               </Typography>
+              <Gallery
+                mobile
+                className={classes.hideDesktop}
+                project={project}
+                isOpen={isGalleryOpen}
+                scrollToIndex={itemIndex}
+              />
               <Typography variant="h6" gutterBottom component="div">
                 <ReactMarkdown>{project.subtitle}</ReactMarkdown>
               </Typography>
@@ -200,6 +222,7 @@ export default function Post({ project, preview }) {
             </div>
             {hasGallery && (
               <Gallery
+                className={classes.hideMobile}
                 project={project}
                 isOpen={isGalleryOpen}
                 scrollToIndex={itemIndex}
@@ -246,6 +269,7 @@ export async function getStaticProps({ params, preview = null }) {
       preview,
       project: project.entries[0],
     },
+    revalidate: 10,
   };
 }
 

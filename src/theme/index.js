@@ -5,7 +5,7 @@ const SANS = ["Commuters Sans", "system-ui", "sans-serif"];
 const SANS_HEADLINE = ["Trash", "system-ui", "sans-serif"];
 
 const WHITE = "#ffffff";
-const SALMON = "#ff6e56";
+const PRIMARY = "#ff6e56";
 
 const FONTWEIGHT_REGULAR = 400;
 const FONTWEIGHT_MEDIUM = 500;
@@ -16,7 +16,7 @@ const theme = createTheme({
   palette: {
     type: "dark",
     primary: {
-      main: SALMON,
+      main: PRIMARY,
       contrastText: WHITE,
     },
     secondary: {
@@ -55,6 +55,7 @@ const theme = createTheme({
     },
     h4: {
       fontSize: 35,
+      textTransform: "uppercase",
     },
     h5: {
       fontSize: 28,
@@ -95,23 +96,53 @@ theme.mixins = {
   }),
 };
 
+theme.props = {
+  MuiButtonBase: {
+    disableRipple: true,
+  },
+};
+
 theme.overrides = {
   MuiButton: {
     root: {
-      // fontSize: 20,
       textTransform: "none",
+      "&$textPrimary": {
+        "&:hover": {
+          backgroundColor: "transparent",
+        },
+      },
+    },
+    textPrimary: {
+      color: WHITE,
+      "&:hover": {
+        color: PRIMARY,
+      },
+    },
+    textSizeSmall: {
+      fontSize: 12,
     },
   },
   MuiTab: {
     root: {
-      // fontSize: 20,
+      fontSize: "28px !important",
       textTransform: "none",
       lineHeight: 1,
+    },
+    textColorInherit: {
+      opacity: 1,
     },
   },
   PrivateTabIndicator: {
     root: {
       top: 1,
+    },
+  },
+  MuiSvgIcon: {
+    root: {
+      fontSize: 30,
+    },
+    fontSizeLarge: {
+      fontSize: 70,
     },
   },
 };

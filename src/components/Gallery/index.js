@@ -1,15 +1,21 @@
 import React from "react";
-import { getImageSrc } from "@/api/constants";
 import { makeStyles } from "@material-ui/core/styles";
-import { IconButton } from "@material-ui/core";
+import { Image } from "./Image";
+import cx from "classnames";
+import smoothscroll from "smoothscroll-polyfill";
+if (global.window) {
+  smoothscroll.polyfill();
+}
+const MOBILE_HEIGHT = "300px";
 
 const useStyles = makeStyles((theme) => ({
   galleryContent: {
     width: "100%",
-    height: `calc(100vh - ${theme.spacing(10)}px)`,
+    height: (props) =>
+      props.mobile ? MOBILE_HEIGHT : `calc(100vh - ${theme.spacing(10)}px)`,
     transition: theme.transitions.create("transform"),
     transform: (props) =>
-      props.isOpen ? "translate(-70%, 0)" : "translate(0, 0)",
+      props.isOpen && !props.mobile ? "translate(-70%, 0)" : "translate(0, 0)",
   },
   galleryWrap: {
     overflowX: "auto",
@@ -28,14 +34,16 @@ const useStyles = makeStyles((theme) => ({
     height: "100%",
     width: "100%",
     "& > iframe": {
-      width: `calc(((100vh - ${theme.spacing(12)}px) / 9) * 16)`,
-      height: `calc(100vh - ${theme.spacing(12)}px)`,
+      width: (props) =>
+        `calc(((${props.mobile ? MOBILE_HEIGHT : "100vh"} - ${theme.spacing(
+          12
+        )}px) / 9) * 16)`,
+      height: (props) =>
+        `calc(${props.mobile ? MOBILE_HEIGHT : "100vh"} - ${theme.spacing(
+          12
+        )}px)`,
       maxWidth: "100vw",
     },
-  },
-  img: {
-    width: "auto",
-    height: "100%",
   },
   nextButton: {
     zIndex: 100,
@@ -47,10 +55,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Gallery = (props) => {
-  const { project, isOpen, scrollToIndex } = props;
+  const { project, isOpen, scrollToIndex, mobile, className } = props;
   const scrollContainerRef = React.useRef();
   const [trailer, setTrailer] = React.useState(null);
-  const classes = useStyles({ isOpen });
+  const classes = useStyles({ isOpen, mobile });
 
   React.useEffect(() => {
     if (!trailer && project.trailer) {
@@ -90,7 +98,7 @@ const Gallery = (props) => {
   if (project.gallery.length === 0) return null;
   return (
     <>
-      <div className={classes.galleryContent}>
+      <div className={cx(classes.galleryContent, className)}>
         <div className={classes.galleryWrap} ref={scrollContainerRef}>
           {trailer && (
             <div
@@ -99,11 +107,7 @@ const Gallery = (props) => {
             />
           )}
           {project.gallery?.map((img) => (
-            <img
-              key={img.path}
-              className={classes.img}
-              src={getImageSrc(img.path)}
-            />
+            <Image item={img} key={img.path} />
           ))}
         </div>
       </div>

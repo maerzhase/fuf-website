@@ -21,12 +21,13 @@
     "framer-motion": "^4.1.17",
     "isomorphic-unfetch": "3.0.0",
     "lodash": "^4.17.21",
-    "next": "^12.0.4",
+    "next": "^12.3.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-markdown": "^8.0.0",
     "react-scrollama": "^2.3.0-beta.0",
-    "react-use-scroll-direction": "^0.1.0"
+    "react-use-scroll-direction": "^0.1.0",
+    "smoothscroll-polyfill": "^0.4.4"
   },
   "devDependencies": {
     "eslint": "^7.32.0",

@@ -18,22 +18,24 @@ import { de } from "date-fns/locale";
 import { groupBy, orderBy } from "lodash";
 import Link from "next/link/";
 import Collapse from "@material-ui/core/Collapse";
+import cx from "classnames";
 
 const TypoCell = withStyles((theme) => ({
   root: (props) => ({
     ...(theme.typography[props.variant] || theme.typography.button),
     color: theme.palette.text[props.color] || "inherit",
+    "& a": {
+      textTransform: "uppercase",
+    },
   }),
 }))(TableCell);
 
 const useRowStyles = makeStyles((theme) => ({
   root: {
+    width: "100%",
     color: (props) =>
       theme.palette.text[props.color] || theme.palette.text.primary,
     transition: theme.transitions.create("color"),
-    "&:hover": {
-      color: theme.palette.primary.light,
-    },
   },
   desktop: {
     [theme.breakpoints.down("sm")]: {
@@ -47,9 +49,12 @@ const useRowStyles = makeStyles((theme) => ({
   },
   interactive: {
     cursor: "pointer",
-    "&:hover > *": {
-      color: `${theme.palette.primary.main} !important`,
-    },
+  },
+  collapseSize: {
+    minWidth: "100%",
+  },
+  hiddenRow: {
+    display: "none",
   },
 }));
 
@@ -60,27 +65,28 @@ const toDate = (date) => {
 
 const useFormatedDate = (date) => {
   const d = toDate(date);
-  return format(d, "d. MMMM yyyy", { locale: de });
+  return format(d, "d MMM yyyy", { locale: de });
 };
 
 const ProjectLink = (props) => {
   const { project, children } = props;
   if (!project) return <React.Fragment>{children}</React.Fragment>;
   return (
-    <Button color="inherit">
-      <Link
-        target="_blank"
-        href="/projects/[id]"
-        as={`/projects/${project?._id}`}
-      >
+    <Link
+      target="_blank"
+      href="/projects/[id]"
+      as={`/projects/${project?._id}`}
+      passHref
+    >
+      <Button color="primary" variant="text" style={{ wordBreak: "break-all" }}>
         {children}
-      </Link>
-    </Button>
+      </Button>
+    </Link>
   );
 };
 
 const MobileRow = (props) => {
-  const { date, isPast } = props;
+  const { date } = props;
   const formatedDate = useFormatedDate(date.date);
   return (
     <Box
@@ -92,13 +98,23 @@ const MobileRow = (props) => {
       display="flex"
       flexDirection="column"
     >
-      <Typography color="textPrimary" variant="subtitle1" component="div">
+      <Typography
+        color="textPrimary"
+        variant="subtitle2"
+        component="div"
+        style={{ marginLeft: 8, textTransform: "uppercase" }}
+      >
         {formatedDate}
       </Typography>
       <Typography color="textPrimary" variant="h5" component="div">
         <ProjectLink project={date.project}>{date.title}</ProjectLink>
       </Typography>
-      <Typography variant="subtitle1" component="div">
+      <Typography
+        color="textPrimary"
+        variant="subtitle1"
+        component="div"
+        style={{ marginLeft: 8, textTransform: "uppercase" }}
+      >
         {date.location}
       </Typography>
       {date.link && (
@@ -107,8 +123,9 @@ const MobileRow = (props) => {
           size="small"
           href={date.link}
           target="_blank"
-          endIcon={<LinkIcon fontSize="inherit" />}
-          color={isPast ? "secondary" : "default"}
+          endIcon={<LinkIcon fontSize="small" />}
+          variant="text"
+          color="primary"
         >
           Tickets
         </Button>
@@ -118,25 +135,24 @@ const MobileRow = (props) => {
 };
 
 const DateRow = (props) => {
-  const { date, color } = props;
+  const { date, color, open } = props;
   const classes = useRowStyles(props);
   const formatedDate = useFormatedDate(date.date);
   return (
-    <TableRow className={classes.root}>
-      <TypoCell width="25%" variant="body1">
-        {formatedDate}
-      </TypoCell>
-      <TypoCell width="40%">
+    <TableRow className={cx(classes.root, { [classes.hiddenRow]: !open })}>
+      <TypoCell>{formatedDate}</TypoCell>
+      <TypoCell>
         <ProjectLink project={date.project}>{date.title}</ProjectLink>
       </TypoCell>
-      <TypoCell width="35%">{date.location}</TypoCell>
-      <TypoCell width="40px">
+      <TypoCell style={{ wordBreak: "break-all" }}>{date.location}</TypoCell>
+      <TypoCell>
         {date.link && (
           <Button
             href={date.link}
             target="_blank"
-            endIcon={<LinkIcon fontSize="inherit" />}
-            color={color}
+            endIcon={<LinkIcon style={{ fontSize: 12 }} />}
+            variant="text"
+            color="primary"
           >
             Tickets
           </Button>
@@ -164,11 +180,9 @@ const YearGroup = (props) => {
         <TypoCell />
         <TypoCell />
       </TableRow>
-      <Collapse in={isOpen}>
-        {dates.map((date) => (
-          <DateRow key={date._id} date={date} color="secondary" />
-        ))}
-      </Collapse>
+      {dates.map((date) => (
+        <DateRow key={date._id} date={date} color="primary" open={isOpen} />
+      ))}
     </React.Fragment>
   );
 };
@@ -192,7 +206,7 @@ const YearGroupMobile = (props) => {
       </Box>
       <Collapse in={isOpen}>
         {dates.map((date) => (
-          <MobileRow key={date._id} date={date} isPast />
+          <MobileRow key={date._id} date={date} />
         ))}
       </Collapse>
     </React.Fragment>
@@ -216,7 +230,7 @@ export default function Index({ preview, allEntries, future, pastByYear }) {
               <Table aria-label="simple table">
                 <TableBody>
                   {future.map((date) => (
-                    <DateRow key={date._id} date={date} />
+                    <DateRow key={date._id} date={date} open />
                   ))}
                   {pastByYear &&
                     pastByYear.map(([year, dates]) => (
@@ -241,7 +255,7 @@ export default function Index({ preview, allEntries, future, pastByYear }) {
   );
 }
 
-export async function getServerSideProps({ preview = null }) {
+export async function getStaticProps({ preview = null }) {
   const today = new Date();
   const allEntries = (await getCollectionEntries("event")) || [];
 
@@ -271,5 +285,6 @@ export async function getServerSideProps({ preview = null }) {
 
   return {
     props: { preview, pastByYear, future: sortedFuture },
+    revalidate: 10,
   };
 }

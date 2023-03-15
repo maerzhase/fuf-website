@@ -1,25 +1,12 @@
 import React, { useState } from "react";
-import {
-  getAllCollections,
-  getCollectionEntries,
-  getSingleton,
-  getAllSingletons,
-} from "@/api/api";
 import { getHeroImageSrc } from "@/api/constants";
 import Link from "next/link";
-import Box from "@material-ui/core/Box";
-import Zoom from "@material-ui/core/Zoom";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import { Scrollama, Step } from "react-scrollama";
-import {
-  motion,
-  useTransform,
-  useViewportScroll,
-  useMotionValue,
-} from "framer-motion";
+import { motion, useTransform } from "framer-motion";
+import Image from "next/image";
 
-import { useScrollDirection } from "react-use-scroll-direction";
 const useStyles = makeStyles((theme) => ({
   root: {
     position: "absolute",
@@ -164,7 +151,7 @@ export const Teaser = React.forwardRef((props, ref) => {
       >
         <div className={classes.headline}>
           <Link href={`/projects/${project._id}`}>
-            <a>
+            <a style={{ textDecoration: "none" }}>
               <Typography variant="h2">{project.title}</Typography>
               <Typography variant="h6">{project.theme?.display}</Typography>
             </a>
@@ -191,9 +178,10 @@ export const SimpleTeaser = React.forwardRef((props, ref) => {
             </a>
           </Link>
         </div>
-        <img
+        <Image
           className={classes.heroImage}
           src={getHeroImageSrc(project.heroImage?.path)}
+          layout="fill"
         />
       </motion.div>
     </div>

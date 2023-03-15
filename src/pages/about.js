@@ -32,6 +32,12 @@ const useColumnStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       flexDirection: "column",
     },
+    "& a": {
+      textDecoration: "none",
+      "&:hover": {
+        color: theme.palette.primary.main,
+      },
+    },
   },
 }));
 
@@ -82,16 +88,27 @@ const Collaborator = (props) => {
 
 const useStyles = makeStyles((theme) => ({
   collaboratorWrapper: {
-    flexWrap: "wrap",
+    display: "flex",
+    marginBottom: theme.spacing(4),
+    [theme.breakpoints.down("sm")]: {
+      display: "block",
+    },
   },
   collaboratorHeadline: {
+    wordBreak: "break-all",
     minWidth: "50%",
     marginRight: theme.spacing(4),
     marginBottom: theme.spacing(10),
+    [theme.breakpoints.down("sm")]: {
+      marginBottom: theme.spacing(6),
+    },
   },
   collaborator: {
     marginRight: theme.spacing(4),
     marginBottom: theme.spacing(5),
+  },
+  collaborators: {
+    width: "50%",
   },
 }));
 
@@ -109,10 +126,10 @@ export default function Index({ preview, aboutPage }) {
             minHeight="100vh"
             display="flex"
             alignItems="center"
-            mt={8}
+            mt={23}
             mb={8}
           >
-            <Typography variant="h6">
+            <Typography variant="h5">
               <ReactMarkdown>{aboutPage.intro}</ReactMarkdown>
             </Typography>
           </Box>
@@ -120,17 +137,24 @@ export default function Index({ preview, aboutPage }) {
             {aboutPage.team.map((p) => (
               <Person key={p._id} person={p} />
             ))}
-            <Box className={classes.collaboratorWrapper} display="flex" mb={4}>
-              <Typography variant="h3" className={classes.collaboratorHeadline}>
-                Kollaborateur:innen
-              </Typography>
-              <div className={classes.collaborators}>
+            <Box className={classes.collaboratorWrapper}>
+              <LeftColumn>
+                <Typography
+                  variant="h3"
+                  className={classes.collaboratorHeadline}
+                >
+                  Kollabo-
+                  <br />
+                  rateur:innen
+                </Typography>
+              </LeftColumn>
+              <RightColumn>
                 {aboutPage.collaborators.map((c) => (
                   <div className={classes.collaborator} key={c._id}>
                     <Collaborator person={c} />
                   </div>
                 ))}
-              </div>
+              </RightColumn>
             </Box>
           </Box>
         </Container>
@@ -139,9 +163,10 @@ export default function Index({ preview, aboutPage }) {
   );
 }
 
-export async function getServerSideProps({ preview = null }) {
+export async function getStaticProps({ preview = null }) {
   const aboutPage = await getSingleton("about");
   return {
     props: { preview, aboutPage },
+    revalidate: 10,
   };
 }

@@ -162,7 +162,7 @@ export default function ThemenPage({ preview, allProjects, allThemes }) {
   );
 }
 
-export async function getServerSideProps({ preview = null }) {
+export async function getStaticProps({ preview = null }) {
   const allProjects = (await getCollectionEntries("project")) || [];
   const allThemes = (await getCollectionEntries("theme")) || [];
   return {
@@ -174,5 +174,6 @@ export async function getServerSideProps({ preview = null }) {
         entries: allThemes.entries.filter((t) => !t.hidden),
       },
     },
+    revalidate: 10,
   };
 }

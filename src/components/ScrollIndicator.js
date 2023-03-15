@@ -1,14 +1,9 @@
 import React, { useCallback, useEffect, useState } from "react";
 import ScrollArrow from "./ScrollArrow";
 
-const SIZE = 32;
+const SIZE = 70;
 
 function ScrollIndicator() {
-  const bottom = {
-    down: 20,
-    up: 80,
-  };
-
   const [isVisible, setIsVisible] = useState(false);
   const [direction, setDirection] = useState("down");
 

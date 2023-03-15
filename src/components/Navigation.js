@@ -35,6 +35,7 @@ const useStyles = makeStyles((theme) => ({
   },
   logo: {
     whiteSpace: "nowrap",
+    textDecoration: "none",
   },
   desktopNav: {
     [theme.breakpoints.down("md")]: {
@@ -76,6 +77,7 @@ const DesktopNav = () => {
       indicatorColor="primary"
       value={router.asPath}
     >
+      <LinkTab href="/" value="/" style={{ display: "none" }} />
       {LINKS.map((l) => (
         <LinkTab key={l} label={l} href={`/${l}`} value={`/${l}`} />
       ))}
@@ -148,12 +150,14 @@ export default function Navigation() {
                 alignItems="center"
                 alignSelf="center"
               >
-                <Link href="/">
-                  <a>
-                    <Typography className={classes.logo} variant="h5">
-                      frauen und fiktion
-                    </Typography>
-                  </a>
+                <Link href="/" passHref>
+                  <Typography
+                    className={classes.logo}
+                    variant="h5"
+                    component="a"
+                  >
+                    frauen und fiktion
+                  </Typography>
                 </Link>
               </Box>
               <DesktopNav />

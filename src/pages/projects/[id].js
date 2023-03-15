@@ -178,24 +178,24 @@ export default function Post({ project, preview }) {
     <React.Fragment>
       <Layout preview={preview}>
         {hasGallery && (
-        <Container className={classes.iconWrap}>
-          <IconButton
-            className={classes.galleryToggle}
-            onClick={handleToggleIsGalleryOpen}
-          >
-            {isGalleryOpen ? (
-              <CloseIcon fontSize="large" />
-            ) : (
+          <Container className={classes.iconWrap}>
+            <IconButton
+              className={classes.galleryToggle}
+              onClick={handleToggleIsGalleryOpen}
+            >
+              {isGalleryOpen ? (
+                <CloseIcon fontSize="large" />
+              ) : (
+                <SliderArrowLarge fontSize="large" />
+              )}
+            </IconButton>
+            <IconButton
+              className={classes.nextButton}
+              onClick={handleClickNextButton}
+            >
               <SliderArrowLarge fontSize="large" />
-            )}
-          </IconButton>
-          <IconButton
-            className={classes.nextButton}
-            onClick={handleClickNextButton}
-          >
-            <SliderArrowLarge fontSize="large" />
-          </IconButton>
-        </Container>
+            </IconButton>
+          </Container>
         )}
         <Container className={classes.root}>
           <div className={classes.content}>

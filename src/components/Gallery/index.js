@@ -67,7 +67,10 @@ const Gallery = (props) => {
   }, []);
 
   React.useEffect(() => {
-    if (scrollContainerRef.current) {
+    if (
+      scrollContainerRef.current &&
+      scrollContainerRef.current.children?.[scrollToIndex]
+    ) {
       const { offsetLeft } =
         scrollContainerRef.current.children?.[scrollToIndex];
       scrollContainerRef.current.scroll({
@@ -92,7 +95,7 @@ const Gallery = (props) => {
       }, 1);
     };
   }, [isOpen]);
-
+  if (project.gallery.length === 0) return null;
   return (
     <>
       <div className={cx(classes.galleryContent, className)}>

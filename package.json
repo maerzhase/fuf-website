@@ -4,6 +4,7 @@
   "main": "server/index.js",
   "license": "MIT",
   "repository": "maerzhase/fuf-website",
+  "packageManager": "pnpm@10.14.0",
   "scripts": {
     "dev": "next src",
     "build": "next build src",

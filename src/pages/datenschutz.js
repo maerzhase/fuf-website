@@ -3,8 +3,8 @@ import { getSingleton } from "@/api/api";
 import Head from "next/head";
 import Layout from "@/components/Layout";
 import Container from "@/components/container";
-import Box from "@material-ui/core/Box";
-import Typography from "@material-ui/core/Typography";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 import ReactMarkdown from "react-markdown";
 
 export default function Index({ page, preview }) {

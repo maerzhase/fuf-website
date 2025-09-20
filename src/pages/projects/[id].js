@@ -4,12 +4,12 @@ import Container from "@/components/container";
 import Layout from "@/components/Layout";
 import Gallery from "@/components/Gallery";
 import { getProjectById, getCollectionEntries } from "@/api/api";
-import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
+import Typography from "@mui/material/Typography";
+import makeStyles from "@mui/styles/makeStyles";
 import SliderArrowLarge from "@/icons/SliderArrowLarge";
-import IconButton from "@material-ui/core/IconButton";
-import Grid from "@material-ui/core/Grid";
-import Box from "@material-ui/core/Box";
+import IconButton from "@mui/material/IconButton";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
 import ReactMarkdown from "react-markdown";
 import { PlayIcon } from "@/icons/Play";
 import { CloseIcon } from "@/icons/Close";
@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
     paddingRight: theme.spacing(4),
     minWidth: "70%",
     maxWidth: "70%",
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down("lg")]: {
       minWidth: "100%",
       maxWidth: "100%",
       paddingRight: 0,
@@ -53,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
         ? "translate(-50%,-50%) rotate(0deg)"
         : "translate(-50%,-50%) rotate(180deg)",
     zIndex: 100,
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down("lg")]: {
       display: "none",
     },
   },
@@ -63,7 +63,7 @@ const useStyles = makeStyles((theme) => ({
     right: 0,
     zIndex: 100,
     transform: "translate(0%,-50%)",
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down("lg")]: {
       display: "none",
     },
   },
@@ -88,7 +88,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
   },
   hideMobile: {
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down("lg")]: {
       display: "none",
     },
   },
@@ -182,6 +182,7 @@ export default function Post({ project, preview }) {
             <IconButton
               className={classes.galleryToggle}
               onClick={handleToggleIsGalleryOpen}
+              size="large"
             >
               {isGalleryOpen ? (
                 <CloseIcon fontSize="large" />
@@ -192,6 +193,7 @@ export default function Post({ project, preview }) {
             <IconButton
               className={classes.nextButton}
               onClick={handleClickNextButton}
+              size="large"
             >
               <SliderArrowLarge fontSize="large" />
             </IconButton>

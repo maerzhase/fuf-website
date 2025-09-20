@@ -1,7 +1,7 @@
-import { makeStyles } from "@material-ui/core";
+import makeStyles from "@mui/styles/makeStyles";
 import { motion } from "framer-motion";
 import React from "react";
-import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import SliderArrowLarge from "@/icons/SliderArrowLarge";
 
 const useStyles = makeStyles(() => ({

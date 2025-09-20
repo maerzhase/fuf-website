@@ -3,32 +3,37 @@ import { getCollectionEntries } from "@/api/api";
 import Head from "next/head";
 import Layout from "@/components/Layout";
 import Container from "@/components/container";
-import Box from "@material-ui/core/Box";
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
-import { makeStyles, withStyles } from "@material-ui/core/styles";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableContainer from "@material-ui/core/TableContainer";
-import TableRow from "@material-ui/core/TableRow";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import makeStyles from "@mui/styles/makeStyles";
+import withStyles from "@mui/styles/withStyles";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableRow from "@mui/material/TableRow";
 import LinkIcon from "@/icons/Link";
 import { isBefore, parse, format } from "date-fns";
 import { de } from "date-fns/locale";
 import { groupBy, orderBy } from "lodash";
 import Link from "next/link/";
-import Collapse from "@material-ui/core/Collapse";
+import Collapse from "@mui/material/Collapse";
 import cx from "classnames";
 
-const TypoCell = withStyles((theme) => ({
-  root: (props) => ({
-    ...(theme.typography[props.variant] || theme.typography.button),
-    color: theme.palette.text[props.color] || "inherit",
-    "& a": {
-      textTransform: "uppercase",
-    },
-  }),
-}))(TableCell);
+const TypoCell = ({ variant = "subtitle1", color, sx, ...props }) => {
+  return (
+    <TableCell
+      sx={(theme) => ({
+        ...(theme.typography[variant] || theme.typography.button),
+        color: theme.palette.text[color] || "inherit",
+        textTransform: "uppercase",
+        ...sx, // allow consumers to pass extra sx
+      })}
+      {...props}
+    />
+  );
+};
 
 const useRowStyles = makeStyles((theme) => ({
   root: {
@@ -38,7 +43,7 @@ const useRowStyles = makeStyles((theme) => ({
     transition: theme.transitions.create("color"),
   },
   desktop: {
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down("md")]: {
       display: "none",
     },
   },

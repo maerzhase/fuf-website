@@ -4,17 +4,17 @@ import Head from "next/head";
 import Link from "next/link";
 import Layout from "@/components/Layout";
 import Container from "@/components/container";
-import Box from "@material-ui/core/Box";
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import IconButton from "@mui/material/IconButton";
 import { groupBy } from "lodash";
 import ReactMarkdown from "react-markdown";
 import { getImageSrc } from "@/api/constants";
-import Fade from "@material-ui/core/Fade";
-import AddIcon from "@material-ui/icons/Add";
-import RemoveIcon from "@material-ui/icons/Remove";
-import { makeStyles } from "@material-ui/core";
+import Fade from "@mui/material/Fade";
+import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
+import makeStyles from "@mui/styles/makeStyles";
 import ScrollIndicator from "@/components/ScrollIndicator";
 
 const useBoxStyles = makeStyles((theme) => ({
@@ -70,6 +70,7 @@ const ThemeBox = (props) => {
               <IconButton
                 className={classes.iconButton}
                 onClick={handleToggleShowDescription}
+                size="large"
               >
                 {showDescription ? <RemoveIcon /> : <AddIcon />}
               </IconButton>

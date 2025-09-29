@@ -4,6 +4,7 @@
   "main": "server/index.js",
   "license": "MIT",
   "repository": "maerzhase/fuf-website",
+  "packageManager": "pnpm@10.14.0",
   "scripts": {
     "dev": "next src",
     "build": "next build src",
@@ -12,28 +13,29 @@
     "lint:fix": "next lint --fix --dir src"
   },
   "dependencies": {
-    "@material-ui/core": "^4.12.1",
-    "@material-ui/icons": "^4.9.1",
-    "@material-ui/lab": "^4.0.0-alpha.48",
-    "@material-ui/styles": "^4.9.10",
+    "@emotion/react": "11.14.0",
+    "@emotion/styled": "11.14.1",
+    "@mui/icons-material": "^5.18.0",
+    "@mui/material": "5.18.0",
+    "@mui/styles": "5.18.0",
     "classnames": "2.2.6",
     "date-fns": "2.14.0",
-    "framer-motion": "^4.1.17",
+    "framer-motion": "4.1.17",
     "isomorphic-unfetch": "3.0.0",
-    "lodash": "^4.17.21",
-    "next": "^12.3.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-markdown": "^8.0.0",
-    "react-scrollama": "^2.3.0-beta.0",
-    "react-use-scroll-direction": "^0.1.0",
-    "smoothscroll-polyfill": "^0.4.4"
+    "lodash": "4.17.21",
+    "next": "12.3.7",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-markdown": "8.0.7",
+    "react-scrollama": "2.4.2",
+    "react-use-scroll-direction": "0.1.0",
+    "smoothscroll-polyfill": "0.4.4"
   },
   "devDependencies": {
-    "eslint": "^7.32.0",
-    "eslint-config-next": "^11.0.1",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "prettier": "^2.3.2"
+    "eslint": "7.32.0",
+    "eslint-config-next": "11.1.4",
+    "eslint-config-prettier": "8.10.2",
+    "eslint-plugin-prettier": "4.2.5",
+    "prettier": "2.8.8"
   }
 }

@@ -1,8 +1,8 @@
-import { createTheme, responsiveFontSizes } from "@material-ui/core/styles";
-import { red } from "@material-ui/core/colors";
+import { createTheme, responsiveFontSizes } from "@mui/material/styles";
+import { red } from "@mui/material/colors";
 
-const SANS = ["Commuters Sans", "system-ui", "sans-serif"];
-const SANS_HEADLINE = ["Trash", "system-ui", "sans-serif"];
+const SANS = ["Commuters Sans"].reverse();
+const SANS_HEADLINE = ["Trash"].reverse();
 
 const WHITE = "#ffffff";
 const PRIMARY = "#ff6e56";
@@ -14,7 +14,7 @@ const FONTWEIGHT_BOLD = FONTWEIGHT_MEDIUM;
 // Create a theme instance.
 const theme = createTheme({
   palette: {
-    type: "dark",
+    mode: "dark",
     primary: {
       main: PRIMARY,
       contrastText: WHITE,
@@ -30,6 +30,10 @@ const theme = createTheme({
     },
     text: {
       secondary: "#6a6a6a",
+    },
+    common: {
+      black: "#000000",
+      white: WHITE,
     },
   },
   typography: {
@@ -74,12 +78,72 @@ const theme = createTheme({
       fontSize: 20,
       fontWeight: FONTWEIGHT_REGULAR,
     },
+    subtitle1: {
+      fontSize: 20,
+    },
     subtitle2: {
       fontSize: 13,
     },
   },
   shape: {
     maxWidth: 1280,
+  },
+  components: {
+    MuiButtonBase: {
+      defaultProps: {
+        disableRipple: true,
+      },
+    },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          textTransform: "none",
+          "&.MuiButton-textPrimary": {
+            "&:hover": {
+              backgroundColor: "transparent",
+            },
+          },
+        },
+        textPrimary: {
+          color: WHITE,
+          "&:hover": {
+            color: PRIMARY,
+          },
+        },
+        textSizeSmall: {
+          fontSize: 12,
+        },
+      },
+    },
+    MuiTab: {
+      styleOverrides: {
+        root: {
+          fontSize: "28px !important",
+          textTransform: "none",
+          lineHeight: 1,
+        },
+        textColorInherit: {
+          opacity: 1,
+        },
+      },
+    },
+    PrivateTabIndicator: {
+      styleOverrides: {
+        root: {
+          top: 1,
+        },
+      },
+    },
+    MuiSvgIcon: {
+      styleOverrides: {
+        root: {
+          fontSize: 30,
+        },
+        fontSizeLarge: {
+          fontSize: 70,
+        },
+      },
+    },
   },
 });
 
@@ -89,62 +153,11 @@ theme.mixins = {
     margin: "auto",
   }),
   gutter: () => ({
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down("md")]: {
       padding: theme.spacing(0, 1),
     },
     padding: theme.spacing(0, 2),
   }),
-};
-
-theme.props = {
-  MuiButtonBase: {
-    disableRipple: true,
-  },
-};
-
-theme.overrides = {
-  MuiButton: {
-    root: {
-      textTransform: "none",
-      "&$textPrimary": {
-        "&:hover": {
-          backgroundColor: "transparent",
-        },
-      },
-    },
-    textPrimary: {
-      color: WHITE,
-      "&:hover": {
-        color: PRIMARY,
-      },
-    },
-    textSizeSmall: {
-      fontSize: 12,
-    },
-  },
-  MuiTab: {
-    root: {
-      fontSize: "28px !important",
-      textTransform: "none",
-      lineHeight: 1,
-    },
-    textColorInherit: {
-      opacity: 1,
-    },
-  },
-  PrivateTabIndicator: {
-    root: {
-      top: 1,
-    },
-  },
-  MuiSvgIcon: {
-    root: {
-      fontSize: 30,
-    },
-    fontSizeLarge: {
-      fontSize: 70,
-    },
-  },
 };
 
 export default responsiveFontSizes(theme, { factor: 4 });

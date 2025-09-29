@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { getHeroImageSrc } from "@/api/constants";
 import Link from "next/link";
-import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
+import Typography from "@mui/material/Typography";
+import makeStyles from "@mui/styles/makeStyles";
 import { Scrollama, Step } from "react-scrollama";
 import { motion, useTransform } from "framer-motion";
 import Image from "next/image";
@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
     position: "absolute",
     backgroundPosition: "top center",
     top: 0,
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down("md")]: {
       backgroundPosition: "center",
     },
     //backgroundColor: 'red',

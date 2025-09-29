@@ -1,7 +1,7 @@
 const nextConfig = {
   images: {
-    domains: ['cockpit.m3000.io'],
+    domains: ["cockpit.lili16.de"],
   },
 };
 
-module.exports = nextConfig
+module.exports = nextConfig;

@@ -1,22 +1,22 @@
 import React from "react";
 import Link from "next/link";
-import Button from "@material-ui/core/Button";
-import IconButton from "@material-ui/core/IconButton";
-import { withStyles, makeStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import useScrollTrigger from "@material-ui/core/useScrollTrigger";
-import Slide from "@material-ui/core/Slide";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
+import IconButton from "@mui/material/IconButton";
+import withStyles from "@mui/styles/withStyles";
+import makeStyles from "@mui/styles/makeStyles";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import useScrollTrigger from "@mui/material/useScrollTrigger";
+import Slide from "@mui/material/Slide";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
 import { useRouter } from "next/router";
-import MenuIcon from "@material-ui/icons/Menu";
-import Drawer from "@material-ui/core/Drawer";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
+import MenuIcon from "@mui/icons-material/Menu";
+import Drawer from "@mui/material/Drawer";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
 
 const LINKS = ["about", "projekte", "themen", "spielplan"];
 
@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: "none",
   },
   desktopNav: {
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down("lg")]: {
       display: "none",
     },
   },
@@ -50,6 +50,7 @@ const useStyles = makeStyles((theme) => ({
   mobileNavPaper: {
     height: "100%",
     backgroundColor: theme.palette.common.black,
+    backgroundImage: "none",
   },
   mobileNavList: {
     width: "100%",
@@ -63,7 +64,17 @@ function LinkTab(props) {
   const { href, ...rest } = props;
   return (
     <Link href={href} passHref>
-      <Tab component="a" {...rest} />
+      <Tab
+        component="a"
+        sx={{
+          minWidth: { xs: "auto", sm: 160 },
+          color: "white",
+          "&.Mui-selected": {
+            color: "white",
+          },
+        }}
+        {...rest}
+      />
     </Link>
   );
 }
@@ -76,6 +87,12 @@ const DesktopNav = () => {
       className={classes.desktopNav}
       indicatorColor="primary"
       value={router.asPath}
+      sx={{
+        "& .MuiTabs-indicator": {
+          top: 0,
+          bottom: "auto",
+        },
+      }}
     >
       <LinkTab href="/" value="/" style={{ display: "none" }} />
       {LINKS.map((l) => (
@@ -105,7 +122,7 @@ const MobileNav = () => {
 
   return (
     <div className={classes.mobileNav}>
-      <IconButton onClick={toggleDrawer}>
+      <IconButton onClick={toggleDrawer} size="large">
         <MenuIcon />
       </IconButton>
       <Drawer
@@ -123,7 +140,7 @@ const MobileNav = () => {
                   primaryTypographyProps={{
                     variant: "h1",
                     align: "center",
-                    color: router.asPath === `/${l}` ? "primary" : "initial",
+                    color: router.asPath === `/${l}` ? "primary" : "inherit",
                   }}
                 />
               </MobileListItem>

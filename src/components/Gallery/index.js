@@ -1,5 +1,5 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import makeStyles from "@mui/styles/makeStyles";
 import { Image } from "./Image";
 import cx from "classnames";
 import smoothscroll from "smoothscroll-polyfill";
@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
   galleryContent: {
     width: "100%",
     height: (props) =>
-      props.mobile ? MOBILE_HEIGHT : `calc(100vh - ${theme.spacing(10)}px)`,
+      props.mobile ? MOBILE_HEIGHT : `calc(100vh - ${theme.spacing(10)})`,
     transition: theme.transitions.create("transform"),
     transform: (props) =>
       props.isOpen && !props.mobile ? "translate(-70%, 0)" : "translate(0, 0)",
@@ -37,11 +37,11 @@ const useStyles = makeStyles((theme) => ({
       width: (props) =>
         `calc(((${props.mobile ? MOBILE_HEIGHT : "100vh"} - ${theme.spacing(
           12
-        )}px) / 9) * 16)`,
+        )}) / 9) * 16)`,
       height: (props) =>
         `calc(${props.mobile ? MOBILE_HEIGHT : "100vh"} - ${theme.spacing(
           12
-        )}px)`,
+        )})`,
       maxWidth: "100vw",
     },
   },

@@ -3,9 +3,9 @@ import { getSingleton } from "@/api/api";
 import Head from "next/head";
 import Layout from "@/components/Layout";
 import Container from "@/components/container";
-import Box from "@material-ui/core/Box";
-import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import makeStyles from "@mui/styles/makeStyles";
 import ReactMarkdown from "@/components/Markdown";
 import ScrollIndicator from "@/components/ScrollIndicator";
 
@@ -13,7 +13,7 @@ const useColumnStyles = makeStyles((theme) => ({
   left: {
     width: "50%",
     marginRight: theme.spacing(4),
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down("md")]: {
       width: "100%",
       marginRight: 0,
     },
@@ -21,7 +21,7 @@ const useColumnStyles = makeStyles((theme) => ({
   right: {
     width: "50%",
     marginLeft: theme.spacing(4),
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down("md")]: {
       width: "100%",
       marginLeft: 0,
     },
@@ -29,7 +29,7 @@ const useColumnStyles = makeStyles((theme) => ({
   person: {
     display: "flex",
     marginBottom: theme.spacing(12),
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down("md")]: {
       flexDirection: "column",
     },
     "& a": {
@@ -90,7 +90,7 @@ const useStyles = makeStyles((theme) => ({
   collaboratorWrapper: {
     display: "flex",
     marginBottom: theme.spacing(4),
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down("md")]: {
       display: "block",
     },
   },
@@ -99,7 +99,7 @@ const useStyles = makeStyles((theme) => ({
     minWidth: "50%",
     marginRight: theme.spacing(4),
     marginBottom: theme.spacing(10),
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down("md")]: {
       marginBottom: theme.spacing(6),
     },
   },

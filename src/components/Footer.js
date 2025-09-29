@@ -58,6 +58,7 @@ export default function Footer() {
                 size="small"
                 variant="text"
                 color="primary"
+                style={{ fontSize: 12 }}
               >
                 {l.label}
               </Button>

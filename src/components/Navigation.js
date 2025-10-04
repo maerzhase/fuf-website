@@ -102,7 +102,7 @@ const DesktopNav = () => {
   );
 };
 
-const MobileListItem = withStyles((theme) => { })(ListItem);
+const MobileListItem = withStyles((theme) => {})(ListItem);
 
 const MobileNav = () => {
   const classes = useStyles();

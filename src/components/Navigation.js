@@ -18,7 +18,7 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 
-const LINKS = ["about", "projekte", "themen", "spielplan"];
+const LINKS = ["about", "projekte", "themen", "spielplan", "newsletter"];
 
 const useStyles = makeStyles((theme) => ({
   root: {

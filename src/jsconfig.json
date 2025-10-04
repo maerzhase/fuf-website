@@ -1,11 +1,20 @@
 {
   "compilerOptions": {
+    "jsx": "react",
     "baseUrl": ".",
     "paths": {
-      "@/components/*": ["components/*"],
-      "@/theme/*": ["theme/*"],
-      "@/api/*": ["api/*"],
-      "@/icons/*": ["icons/*"]
+      "@/components/*": [
+        "components/*"
+      ],
+      "@/theme/*": [
+        "theme/*"
+      ],
+      "@/api/*": [
+        "api/*"
+      ],
+      "@/icons/*": [
+        "icons/*"
+      ]
     }
   }
 }

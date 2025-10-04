@@ -4,7 +4,7 @@ import Head from "next/head";
 import { ThemeProvider, StyledEngineProvider } from "@mui/material/styles";
 import Navigation from "@/components/Navigation";
 import CssBaseline from "@/components/CssBaseline";
-import theme from "@/theme/index";
+import theme from "../theme";
 import GradientOverlay from "@/components/GradientOverlay";
 
 export default function MyApp(props) {

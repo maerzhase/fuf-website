@@ -36,8 +36,8 @@ importers:
         specifier: 3.0.0
         version: 3.0.0
       lodash:
-        specifier: 4.17.21
-        version: 4.17.21
+        specifier: 4.17.23
+        version: 4.17.23
       next:
         specifier: 12.3.7
         version: 12.3.7(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
@@ -681,6 +681,9 @@ packages:
 
   csstype@3.1.3:
     resolution: {integrity: sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw==}
+
+  csstype@3.2.3:
+    resolution: {integrity: sha512-z1HGKcYy2xA8AGQfwrn0PAy+PB7X/GSj3UVJW9qKyn43xWa+gl5nXmU4qqLMRzWVLFC8KusUX8T/0kCiOYpAIQ==}
 
   damerau-levenshtein@1.0.8:
     resolution: {integrity: sha512-sdQSFB7+llfUcQHUQO3+B8ERRj0Oa4w9POWMI/puGtuf7gFywGmkaLCElnudfTiKZV+NvHqL0ifzdrI8Ro7ESA==}
@@ -1353,8 +1356,8 @@ packages:
   lodash.truncate@4.4.2:
     resolution: {integrity: sha512-jttmRe7bRse52OsWIMDLaXxWqRAmtIUccAQ3garviCqJjafXOfNMO0yMfNpdD6zbGaTU0P5Nz7e7gAT6cKmJRw==}
 
-  lodash@4.17.21:
-    resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
+  lodash@4.17.23:
+    resolution: {integrity: sha512-LgVTMpQtIopCi79SJeDiP0TfWi5CNEc/L/aRdTh3yIvmZXTnheWpKjSZhnvMl8iXbC1tFg9gdHHDMLoV7CnG+w==}
 
   loose-envify@1.4.0:
     resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
@@ -2436,7 +2439,7 @@ snapshots:
     dependencies:
       '@types/prop-types': 15.7.15
       '@types/scheduler': 0.16.8
-      csstype: 3.1.3
+      csstype: 3.2.3
 
   '@types/scheduler@0.16.8': {}
 
@@ -2697,6 +2700,8 @@ snapshots:
 
   csstype@3.1.3: {}
 
+  csstype@3.2.3: {}
+
   damerau-levenshtein@1.0.8: {}
 
   data-view-buffer@1.0.2:
@@ -2898,7 +2903,7 @@ snapshots:
       eslint: 7.32.0
       eslint-import-resolver-node: 0.3.9
       eslint-import-resolver-typescript: 2.7.1(eslint-plugin-import@2.32.0(eslint@7.32.0))(eslint@7.32.0)
-      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@4.33.0(eslint@7.32.0)(typescript@5.9.2))(eslint-import-resolver-typescript@2.7.1(eslint-plugin-import@2.32.0(eslint@7.32.0))(eslint@7.32.0))(eslint@7.32.0)
+      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@4.33.0(eslint@7.32.0)(typescript@5.9.2))(eslint-import-resolver-typescript@2.7.1)(eslint@7.32.0)
       eslint-plugin-jsx-a11y: 6.10.2(eslint@7.32.0)
       eslint-plugin-react: 7.37.5(eslint@7.32.0)
       eslint-plugin-react-hooks: 4.6.2(eslint@7.32.0)
@@ -2925,7 +2930,7 @@ snapshots:
     dependencies:
       debug: 4.4.3
       eslint: 7.32.0
-      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@4.33.0(eslint@7.32.0)(typescript@5.9.2))(eslint-import-resolver-typescript@2.7.1(eslint-plugin-import@2.32.0(eslint@7.32.0))(eslint@7.32.0))(eslint@7.32.0)
+      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@4.33.0(eslint@7.32.0)(typescript@5.9.2))(eslint-import-resolver-typescript@2.7.1)(eslint@7.32.0)
       glob: 7.2.3
       is-glob: 4.0.3
       resolve: 1.22.10
@@ -2944,7 +2949,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-import@2.32.0(@typescript-eslint/parser@4.33.0(eslint@7.32.0)(typescript@5.9.2))(eslint-import-resolver-typescript@2.7.1(eslint-plugin-import@2.32.0(eslint@7.32.0))(eslint@7.32.0))(eslint@7.32.0):
+  eslint-plugin-import@2.32.0(@typescript-eslint/parser@4.33.0(eslint@7.32.0)(typescript@5.9.2))(eslint-import-resolver-typescript@2.7.1)(eslint@7.32.0):
     dependencies:
       '@rtsao/scc': 1.1.0
       array-includes: 3.1.9
@@ -3551,7 +3556,7 @@ snapshots:
 
   lodash.truncate@4.4.2: {}
 
-  lodash@4.17.21: {}
+  lodash@4.17.23: {}
 
   loose-envify@1.4.0:
     dependencies:
